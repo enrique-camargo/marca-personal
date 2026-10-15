@@ -1,0 +1,1443 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kike Junior • Marca Personal | Proyecto de Vida CUN</title>
+  <meta name="description" content="Portafolio de Marca Personal de Aldair Enrique Camargo Villalobos (Kike Junior). Ingeniería de Sistemas, Liderazgo Táctico y Automatización.">
+
+  <!-- Google Fonts: Outfit, Space Grotesk & JetBrains Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Outfit:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+
+  <!-- FontAwesome 6 -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <!-- Tailwind CSS via CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              cyan: '#22d3ee',
+              emerald: '#34d399',
+              dark: '#020617',
+              navy: '#0b1120',
+              card: 'rgba(15, 23, 42, 0.75)',
+              border: 'rgba(51, 65, 85, 0.5)'
+            }
+          },
+          fontFamily: {
+            sans: ['Outfit', 'sans-serif'],
+            display: ['Space Grotesk', 'sans-serif'],
+            mono: ['JetBrains Mono', 'monospace']
+          },
+          animation: {
+            'glow-pulse': 'glowPulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+            'float': 'float 6s ease-in-out infinite',
+            'spin-slow': 'spin 20s linear infinite',
+            'border-shine': 'borderShine 3s ease infinite'
+          },
+          keyframes: {
+            glowPulse: {
+              '0%, 100%': { opacity: '0.4', transform: 'scale(1)' },
+              '50%': { opacity: '0.8', transform: 'scale(1.05)' }
+            },
+            float: {
+              '0%, 100%': { transform: 'translateY(0px)' },
+              '50%': { transform: 'translateY(-10px)' }
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    /* Estilos personalizados y utilidades de efectos */
+    body {
+      background-color: #020617;
+      color: #f1f5f9;
+      font-family: 'Outfit', sans-serif;
+      overflow-x: hidden;
+    }
+
+    /* Fondo de cuadrícula táctica tech deportiva */
+    .tactical-grid {
+      background-image: 
+        radial-gradient(circle at 50% 0%, rgba(34, 211, 238, 0.08) 0%, transparent 60%),
+        radial-gradient(circle at 100% 50%, rgba(52, 211, 153, 0.06) 0%, transparent 50%),
+        linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+      background-size: 100% 100%, 100% 100%, 48px 48px, 48px 48px;
+    }
+
+    /* Glassmorphism de alta fidelidad */
+    .glass-panel {
+      background: rgba(15, 23, 42, 0.65);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid rgba(51, 65, 85, 0.55);
+    }
+
+    .glass-panel-glow {
+      background: rgba(15, 23, 42, 0.7);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 1px solid rgba(56, 189, 248, 0.2);
+      box-shadow: 0 8px 32px -4px rgba(2, 6, 23, 0.7), 0 0 15px rgba(34, 211, 238, 0.08);
+    }
+
+    /* Microinteracciones de hover */
+    .hover-card-glow {
+      transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .hover-card-glow:hover {
+      transform: translateY(-6px);
+      border-color: rgba(34, 211, 238, 0.45);
+      box-shadow: 0 15px 35px -5px rgba(2, 6, 23, 0.9), 0 0 25px rgba(34, 211, 238, 0.15);
+    }
+
+    .hover-pill-sport:hover {
+      transform: translateY(-2px);
+      border-color: rgba(52, 211, 153, 0.5);
+      box-shadow: 0 0 15px rgba(52, 211, 153, 0.2);
+    }
+
+    /* Gradiente de texto */
+    .text-gradient-cyan-emerald {
+      background: linear-gradient(135deg, #38bdf8 0%, #22d3ee 40%, #34d399 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    /* Tooltip personalizado */
+    .has-tooltip {
+      position: relative;
+    }
+    .has-tooltip .tooltip-box {
+      visibility: hidden;
+      opacity: 0;
+      position: absolute;
+      bottom: -46px;
+      left: 50%;
+      transform: translateX(-50%) translateY(6px);
+      transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+      z-index: 50;
+      white-space: nowrap;
+      pointer-events: none;
+    }
+    .has-tooltip:hover .tooltip-box {
+      visibility: visible;
+      opacity: 1;
+      transform: translateX(-50%) translateY(0);
+    }
+
+    /* Barra de scroll estilizada */
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #020617;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #1e293b;
+      border-radius: 4px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #334155;
+    }
+  </style>
+</head>
+
+<body class="tactical-grid min-h-screen selection:bg-cyan-500/30 selection:text-cyan-200">
+
+  <!-- ========================================================================= -->
+  <!-- 1. NAVBAR SUPERIOR (Sticky & Blur)                                        -->
+  <!-- ========================================================================= -->
+  <header class="sticky top-0 z-50 w-full backdrop-blur-xl bg-slate-950/80 border-b border-slate-800/80 transition-all duration-300 shadow-lg shadow-black/20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-20">
+        
+        <!-- Logo / Marca Personal -->
+        <a href="#hero" class="group flex items-center gap-3.5 focus:outline-none">
+          <div class="relative flex items-center justify-center w-11 h-11 rounded-xl bg-gradient-to-br from-cyan-500/20 via-slate-800 to-emerald-500/20 border border-cyan-500/40 group-hover:border-cyan-400 group-hover:shadow-[0_0_15px_rgba(34,211,238,0.35)] transition-all duration-300">
+            <span class="font-display font-black text-cyan-400 text-lg tracking-wider">KJ</span>
+            <!-- Indicador sutil de colocador/red deportiva -->
+            <span class="absolute -top-1 -right-1 flex h-3 w-3">
+              <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+              <span class="relative inline-flex rounded-full h-3 w-3 bg-emerald-400"></span>
+            </span>
+          </div>
+          <div>
+            <div class="flex items-center gap-2">
+              <span class="font-display font-bold text-base sm:text-lg tracking-tight text-white group-hover:text-cyan-300 transition-colors">
+                KIKE JUNIOR
+              </span>
+              <span class="hidden sm:inline-block text-xs px-2 py-0.5 rounded-full bg-slate-800/90 text-cyan-400 font-mono border border-cyan-500/30">
+                PROYECTO DE VIDA
+              </span>
+            </div>
+            <p class="text-[11px] font-mono uppercase tracking-wider text-slate-400">
+              Marca Personal • ACA CUN
+            </p>
+          </div>
+        </a>
+
+        <!-- Menú de Navegación por Fases (Desktop) -->
+        <nav class="hidden xl:flex items-center gap-2" aria-label="Fases del Proyecto">
+          
+          <!-- Botón Activo: 1. Autoconocimiento -->
+          <a href="#fase-autoconocimiento" 
+             class="group relative inline-flex items-center gap-2 px-3.5 py-2 rounded-xl text-xs font-semibold tracking-wide bg-emerald-500/10 text-emerald-300 border border-emerald-500/40 hover:bg-emerald-500/20 hover:border-emerald-400 transition-all shadow-[0_0_12px_rgba(52,211,153,0.15)]">
+            <span class="flex h-2 w-2 rounded-full bg-emerald-400 animate-pulse"></span>
+            <i class="fa-solid fa-user-astronaut text-emerald-400"></i>
+            <span>1. Autoconocimiento</span>
+            <span class="ml-1 px-1.5 py-0.5 rounded text-[10px] bg-emerald-400/20 text-emerald-200 border border-emerald-400/30 font-mono">
+              ACTIVO
+            </span>
+          </a>
+
+          <!-- Botón Bloqueado: 2. Objetivo SMART -->
+          <div class="has-tooltip relative">
+            <button type="button" 
+                    onclick="openLockedModal('2. Objetivo SMART', 'Definición de metas estratégicas bajo metodología SMART para consolidar el impacto profesional y técnico.', 'Semana 2')"
+                    class="cursor-not-allowed inline-flex items-center gap-2 px-3.5 py-2 rounded-xl text-xs font-medium text-slate-400 bg-slate-900/50 border border-slate-800 hover:border-slate-700 hover:text-slate-300 transition-colors">
+              <i class="fa-solid fa-lock text-slate-500 text-[11px]"></i>
+              <span>2. Objetivo SMART</span>
+            </button>
+            <div class="tooltip-box px-3 py-1.5 rounded-lg bg-slate-900/95 border border-cyan-500/30 text-[11px] font-mono text-cyan-300 shadow-xl shadow-black/60">
+              <i class="fa-regular fa-clock mr-1 text-cyan-400"></i> Se desbloquea en las próximas semanas
+            </div>
+          </div>
+
+          <!-- Botón Bloqueado: 3. Público Ideal -->
+          <div class="has-tooltip relative">
+            <button type="button" 
+                    onclick="openLockedModal('3. Público Ideal', 'Identificación de buyer persona profesional, líderes técnicos y comunidades de impacto.', 'Semana 3')"
+                    class="cursor-not-allowed inline-flex items-center gap-2 px-3.5 py-2 rounded-xl text-xs font-medium text-slate-400 bg-slate-900/50 border border-slate-800 hover:border-slate-700 hover:text-slate-300 transition-colors">
+              <i class="fa-solid fa-lock text-slate-500 text-[11px]"></i>
+              <span>3. Público Ideal</span>
+            </button>
+            <div class="tooltip-box px-3 py-1.5 rounded-lg bg-slate-900/95 border border-cyan-500/30 text-[11px] font-mono text-cyan-300 shadow-xl shadow-black/60">
+              <i class="fa-regular fa-clock mr-1 text-cyan-400"></i> Se desbloquea en las próximas semanas
+            </div>
+          </div>
+
+          <!-- Botón Bloqueado: 4. Promesa & BANG -->
+          <div class="has-tooltip relative">
+            <button type="button" 
+                    onclick="openLockedModal('4. Promesa & BANG', 'Construcción de la propuesta única de valor, gancho magnético y diferenciador competitivo.', 'Semana 4')"
+                    class="cursor-not-allowed inline-flex items-center gap-2 px-3.5 py-2 rounded-xl text-xs font-medium text-slate-400 bg-slate-900/50 border border-slate-800 hover:border-slate-700 hover:text-slate-300 transition-colors">
+              <i class="fa-solid fa-lock text-slate-500 text-[11px]"></i>
+              <span>4. Promesa & BANG</span>
+            </button>
+            <div class="tooltip-box px-3 py-1.5 rounded-lg bg-slate-900/95 border border-cyan-500/30 text-[11px] font-mono text-cyan-300 shadow-xl shadow-black/60">
+              <i class="fa-regular fa-clock mr-1 text-cyan-400"></i> Se desbloquea en las próximas semanas
+            </div>
+          </div>
+
+          <!-- Botón Bloqueado: 5. Pitch Visual & IA -->
+          <div class="has-tooltip relative">
+            <button type="button" 
+                    onclick="openLockedModal('5. Pitch Visual & IA', 'Producción del elevator pitch audiovisual con herramientas de IA y síntesis ejecutiva.', 'Semana 5')"
+                    class="cursor-not-allowed inline-flex items-center gap-2 px-3.5 py-2 rounded-xl text-xs font-medium text-slate-400 bg-slate-900/50 border border-slate-800 hover:border-slate-700 hover:text-slate-300 transition-colors">
+              <i class="fa-solid fa-lock text-slate-500 text-[11px]"></i>
+              <span>5. Pitch Visual & IA</span>
+            </button>
+            <div class="tooltip-box px-3 py-1.5 rounded-lg bg-slate-900/95 border border-cyan-500/30 text-[11px] font-mono text-cyan-300 shadow-xl shadow-black/60">
+              <i class="fa-regular fa-clock mr-1 text-cyan-400"></i> Se desbloquea en las próximas semanas
+            </div>
+          </div>
+
+        </nav>
+
+        <!-- Acciones a la derecha / Botón de estado -->
+        <div class="flex items-center gap-3">
+          <a href="#roadmap" class="hidden sm:inline-flex items-center gap-2 px-3.5 py-2 rounded-xl text-xs font-mono text-cyan-300 bg-cyan-950/40 border border-cyan-500/30 hover:bg-cyan-900/40 hover:border-cyan-400 transition-all">
+            <i class="fa-solid fa-diagram-project text-cyan-400"></i>
+            <span>Roadmap ACA</span>
+          </a>
+
+          <!-- Botón Menú Mobile -->
+          <button id="mobileMenuBtn" 
+                  type="button" 
+                  aria-label="Abrir Menú Móvil"
+                  class="xl:hidden inline-flex items-center justify-center p-2.5 rounded-xl bg-slate-900 border border-slate-800 text-slate-300 hover:text-cyan-400 hover:border-cyan-500/40 focus:outline-none transition-colors">
+            <i class="fa-solid fa-bars-staggered text-lg" id="mobileMenuIcon"></i>
+          </button>
+        </div>
+
+      </div>
+
+      <!-- Menú Desplegable Móvil -->
+      <div id="mobileMenu" class="hidden xl:hidden py-4 border-t border-slate-800/80 transition-all duration-300">
+        <div class="flex flex-col gap-2">
+          <p class="text-[11px] font-mono uppercase tracking-wider text-slate-400 px-2 mb-1">
+            Fases del Proyecto de Vida
+          </p>
+          <a href="#fase-autoconocimiento" 
+             onclick="toggleMobileMenu()"
+             class="flex items-center justify-between px-3.5 py-2.5 rounded-xl text-sm font-semibold bg-emerald-500/10 text-emerald-300 border border-emerald-500/40">
+            <div class="flex items-center gap-2.5">
+              <span class="flex h-2 w-2 rounded-full bg-emerald-400 animate-pulse"></span>
+              <i class="fa-solid fa-user-astronaut text-emerald-400"></i>
+              <span>1. Autoconocimiento</span>
+            </div>
+            <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-emerald-400/20 text-emerald-300">Activo</span>
+          </a>
+
+          <button onclick="openLockedModal('2. Objetivo SMART', 'Definición de metas estratégicas bajo metodología SMART.', 'Semana 2')"
+                  class="flex items-center justify-between px-3.5 py-2.5 rounded-xl text-sm text-slate-400 bg-slate-900/40 border border-slate-800 text-left">
+            <div class="flex items-center gap-2.5">
+              <i class="fa-solid fa-lock text-slate-500"></i>
+              <span>2. Objetivo SMART</span>
+            </div>
+            <span class="text-[10px] font-mono text-cyan-400">Próximamente</span>
+          </button>
+
+          <button onclick="openLockedModal('3. Público Ideal', 'Identificación del target profesional y líderes técnicos.', 'Semana 3')"
+                  class="flex items-center justify-between px-3.5 py-2.5 rounded-xl text-sm text-slate-400 bg-slate-900/40 border border-slate-800 text-left">
+            <div class="flex items-center gap-2.5">
+              <i class="fa-solid fa-lock text-slate-500"></i>
+              <span>3. Público Ideal</span>
+            </div>
+            <span class="text-[10px] font-mono text-cyan-400">Próximamente</span>
+          </button>
+
+          <button onclick="openLockedModal('4. Promesa & BANG', 'Construcción de propuesta de valor y gancho de impacto.', 'Semana 4')"
+                  class="flex items-center justify-between px-3.5 py-2.5 rounded-xl text-sm text-slate-400 bg-slate-900/40 border border-slate-800 text-left">
+            <div class="flex items-center gap-2.5">
+              <i class="fa-solid fa-lock text-slate-500"></i>
+              <span>4. Promesa & BANG</span>
+            </div>
+            <span class="text-[10px] font-mono text-cyan-400">Próximamente</span>
+          </button>
+
+          <button onclick="openLockedModal('5. Pitch Visual & IA', 'Elevator pitch audiovisual potenciado con herramientas de IA.', 'Semana 5')"
+                  class="flex items-center justify-between px-3.5 py-2.5 rounded-xl text-sm text-slate-400 bg-slate-900/40 border border-slate-800 text-left">
+            <div class="flex items-center gap-2.5">
+              <i class="fa-solid fa-lock text-slate-500"></i>
+              <span>5. Pitch Visual & IA</span>
+            </div>
+            <span class="text-[10px] font-mono text-cyan-400">Próximamente</span>
+          </button>
+        </div>
+      </div>
+
+    </div>
+  </header>
+
+
+  <!-- ========================================================================= -->
+  <!-- 2. HERO SECTION (Portada: Dark Tech & Sport Strategy)                    -->
+  <!-- ========================================================================= -->
+  <section id="hero" class="relative pt-12 pb-20 md:pt-20 md:pb-32 overflow-hidden">
+    
+    <!-- Luces de atmósfera y decoraciones sutiles -->
+    <div class="absolute top-1/4 left-1/4 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-cyan-500/10 rounded-full blur-3xl pointer-events-none animate-glow-pulse"></div>
+    <div class="absolute top-1/3 right-10 w-96 h-96 bg-emerald-500/10 rounded-full blur-3xl pointer-events-none animate-glow-pulse" style="animation-delay: 2s;"></div>
+    
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
+        
+        <!-- Columna Izquierda: Información & Copy Principal -->
+        <div class="lg:col-span-7 flex flex-col items-start text-left">
+          
+          <!-- Badge Superior Moderno -->
+          <div class="inline-flex items-center gap-2.5 px-4 py-2 rounded-full glass-panel border border-cyan-500/40 shadow-[0_0_15px_rgba(34,211,238,0.15)] mb-6 animate-float">
+            <span class="relative flex h-2.5 w-2.5">
+              <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-cyan-400 opacity-75"></span>
+              <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-cyan-400"></span>
+            </span>
+            <span class="font-mono text-xs sm:text-sm font-semibold tracking-wide text-cyan-300">
+              Ingeniería de Sistemas • Liderazgo & Automatización
+            </span>
+          </div>
+
+          <!-- Título Principal & Subtítulo -->
+          <h1 class="text-3xl sm:text-5xl lg:text-6xl font-black font-display tracking-tight text-white leading-[1.1] mb-3">
+            Aldair Enrique <br class="hidden sm:inline" />
+            <span class="text-slate-200">Camargo Villalobos</span>
+          </h1>
+
+          <!-- Subtítulo destacado "Kike Junior" -->
+          <div class="flex items-center gap-3 mb-6">
+            <span class="text-2xl sm:text-4xl font-extrabold font-display text-gradient-cyan-emerald tracking-wide">
+              "Kike Junior"
+            </span>
+            <span class="px-3 py-1 rounded-lg text-xs font-mono font-bold bg-slate-900 border border-slate-700 text-slate-300">
+              #SetterTech
+            </span>
+          </div>
+
+          <!-- Eslogan -->
+          <div class="relative pl-5 py-2 mb-8 border-l-2 border-cyan-400 bg-gradient-to-r from-cyan-950/20 to-transparent rounded-r-xl">
+            <p class="text-base sm:text-lg lg:text-xl text-slate-300 font-normal leading-relaxed italic">
+              "Conecto personas, automatizo procesos y estructuro soluciones tecnológicas con la precisión estratégica de un colocador en la cancha."
+            </p>
+          </div>
+
+          <!-- Etiquetas (Pills) con micro-interacciones -->
+          <div class="flex flex-wrap gap-2.5 mb-9">
+            
+            <span class="hover-pill-sport inline-flex items-center gap-2 px-3.5 py-1.5 rounded-lg text-xs sm:text-sm font-mono font-medium bg-slate-900/80 text-cyan-300 border border-slate-800 transition-all cursor-default">
+              <i class="fa-solid fa-laptop-code text-cyan-400"></i>
+              #IngenieríaDeSistemas
+            </span>
+
+            <span class="hover-pill-sport inline-flex items-center gap-2 px-3.5 py-1.5 rounded-lg text-xs sm:text-sm font-mono font-medium bg-slate-900/80 text-emerald-300 border border-slate-800 transition-all cursor-default">
+              <i class="fa-solid fa-gears text-emerald-400"></i>
+              #Automatización
+            </span>
+
+            <span class="hover-pill-sport inline-flex items-center gap-2 px-3.5 py-1.5 rounded-lg text-xs sm:text-sm font-mono font-medium bg-slate-900/80 text-cyan-300 border border-slate-800 transition-all cursor-default">
+              <i class="fa-solid fa-volleyball text-cyan-400"></i>
+              #VoleibolSetter
+            </span>
+
+            <span class="hover-pill-sport inline-flex items-center gap-2 px-3.5 py-1.5 rounded-lg text-xs sm:text-sm font-mono font-medium bg-slate-900/80 text-emerald-300 border border-slate-800 transition-all cursor-default">
+              <i class="fa-solid fa-brain text-emerald-400"></i>
+              #ResoluciónDeProblemas
+            </span>
+
+          </div>
+
+          <!-- Botones de Acción Hero -->
+          <div class="flex flex-wrap items-center gap-4">
+            <a href="#fase-autoconocimiento" 
+               class="group inline-flex items-center gap-3 px-6 py-3.5 rounded-xl text-sm font-bold tracking-wide text-slate-950 bg-gradient-to-r from-cyan-400 to-emerald-400 hover:from-cyan-300 hover:to-emerald-300 transition-all duration-300 shadow-[0_0_20px_rgba(34,211,238,0.4)] hover:shadow-[0_0_30px_rgba(34,211,238,0.6)]">
+              <span>Explorar Módulo 1: Autoconocimiento</span>
+              <i class="fa-solid fa-arrow-down-long group-hover:translate-y-1 transition-transform"></i>
+            </a>
+
+            <a href="#dimensiones" 
+               class="inline-flex items-center gap-2 px-5 py-3.5 rounded-xl text-sm font-semibold text-slate-300 bg-slate-900/80 hover:bg-slate-800 border border-slate-700 hover:border-slate-600 transition-all">
+              <i class="fa-solid fa-chart-simple text-cyan-400"></i>
+              <span>Ver Dimensiones & Habilidades</span>
+            </a>
+          </div>
+
+        </div>
+
+        <!-- Columna Derecha: Avatar / Fotografía con Marco Animado Tech-Sport -->
+        <div class="lg:col-span-5 flex justify-center items-center">
+          <div class="relative w-full max-w-[380px] sm:max-w-[420px] aspect-square">
+            
+            <!-- Anillo exterior animado (Spin Glow) -->
+            <div class="absolute -inset-3 rounded-3xl bg-gradient-to-tr from-cyan-500/30 via-emerald-500/20 to-cyan-500/30 blur-xl opacity-70 group-hover:opacity-100 transition-opacity"></div>
+            
+            <!-- Marco tipo HUD deportivo/tecnológico -->
+            <div class="relative h-full w-full rounded-2xl p-1 bg-gradient-to-b from-cyan-500/40 via-slate-800 to-emerald-500/40 border border-slate-700/80 shadow-2xl overflow-hidden group">
+              
+              <!-- Imagen del Avatar (Fotografía Real con Fondo Cibernético) -->
+              <div class="relative h-full w-full rounded-xl overflow-hidden bg-slate-950 cursor-pointer" onclick="openImageModal('./assets/kike_profile_cyber.jpg', 'Aldair Enrique Camargo Villalobos • Tech Lead & Automatización')">
+                <img src="./assets/kike_profile_cyber.jpg" 
+                     alt="Aldair Enrique Camargo Villalobos - Kike Junior" 
+                     class="w-full h-full object-cover object-center transform group-hover:scale-105 transition-transform duration-700 ease-out"
+                     onerror="this.onerror=null; this.src='./assets/kike_profile_tech.jpg';">
+                
+                <!-- Degradado inferior para resaltar badges -->
+                <div class="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-transparent to-slate-950/30 pointer-events-none"></div>
+
+                <!-- Esquinas estilo HUD táctico -->
+                <div class="absolute top-3 left-3 w-4 h-4 border-t-2 border-l-2 border-cyan-400"></div>
+                <div class="absolute top-3 right-3 w-4 h-4 border-t-2 border-r-2 border-cyan-400"></div>
+                <div class="absolute bottom-3 left-3 w-4 h-4 border-b-2 border-l-2 border-emerald-400"></div>
+                <div class="absolute bottom-3 right-3 w-4 h-4 border-b-2 border-r-2 border-emerald-400"></div>
+
+                <!-- Badge HUD superior en la foto -->
+                <div class="absolute top-4 left-4 flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-slate-950/80 border border-emerald-500/40 text-[11px] font-mono text-emerald-300 backdrop-blur-md">
+                  <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-ping"></span>
+                  <span>CYBER TECH LEAD</span>
+                </div>
+
+                <!-- Tag inferior discreto a la derecha para no chocar con el badge flotante -->
+                <div class="absolute bottom-3 right-4 text-right">
+                  <span class="text-[11px] font-mono text-cyan-300 font-bold tracking-wider bg-slate-950/80 px-2 py-0.5 rounded border border-cyan-500/30">KJ // 2026</span>
+                </div>
+
+              </div>
+
+            </div>
+
+            <!-- Badge Flotante Requerido: "Colocador & Tech Lead" -->
+            <div class="absolute -bottom-5 -left-4 sm:-bottom-6 sm:-left-6 z-20 flex items-center gap-3 px-4 sm:px-5 py-3 rounded-2xl glass-panel-glow border border-emerald-500/50 shadow-2xl animate-float" style="animation-delay: 1.5s;">
+              <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-emerald-400 to-cyan-500 flex items-center justify-center text-slate-950 font-bold text-lg shadow-md shadow-emerald-500/30">
+                <i class="fa-solid fa-volleyball"></i>
+              </div>
+              <div>
+                <p class="text-[10px] font-mono uppercase tracking-wider text-slate-400">Rol & Mentalidad</p>
+                <p class="text-sm sm:text-base font-bold font-display text-white flex items-center gap-1.5">
+                  <span>Colocador & Tech Lead</span>
+                  <i class="fa-solid fa-circle-check text-emerald-400 text-xs"></i>
+                </p>
+              </div>
+            </div>
+
+            <!-- Badge Secundario Flotante: Precisión Táctica -->
+            <div class="hidden sm:flex absolute -top-4 -right-4 z-20 items-center gap-2 px-3.5 py-2 rounded-xl glass-panel border border-cyan-500/40 text-xs font-mono text-cyan-300 shadow-xl">
+              <i class="fa-solid fa-bolt-lightning text-cyan-400"></i>
+              <span>Estrategia 360°</span>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ========================================================================= -->
+  <!-- 3. MÓDULO 1: AUTOCONOCIMIENTO (Sección Activa e Interactiva)              -->
+  <!-- ========================================================================= -->
+  <section id="fase-autoconocimiento" class="py-20 relative border-t border-slate-800/80 bg-slate-950/60">
+    
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <!-- Encabezado de la Sección -->
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        
+        <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-300 font-mono text-xs font-semibold uppercase tracking-wider mb-4">
+          <i class="fa-solid fa-dna text-emerald-400"></i>
+          Fase 01 • Módulo Activo
+        </div>
+
+        <h2 class="text-3xl sm:text-4xl lg:text-5xl font-black font-display text-white tracking-tight mb-4">
+          Autoconocimiento <span class="text-gradient-cyan-emerald">Estratégico</span>
+        </h2>
+
+        <p class="text-base sm:text-lg text-slate-300 font-normal leading-relaxed">
+          Comprender el propio código fuente: pasiones, retos personales, balance multidimensional y las competencias distintivas que guían mi liderazgo en tecnología y en el deporte.
+        </p>
+
+      </div>
+
+      <!-- ===================================================================== -->
+      <!-- A) Componente de Pestañas (Tabs) para "¿Quién Soy?"                   -->
+      <!-- ===================================================================== -->
+      <div class="mb-24">
+        
+        <div class="flex items-center justify-between flex-wrap gap-4 mb-6">
+          <div class="flex items-center gap-3">
+            <span class="w-8 h-8 rounded-lg bg-cyan-500/10 border border-cyan-500/30 flex items-center justify-center text-cyan-400 font-mono font-bold text-sm">
+              A
+            </span>
+            <h3 class="text-xl sm:text-2xl font-bold font-display text-white">
+              ¿Quién Soy?
+            </h3>
+          </div>
+          <span class="text-xs font-mono text-slate-400 flex items-center gap-1.5">
+            <i class="fa-solid fa-hand-pointer text-cyan-400"></i> Haz clic en las pestañas para alternar
+          </span>
+        </div>
+
+        <!-- Contenedor Principal de Tabs con Glassmorphism -->
+        <div class="glass-panel rounded-2xl p-6 sm:p-8 border border-slate-800/90 shadow-2xl relative overflow-hidden">
+          
+          <!-- Encabezados de Pestañas -->
+          <div class="flex flex-wrap gap-3 p-1.5 rounded-xl bg-slate-900/90 border border-slate-800 max-w-xl mb-8">
+            
+            <button id="tabBtnEsencia" 
+                    type="button"
+                    onclick="switchTab('esencia')"
+                    class="flex-1 py-3 px-5 rounded-lg text-xs sm:text-sm font-bold font-display transition-all duration-300 flex items-center justify-center gap-2 bg-gradient-to-r from-cyan-500/20 to-emerald-500/20 text-white border border-cyan-500/50 shadow-md">
+              <i class="fa-solid fa-fire-flame-curved text-cyan-400"></i>
+              <span>Mi Esencia & Pasiones</span>
+            </button>
+
+            <button id="tabBtnRetos" 
+                    type="button"
+                    onclick="switchTab('retos')"
+                    class="flex-1 py-3 px-5 rounded-lg text-xs sm:text-sm font-medium font-display transition-all duration-300 flex items-center justify-center gap-2 text-slate-400 hover:text-slate-200 hover:bg-slate-800/60 border border-transparent">
+              <i class="fa-solid fa-bullseye text-slate-400"></i>
+              <span>Mis Retos & Proyecto de Vida</span>
+            </button>
+
+          </div>
+
+          <!-- Contenido Pestaña 1: Mi Esencia & Pasiones -->
+          <div id="tabContentEsencia" class="transition-opacity duration-300">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+              
+              <!-- Texto Principal -->
+              <div class="lg:col-span-7">
+                <div class="flex items-center gap-2 text-cyan-400 text-xs font-mono font-semibold uppercase tracking-wider mb-3">
+                  <i class="fa-solid fa-terminal"></i> Identidad, Formación & Hobbies
+                </div>
+                
+                <!-- Párrafo solicitado -->
+                <p class="text-base sm:text-lg text-slate-200 leading-relaxed font-normal mb-6">
+                  Soy <strong class="text-cyan-300 font-semibold">Aldair Enrique Camargo Villalobos</strong>, conocido como <strong class="text-emerald-300 font-semibold">'Kike Junior'</strong>. Estudio Ingeniería de Sistemas y me apasionan la tecnología, los números y la electricidad. Disfruto resolver problemas complejos, automatizar tareas y optimizar flujos de trabajo. Mi equilibrio está en el deporte (voleibol, baloncesto y fútbol), las series de Marvel, viajar a nuevos lugares y compartir con mis amigos.
+                </p>
+
+                <!-- Cita de mentalidad -->
+                <div class="p-4 rounded-xl bg-slate-900/60 border-l-4 border-emerald-400 text-sm text-slate-300 italic mb-4">
+                  "El deporte me enseñó la disciplina del entrenamiento y la visión táctica; la ingeniería de sistemas me dio las herramientas para transformar cualquier problema en un algoritmo ejecutable."
+                </div>
+              </div>
+
+              <!-- Visualizador de Pasiones e Intereses (Hobbies Icons) -->
+              <div class="lg:col-span-5 bg-slate-900/70 p-5 rounded-xl border border-slate-800">
+                <p class="text-xs font-mono text-slate-400 uppercase tracking-wider mb-4 flex items-center justify-between">
+                  <span>Intereses Clave & Balance</span>
+                  <i class="fa-solid fa-heart-pulse text-emerald-400"></i>
+                </p>
+
+                <div class="grid grid-cols-2 sm:grid-cols-3 gap-3">
+                  
+                  <div class="p-3 rounded-lg bg-slate-950/80 border border-slate-800/90 text-center hover:border-cyan-500/40 transition-colors">
+                    <i class="fa-solid fa-volleyball text-xl text-cyan-400 mb-1.5 block"></i>
+                    <span class="text-xs font-semibold text-slate-200 block">Voleibol</span>
+                    <span class="text-[10px] text-slate-400 font-mono">Setter / Cap</span>
+                  </div>
+
+                  <div class="p-3 rounded-lg bg-slate-950/80 border border-slate-800/90 text-center hover:border-cyan-500/40 transition-colors">
+                    <i class="fa-solid fa-code text-xl text-emerald-400 mb-1.5 block"></i>
+                    <span class="text-xs font-semibold text-slate-200 block">Sistemas</span>
+                    <span class="text-[10px] text-slate-400 font-mono">Software & Ops</span>
+                  </div>
+
+                  <div class="p-3 rounded-lg bg-slate-950/80 border border-slate-800/90 text-center hover:border-cyan-500/40 transition-colors">
+                    <i class="fa-solid fa-bolt text-xl text-amber-400 mb-1.5 block"></i>
+                    <span class="text-xs font-semibold text-slate-200 block">Electricidad</span>
+                    <span class="text-[10px] text-slate-400 font-mono">Circuitos</span>
+                  </div>
+
+                  <div class="p-3 rounded-lg bg-slate-950/80 border border-slate-800/90 text-center hover:border-cyan-500/40 transition-colors">
+                    <i class="fa-solid fa-calculator text-xl text-purple-400 mb-1.5 block"></i>
+                    <span class="text-xs font-semibold text-slate-200 block">Números</span>
+                    <span class="text-[10px] text-slate-400 font-mono">Lógica pura</span>
+                  </div>
+
+                  <div class="p-3 rounded-lg bg-slate-950/80 border border-slate-800/90 text-center hover:border-cyan-500/40 transition-colors">
+                    <i class="fa-solid fa-mask text-xl text-red-400 mb-1.5 block"></i>
+                    <span class="text-xs font-semibold text-slate-200 block">Marvel</span>
+                    <span class="text-[10px] text-slate-400 font-mono">Series & Cine</span>
+                  </div>
+
+                  <div class="p-3 rounded-lg bg-slate-950/80 border border-slate-800/90 text-center hover:border-cyan-500/40 transition-colors">
+                    <i class="fa-solid fa-users text-xl text-cyan-400 mb-1.5 block"></i>
+                    <span class="text-xs font-semibold text-slate-200 block">Amigos</span>
+                    <span class="text-[10px] text-slate-400 font-mono">Comunidad</span>
+                  </div>
+
+                </div>
+
+                <div class="mt-4 pt-3 border-t border-slate-800 flex items-center justify-between text-[11px] font-mono text-slate-400">
+                  <span>Otros: Baloncesto, Fútbol & Viajes</span>
+                  <span class="text-emerald-400">100% Auténtico</span>
+                </div>
+              </div>
+
+              <!-- Galería de Evidencias Reales: Deporte & Estilo de Vida -->
+              <div class="lg:col-span-12 mt-4 pt-6 border-t border-slate-800/80">
+                <div class="flex items-center justify-between flex-wrap gap-3 mb-5">
+                  <div>
+                    <span class="text-xs font-mono text-cyan-400 uppercase tracking-wider flex items-center gap-2">
+                      <i class="fa-solid fa-camera"></i> Evidencias en Acción • Mi Esencia Real
+                    </span>
+                    <h4 class="text-lg sm:text-xl font-bold font-display text-white">
+                      En la Cancha y en Nuevos Destinos
+                    </h4>
+                  </div>
+                  <span class="text-xs font-mono text-slate-400">
+                    <i class="fa-solid fa-expand text-cyan-400 mr-1"></i> Clic en la foto para ampliar
+                  </span>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  
+                  <!-- Foto 1: Voleibol & Campeonato (Tarjeta Cuadrada con encuadre superior óptimo) -->
+                  <div onclick="openImageModal('./assets/kike_volleyball_champion.jpg', 'Liderazgo Deportivo • Kike Junior: Capitán y Colocador Campeón')" 
+                       class="glass-panel hover-card-glow rounded-2xl overflow-hidden border border-slate-800 group cursor-pointer aspect-square relative flex flex-col justify-between shadow-xl">
+                    
+                    <!-- Imagen con encuadre object-top para mostrar la cabeza, rostro, trofeo y medalla completos -->
+                    <img src="./assets/kike_volleyball_champion.jpg" 
+                         alt="Aldair Enrique (Kike Junior) en cancha de voleibol con trofeo y medalla" 
+                         class="absolute inset-0 w-full h-full object-cover object-top transform group-hover:scale-105 transition-transform duration-700">
+                    
+                    <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/25 to-slate-950/20 pointer-events-none"></div>
+                    
+                    <!-- Top Badge -->
+                    <div class="relative z-10 p-4 sm:p-5 flex items-center justify-between">
+                      <span class="px-3 py-1.5 rounded-full text-xs font-mono font-bold bg-slate-950/85 text-cyan-300 border border-cyan-500/40 backdrop-blur-md shadow-lg">
+                        <i class="fa-solid fa-trophy text-amber-400 mr-1.5"></i> Voleibol • Campeón & Setter
+                      </span>
+                      <span class="w-8 h-8 rounded-lg bg-slate-950/80 border border-slate-700/80 flex items-center justify-center text-cyan-400 opacity-0 group-hover:opacity-100 transition-opacity backdrop-blur-md shadow-md">
+                        <i class="fa-solid fa-expand text-xs"></i>
+                      </span>
+                    </div>
+
+                    <!-- Bottom Info -->
+                    <div class="relative z-10 p-5 bg-gradient-to-t from-slate-950 via-slate-950/90 to-transparent pt-12">
+                      <p class="text-base sm:text-lg font-bold text-white font-display flex items-center justify-between">
+                        <span>Liderazgo & Disciplina Deportiva</span>
+                        <i class="fa-solid fa-circle-check text-cyan-400 text-sm"></i>
+                      </p>
+                      <p class="text-xs sm:text-sm text-slate-300 mt-1 leading-relaxed">Capitán y colocador: lectura táctica de cancha, liderazgo bajo presión y celebración del campeonato.</p>
+                    </div>
+                  </div>
+
+                  <!-- Foto 2: Viajes & Naturaleza (Tarjeta Cuadrada con encuadre central óptimo) -->
+                  <div onclick="openImageModal('./assets/kike_travel_balance.jpg', 'Equilibrio & Nuevas Rutas • Kike Junior: Desconexión y Naturaleza')" 
+                       class="glass-panel hover-card-glow rounded-2xl overflow-hidden border border-slate-800 group cursor-pointer aspect-square relative flex flex-col justify-between shadow-xl">
+                    
+                    <!-- Imagen con encuadre object-[center_35%] para mostrar el cuerpo, brazos abiertos y naturaleza -->
+                    <img src="./assets/kike_travel_balance.jpg" 
+                         alt="Aldair Enrique (Kike Junior) viajando y disfrutando en la naturaleza" 
+                         class="absolute inset-0 w-full h-full object-cover object-[center_35%] transform group-hover:scale-105 transition-transform duration-700">
+                    
+                    <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/25 to-slate-950/20 pointer-events-none"></div>
+                    
+                    <!-- Top Badge -->
+                    <div class="relative z-10 p-4 sm:p-5 flex items-center justify-between">
+                      <span class="px-3 py-1.5 rounded-full text-xs font-mono font-bold bg-slate-950/85 text-emerald-300 border border-emerald-500/40 backdrop-blur-md shadow-lg">
+                        <i class="fa-solid fa-compass text-emerald-400 mr-1.5"></i> Viajes & Nuevas Rutas
+                      </span>
+                      <span class="w-8 h-8 rounded-lg bg-slate-950/80 border border-slate-700/80 flex items-center justify-center text-emerald-400 opacity-0 group-hover:opacity-100 transition-opacity backdrop-blur-md shadow-md">
+                        <i class="fa-solid fa-expand text-xs"></i>
+                      </span>
+                    </div>
+
+                    <!-- Bottom Info -->
+                    <div class="relative z-10 p-5 bg-gradient-to-t from-slate-950 via-slate-950/90 to-transparent pt-12">
+                      <p class="text-base sm:text-lg font-bold text-white font-display flex items-center justify-between">
+                        <span>Equilibrio & Desconexión Estratégica</span>
+                        <i class="fa-solid fa-circle-check text-emerald-400 text-sm"></i>
+                      </p>
+                      <p class="text-xs sm:text-sm text-slate-300 mt-1 leading-relaxed">Viajar a nuevos lugares para despejar la mente, recargar energía y reconectar con la naturaleza.</p>
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+          <!-- Contenido Pestaña 2: Mis Retos & Proyecto de Vida (Oculto por defecto) -->
+          <div id="tabContentRetos" class="hidden transition-opacity duration-300">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+              
+              <!-- Texto Principal -->
+              <div class="lg:col-span-7">
+                <div class="flex items-center gap-2 text-emerald-400 text-xs font-mono font-semibold uppercase tracking-wider mb-3">
+                  <i class="fa-solid fa-compass"></i> Autocrítica Consciente & Madurez
+                </div>
+
+                <!-- Párrafo solicitado -->
+                <p class="text-base sm:text-lg text-slate-200 leading-relaxed font-normal mb-6">
+                  Mi mayor reto personal es la <strong class="text-rose-400 font-semibold">dificultad para decir 'no'</strong>. Mi entusiasmo por ayudar y resolver problemas me lleva a involucrarme en múltiples proyectos a la vez, retando mi relación tiempo-calidad. Reconocer esto me impulsa hoy a <strong class="text-cyan-300 font-semibold">priorizar estratégicamente</strong> y automatizar también mi gestión del tiempo.
+                </p>
+
+                <div class="p-4 rounded-xl bg-slate-900/60 border-l-4 border-cyan-400 text-sm text-slate-300 mb-4">
+                  <strong class="text-white block mb-1">El Enfoque del Colocador:</strong>
+                  "En voleibol, el colocador no puede saltar a rematar y defender la misma pelota a la vez; su maestría radica en posicionarse en el lugar exacto y distribuir el balón con precisión al atacante ideal."
+                </div>
+              </div>
+
+              <!-- Matriz de Acción Estratégica -->
+              <div class="lg:col-span-5 bg-slate-900/70 p-5 rounded-xl border border-slate-800">
+                <p class="text-xs font-mono text-slate-400 uppercase tracking-wider mb-4 flex items-center justify-between">
+                  <span>Plan Táctico de Corrección</span>
+                  <i class="fa-solid fa-sliders text-cyan-400"></i>
+                </p>
+
+                <div class="space-y-3">
+                  <div class="p-3 rounded-lg bg-slate-950/80 border border-slate-800 flex items-start gap-3">
+                    <div class="w-7 h-7 rounded-md bg-rose-500/10 text-rose-400 flex items-center justify-center shrink-0 mt-0.5">
+                      <i class="fa-solid fa-triangle-exclamation text-xs"></i>
+                    </div>
+                    <div>
+                      <h4 class="text-xs font-bold text-slate-200">El Riesgo</h4>
+                      <p class="text-[11px] text-slate-400">Sobrecarga operativa por entusiasmo en resolver todo.</p>
+                    </div>
+                  </div>
+
+                  <div class="p-3 rounded-lg bg-slate-950/80 border border-slate-800 flex items-start gap-3">
+                    <div class="w-7 h-7 rounded-md bg-cyan-500/10 text-cyan-400 flex items-center justify-center shrink-0 mt-0.5">
+                      <i class="fa-solid fa-filter text-xs"></i>
+                    </div>
+                    <div>
+                      <h4 class="text-xs font-bold text-slate-200">Filtro de Priorización</h4>
+                      <p class="text-[11px] text-slate-400">Evaluar impacto real antes de comprometer horas clave.</p>
+                    </div>
+                  </div>
+
+                  <div class="p-3 rounded-lg bg-slate-950/80 border border-slate-800 flex items-start gap-3">
+                    <div class="w-7 h-7 rounded-md bg-emerald-500/10 text-emerald-400 flex items-center justify-center shrink-0 mt-0.5">
+                      <i class="fa-solid fa-robot text-xs"></i>
+                    </div>
+                    <div>
+                      <h4 class="text-xs font-bold text-slate-200">Automatización Personal</h4>
+                      <p class="text-[11px] text-slate-400">Flujos digitales para blindar la relación tiempo-calidad.</p>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="mt-4 pt-3 border-t border-slate-800 flex items-center justify-between text-[11px] font-mono text-slate-400">
+                  <span>Estado: Optimización activa</span>
+                  <span class="text-cyan-400">Progreso 75%</span>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <!-- ===================================================================== -->
+      <!-- B) Medidor Visual de "Dimensiones del Ser Humano"                    -->
+      <!-- ===================================================================== -->
+      <div id="dimensiones" class="mb-24">
+        
+        <div class="flex items-center justify-between flex-wrap gap-4 mb-6">
+          <div class="flex items-center gap-3">
+            <span class="w-8 h-8 rounded-lg bg-emerald-500/10 border border-emerald-500/30 flex items-center justify-center text-emerald-400 font-mono font-bold text-sm">
+              B
+            </span>
+            <div>
+              <h3 class="text-xl sm:text-2xl font-bold font-display text-white">
+                Dimensiones del Ser Humano
+              </h3>
+              <p class="text-xs text-slate-400 font-mono">Balance introspectivo: Fortaleza vs Oportunidad de Crecimiento</p>
+            </div>
+          </div>
+          <span class="px-3 py-1 rounded-full bg-slate-900 border border-slate-800 text-xs font-mono text-cyan-300">
+            Diagnóstico Integral CUN
+          </span>
+        </div>
+
+        <!-- Grid de Tarjetas Comparativas -->
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+          
+          <!-- Tarjeta 1: Dimensión más desarrollada (90%) -->
+          <div class="glass-panel hover-card-glow rounded-2xl p-6 sm:p-8 border border-slate-800 relative overflow-hidden flex flex-col justify-between">
+            
+            <!-- Luz decorativa sutil de fondo -->
+            <div class="absolute -right-10 -bottom-10 w-44 h-44 bg-cyan-500/10 rounded-full blur-2xl pointer-events-none"></div>
+
+            <div>
+              <!-- Header de Tarjeta -->
+              <div class="flex items-start justify-between gap-4 mb-4">
+                <div class="flex items-center gap-3">
+                  <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-cyan-400/20 to-emerald-400/20 border border-cyan-400/40 flex items-center justify-center text-cyan-400 text-xl shadow-[0_0_15px_rgba(34,211,238,0.2)]">
+                    <i class="fa-solid fa-microchip"></i>
+                  </div>
+                  <div>
+                    <span class="inline-block text-[11px] font-mono uppercase tracking-wider text-cyan-400 font-semibold">
+                      Dimensión Más Desarrollada
+                    </span>
+                    <h4 class="text-lg sm:text-xl font-bold font-display text-white">
+                      Cognitiva, Lógica-Matemática y Espacial
+                    </h4>
+                  </div>
+                </div>
+
+                <!-- Indicador de porcentaje -->
+                <div class="text-right">
+                  <span class="font-display font-black text-3xl sm:text-4xl text-cyan-300">90%</span>
+                  <span class="block text-[10px] font-mono text-emerald-400 font-semibold">DOMINIO ALTO</span>
+                </div>
+              </div>
+
+              <!-- Barra de Progreso Animada -->
+              <div class="w-full bg-slate-950 rounded-full h-3.5 p-0.5 border border-slate-800 mb-6 relative overflow-hidden">
+                <div class="bg-gradient-to-r from-cyan-500 to-emerald-400 h-full rounded-full transition-all duration-1000 ease-out shadow-[0_0_12px_rgba(34,211,238,0.5)]" 
+                     style="width: 90%;"></div>
+              </div>
+
+              <!-- Justificación -->
+              <div class="bg-slate-900/60 rounded-xl p-4 border border-slate-800/80 mb-4">
+                <p class="text-xs font-mono text-slate-400 uppercase tracking-wider mb-1 flex items-center gap-1.5">
+                  <i class="fa-solid fa-quote-left text-cyan-400 text-[10px]"></i> Justificación & Evidencia
+                </p>
+                <p class="text-sm text-slate-300 leading-relaxed font-normal">
+                  "Facilidad para los números, la tecnología y la percepción espacio-tiempo. Aprendizaje práctico y visual rápido (prefiero analizar un video técnico de firewalls y aplicarlo en vivo)."
+                </p>
+              </div>
+            </div>
+
+            <!-- Tags de soporte técnico -->
+            <div class="flex flex-wrap gap-2 pt-2 border-t border-slate-800/60">
+              <span class="text-[11px] font-mono px-2.5 py-1 rounded-md bg-slate-950 text-slate-300 border border-slate-800">
+                <i class="fa-solid fa-check text-emerald-400 mr-1"></i> Pensamiento Sistémico
+              </span>
+              <span class="text-[11px] font-mono px-2.5 py-1 rounded-md bg-slate-950 text-slate-300 border border-slate-800">
+                <i class="fa-solid fa-check text-emerald-400 mr-1"></i> Percepción Espacio-Tiempo (Setter)
+              </span>
+              <span class="text-[11px] font-mono px-2.5 py-1 rounded-md bg-slate-950 text-slate-300 border border-slate-800">
+                <i class="fa-solid fa-check text-emerald-400 mr-1"></i> Ejecución en Vivo
+              </span>
+            </div>
+
+          </div>
+
+          <!-- Tarjeta 2: Dimensión a fortalecer (En progreso 60%) -->
+          <div class="glass-panel hover-card-glow rounded-2xl p-6 sm:p-8 border border-slate-800 relative overflow-hidden flex flex-col justify-between">
+            
+            <!-- Luz decorativa sutil de fondo -->
+            <div class="absolute -right-10 -bottom-10 w-44 h-44 bg-emerald-500/10 rounded-full blur-2xl pointer-events-none"></div>
+
+            <div>
+              <!-- Header de Tarjeta -->
+              <div class="flex items-start justify-between gap-4 mb-4">
+                <div class="flex items-center gap-3">
+                  <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-emerald-500/20 to-amber-500/20 border border-emerald-400/40 flex items-center justify-center text-emerald-400 text-xl shadow-[0_0_15px_rgba(52,211,153,0.2)]">
+                    <i class="fa-solid fa-book-open-reader"></i>
+                  </div>
+                  <div>
+                    <span class="inline-block text-[11px] font-mono uppercase tracking-wider text-emerald-400 font-semibold">
+                      Dimensión a Fortalecer
+                    </span>
+                    <h4 class="text-lg sm:text-xl font-bold font-display text-white">
+                      Hábito Lector Profundo e Intrapersonal (Límites)
+                    </h4>
+                  </div>
+                </div>
+
+                <!-- Indicador de porcentaje -->
+                <div class="text-right">
+                  <span class="font-display font-black text-3xl sm:text-4xl text-emerald-300">60%</span>
+                  <span class="block text-[10px] font-mono text-cyan-300 font-semibold">EN PROGRESO</span>
+                </div>
+              </div>
+
+              <!-- Barra de Progreso Animada -->
+              <div class="w-full bg-slate-950 rounded-full h-3.5 p-0.5 border border-slate-800 mb-6 relative overflow-hidden">
+                <div class="bg-gradient-to-r from-emerald-500 via-teal-400 to-cyan-400 h-full rounded-full transition-all duration-1000 ease-out shadow-[0_0_12px_rgba(52,211,153,0.4)]" 
+                     style="width: 60%;"></div>
+              </div>
+
+              <!-- Justificación -->
+              <div class="bg-slate-900/60 rounded-xl p-4 border border-slate-800/80 mb-4">
+                <p class="text-xs font-mono text-slate-400 uppercase tracking-wider mb-1 flex items-center gap-1.5">
+                  <i class="fa-solid fa-quote-left text-emerald-400 text-[10px]"></i> Justificación & Evidencia
+                </p>
+                <p class="text-sm text-slate-300 leading-relaxed font-normal">
+                  "Fortalecer la lectura técnica extensa frente al formato en video, y trabajar la gestión intrapersonal para establecer límites saludables en mis proyectos."
+                </p>
+              </div>
+            </div>
+
+            <!-- Tags de soporte técnico -->
+            <div class="flex flex-wrap gap-2 pt-2 border-t border-slate-800/60">
+              <span class="text-[11px] font-mono px-2.5 py-1 rounded-md bg-slate-950 text-slate-300 border border-slate-800">
+                <i class="fa-solid fa-arrow-trend-up text-cyan-400 mr-1"></i> Lectura Técnica en Bloques
+              </span>
+              <span class="text-[11px] font-mono px-2.5 py-1 rounded-md bg-slate-950 text-slate-300 border border-slate-800">
+                <i class="fa-solid fa-shield-halved text-cyan-400 mr-1"></i> Blindaje de Límites
+              </span>
+              <span class="text-[11px] font-mono px-2.5 py-1 rounded-md bg-slate-950 text-slate-300 border border-slate-800">
+                <i class="fa-solid fa-hourglass-half text-cyan-400 mr-1"></i> Enfoque Tiempo-Calidad
+              </span>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <!-- ===================================================================== -->
+      <!-- C) Grid Interactivo de "Mis 5 Habilidades Distintivas"                 -->
+      <!-- ===================================================================== -->
+      <div>
+        
+        <div class="flex items-center justify-between flex-wrap gap-4 mb-6">
+          <div class="flex items-center gap-3">
+            <span class="w-8 h-8 rounded-lg bg-cyan-500/10 border border-cyan-500/30 flex items-center justify-center text-cyan-400 font-mono font-bold text-sm">
+              C
+            </span>
+            <div>
+              <h3 class="text-xl sm:text-2xl font-bold font-display text-white">
+                Mis 5 Habilidades Distintivas
+              </h3>
+              <p class="text-xs text-slate-400 font-mono">Competencias estratégicas demostradas en tecnología y deporte</p>
+            </div>
+          </div>
+          <span class="text-xs font-mono text-emerald-400 flex items-center gap-1.5">
+            <i class="fa-solid fa-shield text-emerald-400"></i> Core Competencies
+          </span>
+        </div>
+
+        <!-- Grid de 5 Tarjetas Modernas -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          
+          <!-- Habilidad 1: Liderazgo Táctico -->
+          <div class="glass-panel hover-card-glow rounded-2xl p-6 border border-slate-800/90 relative group flex flex-col justify-between">
+            <div>
+              <div class="flex items-center justify-between mb-4">
+                <div class="flex items-center gap-3">
+                  <div class="w-12 h-12 rounded-xl bg-cyan-500/10 border border-cyan-500/30 flex items-center justify-center text-cyan-400 text-xl group-hover:scale-110 group-hover:bg-cyan-500/20 transition-all duration-300">
+                    <i class="fa-solid fa-volleyball"></i>
+                  </div>
+                  <div onclick="openImageModal('./assets/kike_volleyball_champion.jpg', 'Liderazgo Deportivo • Kike Junior: Capitán y Colocador Campeón')" 
+                       title="Ver foto de campeonato" 
+                       class="cursor-pointer w-11 h-11 rounded-lg overflow-hidden border border-cyan-500/40 hover:border-cyan-300 transition-all shadow-md group/thumb relative">
+                    <img src="./assets/kike_volleyball_champion.jpg" alt="Trofeo Voleibol" class="w-full h-full object-cover">
+                    <div class="absolute inset-0 bg-cyan-500/20 opacity-0 group-hover/thumb:opacity-100 transition-opacity flex items-center justify-center text-white text-[10px]">
+                      <i class="fa-solid fa-eye"></i>
+                    </div>
+                  </div>
+                </div>
+                <span class="text-2xl font-display font-black text-slate-700 group-hover:text-cyan-400/40 transition-colors">
+                  01
+                </span>
+              </div>
+
+              <h4 class="text-lg font-bold font-display text-white mb-2 group-hover:text-cyan-300 transition-colors">
+                Liderazgo Táctico (Mentalidad de Colocador)
+              </h4>
+
+              <p class="text-sm text-slate-300 leading-relaxed font-normal">
+                Capitán y colocador en voleibol; leo el entorno, organizo al equipo y potencio a cada integrante hacia el objetivo.
+              </p>
+            </div>
+
+            <div class="mt-6 pt-3 border-t border-slate-800/80 flex items-center justify-between text-[11px] font-mono text-slate-400">
+              <span>Deporte & Gestión</span>
+              <span class="text-cyan-400 font-semibold">Setter Mindset</span>
+            </div>
+          </div>
+
+          <!-- Habilidad 2: Resolución de Problemas -->
+          <div class="glass-panel hover-card-glow rounded-2xl p-6 border border-slate-800/90 relative group flex flex-col justify-between">
+            <div>
+              <div class="flex items-center justify-between mb-4">
+                <div class="w-12 h-12 rounded-xl bg-emerald-500/10 border border-emerald-500/30 flex items-center justify-center text-emerald-400 text-xl group-hover:scale-110 group-hover:bg-emerald-500/20 transition-all duration-300">
+                  <i class="fa-solid fa-puzzle-piece"></i>
+                </div>
+                <span class="text-2xl font-display font-black text-slate-700 group-hover:text-emerald-400/40 transition-colors">
+                  02
+                </span>
+              </div>
+
+              <h4 class="text-lg font-bold font-display text-white mb-2 group-hover:text-emerald-300 transition-colors">
+                Resolución de Problemas
+              </h4>
+
+              <p class="text-sm text-slate-300 leading-relaxed font-normal">
+                Análisis lógico para desglosar fallos complejos y dar soluciones efectivas bajo presión.
+              </p>
+            </div>
+
+            <div class="mt-6 pt-3 border-t border-slate-800/80 flex items-center justify-between text-[11px] font-mono text-slate-400">
+              <span>Pensamiento Lógico</span>
+              <span class="text-emerald-400 font-semibold">Bajo Presión</span>
+            </div>
+          </div>
+
+          <!-- Habilidad 3: Automatización de Procesos -->
+          <div class="glass-panel hover-card-glow rounded-2xl p-6 border border-slate-800/90 relative group flex flex-col justify-between">
+            <div>
+              <div class="flex items-center justify-between mb-4">
+                <div class="w-12 h-12 rounded-xl bg-cyan-500/10 border border-cyan-500/30 flex items-center justify-center text-cyan-400 text-xl group-hover:scale-110 group-hover:bg-cyan-500/20 transition-all duration-300">
+                  <i class="fa-solid fa-network-wired"></i>
+                </div>
+                <span class="text-2xl font-display font-black text-slate-700 group-hover:text-cyan-400/40 transition-colors">
+                  03
+                </span>
+              </div>
+
+              <h4 class="text-lg font-bold font-display text-white mb-2 group-hover:text-cyan-300 transition-colors">
+                Automatización de Procesos
+              </h4>
+
+              <p class="text-sm text-slate-300 leading-relaxed font-normal">
+                Transformo tareas repetitivas en flujos de trabajo automáticos y eficientes.
+              </p>
+            </div>
+
+            <div class="mt-6 pt-3 border-t border-slate-800/80 flex items-center justify-between text-[11px] font-mono text-slate-400">
+              <span>Ingeniería & Software</span>
+              <span class="text-cyan-400 font-semibold">Eficiencia 10x</span>
+            </div>
+          </div>
+
+          <!-- Habilidad 4: Organización Estructural -->
+          <div class="glass-panel hover-card-glow rounded-2xl p-6 border border-slate-800/90 relative group flex flex-col justify-between">
+            <div>
+              <div class="flex items-center justify-between mb-4">
+                <div class="w-12 h-12 rounded-xl bg-emerald-500/10 border border-emerald-500/30 flex items-center justify-center text-emerald-400 text-xl group-hover:scale-110 group-hover:bg-emerald-500/20 transition-all duration-300">
+                  <i class="fa-solid fa-sitemap"></i>
+                </div>
+                <span class="text-2xl font-display font-black text-slate-700 group-hover:text-emerald-400/40 transition-colors">
+                  04
+                </span>
+              </div>
+
+              <h4 class="text-lg font-bold font-display text-white mb-2 group-hover:text-emerald-300 transition-colors">
+                Organización Estructural
+              </h4>
+
+              <p class="text-sm text-slate-300 leading-relaxed font-normal">
+                Visión ordenada impulsada por la lógica matemática y los sistemas.
+              </p>
+            </div>
+
+            <div class="mt-6 pt-3 border-t border-slate-800/80 flex items-center justify-between text-[11px] font-mono text-slate-400">
+              <span>Arquitectura & Orden</span>
+              <span class="text-emerald-400 font-semibold">Estructura Clara</span>
+            </div>
+          </div>
+
+          <!-- Habilidad 5: Escucha Activa y Debate -->
+          <div class="glass-panel hover-card-glow rounded-2xl p-6 border border-slate-800/90 relative group flex flex-col justify-between md:col-span-2 lg:col-span-2">
+            <div>
+              <div class="flex items-center justify-between mb-4">
+                <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-cyan-500/20 to-emerald-500/20 border border-cyan-400/40 flex items-center justify-center text-cyan-300 text-xl group-hover:scale-110 transition-all duration-300">
+                  <i class="fa-solid fa-comments"></i>
+                </div>
+                <span class="text-2xl font-display font-black text-slate-700 group-hover:text-cyan-400/40 transition-colors">
+                  05
+                </span>
+              </div>
+
+              <h4 class="text-lg font-bold font-display text-white mb-2 group-hover:text-cyan-300 transition-colors">
+                Escucha Activa y Debate
+              </h4>
+
+              <p class="text-sm text-slate-300 leading-relaxed font-normal">
+                Abierto a distintos puntos de vista para debatir con argumentos y elegir el mejor camino técnico.
+              </p>
+            </div>
+
+            <div class="mt-6 pt-3 border-t border-slate-800/80 flex items-center justify-between text-[11px] font-mono text-slate-400">
+              <span>Comunicación Asertiva</span>
+              <span class="text-gradient-cyan-emerald font-semibold">Criterio Técnico</span>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ========================================================================= -->
+  <!-- 4. ROADMAP MODULAR DEL PROYECTO (Fases Semanales ACA)                     -->
+  <!-- ========================================================================= -->
+  <section id="roadmap" class="py-20 relative border-t border-slate-800/80">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-cyan-500/10 border border-cyan-500/30 text-cyan-300 font-mono text-xs font-semibold uppercase tracking-wider mb-4">
+          <i class="fa-solid fa-timeline text-cyan-400"></i> Arquitectura Modular
+        </div>
+        <h2 class="text-3xl sm:text-4xl font-black font-display text-white mb-3">
+          Roadmap de Entregas Semanales
+        </h2>
+        <p class="text-sm sm:text-base text-slate-300 font-normal">
+          Estructura progresiva para las 5 fases de consolidación de la Marca Personal en la asignatura Proyecto de Vida.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-4">
+        
+        <!-- Fase 1: Desbloqueada -->
+        <div class="glass-panel p-5 rounded-2xl border-2 border-emerald-500/60 bg-emerald-950/10 shadow-[0_0_20px_rgba(52,211,153,0.15)] relative">
+          <div class="flex items-center justify-between mb-3">
+            <span class="text-xs font-mono px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-300 font-bold">FASE 1</span>
+            <span class="flex h-2.5 w-2.5 rounded-full bg-emerald-400 animate-pulse"></span>
+          </div>
+          <h4 class="text-sm font-bold text-white mb-1">Autoconocimiento</h4>
+          <p class="text-xs text-slate-400 mb-3">Esencia, reto del 'no', 5 habilidades y dimensiones.</p>
+          <span class="text-[11px] font-mono text-emerald-400 font-bold flex items-center gap-1">
+            <i class="fa-solid fa-check"></i> Activo & Publicado
+          </span>
+        </div>
+
+        <!-- Fase 2: Bloqueada -->
+        <div onclick="openLockedModal('2. Objetivo SMART', 'Definición de metas de impacto con métricas específicas y alcanzables.', 'Semana 2')"
+             class="glass-panel p-5 rounded-2xl border border-slate-800 opacity-75 hover:opacity-100 hover:border-slate-700 transition-all cursor-pointer">
+          <div class="flex items-center justify-between mb-3">
+            <span class="text-xs font-mono px-2 py-0.5 rounded bg-slate-800 text-slate-400">FASE 2</span>
+            <i class="fa-solid fa-lock text-slate-500 text-xs"></i>
+          </div>
+          <h4 class="text-sm font-bold text-slate-300 mb-1">Objetivo SMART</h4>
+          <p class="text-xs text-slate-400 mb-3">Metas profesionales específicas y medibles.</p>
+          <span class="text-[11px] font-mono text-cyan-400 flex items-center gap-1">
+            <i class="fa-regular fa-clock"></i> Semana 2
+          </span>
+        </div>
+
+        <!-- Fase 3: Bloqueada -->
+        <div onclick="openLockedModal('3. Público Ideal', 'Mapeo de audiencias clave, líderes de ingeniería y reclutadores técnicos.', 'Semana 3')"
+             class="glass-panel p-5 rounded-2xl border border-slate-800 opacity-75 hover:opacity-100 hover:border-slate-700 transition-all cursor-pointer">
+          <div class="flex items-center justify-between mb-3">
+            <span class="text-xs font-mono px-2 py-0.5 rounded bg-slate-800 text-slate-400">FASE 3</span>
+            <i class="fa-solid fa-lock text-slate-500 text-xs"></i>
+          </div>
+          <h4 class="text-sm font-bold text-slate-300 mb-1">Público Ideal</h4>
+          <p class="text-xs text-slate-400 mb-3">Audiencia objetivo y comunidades tech.</p>
+          <span class="text-[11px] font-mono text-cyan-400 flex items-center gap-1">
+            <i class="fa-regular fa-clock"></i> Semana 3
+          </span>
+        </div>
+
+        <!-- Fase 4: Bloqueada -->
+        <div onclick="openLockedModal('4. Promesa & BANG', 'Construcción del gancho memorable y propuesta única de valor en tecnología.', 'Semana 4')"
+             class="glass-panel p-5 rounded-2xl border border-slate-800 opacity-75 hover:opacity-100 hover:border-slate-700 transition-all cursor-pointer">
+          <div class="flex items-center justify-between mb-3">
+            <span class="text-xs font-mono px-2 py-0.5 rounded bg-slate-800 text-slate-400">FASE 4</span>
+            <i class="fa-solid fa-lock text-slate-500 text-xs"></i>
+          </div>
+          <h4 class="text-sm font-bold text-slate-300 mb-1">Promesa & BANG</h4>
+          <p class="text-xs text-slate-400 mb-3">Diferenciador competitivo y gancho clave.</p>
+          <span class="text-[11px] font-mono text-cyan-400 flex items-center gap-1">
+            <i class="fa-regular fa-clock"></i> Semana 4
+          </span>
+        </div>
+
+        <!-- Fase 5: Bloqueada -->
+        <div onclick="openLockedModal('5. Pitch Visual & IA', 'Producción de pitch de alto impacto con soporte audiovisual impulsado por IA.', 'Semana 5')"
+             class="glass-panel p-5 rounded-2xl border border-slate-800 opacity-75 hover:opacity-100 hover:border-slate-700 transition-all cursor-pointer">
+          <div class="flex items-center justify-between mb-3">
+            <span class="text-xs font-mono px-2 py-0.5 rounded bg-slate-800 text-slate-400">FASE 5</span>
+            <i class="fa-solid fa-lock text-slate-500 text-xs"></i>
+          </div>
+          <h4 class="text-sm font-bold text-slate-300 mb-1">Pitch Visual & IA</h4>
+          <p class="text-xs text-slate-400 mb-3">Presentación de elevator pitch y demo.</p>
+          <span class="text-[11px] font-mono text-cyan-400 flex items-center gap-1">
+            <i class="fa-regular fa-clock"></i> Semana 5
+          </span>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ========================================================================= -->
+  <!-- MODAL INFORMATIVO PARA FASES BLOQUEADAS                                    -->
+  <!-- ========================================================================= -->
+  <div id="lockedModal" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-950/80 backdrop-blur-md hidden transition-opacity duration-300">
+    <div class="glass-panel-glow max-w-md w-full rounded-2xl p-6 sm:p-7 border border-slate-700 relative text-left shadow-2xl animate-float">
+      
+      <button onclick="closeLockedModal()" 
+              aria-label="Cerrar ventana"
+              class="absolute top-4 right-4 text-slate-400 hover:text-white p-2 rounded-lg bg-slate-900 border border-slate-800 transition-colors">
+        <i class="fa-solid fa-xmark text-lg"></i>
+      </button>
+
+      <div class="w-12 h-12 rounded-xl bg-cyan-500/10 border border-cyan-500/30 flex items-center justify-center text-cyan-400 text-xl mb-4">
+        <i class="fa-solid fa-lock"></i>
+      </div>
+
+      <div class="inline-block px-2.5 py-0.5 rounded text-[11px] font-mono bg-cyan-950 text-cyan-300 border border-cyan-500/30 mb-2" id="modalSemanaTag">
+        Próxima Entrega
+      </div>
+
+      <h3 class="text-xl font-bold font-display text-white mb-2" id="modalTitle">
+        Fase Bloqueada
+      </h3>
+
+      <p class="text-sm text-slate-300 leading-relaxed mb-6" id="modalDesc">
+        Este módulo se habilitará e integrará en el archivo en las próximas semanas conforme al calendario académico de la ACA.
+      </p>
+
+      <div class="flex items-center justify-between pt-4 border-t border-slate-800">
+        <span class="text-xs font-mono text-slate-400">
+          <i class="fa-solid fa-calendar-days text-cyan-400 mr-1"></i> Calendario ACA 2026
+        </span>
+        <button onclick="closeLockedModal()" 
+                class="px-4 py-2 rounded-xl text-xs font-bold bg-cyan-400 text-slate-950 hover:bg-cyan-300 transition-colors">
+          Entendido
+        </button>
+      </div>
+
+    </div>
+  </div>
+
+
+  <!-- ========================================================================= -->
+  <!-- MODAL VISUALIZADOR DE IMÁGENES (LIGHTBOX)                                 -->
+  <!-- ========================================================================= -->
+  <div id="imageModal" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-950/90 backdrop-blur-md hidden transition-opacity duration-300">
+    <div class="glass-panel-glow max-w-2xl w-full rounded-2xl p-4 sm:p-5 border border-slate-700 relative text-left shadow-2xl">
+      
+      <button onclick="closeImageModal()" 
+              aria-label="Cerrar imagen"
+              class="absolute top-4 right-4 z-10 text-slate-400 hover:text-white p-2 rounded-lg bg-slate-900/80 border border-slate-800 transition-colors">
+        <i class="fa-solid fa-xmark text-lg"></i>
+      </button>
+
+      <div class="relative w-full rounded-xl overflow-hidden bg-slate-950 max-h-[75vh] flex items-center justify-center mb-3">
+        <img id="imageModalImg" src="" alt="Fotografía ampliada" class="w-full h-auto max-h-[70vh] object-contain rounded-lg">
+      </div>
+
+      <div class="flex items-center justify-between pt-2 px-1">
+        <p id="imageModalCaption" class="text-xs sm:text-sm font-mono text-cyan-300 font-medium"></p>
+        <button onclick="closeImageModal()" class="px-3 py-1.5 rounded-lg text-xs font-mono bg-slate-800 hover:bg-slate-700 text-slate-300 transition-colors">
+          Cerrar [Esc]
+        </button>
+      </div>
+
+    </div>
+  </div>
+
+
+  <!-- ========================================================================= -->
+  <!-- FOOTER INSTITUCIONAL & MARCA PERSONAL                                     -->
+  <!-- ========================================================================= -->
+  <footer class="border-t border-slate-800/80 bg-slate-950 py-12 relative z-10">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex flex-col md:flex-row items-center justify-between gap-6">
+        
+        <div class="flex items-center gap-3">
+          <div class="w-9 h-9 rounded-lg bg-slate-900 border border-cyan-500/30 flex items-center justify-center text-cyan-400 font-display font-bold text-sm">
+            KJ
+          </div>
+          <div>
+            <p class="text-sm font-bold text-white font-display">Aldair Enrique Camargo Villalobos • "Kike Junior"</p>
+            <p class="text-xs text-slate-400 font-mono">Ingeniería de Sistemas • CUN Corporación Unificada Nacional de Educación Superior</p>
+          </div>
+        </div>
+
+        <div class="flex items-center gap-4 text-xs font-mono text-slate-400">
+          <span>Proyecto de Vida • ACA 2026</span>
+          <span class="text-slate-600">•</span>
+          <span class="text-emerald-400 font-semibold">Versión 1.0 (Fase 1 Activa)</span>
+        </div>
+
+        <a href="#hero" class="w-10 h-10 rounded-xl bg-slate-900 border border-slate-800 hover:border-cyan-400 text-slate-300 hover:text-cyan-400 flex items-center justify-center transition-colors">
+          <i class="fa-solid fa-arrow-up"></i>
+        </a>
+
+      </div>
+    </div>
+  </footer>
+
+
+  <!-- ========================================================================= -->
+  <!-- JAVASCRIPT VANILLA LIMPIO (Interacciones & Lógica de Tabs / Modal)        -->
+  <!-- ========================================================================= -->
+  <script>
+    // 1. Manejo de Pestañas (Tabs) "¿Quién Soy?"
+    function switchTab(tab) {
+      const btnEsencia = document.getElementById('tabBtnEsencia');
+      const btnRetos = document.getElementById('tabBtnRetos');
+      const contentEsencia = document.getElementById('tabContentEsencia');
+      const contentRetos = document.getElementById('tabContentRetos');
+
+      if (tab === 'esencia') {
+        // Mostrar Esencia
+        contentEsencia.classList.remove('hidden');
+        contentRetos.classList.add('hidden');
+
+        // Estilos Botón Esencia (Activo)
+        btnEsencia.className = "flex-1 py-3 px-5 rounded-lg text-xs sm:text-sm font-bold font-display transition-all duration-300 flex items-center justify-center gap-2 bg-gradient-to-r from-cyan-500/20 to-emerald-500/20 text-white border border-cyan-500/50 shadow-md";
+        btnEsencia.querySelector('i').className = "fa-solid fa-fire-flame-curved text-cyan-400";
+
+        // Estilos Botón Retos (Inactivo)
+        btnRetos.className = "flex-1 py-3 px-5 rounded-lg text-xs sm:text-sm font-medium font-display transition-all duration-300 flex items-center justify-center gap-2 text-slate-400 hover:text-slate-200 hover:bg-slate-800/60 border border-transparent";
+        btnRetos.querySelector('i').className = "fa-solid fa-bullseye text-slate-400";
+      } else {
+        // Mostrar Retos
+        contentRetos.classList.remove('hidden');
+        contentEsencia.classList.add('hidden');
+
+        // Estilos Botón Retos (Activo)
+        btnRetos.className = "flex-1 py-3 px-5 rounded-lg text-xs sm:text-sm font-bold font-display transition-all duration-300 flex items-center justify-center gap-2 bg-gradient-to-r from-cyan-500/20 to-emerald-500/20 text-white border border-cyan-500/50 shadow-md";
+        btnRetos.querySelector('i').className = "fa-solid fa-bullseye text-emerald-400";
+
+        // Estilos Botón Esencia (Inactivo)
+        btnEsencia.className = "flex-1 py-3 px-5 rounded-lg text-xs sm:text-sm font-medium font-display transition-all duration-300 flex items-center justify-center gap-2 text-slate-400 hover:text-slate-200 hover:bg-slate-800/60 border border-transparent";
+        btnEsencia.querySelector('i').className = "fa-solid fa-fire-flame-curved text-slate-400";
+      }
+    }
+
+    // 2. Control de Menú Móvil
+    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+    const mobileMenuIcon = document.getElementById('mobileMenuIcon');
+
+    function toggleMobileMenu() {
+      const isHidden = mobileMenu.classList.contains('hidden');
+      if (isHidden) {
+        mobileMenu.classList.remove('hidden');
+        mobileMenuIcon.className = "fa-solid fa-xmark text-lg";
+      } else {
+        mobileMenu.classList.add('hidden');
+        mobileMenuIcon.className = "fa-solid fa-bars-staggered text-lg";
+      }
+    }
+
+    if (mobileMenuBtn) {
+      mobileMenuBtn.addEventListener('click', toggleMobileMenu);
+    }
+
+    // 3. Modal para Fases Bloqueadas
+    const lockedModal = document.getElementById('lockedModal');
+    const modalTitle = document.getElementById('modalTitle');
+    const modalDesc = document.getElementById('modalDesc');
+    const modalSemanaTag = document.getElementById('modalSemanaTag');
+
+    function openLockedModal(title, desc, semana) {
+      modalTitle.textContent = title;
+      modalDesc.textContent = desc;
+      modalSemanaTag.textContent = semana ? `Disponible en ${semana}` : 'Próxima Entrega ACA';
+      lockedModal.classList.remove('hidden');
+    }
+
+    function closeLockedModal() {
+      lockedModal.classList.add('hidden');
+    }
+
+    // Cerrar modal al hacer clic en el backdrop
+    lockedModal.addEventListener('click', function(e) {
+      if (e.target === lockedModal) {
+        closeLockedModal();
+      }
+    });
+
+    // Cerrar con Escape
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') {
+        if (!lockedModal.classList.contains('hidden')) {
+          closeLockedModal();
+        }
+        if (!imageModal.classList.contains('hidden')) {
+          closeImageModal();
+        }
+      }
+    });
+
+    // 4. Modal Visualizador de Fotos (Lightbox)
+    const imageModal = document.getElementById('imageModal');
+    const imageModalImg = document.getElementById('imageModalImg');
+    const imageModalCaption = document.getElementById('imageModalCaption');
+
+    function openImageModal(src, caption) {
+      imageModalImg.src = src;
+      imageModalCaption.textContent = caption || 'Kike Junior • Fotografía';
+      imageModal.classList.remove('hidden');
+    }
+
+    function closeImageModal() {
+      imageModal.classList.add('hidden');
+      imageModalImg.src = '';
+    }
+
+    imageModal.addEventListener('click', function(e) {
+      if (e.target === imageModal) {
+        closeImageModal();
+      }
+    });
+  </script>
+</body>
+</html>
