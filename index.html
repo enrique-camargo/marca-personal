@@ -189,70 +189,44 @@
         </a>
 
         <!-- Menú de Navegación por Fases (Desktop) -->
-        <nav class="hidden xl:flex items-center gap-2" aria-label="Fases del Proyecto">
+        <nav class="hidden xl:flex items-center gap-1.5" aria-label="Fases del Proyecto">
           
-          <!-- Botón Activo: 1. Autoconocimiento -->
+          <!-- 1. Autoconocimiento -->
           <a href="#fase-autoconocimiento" 
-             class="group relative inline-flex items-center gap-2 px-3.5 py-2 rounded-xl text-xs font-semibold tracking-wide bg-emerald-500/10 text-emerald-300 border border-emerald-500/40 hover:bg-emerald-500/20 hover:border-emerald-400 transition-all shadow-[0_0_12px_rgba(52,211,153,0.15)]">
-            <span class="flex h-2 w-2 rounded-full bg-emerald-400 animate-pulse"></span>
-            <i class="fa-solid fa-user-astronaut text-emerald-400"></i>
+             class="group inline-flex items-center gap-1.5 px-2.5 py-1.5 rounded-xl text-xs font-semibold tracking-wide bg-slate-900/60 text-slate-300 border border-slate-800 hover:border-emerald-400 hover:text-emerald-300 transition-all">
+            <span class="flex h-1.5 w-1.5 rounded-full bg-emerald-400"></span>
+            <i class="fa-solid fa-user-astronaut text-emerald-400 text-[11px]"></i>
             <span>1. Autoconocimiento</span>
-            <span class="ml-1 px-1.5 py-0.5 rounded text-[10px] bg-emerald-400/20 text-emerald-200 border border-emerald-400/30 font-mono">
-              ACTIVO
-            </span>
           </a>
 
-          <!-- Botón Bloqueado: 2. Objetivo SMART -->
-          <div class="has-tooltip relative">
-            <button type="button" 
-                    onclick="openLockedModal('2. Objetivo SMART', 'Definición de metas estratégicas bajo metodología SMART para consolidar el impacto profesional y técnico.', 'Semana 2')"
-                    class="cursor-not-allowed inline-flex items-center gap-2 px-3.5 py-2 rounded-xl text-xs font-medium text-slate-400 bg-slate-900/50 border border-slate-800 hover:border-slate-700 hover:text-slate-300 transition-colors">
-              <i class="fa-solid fa-lock text-slate-500 text-[11px]"></i>
-              <span>2. Objetivo SMART</span>
-            </button>
-            <div class="tooltip-box px-3 py-1.5 rounded-lg bg-slate-900/95 border border-cyan-500/30 text-[11px] font-mono text-cyan-300 shadow-xl shadow-black/60">
-              <i class="fa-regular fa-clock mr-1 text-cyan-400"></i> Se desbloquea en las próximas semanas
-            </div>
-          </div>
+          <!-- 2. Objetivo SMART -->
+          <a href="#fase-smart" 
+             class="group inline-flex items-center gap-1.5 px-2.5 py-1.5 rounded-xl text-xs font-semibold tracking-wide bg-cyan-500/10 text-cyan-300 border border-cyan-500/40 hover:bg-cyan-500/20 hover:border-cyan-400 transition-all shadow-[0_0_10px_rgba(34,211,238,0.15)]">
+            <span class="flex h-1.5 w-1.5 rounded-full bg-cyan-400 animate-pulse"></span>
+            <i class="fa-solid fa-bullseye text-cyan-400 text-[11px]"></i>
+            <span>2. SMART</span>
+          </a>
 
-          <!-- Botón Bloqueado: 3. Público Ideal -->
-          <div class="has-tooltip relative">
-            <button type="button" 
-                    onclick="openLockedModal('3. Público Ideal', 'Identificación de buyer persona profesional, líderes técnicos y comunidades de impacto.', 'Semana 3')"
-                    class="cursor-not-allowed inline-flex items-center gap-2 px-3.5 py-2 rounded-xl text-xs font-medium text-slate-400 bg-slate-900/50 border border-slate-800 hover:border-slate-700 hover:text-slate-300 transition-colors">
-              <i class="fa-solid fa-lock text-slate-500 text-[11px]"></i>
-              <span>3. Público Ideal</span>
-            </button>
-            <div class="tooltip-box px-3 py-1.5 rounded-lg bg-slate-900/95 border border-cyan-500/30 text-[11px] font-mono text-cyan-300 shadow-xl shadow-black/60">
-              <i class="fa-regular fa-clock mr-1 text-cyan-400"></i> Se desbloquea en las próximas semanas
-            </div>
-          </div>
+          <!-- 3. Público Ideal -->
+          <a href="#fase-publico" 
+             class="group inline-flex items-center gap-1.5 px-2.5 py-1.5 rounded-xl text-xs font-semibold tracking-wide bg-slate-900/60 text-slate-300 border border-slate-800 hover:border-cyan-400 hover:text-cyan-300 transition-all">
+            <i class="fa-solid fa-users text-cyan-400 text-[11px]"></i>
+            <span>3. Buyer Persona</span>
+          </a>
 
-          <!-- Botón Bloqueado: 4. Promesa & BANG -->
-          <div class="has-tooltip relative">
-            <button type="button" 
-                    onclick="openLockedModal('4. Promesa & BANG', 'Construcción de la propuesta única de valor, gancho magnético y diferenciador competitivo.', 'Semana 4')"
-                    class="cursor-not-allowed inline-flex items-center gap-2 px-3.5 py-2 rounded-xl text-xs font-medium text-slate-400 bg-slate-900/50 border border-slate-800 hover:border-slate-700 hover:text-slate-300 transition-colors">
-              <i class="fa-solid fa-lock text-slate-500 text-[11px]"></i>
-              <span>4. Promesa & BANG</span>
-            </button>
-            <div class="tooltip-box px-3 py-1.5 rounded-lg bg-slate-900/95 border border-cyan-500/30 text-[11px] font-mono text-cyan-300 shadow-xl shadow-black/60">
-              <i class="fa-regular fa-clock mr-1 text-cyan-400"></i> Se desbloquea en las próximas semanas
-            </div>
-          </div>
+          <!-- 4. Promesa & BANG -->
+          <a href="#fase-promesa-bang" 
+             class="group inline-flex items-center gap-1.5 px-2.5 py-1.5 rounded-xl text-xs font-semibold tracking-wide bg-slate-900/60 text-slate-300 border border-slate-800 hover:border-amber-400 hover:text-amber-300 transition-all">
+            <i class="fa-solid fa-bolt text-amber-400 text-[11px]"></i>
+            <span>4. Promesa & BANG</span>
+          </a>
 
-          <!-- Botón Bloqueado: 5. Pitch Visual & IA -->
-          <div class="has-tooltip relative">
-            <button type="button" 
-                    onclick="openLockedModal('5. Pitch Visual & IA', 'Producción del elevator pitch audiovisual con herramientas de IA y síntesis ejecutiva.', 'Semana 5')"
-                    class="cursor-not-allowed inline-flex items-center gap-2 px-3.5 py-2 rounded-xl text-xs font-medium text-slate-400 bg-slate-900/50 border border-slate-800 hover:border-slate-700 hover:text-slate-300 transition-colors">
-              <i class="fa-solid fa-lock text-slate-500 text-[11px]"></i>
-              <span>5. Pitch Visual & IA</span>
-            </button>
-            <div class="tooltip-box px-3 py-1.5 rounded-lg bg-slate-900/95 border border-cyan-500/30 text-[11px] font-mono text-cyan-300 shadow-xl shadow-black/60">
-              <i class="fa-regular fa-clock mr-1 text-cyan-400"></i> Se desbloquea en las próximas semanas
-            </div>
-          </div>
+          <!-- 5. Pitch Visual & IA -->
+          <a href="#fase-pitch-ia" 
+             class="group inline-flex items-center gap-1.5 px-2.5 py-1.5 rounded-xl text-xs font-semibold tracking-wide bg-emerald-500/10 text-emerald-300 border border-emerald-500/30 hover:bg-emerald-500/20 hover:border-emerald-400 transition-all">
+            <i class="fa-solid fa-wand-magic-sparkles text-emerald-400 text-[11px]"></i>
+            <span>5. Pitch & IA</span>
+          </a>
 
         </nav>
 
@@ -278,54 +252,59 @@
       <div id="mobileMenu" class="hidden xl:hidden py-4 border-t border-slate-800/80 transition-all duration-300">
         <div class="flex flex-col gap-2">
           <p class="text-[11px] font-mono uppercase tracking-wider text-slate-400 px-2 mb-1">
-            Fases del Proyecto de Vida
+            Fases del Proyecto de Vida (2do Avance)
           </p>
           <a href="#fase-autoconocimiento" 
              onclick="toggleMobileMenu()"
-             class="flex items-center justify-between px-3.5 py-2.5 rounded-xl text-sm font-semibold bg-emerald-500/10 text-emerald-300 border border-emerald-500/40">
+             class="flex items-center justify-between px-3.5 py-2 rounded-xl text-sm font-semibold bg-slate-900/80 text-slate-200 border border-slate-800 hover:border-emerald-400">
             <div class="flex items-center gap-2.5">
-              <span class="flex h-2 w-2 rounded-full bg-emerald-400 animate-pulse"></span>
+              <span class="flex h-2 w-2 rounded-full bg-emerald-400"></span>
               <i class="fa-solid fa-user-astronaut text-emerald-400"></i>
               <span>1. Autoconocimiento</span>
             </div>
             <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-emerald-400/20 text-emerald-300">Activo</span>
           </a>
 
-          <button onclick="openLockedModal('2. Objetivo SMART', 'Definición de metas estratégicas bajo metodología SMART.', 'Semana 2')"
-                  class="flex items-center justify-between px-3.5 py-2.5 rounded-xl text-sm text-slate-400 bg-slate-900/40 border border-slate-800 text-left">
+          <a href="#fase-smart" 
+             onclick="toggleMobileMenu()"
+             class="flex items-center justify-between px-3.5 py-2 rounded-xl text-sm font-semibold bg-cyan-950/40 text-cyan-300 border border-cyan-500/40">
             <div class="flex items-center gap-2.5">
-              <i class="fa-solid fa-lock text-slate-500"></i>
+              <span class="flex h-2 w-2 rounded-full bg-cyan-400 animate-pulse"></span>
+              <i class="fa-solid fa-bullseye text-cyan-400"></i>
               <span>2. Objetivo SMART</span>
             </div>
-            <span class="text-[10px] font-mono text-cyan-400">Próximamente</span>
-          </button>
+            <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-cyan-400/20 text-cyan-300">Activo</span>
+          </a>
 
-          <button onclick="openLockedModal('3. Público Ideal', 'Identificación del target profesional y líderes técnicos.', 'Semana 3')"
-                  class="flex items-center justify-between px-3.5 py-2.5 rounded-xl text-sm text-slate-400 bg-slate-900/40 border border-slate-800 text-left">
+          <a href="#fase-publico" 
+             onclick="toggleMobileMenu()"
+             class="flex items-center justify-between px-3.5 py-2 rounded-xl text-sm font-semibold bg-slate-900/80 text-slate-200 border border-slate-800 hover:border-cyan-400">
             <div class="flex items-center gap-2.5">
-              <i class="fa-solid fa-lock text-slate-500"></i>
-              <span>3. Público Ideal</span>
+              <i class="fa-solid fa-users text-cyan-400"></i>
+              <span>3. Público Ideal & Buyer Persona</span>
             </div>
-            <span class="text-[10px] font-mono text-cyan-400">Próximamente</span>
-          </button>
+            <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-cyan-400/20 text-cyan-300">Activo</span>
+          </a>
 
-          <button onclick="openLockedModal('4. Promesa & BANG', 'Construcción de propuesta de valor y gancho de impacto.', 'Semana 4')"
-                  class="flex items-center justify-between px-3.5 py-2.5 rounded-xl text-sm text-slate-400 bg-slate-900/40 border border-slate-800 text-left">
+          <a href="#fase-promesa-bang" 
+             onclick="toggleMobileMenu()"
+             class="flex items-center justify-between px-3.5 py-2 rounded-xl text-sm font-semibold bg-slate-900/80 text-slate-200 border border-slate-800 hover:border-amber-400">
             <div class="flex items-center gap-2.5">
-              <i class="fa-solid fa-lock text-slate-500"></i>
-              <span>4. Promesa & BANG</span>
+              <i class="fa-solid fa-bolt text-amber-400"></i>
+              <span>4. Promesa & Metodología BANG</span>
             </div>
-            <span class="text-[10px] font-mono text-cyan-400">Próximamente</span>
-          </button>
+            <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-amber-400/20 text-amber-300">Activo</span>
+          </a>
 
-          <button onclick="openLockedModal('5. Pitch Visual & IA', 'Elevator pitch audiovisual potenciado con herramientas de IA.', 'Semana 5')"
-                  class="flex items-center justify-between px-3.5 py-2.5 rounded-xl text-sm text-slate-400 bg-slate-900/40 border border-slate-800 text-left">
+          <a href="#fase-pitch-ia" 
+             onclick="toggleMobileMenu()"
+             class="flex items-center justify-between px-3.5 py-2 rounded-xl text-sm font-semibold bg-slate-900/80 text-slate-200 border border-slate-800 hover:border-emerald-400">
             <div class="flex items-center gap-2.5">
-              <i class="fa-solid fa-lock text-slate-500"></i>
-              <span>5. Pitch Visual & IA</span>
+              <i class="fa-solid fa-wand-magic-sparkles text-emerald-400"></i>
+              <span>5. Pitch Visual & Evidencia IA</span>
             </div>
-            <span class="text-[10px] font-mono text-cyan-400">Próximamente</span>
-          </button>
+            <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-emerald-400/20 text-emerald-300">Activo</span>
+          </a>
         </div>
       </div>
 
@@ -579,6 +558,27 @@
                 <!-- Cita de mentalidad -->
                 <div class="p-4 rounded-xl bg-slate-900/60 border-l-4 border-emerald-400 text-sm text-slate-300 italic mb-4">
                   "El deporte me enseñó la disciplina del entrenamiento y la visión táctica; la ingeniería de sistemas me dio las herramientas para transformar cualquier problema en un algoritmo ejecutable."
+                </div>
+
+                <!-- Badge Interactivo Test IKIGAI -->
+                <div class="p-4 rounded-xl bg-cyan-950/20 border border-cyan-500/30 flex flex-col sm:flex-row sm:items-center justify-between gap-3 shadow-[0_0_15px_rgba(34,211,238,0.08)]">
+                  <div class="flex items-center gap-3">
+                    <span class="w-10 h-10 rounded-xl bg-cyan-500/10 border border-cyan-500/30 text-cyan-300 flex items-center justify-center text-sm font-mono font-bold">
+                      &lt;/&gt;
+                    </span>
+                    <div>
+                      <div class="flex items-center gap-2">
+                        <span class="text-xs font-bold text-white font-display">Test Oficial IKIGAI</span>
+                        <span class="text-[10px] font-mono px-1.5 py-0.5 rounded bg-emerald-500/20 text-emerald-300 font-semibold">2do Avance</span>
+                      </div>
+                      <p class="text-[11px] text-cyan-300/80 font-mono">Desarrollador de Software • Organizador Creativo • Técnico Analista</p>
+                    </div>
+                  </div>
+                  <button type="button" 
+                          onclick="openImageModal('assets/IKIGAItest.png', 'Test Oficial IKIGAI • Aldair Enrique Camargo Villalobos (Kike Junior)')"
+                          class="px-3.5 py-2 rounded-xl text-xs font-mono font-semibold bg-cyan-500/10 hover:bg-cyan-500/25 text-cyan-300 border border-cyan-400/40 hover:border-cyan-400 transition-all flex items-center justify-center gap-2 shadow-sm whitespace-nowrap">
+                    <i class="fa-solid fa-expand text-[11px]"></i> Ver Gráfico Test
+                  </button>
                 </div>
               </div>
 
@@ -1127,6 +1127,835 @@
   </section>
 
 
+
+  <!-- ========================================================================= -->
+  <!-- 2. FASE 02: PLANEACIÓN ESTRATÉGICA INTERNA (OBJETIVOS SMART)              -->
+  <!-- ========================================================================= -->
+  <section id="fase-smart" class="py-20 relative border-t border-slate-800/80 bg-slate-950/70">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <!-- Encabezado de la Sección -->
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-cyan-500/10 border border-cyan-500/30 text-cyan-300 font-mono text-xs font-semibold uppercase tracking-wider mb-4">
+          <i class="fa-solid fa-bullseye text-cyan-400"></i>
+          Fase 02 • Planeación Estratégica Interna
+        </div>
+        <h2 class="text-3xl sm:text-4xl lg:text-5xl font-black font-display text-white tracking-tight mb-4">
+          Objetivo Profesional <span class="text-gradient-cyan-emerald">SMART</span>
+        </h2>
+        <p class="text-base sm:text-lg text-slate-300 font-normal leading-relaxed">
+          ¿Cómo quiero ser conocido, reconocido, memorable y elegible? Metas concretas para impactar mi entorno corporativo, optimizar procesos de negocio y consolidar mi marca personal con valor agregado real.
+        </p>
+      </div>
+
+      <!-- Declaración Central del Objetivo -->
+      <div class="glass-panel-glow p-6 sm:p-8 rounded-3xl border border-cyan-500/30 mb-12 relative overflow-hidden">
+        <div class="absolute -right-12 -top-12 w-48 h-48 bg-cyan-500/10 rounded-full blur-2xl pointer-events-none"></div>
+        <div class="flex items-center gap-3 text-cyan-400 text-xs font-mono font-bold uppercase tracking-wider mb-3">
+          <i class="fa-solid fa-flag-checkered"></i> Meta Estratégica Principal (2026)
+        </div>
+        <h3 class="text-xl sm:text-2xl font-bold font-display text-white mb-4 leading-snug">
+          "Diseñar e implementar <span class="text-cyan-300">4 soluciones corporativas</span> de automatización, digitalización y gestión de procesos con trazabilidad en la <span class="text-emerald-300">Firma Chapman Wilches</span>, liderar la <span class="text-cyan-300">repotenciación de servidores</span> y avanzar en los <span class="text-emerald-300">3 ciclos propedéuticos</span> de Ingeniería de Sistemas con dominio ético de la IA."
+        </h3>
+        <p class="text-sm sm:text-base text-slate-300 font-normal leading-relaxed">
+          Esta meta transforma el autoconocimiento en ejecución tangible: une mi rol como estudiante CUNista con la práctica profesional real, aportando soluciones donde antes había cuellos de botella en papel y procesos manuales.
+        </p>
+      </div>
+
+      <!-- Grid de Metodología SMART (S - M - A - R - T) -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4 mb-16">
+        
+        <!-- S: Específico -->
+        <div class="glass-panel p-5 rounded-2xl border border-slate-800 hover-card-glow relative flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between mb-4">
+              <span class="w-10 h-10 rounded-xl bg-cyan-500/10 border border-cyan-500/30 flex items-center justify-center text-cyan-300 font-display font-black text-lg">
+                S
+              </span>
+              <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-cyan-500/10 text-cyan-300 border border-cyan-500/20">
+                Específico
+              </span>
+            </div>
+            <h4 class="text-base font-bold font-display text-white mb-2">¿Qué quiero lograr?</h4>
+            <p class="text-xs text-slate-300 leading-relaxed">
+              Diseñar 4 herramientas de automatización y trazabilidad para la firma donde laboro, liderar la modernización de sus servidores y superar cada ciclo propedéutico en la CUN.
+            </p>
+          </div>
+          <div class="mt-4 pt-3 border-t border-slate-800/80 text-[11px] font-mono text-cyan-400 flex items-center gap-1.5">
+            <i class="fa-solid fa-code-commit text-[10px]"></i> Alcance Definido
+          </div>
+        </div>
+
+        <!-- M: Medible -->
+        <div class="glass-panel p-5 rounded-2xl border border-slate-800 hover-card-glow relative flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between mb-4">
+              <span class="w-10 h-10 rounded-xl bg-emerald-500/10 border border-emerald-500/30 flex items-center justify-center text-emerald-300 font-display font-black text-lg">
+                M
+              </span>
+              <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-emerald-500/10 text-emerald-300 border border-emerald-500/20">
+                Medible
+              </span>
+            </div>
+            <h4 class="text-base font-bold font-display text-white mb-2">¿Cómo medir el éxito?</h4>
+            <p class="text-xs text-slate-300 leading-relaxed">
+              <strong>4 herramientas</strong> en producción, 100% de trazabilidad auditable en documentos firmados, cero pérdida documental y reportes de rendimiento de servidores.
+            </p>
+          </div>
+          <div class="mt-4 pt-3 border-t border-slate-800/80 text-[11px] font-mono text-emerald-400 flex items-center gap-1.5">
+            <i class="fa-solid fa-chart-simple text-[10px]"></i> Métricas Claras
+          </div>
+        </div>
+
+        <!-- A: Alcanzable -->
+        <div class="glass-panel p-5 rounded-2xl border border-slate-800 hover-card-glow relative flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between mb-4">
+              <span class="w-10 h-10 rounded-xl bg-cyan-500/10 border border-cyan-500/30 flex items-center justify-center text-cyan-300 font-display font-black text-lg">
+                A
+              </span>
+              <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-cyan-500/10 text-cyan-300 border border-cyan-500/20">
+                Alcanzable
+              </span>
+            </div>
+            <h4 class="text-base font-bold font-display text-white mb-2">¿Es realista?</h4>
+            <p class="text-xs text-slate-300 leading-relaxed">
+              Sí. Cuento con acceso directo a la infraestructura de la empresa, respaldo académico de la CUN, habilidades en lógica y apoyo en IA para optimizar código.
+            </p>
+          </div>
+          <div class="mt-4 pt-3 border-t border-slate-800/80 text-[11px] font-mono text-cyan-400 flex items-center gap-1.5">
+            <i class="fa-solid fa-handshake-angle text-[10px]"></i> Factible & Viable
+          </div>
+        </div>
+
+        <!-- R: Relevante -->
+        <div class="glass-panel p-5 rounded-2xl border border-slate-800 hover-card-glow relative flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between mb-4">
+              <span class="w-10 h-10 rounded-xl bg-emerald-500/10 border border-emerald-500/30 flex items-center justify-center text-emerald-300 font-display font-black text-lg">
+                R
+              </span>
+              <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-emerald-500/10 text-emerald-300 border border-emerald-500/20">
+                Relevante
+              </span>
+            </div>
+            <h4 class="text-base font-bold font-display text-white mb-2">¿Por qué importa?</h4>
+            <p class="text-xs text-slate-300 leading-relaxed">
+              Genera un valor agregado directo en mi empleo actual, elimina ineficiencias de años y me consolida como un líder tecnológico proactivo y confiable.
+            </p>
+          </div>
+          <div class="mt-4 pt-3 border-t border-slate-800/80 text-[11px] font-mono text-emerald-400 flex items-center gap-1.5">
+            <i class="fa-solid fa-trophy text-[10px]"></i> Alto Impacto
+          </div>
+        </div>
+
+        <!-- T: Temporal -->
+        <div class="glass-panel p-5 rounded-2xl border border-slate-800 hover-card-glow relative flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between mb-4">
+              <span class="w-10 h-10 rounded-xl bg-cyan-500/10 border border-cyan-500/30 flex items-center justify-center text-cyan-300 font-display font-black text-lg">
+                T
+              </span>
+              <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-cyan-500/10 text-cyan-300 border border-cyan-500/20">
+                Temporal
+              </span>
+            </div>
+            <h4 class="text-base font-bold font-display text-white mb-2">¿En qué tiempo?</h4>
+            <p class="text-xs text-slate-300 leading-relaxed">
+              Cronograma de <strong>6 a 12 meses</strong> con sprints trimestrales de entrega de software y cumplimiento semestral de ciclos propedéuticos.
+            </p>
+          </div>
+          <div class="mt-4 pt-3 border-t border-slate-800/80 text-[11px] font-mono text-cyan-400 flex items-center gap-1.5">
+            <i class="fa-solid fa-calendar-check text-[10px]"></i> 6 - 12 Meses
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Los 3 Pilares de Acción de Kike Junior -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        
+        <div class="glass-panel p-6 rounded-2xl border border-cyan-500/20 bg-slate-900/50 hover-card-glow">
+          <div class="w-12 h-12 rounded-xl bg-cyan-500/10 border border-cyan-500/30 flex items-center justify-center text-cyan-400 text-xl mb-4">
+            <i class="fa-solid fa-gears"></i>
+          </div>
+          <div class="text-xs font-mono text-cyan-400 mb-1 font-semibold">PILAR 01</div>
+          <h4 class="text-lg font-bold font-display text-white mb-2">4 Soluciones de Software</h4>
+          <p class="text-xs sm:text-sm text-slate-300 leading-relaxed">
+            Digitalización, automatización de flujos y trazabilidad en tiempo real en la firma de abogados Chapman Wilches, sustituyendo procesos manuales lentos.
+          </p>
+        </div>
+
+        <div class="glass-panel p-6 rounded-2xl border border-emerald-500/20 bg-slate-900/50 hover-card-glow">
+          <div class="w-12 h-12 rounded-xl bg-emerald-500/10 border border-emerald-500/30 flex items-center justify-center text-emerald-400 text-xl mb-4">
+            <i class="fa-solid fa-server"></i>
+          </div>
+          <div class="text-xs font-mono text-emerald-400 mb-1 font-semibold">PILAR 02</div>
+          <h4 class="text-lg font-bold font-display text-white mb-2">Repotenciación de Servidores</h4>
+          <p class="text-xs sm:text-sm text-slate-300 leading-relaxed">
+            Liderazgo en la actualización de infraestructura física y lógica de servidores, garantizando alta disponibilidad, seguridad y velocidad de respuesta.
+          </p>
+        </div>
+
+        <div class="glass-panel p-6 rounded-2xl border border-cyan-500/20 bg-slate-900/50 hover-card-glow">
+          <div class="w-12 h-12 rounded-xl bg-cyan-500/10 border border-cyan-500/30 flex items-center justify-center text-cyan-400 text-xl mb-4">
+            <i class="fa-solid fa-graduation-cap"></i>
+          </div>
+          <div class="text-xs font-mono text-cyan-400 mb-1 font-semibold">PILAR 03</div>
+          <h4 class="text-lg font-bold font-display text-white mb-2">3 Ciclos CUN & Prácticas de IA</h4>
+          <p class="text-xs sm:text-sm text-slate-300 leading-relaxed">
+            Culminación secuencial de los ciclos Técnico, Tecnólogo y Profesional, complementado con especialización constante en uso ético de IA Generativa.
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ========================================================================= -->
+  <!-- 3. FASE 03: PLANEACIÓN ESTRATÉGICA EXTERNA (BUYER PERSONA)                -->
+  <!-- ========================================================================= -->
+  <section id="fase-publico" class="py-20 relative border-t border-slate-800/80 bg-slate-950/90">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <!-- Encabezado de la Sección -->
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-300 font-mono text-xs font-semibold uppercase tracking-wider mb-4">
+          <i class="fa-solid fa-users text-emerald-400"></i>
+          Fase 03 • Planeación Estratégica Externa
+        </div>
+        <h2 class="text-3xl sm:text-4xl lg:text-5xl font-black font-display text-white tracking-tight mb-4">
+          Mi Público Ideal & <span class="text-gradient-cyan-emerald">Buyer Persona</span>
+        </h2>
+        <p class="text-base sm:text-lg text-slate-300 font-normal leading-relaxed">
+          ¿A quién le hablo y qué problema resuelvo? La tecnología solo es valiosa cuando transforma realidades concretas: desde la alta dirección corporativa hasta el bienestar cotidiano de quienes más amo.
+        </p>
+      </div>
+
+      <!-- Selector de Perfil (Tabs de Buyer Persona) -->
+      <div class="flex items-center justify-center gap-3 mb-10">
+        <button id="btnBuyerMirna"
+                type="button"
+                onclick="switchBuyerPersona('mirna')"
+                class="px-5 py-2.5 rounded-xl text-xs sm:text-sm font-bold font-display transition-all duration-300 flex items-center gap-2 bg-gradient-to-r from-cyan-500/20 to-emerald-500/20 text-white border border-cyan-500/50 shadow-md">
+          <i class="fa-solid fa-building-columns text-cyan-400"></i>
+          <span>Perfil Corporativo: Dra. Mirna Wilches</span>
+          <span class="text-[10px] font-mono px-1.5 py-0.5 rounded bg-cyan-500/20 text-cyan-300 ml-1">Chapman Wilches</span>
+        </button>
+
+        <button id="btnBuyerClaudia"
+                type="button"
+                onclick="switchBuyerPersona('claudia')"
+                class="px-5 py-2.5 rounded-xl text-xs sm:text-sm font-medium font-display transition-all duration-300 flex items-center gap-2 text-slate-400 hover:text-slate-200 hover:bg-slate-900 border border-slate-800">
+          <i class="fa-solid fa-heart-pulse text-slate-400"></i>
+          <span>Perfil Familiar: Claudia Villalobos</span>
+          <span class="text-[10px] font-mono px-1.5 py-0.5 rounded bg-slate-800 text-slate-400 ml-1">Mamá & Bienestar</span>
+        </button>
+      </div>
+
+      <!-- ===================================================================== -->
+      <!-- BUYER PERSONA 1: MIRNA WILCHES (CORPORATIVO)                         -->
+      <!-- ===================================================================== -->
+      <div id="contentBuyerMirna" class="transition-opacity duration-300">
+        <div class="glass-panel-glow p-6 sm:p-8 rounded-3xl border border-cyan-500/30 shadow-2xl">
+          
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+            
+            <!-- Columna Izquierda: Ficha de Perfil -->
+            <div class="lg:col-span-4 bg-slate-900/80 p-6 rounded-2xl border border-slate-800 text-center flex flex-col items-center">
+              
+              <div class="w-24 h-24 rounded-2xl bg-gradient-to-tr from-cyan-500/20 via-slate-800 to-emerald-500/20 border-2 border-cyan-500/40 flex items-center justify-center text-cyan-400 text-3xl font-display font-black mb-4 shadow-lg shadow-cyan-500/10">
+                MW
+              </div>
+
+              <h3 class="text-xl font-bold font-display text-white">Dra. Mirna Wilches</h3>
+              <p class="text-xs font-mono text-cyan-400 font-semibold mb-1">Representante Legal & Socia Directora</p>
+              <p class="text-xs text-slate-400 mb-4">Firma de Abogados CHAPMAN WILCHES</p>
+
+              <div class="w-full text-left space-y-2.5 border-t border-slate-800 pt-4 text-xs font-mono">
+                <div class="flex justify-between text-slate-300">
+                  <span class="text-slate-400">Sector:</span>
+                  <span class="text-white font-bold">Jurídico / Litigio</span>
+                </div>
+                <div class="flex justify-between text-slate-300">
+                  <span class="text-slate-400">Ubicación:</span>
+                  <span class="text-white">Bogotá / Barranquilla</span>
+                </div>
+                <div class="flex justify-between text-slate-300">
+                  <span class="text-slate-400">Prioridad:</span>
+                  <span class="text-emerald-400 font-semibold">Seguridad Jurídica</span>
+                </div>
+                <div class="flex justify-between text-slate-300">
+                  <span class="text-slate-400">Canales:</span>
+                  <span class="text-slate-300">Mail Corp, LinkedIn, ERP</span>
+                </div>
+              </div>
+
+              <div class="mt-6 w-full p-3 rounded-xl bg-cyan-950/30 border border-cyan-500/20 text-left">
+                <p class="text-[11px] font-mono text-cyan-300 leading-relaxed">
+                  <i class="fa-solid fa-quote-left mr-1"></i>"En el litigio legal no hay margen de error: cada documento requiere firma válida, tiempo exacto y trazabilidad indudable."
+                </p>
+              </div>
+
+            </div>
+
+            <!-- Columna Derecha: Dolor Crítico y Solución de Kike -->
+            <div class="lg:col-span-8 flex flex-col gap-6">
+              
+              <!-- El Dolor Crítico -->
+              <div class="p-5 rounded-2xl bg-red-950/20 border border-red-500/30 relative">
+                <div class="flex items-center gap-2 text-red-400 text-xs font-mono font-bold uppercase tracking-wider mb-2">
+                  <i class="fa-solid fa-triangle-exclamation"></i> Dolor Principal Identificado
+                </div>
+                <h4 class="text-lg font-bold font-display text-white mb-2">
+                  Firma manual de documentos a papel y lápiz
+                </h4>
+                <p class="text-sm text-slate-300 leading-relaxed font-normal">
+                  La firma manuscrita tradicional genera demoras en la radicación de memoriales, riesgo de extravío físico, desplazamientos innecesarios y una falta crítica de trazabilidad centralizada para saber en qué estado se encuentra cada documento.
+                </p>
+              </div>
+
+              <!-- Solución de Kike Junior -->
+              <div class="p-6 rounded-2xl bg-emerald-950/20 border border-emerald-500/40 relative">
+                <div class="flex items-center gap-2 text-emerald-400 text-xs font-mono font-bold uppercase tracking-wider mb-2">
+                  <i class="fa-solid fa-lightbulb"></i> Solución Desarrollada por Kike Junior
+                </div>
+                <h4 class="text-xl font-bold font-display text-white mb-3">
+                  App de Firma Digital Certificada con Trazabilidad Integral
+                </h4>
+                <p class="text-sm text-slate-300 leading-relaxed mb-4">
+                  Plataforma web/móvil corporativa que elimina el papel permitiendo firmar documentos con certificado digital válido y registro cronológico inmutable, dotada con una matriz de decisión procesal:
+                </p>
+
+                <!-- Matriz de opciones de firma -->
+                <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+                  <div class="p-3.5 rounded-xl bg-slate-900/90 border border-emerald-500/30 text-left">
+                    <span class="text-emerald-400 font-bold text-xs flex items-center gap-1.5 mb-1 font-mono">
+                      <i class="fa-solid fa-check-circle"></i> APROBACIÓN
+                    </span>
+                    <p class="text-[11px] text-slate-300">Firma inmediata con certificado y emisión de notificación a las partes.</p>
+                  </div>
+
+                  <div class="p-3.5 rounded-xl bg-slate-900/90 border border-amber-500/30 text-left">
+                    <span class="text-amber-400 font-bold text-xs flex items-center gap-1.5 mb-1 font-mono">
+                      <i class="fa-solid fa-circle-pause"></i> SUSPENSIÓN
+                    </span>
+                    <p class="text-[11px] text-slate-300">Pausa justificada a la espera de anexos o subsanación documental.</p>
+                  </div>
+
+                  <div class="p-3.5 rounded-xl bg-slate-900/90 border border-red-500/30 text-left">
+                    <span class="text-red-400 font-bold text-xs flex items-center gap-1.5 mb-1 font-mono">
+                      <i class="fa-solid fa-ban"></i> ABSTENCIÓN
+                    </span>
+                    <p class="text-[11px] text-slate-300">Rechazo fundamentado con constancia legal para archivo de auditoría.</p>
+                  </div>
+                </div>
+
+              </div>
+
+              <!-- Mapa de Empatía Rápido -->
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs">
+                <div class="p-3.5 rounded-xl bg-slate-900/60 border border-slate-800">
+                  <span class="text-cyan-400 font-mono font-bold block mb-1">¿QUÉ PIENSA Y SIENTE?</span>
+                  <p class="text-slate-300 leading-snug">Exige rigor y confidencialidad. Valora la tranquilidad de saber que ningún proceso se vencerá por falta de una firma.</p>
+                </div>
+                <div class="p-3.5 rounded-xl bg-slate-900/60 border border-slate-800">
+                  <span class="text-cyan-400 font-mono font-bold block mb-1">¿QUÉ DICE Y HACE?</span>
+                  <p class="text-slate-300 leading-snug">Lidera equipos de alto rendimiento y promueve activamente la modernización tecnológica segura.</p>
+                </div>
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+
+      <!-- ===================================================================== -->
+      <!-- BUYER PERSONA 2: CLAUDIA VILLALOBOS (FAMILIAR / BIENESTAR)           -->
+      <!-- ===================================================================== -->
+      <div id="contentBuyerClaudia" class="hidden transition-opacity duration-300">
+        <div class="glass-panel-glow p-6 sm:p-8 rounded-3xl border border-emerald-500/30 shadow-2xl">
+          
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+            
+            <!-- Columna Izquierda: Ficha de Perfil -->
+            <div class="lg:col-span-4 bg-slate-900/80 p-6 rounded-2xl border border-slate-800 text-center flex flex-col items-center">
+              
+              <div class="w-24 h-24 rounded-2xl bg-gradient-to-tr from-emerald-500/20 via-slate-800 to-cyan-500/20 border-2 border-emerald-500/40 flex items-center justify-center text-emerald-400 text-3xl font-display font-black mb-4 shadow-lg shadow-emerald-500/10">
+                CV
+              </div>
+
+              <h3 class="text-xl font-bold font-display text-white">Claudia Villalobos</h3>
+              <p class="text-xs font-mono text-emerald-400 font-semibold mb-1">Mi Mamá & Administradora del Hogar</p>
+              <p class="text-xs text-slate-400 mb-4">Pilar del Bienestar Familiar</p>
+
+              <div class="w-full text-left space-y-2.5 border-t border-slate-800 pt-4 text-xs font-mono">
+                <div class="flex justify-between text-slate-300">
+                  <span class="text-slate-400">Rol:</span>
+                  <span class="text-white font-bold">Gestión del Hogar</span>
+                </div>
+                <div class="flex justify-between text-slate-300">
+                  <span class="text-slate-400">Interés:</span>
+                  <span class="text-white">Salud & Cocina Sana</span>
+                </div>
+                <div class="flex justify-between text-slate-300">
+                  <span class="text-slate-400">Prioridad:</span>
+                  <span class="text-emerald-400 font-semibold">Salud Familiar</span>
+                </div>
+                <div class="flex justify-between text-slate-300">
+                  <span class="text-slate-400">Canales:</span>
+                  <span class="text-slate-300">WhatsApp, YouTube, Móvil</span>
+                </div>
+              </div>
+
+              <div class="mt-6 w-full p-3 rounded-xl bg-emerald-950/30 border border-emerald-500/20 text-left">
+                <p class="text-[11px] font-mono text-emerald-300 leading-relaxed">
+                  <i class="fa-solid fa-quote-left mr-1"></i>"Quiero cuidar a mi familia con comidas deliciosas y saludables, sin desperdiciar alimentos y viendo cómo mejoramos juntos día a día."
+                </p>
+              </div>
+
+            </div>
+
+            <!-- Columna Derecha: Dolor Crítico y Solución de Kike -->
+            <div class="lg:col-span-8 flex flex-col gap-6">
+              
+              <!-- El Dolor Crítico -->
+              <div class="p-5 rounded-2xl bg-amber-950/20 border border-amber-500/30 relative">
+                <div class="flex items-center gap-2 text-amber-400 text-xs font-mono font-bold uppercase tracking-wider mb-2">
+                  <i class="fa-solid fa-triangle-exclamation"></i> Dolor Principal Identificado
+                </div>
+                <h4 class="text-lg font-bold font-display text-white mb-2">
+                  Gestión y planificación de cocina saludable sin control
+                </h4>
+                <p class="text-sm text-slate-300 leading-relaxed font-normal">
+                  La rutina diaria dificulta innovar en recetas nutritivas, se compran ingredientes duplicados o se vencen en la despensa, y no existe una forma clara de evaluar si la alimentación saludable está dando frutos a lo largo del tiempo.
+                </p>
+              </div>
+
+              <!-- Solución de Kike Junior -->
+              <div class="p-6 rounded-2xl bg-cyan-950/20 border border-cyan-500/40 relative">
+                <div class="flex items-center gap-2 text-cyan-400 text-xs font-mono font-bold uppercase tracking-wider mb-2">
+                  <i class="fa-solid fa-lightbulb"></i> Solución Diseñada por Kike Junior
+                </div>
+                <h4 class="text-xl font-bold font-display text-white mb-3">
+                  NutriTrack Home App: Recetas, Despensa & Analítica Familiar
+                </h4>
+                <p class="text-sm text-slate-300 leading-relaxed mb-4">
+                  Aplicación intuitiva diseñada para el bienestar del hogar con tres módulos complementarios que transforman la cocina en una experiencia inteligente:
+                </p>
+
+                <!-- Matriz de opciones de la app -->
+                <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+                  <div class="p-3.5 rounded-xl bg-slate-900/90 border border-cyan-500/30 text-left">
+                    <span class="text-cyan-400 font-bold text-xs flex items-center gap-1.5 mb-1 font-mono">
+                      <i class="fa-solid fa-utensils"></i> RECETARIO INTELIGENTE
+                    </span>
+                    <p class="text-[11px] text-slate-300">Sugerencias saludables basadas en lo que ya está en la despensa.</p>
+                  </div>
+
+                  <div class="p-3.5 rounded-xl bg-slate-900/90 border border-emerald-500/30 text-left">
+                    <span class="text-emerald-400 font-bold text-xs flex items-center gap-1.5 mb-1 font-mono">
+                      <i class="fa-solid fa-boxes-stacked"></i> CONTROL DE DESPENSA
+                    </span>
+                    <p class="text-[11px] text-slate-300">Histórico de stock para evitar compras duplicadas o caducidad.</p>
+                  </div>
+
+                  <div class="p-3.5 rounded-xl bg-slate-900/90 border border-purple-500/30 text-left">
+                    <span class="text-purple-400 font-bold text-xs flex items-center gap-1.5 mb-1 font-mono">
+                      <i class="fa-solid fa-chart-line"></i> GRÁFICAS DE AVANCE
+                    </span>
+                    <p class="text-[11px] text-slate-300">Métricas visuales de balance nutricional y progreso a lo largo de las semanas.</p>
+                  </div>
+                </div>
+
+              </div>
+
+              <!-- Conclusión del perfil -->
+              <div class="p-4 rounded-xl bg-slate-900/60 border border-slate-800 text-xs text-slate-300 flex items-center gap-3">
+                <i class="fa-solid fa-heart text-emerald-400 text-lg"></i>
+                <span><strong>Impacto Humano de la Marca Personal:</strong> Demuestra que la ingeniería de sistemas no se limita al ámbito B2B corporativo, sino que tiene la empatía y sensibilidad para mejorar la calidad de vida de las personas más cercanas.</span>
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ========================================================================= -->
+  <!-- 4. FASE 04: PROMESA DE VALOR & METODOLOGÍA BANG                           -->
+  <!-- ========================================================================= -->
+  <section id="fase-promesa-bang" class="py-20 relative border-t border-slate-800/80 bg-slate-950/60">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <!-- Encabezado de la Sección -->
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-amber-500/10 border border-amber-500/30 text-amber-300 font-mono text-xs font-semibold uppercase tracking-wider mb-4">
+          <i class="fa-solid fa-bolt text-amber-400"></i>
+          Fase 04 • Valor & Creatividad BANG
+        </div>
+        <h2 class="text-3xl sm:text-4xl lg:text-5xl font-black font-display text-white tracking-tight mb-4">
+          Promesa de Valor & <span class="text-gradient-cyan-emerald">Metodología BANG</span>
+        </h2>
+        <p class="text-base sm:text-lg text-slate-300 font-normal leading-relaxed">
+          Mi propuesta de valor irrepetible según la fórmula CUN y la activación del pensamiento divergente para resolver problemas mediante la innovación estructurada.
+        </p>
+      </div>
+
+      <!-- ===================================================================== -->
+      <!-- A) PROMESA DE VALOR OFICIAL (FÓRMULA CUN)                             -->
+      <!-- ===================================================================== -->
+      <div class="glass-panel-glow p-6 sm:p-10 rounded-3xl border border-cyan-500/30 mb-16 relative overflow-hidden">
+        
+        <div class="flex items-center justify-between flex-wrap gap-3 mb-6">
+          <span class="text-xs font-mono px-3 py-1 rounded-full bg-cyan-500/20 text-cyan-300 border border-cyan-500/30 font-bold uppercase">
+            <i class="fa-solid fa-gem mr-1"></i> Fórmula Oficial CUN • Propuesta de Valor
+          </span>
+          <span class="text-xs font-mono text-slate-400">
+            Sello Único & Factor Diferenciador
+          </span>
+        </div>
+
+        <!-- Declaración de la Promesa -->
+        <blockquote class="text-lg sm:text-2xl lg:text-3xl font-bold font-display text-white leading-relaxed mb-8">
+          "Yo, <span class="text-cyan-300">Aldair Enrique Camargo (Kike Junior)</span>, sé <span class="text-emerald-300">estructurar, desarrollar y automatizar soluciones tecnológicas</span>, para <span class="text-cyan-300">equipos de desarrollo y organizaciones que buscan eficiencia y orden</span>, con <span class="text-emerald-300">la visión estratégica, agilidad mental y liderazgo colaborativo de un colocador en la cancha de voleibol</span>."
+        </blockquote>
+
+        <!-- Desglose de los 4 Elementos de la Fórmula -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 pt-6 border-t border-slate-800">
+          
+          <div class="p-3.5 rounded-xl bg-slate-900/60 border border-slate-800">
+            <span class="text-[10px] font-mono uppercase text-cyan-400 font-bold block mb-1">1. YO (IDENTIDAD)</span>
+            <p class="text-xs text-slate-300 font-semibold">Aldair Enrique Camargo (Kike Junior), CUNista y armador deportivo.</p>
+          </div>
+
+          <div class="p-3.5 rounded-xl bg-slate-900/60 border border-slate-800">
+            <span class="text-[10px] font-mono uppercase text-emerald-400 font-bold block mb-1">2. SÉ HACER (COMPETENCIA)</span>
+            <p class="text-xs text-slate-300 font-semibold">Automatizar procesos, digitalizar operaciones y crear software con trazabilidad.</p>
+          </div>
+
+          <div class="p-3.5 rounded-xl bg-slate-900/60 border border-slate-800">
+            <span class="text-[10px] font-mono uppercase text-cyan-400 font-bold block mb-1">3. PARA (PÚBLICO)</span>
+            <p class="text-xs text-slate-300 font-semibold">Firmas corporativas (Chapman Wilches), equipos técnicos y proyectos que demandan orden.</p>
+          </div>
+
+          <div class="p-3.5 rounded-xl bg-slate-900/60 border border-slate-800">
+            <span class="text-[10px] font-mono uppercase text-emerald-400 font-bold block mb-1">4. CON (DIFERENCIADOR)</span>
+            <p class="text-xs text-slate-300 font-semibold">La agilidad mental, precisión de pase y visión de juego de un colocador de voleibol.</p>
+          </div>
+
+        </div>
+
+      </div>
+
+      <!-- ===================================================================== -->
+      <!-- B) PENSAMIENTO CREATIVO: METODOLOGÍA BANG                              -->
+      <!-- ===================================================================== -->
+      <div class="glass-panel p-6 sm:p-10 rounded-3xl border border-slate-800 shadow-2xl">
+        
+        <div class="flex items-center gap-3 mb-8">
+          <span class="w-10 h-10 rounded-xl bg-amber-500/10 border border-amber-500/30 flex items-center justify-center text-amber-400 font-display font-black text-lg">
+            💥
+          </span>
+          <div>
+            <h3 class="text-xl sm:text-2xl font-bold font-display text-white">
+              Herramienta BANG • Activa tu Creatividad
+            </h3>
+            <p class="text-xs font-mono text-slate-400">
+              Metodología CUN de Innovación & Pensamiento Divergente
+            </p>
+          </div>
+        </div>
+
+        <!-- Stepper de 5 Pasos BANG -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-10">
+          
+          <div class="p-4 rounded-xl bg-slate-900/80 border border-slate-800">
+            <div class="flex items-center justify-between text-xs font-mono text-amber-400 mb-2 font-bold">
+              <span>PASO 01</span>
+              <i class="fa-solid fa-circle-question"></i>
+            </div>
+            <h4 class="text-sm font-bold text-white mb-1">Problema Seleccionado</h4>
+            <p class="text-xs text-slate-300">
+              Firma física manual a papel y lápiz en la firma legal: lentitud, desorden y falta de trazabilidad.
+            </p>
+          </div>
+
+          <div class="p-4 rounded-xl bg-slate-900/80 border border-slate-800">
+            <div class="flex items-center justify-between text-xs font-mono text-emerald-400 mb-2 font-bold">
+              <span>PASO 02</span>
+              <i class="fa-solid fa-shield-halved"></i>
+            </div>
+            <h4 class="text-sm font-bold text-white mb-1">Necesidad de Maslow</h4>
+            <p class="text-xs text-slate-300">
+              <strong class="text-emerald-300">Necesidades de Seguridad:</strong> Seguridad jurídica, protección de datos y confiabilidad procesal.
+            </p>
+          </div>
+
+          <div class="p-4 rounded-xl bg-slate-900/80 border border-slate-800">
+            <div class="flex items-center justify-between text-xs font-mono text-cyan-400 mb-2 font-bold">
+              <span>PASO 03</span>
+              <i class="fa-solid fa-user-ninja"></i>
+            </div>
+            <h4 class="text-sm font-bold text-white mb-1">Guía de Innovación</h4>
+            <p class="text-xs text-slate-300">
+              <strong class="text-cyan-300">Cesia</strong> (Guía de la Certeza, Blindaje de Procesos y Estructura Segura).
+            </p>
+          </div>
+
+          <div class="p-4 rounded-xl bg-slate-900/80 border border-slate-800">
+            <div class="flex items-center justify-between text-xs font-mono text-amber-400 mb-2 font-bold">
+              <span>PASO 04</span>
+              <i class="fa-solid fa-clone"></i>
+            </div>
+            <h4 class="text-sm font-bold text-white mb-1">Tarjeta Space BANG</h4>
+            <p class="text-xs text-slate-300 italic">
+              "Rompe los Miedos: Si eliminas la fricción operativa, creas confianza indestructible."
+            </p>
+          </div>
+
+        </div>
+
+        <!-- Paso 5: Las 5 Ideas Divergentes -->
+        <div class="mb-10">
+          <h4 class="text-sm font-mono uppercase tracking-wider text-cyan-400 font-bold mb-4 flex items-center gap-2">
+            <i class="fa-solid fa-lightbulb"></i> Paso 5: Listado de 5 Ideas Divergentes
+          </h4>
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-3">
+            <div class="p-3 rounded-xl bg-slate-950/80 border border-slate-800/90 text-xs text-slate-300">
+              <span class="text-cyan-400 font-mono font-bold block mb-1">01. Clic Criptográfico</span>
+              Firma certificada en 1 toque con token biométrico desde celular o PC.
+            </div>
+            <div class="p-3 rounded-xl bg-slate-950/80 border border-slate-800/90 text-xs text-slate-300">
+              <span class="text-emerald-400 font-mono font-bold block mb-1">02. Matriz Semáforo</span>
+              Opciones inmediatas de Aprobación, Suspensión y Abstención motivada.
+            </div>
+            <div class="p-3 rounded-xl bg-slate-950/80 border border-slate-800/90 text-xs text-slate-300">
+              <span class="text-cyan-400 font-mono font-bold block mb-1">03. Auditoría Blockchain</span>
+              Timeline inmutable con sellos de tiempo legales para cada radicado.
+            </div>
+            <div class="p-3 rounded-xl bg-slate-950/80 border border-slate-800/90 text-xs text-slate-300">
+              <span class="text-amber-400 font-mono font-bold block mb-1">04. Alertas Tácticas</span>
+              Notificaciones push automáticas a socios para evitar vencimientos.
+            </div>
+            <div class="p-3 rounded-xl bg-slate-950/80 border border-slate-800/90 text-xs text-slate-300">
+              <span class="text-emerald-400 font-mono font-bold block mb-1">05. Cero Papel Total</span>
+              Ahorro de resmas, archivo encriptado en la nube y búsqueda instantánea.
+            </div>
+          </div>
+        </div>
+
+        <!-- Acción Innovadora Concreta (Resultado) -->
+        <div class="p-6 rounded-2xl bg-gradient-to-r from-cyan-950/40 via-slate-900 to-emerald-950/40 border border-cyan-500/40 relative">
+          <div class="flex items-center gap-2 text-cyan-300 text-xs font-mono font-bold uppercase tracking-wider mb-2">
+            <i class="fa-solid fa-rocket"></i> Acción Innovadora Concreta
+          </div>
+          <h4 class="text-xl font-bold font-display text-white mb-2">
+            "LegalSign & Track 360: De la Cancha al Código"
+          </h4>
+          <p class="text-xs sm:text-sm text-slate-300 leading-relaxed">
+            Creación e integración de una solución de software propia que centraliza la solicitud, suscripción certificada y auditoría de documentos corporativos en la firma Chapman Wilches. Sustituye el 100% de la fricción a papel y lápiz, aportando un semáforo de decisiones (Aprobar, Suspender, Abstener) y trazabilidad jurídica total como valor agregado generado por Kike Junior.
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ========================================================================= -->
+  <!-- 5. FASE 05: PITCH VISUAL & EVIDENCIA ÉTICA DE IA GENERATIVA              -->
+  <!-- ========================================================================= -->
+  <section id="fase-pitch-ia" class="py-20 relative border-t border-slate-800/80 bg-slate-950/80">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <!-- Encabezado de la Sección -->
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-300 font-mono text-xs font-semibold uppercase tracking-wider mb-4">
+          <i class="fa-solid fa-wand-magic-sparkles text-emerald-400"></i>
+          Fase 05 • Comunicación Estratégica & Ética
+        </div>
+        <h2 class="text-3xl sm:text-4xl lg:text-5xl font-black font-display text-white tracking-tight mb-4">
+          Pitch Visual & <span class="text-gradient-cyan-emerald">Evidencia de IA</span>
+        </h2>
+        <p class="text-base sm:text-lg text-slate-300 font-normal leading-relaxed">
+          Síntesis gráfica memorable de mi Marca Personal y cumplimiento estricto del uso ético, transparente y crítico de la Inteligencia Artificial (Gemini) según la guía de la CUN.
+        </p>
+      </div>
+
+      <!-- ===================================================================== -->
+      <!-- A) PITCH VISUAL EJECUTIVO (INFOGRAFÍA DE IMPACTO)                     -->
+      <!-- ===================================================================== -->
+      <div class="glass-panel-glow p-6 sm:p-10 rounded-3xl border border-cyan-500/30 mb-16 shadow-2xl relative overflow-hidden">
+        
+        <div class="flex items-center justify-between flex-wrap gap-4 mb-8">
+          <div class="flex items-center gap-3">
+            <span class="w-10 h-10 rounded-xl bg-cyan-500/20 text-cyan-300 flex items-center justify-center font-display font-bold text-lg border border-cyan-500/30">
+              KJ
+            </span>
+            <div>
+              <h3 class="text-xl sm:text-2xl font-bold font-display text-white">
+                Pitch Visual • Kike Junior
+              </h3>
+              <p class="text-xs font-mono text-cyan-400">
+                Colocador en la Cancha • Tech Lead en el Código
+              </p>
+            </div>
+          </div>
+          <span class="text-xs font-mono px-3 py-1 rounded-full bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 font-bold">
+            Síntesis Ejecutiva ACA
+          </span>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center mb-8">
+          
+          <!-- Foto / Avatar Profesional con badge táctico -->
+          <div class="lg:col-span-4 flex flex-col items-center">
+            <div class="relative w-48 h-48 sm:w-56 sm:h-56 rounded-3xl overflow-hidden border-2 border-cyan-500/50 shadow-2xl shadow-cyan-500/20 mb-4 group cursor-pointer"
+                 onclick="openImageModal('assets/kike_profile_tech.jpg', 'Kike Junior • Fotografía Profesional')">
+              <img src="assets/kike_profile_tech.jpg" alt="Kike Junior" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+              <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-transparent opacity-60"></div>
+              <div class="absolute bottom-3 left-3 right-3 text-center">
+                <span class="text-[11px] font-mono text-cyan-300 bg-slate-950/80 px-2.5 py-1 rounded-lg border border-cyan-500/30">
+                  <i class="fa-solid fa-volleyball mr-1 text-emerald-400"></i> Setter & Dev
+                </span>
+              </div>
+            </div>
+            <p class="text-xs font-mono text-slate-400 text-center">
+              Aldair Enrique Camargo Villalobos<br>
+              <span class="text-cyan-400">Ingeniería de Sistemas • CUN</span>
+            </p>
+          </div>
+
+          <!-- Mensaje Persuasivo del Pitch -->
+          <div class="lg:col-span-8 flex flex-col gap-4 text-left">
+            
+            <div class="p-6 rounded-2xl bg-slate-900/90 border border-cyan-500/30 relative">
+              <div class="text-xs font-mono uppercase tracking-wider text-cyan-400 font-bold mb-2 flex items-center gap-2">
+                <i class="fa-solid fa-microphone-lines"></i> El Pitch Personal Persuasivo
+              </div>
+              <p class="text-base sm:text-xl text-slate-100 font-medium leading-relaxed italic">
+                "En la cancha de voleibol, el colocador no busca el aplauso del remate: construye la jugada perfecta para que todo el equipo gane. En la ingeniería de sistemas aplico exactamente la misma filosofía: tomo procesos caóticos, los digitalizo con trazabilidad y automatizo flujos críticos para que tu organización juegue siempre a nivel de campeonato. ¿Jugamos en equipo?"
+              </p>
+            </div>
+
+            <!-- Resumen de 4 Atributos Clave -->
+            <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 text-center text-xs">
+              <div class="p-3 rounded-xl bg-slate-900/60 border border-slate-800">
+                <span class="text-slate-400 block mb-1">Mi Esencia</span>
+                <span class="text-white font-bold font-mono">Organizador Creativo</span>
+              </div>
+              <div class="p-3 rounded-xl bg-slate-900/60 border border-slate-800">
+                <span class="text-slate-400 block mb-1">Mi Propósito</span>
+                <span class="text-cyan-300 font-bold font-mono">4 Soluciones & Servidores</span>
+              </div>
+              <div class="p-3 rounded-xl bg-slate-900/60 border border-slate-800">
+                <span class="text-slate-400 block mb-1">Mi Público</span>
+                <span class="text-emerald-300 font-bold font-mono">Chapman Wilches</span>
+              </div>
+              <div class="p-3 rounded-xl bg-slate-900/60 border border-slate-800">
+                <span class="text-slate-400 block mb-1">Acción BANG</span>
+                <span class="text-amber-300 font-bold font-mono">Firma Certificada</span>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+      <!-- ===================================================================== -->
+      <!-- B) EVIDENCIA DEL USO DE IA GENERATIVA (REQUISITO CUN)                -->
+      <!-- ===================================================================== -->
+      <div class="glass-panel p-6 sm:p-10 rounded-3xl border border-slate-800 shadow-2xl">
+        
+        <div class="flex items-center gap-3 mb-8">
+          <div class="w-10 h-10 rounded-xl bg-emerald-500/10 border border-emerald-500/30 flex items-center justify-center text-emerald-400 font-display font-black text-lg">
+            <i class="fa-solid fa-robot"></i>
+          </div>
+          <div>
+            <h3 class="text-xl sm:text-2xl font-bold font-display text-white">
+              Evidencia del Uso de IA Generativa
+            </h3>
+            <p class="text-xs font-mono text-emerald-400">
+              Cumplimiento de Integridad Académica CUN • Licencia Institucional Gemini
+            </p>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-8">
+          
+          <!-- 1. Herramienta Utilizada -->
+          <div class="p-5 rounded-2xl bg-slate-900/80 border border-slate-800">
+            <div class="flex items-center gap-2 text-cyan-400 text-xs font-mono font-bold uppercase mb-2">
+              <i class="fa-solid fa-microchip"></i> 1. Herramienta Principal
+            </div>
+            <h4 class="text-base font-bold text-white mb-2">Google Gemini (Licencia CUN)</h4>
+            <p class="text-xs text-slate-300 leading-relaxed mb-3">
+              Uso oficial de la cuenta institucional (@cun.edu.co) para estructurar ideas, consultar la metodología BANG y sintetizar la formulación SMART.
+            </p>
+            <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-cyan-500/10 text-cyan-300 border border-cyan-500/20">
+              100% Transparente
+            </span>
+          </div>
+
+          <!-- 2. Prompts Empleados -->
+          <div class="p-5 rounded-2xl bg-slate-900/80 border border-slate-800">
+            <div class="flex items-center gap-2 text-emerald-400 text-xs font-mono font-bold uppercase mb-2">
+              <i class="fa-solid fa-terminal"></i> 2. Prompts Principales
+            </div>
+            <div class="text-[11px] font-mono bg-slate-950 p-2.5 rounded-lg border border-slate-800 text-slate-300 space-y-1.5 max-h-28 overflow-y-auto">
+              <p><strong class="text-cyan-300">Prompt 1:</strong> "Estructura un objetivo SMART para automatizar 4 procesos en una firma de abogados y modernizar servidores."</p>
+              <p><strong class="text-emerald-300">Prompt 2:</strong> "Diseña una buyer persona para Mirna Wilches enfocada en el dolor de firma a papel y opciones de suspensión/abstención."</p>
+            </div>
+          </div>
+
+          <!-- 3. Balance de Autoría -->
+          <div class="p-5 rounded-2xl bg-slate-900/80 border border-slate-800">
+            <div class="flex items-center gap-2 text-amber-400 text-xs font-mono font-bold uppercase mb-2">
+              <i class="fa-solid fa-scale-balanced"></i> 3. Control y Criterio Propio
+            </div>
+            <h4 class="text-base font-bold text-white mb-2">Dependencia de IA: &lt; 25%</h4>
+            <p class="text-xs text-slate-300 leading-relaxed mb-3">
+              Cumple con la norma CUN (máximo 65%). Las vivencias laborales, la pasión por el voleibol, los proyectos y decisiones son 100% reales y de Kike Junior.
+            </p>
+            <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-emerald-500/10 text-emerald-300 border border-emerald-500/20">
+              Autoría Garantizada
+            </span>
+          </div>
+
+        </div>
+
+        <!-- Reflexión Personal Ética (Exactamente 140 palabras, <150) -->
+        <div class="p-6 rounded-2xl bg-slate-900/90 border-l-4 border-emerald-400 text-left">
+          <div class="flex items-center justify-between flex-wrap gap-2 mb-3">
+            <h4 class="text-sm font-bold font-display text-white flex items-center gap-2">
+              <i class="fa-solid fa-pen-nib text-emerald-400"></i> Reflexión Personal del Estudiante (Límite: 150 palabras)
+            </h4>
+            <span class="text-[10px] font-mono text-slate-400">140 palabras • Estricto rigor CUN</span>
+          </div>
+          <p class="text-xs sm:text-sm text-slate-200 leading-relaxed font-normal">
+            "La Inteligencia Artificial (Gemini) actuó como un catalizador para ordenar y esquematizar mis ideas, permitiéndome traducir mi experiencia laboral y deportiva en estructuras metodológicas formales (SMART, Buyer Persona y BANG). No obstante, la esencia del proyecto, las vivencias reales en la empresa Chapman Wilches, la empatía hacia el bienestar de mi familia, mi formación en los tres ciclos propedéuticos de la CUN y la decisión de fusionar la táctica de colocador de voleibol con el desarrollo de software son reflexiones 100% auténticas, vividas y decididas por mí. La IA potencia la ejecución, pero la visión estratégica y la autoría moral son mías."
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+
   <!-- ========================================================================= -->
   <!-- 4. ROADMAP MODULAR DEL PROYECTO (Fases Semanales ACA)                     -->
   <!-- ========================================================================= -->
@@ -1135,86 +1964,87 @@
       
       <div class="text-center max-w-3xl mx-auto mb-16">
         <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-cyan-500/10 border border-cyan-500/30 text-cyan-300 font-mono text-xs font-semibold uppercase tracking-wider mb-4">
-          <i class="fa-solid fa-timeline text-cyan-400"></i> Arquitectura Modular
+          <i class="fa-solid fa-timeline text-cyan-400"></i> Arquitectura Modular • 2do Avance
         </div>
         <h2 class="text-3xl sm:text-4xl font-black font-display text-white mb-3">
-          Roadmap de Entregas Semanales
+          Roadmap de Entregas ACA (Fases Completas)
         </h2>
         <p class="text-sm sm:text-base text-slate-300 font-normal">
-          Estructura progresiva para las 5 fases de consolidación de la Marca Personal en la asignatura Proyecto de Vida.
+          Todas las fases metodológicas de la Marca Personal integradas y operativas en el portal web.
         </p>
       </div>
 
       <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-4">
         
         <!-- Fase 1: Desbloqueada -->
-        <div class="glass-panel p-5 rounded-2xl border-2 border-emerald-500/60 bg-emerald-950/10 shadow-[0_0_20px_rgba(52,211,153,0.15)] relative">
+        <a href="#fase-autoconocimiento" 
+           class="glass-panel p-5 rounded-2xl border-2 border-emerald-500/60 bg-emerald-950/10 shadow-[0_0_20px_rgba(52,211,153,0.15)] relative hover:border-emerald-400 transition-all block">
           <div class="flex items-center justify-between mb-3">
             <span class="text-xs font-mono px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-300 font-bold">FASE 1</span>
-            <span class="flex h-2.5 w-2.5 rounded-full bg-emerald-400 animate-pulse"></span>
+            <span class="flex h-2.5 w-2.5 rounded-full bg-emerald-400"></span>
           </div>
           <h4 class="text-sm font-bold text-white mb-1">Autoconocimiento</h4>
           <p class="text-xs text-slate-400 mb-3">Esencia, reto del 'no', 5 habilidades y dimensiones.</p>
           <span class="text-[11px] font-mono text-emerald-400 font-bold flex items-center gap-1">
             <i class="fa-solid fa-check"></i> Activo & Publicado
           </span>
-        </div>
+        </a>
 
-        <!-- Fase 2: Bloqueada -->
-        <div onclick="openLockedModal('2. Objetivo SMART', 'Definición de metas de impacto con métricas específicas y alcanzables.', 'Semana 2')"
-             class="glass-panel p-5 rounded-2xl border border-slate-800 opacity-75 hover:opacity-100 hover:border-slate-700 transition-all cursor-pointer">
+        <!-- Fase 2: Desbloqueada -->
+        <a href="#fase-smart" 
+           class="glass-panel p-5 rounded-2xl border-2 border-cyan-500/60 bg-cyan-950/10 shadow-[0_0_20px_rgba(34,211,238,0.15)] relative hover:border-cyan-400 transition-all block">
           <div class="flex items-center justify-between mb-3">
-            <span class="text-xs font-mono px-2 py-0.5 rounded bg-slate-800 text-slate-400">FASE 2</span>
-            <i class="fa-solid fa-lock text-slate-500 text-xs"></i>
+            <span class="text-xs font-mono px-2 py-0.5 rounded bg-cyan-500/20 text-cyan-300 font-bold">FASE 2</span>
+            <span class="flex h-2.5 w-2.5 rounded-full bg-cyan-400 animate-pulse"></span>
           </div>
-          <h4 class="text-sm font-bold text-slate-300 mb-1">Objetivo SMART</h4>
-          <p class="text-xs text-slate-400 mb-3">Metas profesionales específicas y medibles.</p>
-          <span class="text-[11px] font-mono text-cyan-400 flex items-center gap-1">
-            <i class="fa-regular fa-clock"></i> Semana 2
+          <h4 class="text-sm font-bold text-white mb-1">Objetivo SMART</h4>
+          <p class="text-xs text-slate-400 mb-3">4 automatizaciones, servidores y 3 ciclos CUN.</p>
+          <span class="text-[11px] font-mono text-cyan-400 font-bold flex items-center gap-1">
+            <i class="fa-solid fa-check"></i> 2do Avance Activo
           </span>
-        </div>
+        </a>
 
-        <!-- Fase 3: Bloqueada -->
-        <div onclick="openLockedModal('3. Público Ideal', 'Mapeo de audiencias clave, líderes de ingeniería y reclutadores técnicos.', 'Semana 3')"
-             class="glass-panel p-5 rounded-2xl border border-slate-800 opacity-75 hover:opacity-100 hover:border-slate-700 transition-all cursor-pointer">
+        <!-- Fase 3: Desbloqueada -->
+        <a href="#fase-publico" 
+           class="glass-panel p-5 rounded-2xl border-2 border-cyan-500/60 bg-cyan-950/10 shadow-[0_0_20px_rgba(34,211,238,0.15)] relative hover:border-cyan-400 transition-all block">
           <div class="flex items-center justify-between mb-3">
-            <span class="text-xs font-mono px-2 py-0.5 rounded bg-slate-800 text-slate-400">FASE 3</span>
-            <i class="fa-solid fa-lock text-slate-500 text-xs"></i>
+            <span class="text-xs font-mono px-2 py-0.5 rounded bg-cyan-500/20 text-cyan-300 font-bold">FASE 3</span>
+            <span class="flex h-2.5 w-2.5 rounded-full bg-cyan-400 animate-pulse"></span>
           </div>
-          <h4 class="text-sm font-bold text-slate-300 mb-1">Público Ideal</h4>
-          <p class="text-xs text-slate-400 mb-3">Audiencia objetivo y comunidades tech.</p>
-          <span class="text-[11px] font-mono text-cyan-400 flex items-center gap-1">
-            <i class="fa-regular fa-clock"></i> Semana 3
+          <h4 class="text-sm font-bold text-white mb-1">Público Ideal</h4>
+          <p class="text-xs text-slate-400 mb-3">Mirna Wilches (Chapman) & Claudia Villalobos.</p>
+          <span class="text-[11px] font-mono text-cyan-400 font-bold flex items-center gap-1">
+            <i class="fa-solid fa-check"></i> 2do Avance Activo
           </span>
-        </div>
+        </a>
 
-        <!-- Fase 4: Bloqueada -->
-        <div onclick="openLockedModal('4. Promesa & BANG', 'Construcción del gancho memorable y propuesta única de valor en tecnología.', 'Semana 4')"
-             class="glass-panel p-5 rounded-2xl border border-slate-800 opacity-75 hover:opacity-100 hover:border-slate-700 transition-all cursor-pointer">
+        <!-- Fase 4: Desbloqueada -->
+        <a href="#fase-promesa-bang" 
+           class="glass-panel p-5 rounded-2xl border-2 border-amber-500/60 bg-amber-950/10 shadow-[0_0_20px_rgba(245,158,11,0.15)] relative hover:border-amber-400 transition-all block">
           <div class="flex items-center justify-between mb-3">
-            <span class="text-xs font-mono px-2 py-0.5 rounded bg-slate-800 text-slate-400">FASE 4</span>
-            <i class="fa-solid fa-lock text-slate-500 text-xs"></i>
+            <span class="text-xs font-mono px-2 py-0.5 rounded bg-amber-500/20 text-amber-300 font-bold">FASE 4</span>
+            <span class="flex h-2.5 w-2.5 rounded-full bg-amber-400 animate-pulse"></span>
           </div>
-          <h4 class="text-sm font-bold text-slate-300 mb-1">Promesa & BANG</h4>
-          <p class="text-xs text-slate-400 mb-3">Diferenciador competitivo y gancho clave.</p>
-          <span class="text-[11px] font-mono text-cyan-400 flex items-center gap-1">
-            <i class="fa-regular fa-clock"></i> Semana 4
+          <h4 class="text-sm font-bold text-white mb-1">Promesa & BANG</h4>
+          <p class="text-xs text-slate-400 mb-3">Fórmula CUN y acción LegalSign & Track 360.</p>
+          <span class="text-[11px] font-mono text-amber-400 font-bold flex items-center gap-1">
+            <i class="fa-solid fa-check"></i> 2do Avance Activo
           </span>
-        </div>
+        </a>
 
-        <!-- Fase 5: Bloqueada -->
-        <div onclick="openLockedModal('5. Pitch Visual & IA', 'Producción de pitch de alto impacto con soporte audiovisual impulsado por IA.', 'Semana 5')"
-             class="glass-panel p-5 rounded-2xl border border-slate-800 opacity-75 hover:opacity-100 hover:border-slate-700 transition-all cursor-pointer">
+        <!-- Fase 5: Desbloqueada -->
+        <a href="#fase-pitch-ia" 
+           class="glass-panel p-5 rounded-2xl border-2 border-emerald-500/60 bg-emerald-950/10 shadow-[0_0_20px_rgba(52,211,153,0.15)] relative hover:border-emerald-400 transition-all block">
           <div class="flex items-center justify-between mb-3">
-            <span class="text-xs font-mono px-2 py-0.5 rounded bg-slate-800 text-slate-400">FASE 5</span>
-            <i class="fa-solid fa-lock text-slate-500 text-xs"></i>
+            <span class="text-xs font-mono px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-300 font-bold">FASE 5</span>
+            <span class="flex h-2.5 w-2.5 rounded-full bg-emerald-400 animate-pulse"></span>
           </div>
-          <h4 class="text-sm font-bold text-slate-300 mb-1">Pitch Visual & IA</h4>
-          <p class="text-xs text-slate-400 mb-3">Presentación de elevator pitch y demo.</p>
-          <span class="text-[11px] font-mono text-cyan-400 flex items-center gap-1">
-            <i class="fa-regular fa-clock"></i> Semana 5
+          <h4 class="text-sm font-bold text-white mb-1">Pitch Visual & IA</h4>
+          <p class="text-xs text-slate-400 mb-3">Elevator pitch y evidencia de Gemini CUN.</p>
+          <span class="text-[11px] font-mono text-emerald-400 font-bold flex items-center gap-1">
+            <i class="fa-solid fa-check"></i> 2do Avance Activo
           </span>
-        </div>
+        </a>
 
       </div>
 
@@ -1311,7 +2141,7 @@
         <div class="flex items-center gap-4 text-xs font-mono text-slate-400">
           <span>Proyecto de Vida • ACA 2026</span>
           <span class="text-slate-600">•</span>
-          <span class="text-emerald-400 font-semibold">Versión 1.0 (Fase 1 Activa)</span>
+          <span class="text-emerald-400 font-semibold">Versión 2.0 (Fases 1 a 5 Integradas • 2do Avance ACA)</span>
         </div>
 
         <a href="#hero" class="w-10 h-10 rounded-xl bg-slate-900 border border-slate-800 hover:border-cyan-400 text-slate-300 hover:text-cyan-400 flex items-center justify-center transition-colors">
@@ -1438,6 +2268,35 @@
         closeImageModal();
       }
     });
+  
+    // 5. Manejo de Buyer Persona (Tabs Mirna / Claudia)
+    function switchBuyerPersona(persona) {
+      const btnMirna = document.getElementById('btnBuyerMirna');
+      const btnClaudia = document.getElementById('btnBuyerClaudia');
+      const contentMirna = document.getElementById('contentBuyerMirna');
+      const contentClaudia = document.getElementById('contentBuyerClaudia');
+
+      if (persona === 'mirna') {
+        contentMirna.classList.remove('hidden');
+        contentClaudia.classList.add('hidden');
+
+        btnMirna.className = "px-5 py-2.5 rounded-xl text-xs sm:text-sm font-bold font-display transition-all duration-300 flex items-center gap-2 bg-gradient-to-r from-cyan-500/20 to-emerald-500/20 text-white border border-cyan-500/50 shadow-md";
+        btnMirna.querySelector('i').className = "fa-solid fa-building-columns text-cyan-400";
+
+        btnClaudia.className = "px-5 py-2.5 rounded-xl text-xs sm:text-sm font-medium font-display transition-all duration-300 flex items-center gap-2 text-slate-400 hover:text-slate-200 hover:bg-slate-900 border border-slate-800";
+        btnClaudia.querySelector('i').className = "fa-solid fa-heart-pulse text-slate-400";
+      } else {
+        contentClaudia.classList.remove('hidden');
+        contentMirna.classList.add('hidden');
+
+        btnClaudia.className = "px-5 py-2.5 rounded-xl text-xs sm:text-sm font-bold font-display transition-all duration-300 flex items-center gap-2 bg-gradient-to-r from-cyan-500/20 to-emerald-500/20 text-white border border-cyan-500/50 shadow-md";
+        btnClaudia.querySelector('i').className = "fa-solid fa-heart-pulse text-emerald-400";
+
+        btnMirna.className = "px-5 py-2.5 rounded-xl text-xs sm:text-sm font-medium font-display transition-all duration-300 flex items-center gap-2 text-slate-400 hover:text-slate-200 hover:bg-slate-900 border border-slate-800";
+        btnMirna.querySelector('i').className = "fa-solid fa-building-columns text-slate-400";
+      }
+    }
+
   </script>
 </body>
 </html>
