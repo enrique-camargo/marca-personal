@@ -14,8 +14,528 @@
   <!-- FontAwesome 6 -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
+    <!-- GSAP 3 & ScrollTrigger via CDN para Hypermotion -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js">
+    // =========================================================================
+    // 6. MOTOR DE HYPERMOTION & INTERACTIVIDAD 360° (GSAP & SCROLLTRIGGER)    
+    // =========================================================================
+    const GALLERY_DATA = [{"src": "assets/yo/Voleibol/IMG-20240831-WA0007.jpg", "cat": "voleibol", "tag": "Voleibol", "title": "Capitán y Colocador Campeón", "desc": "Celebración de campeonato: lectura táctica y liderazgo en la cancha.", "icon": "fa-volleyball"}, {"src": "assets/yo/Voleibol/IMG-20240616-WA0037.jpg", "cat": "voleibol", "tag": "Voleibol", "title": "Distribución Estratégica", "desc": "Armado de juego en tiempo real con precisión milimétrica.", "icon": "fa-volleyball"}, {"src": "assets/yo/Voleibol/IMG_0837.jpg", "cat": "voleibol", "tag": "Voleibol", "title": "Enfoque y Entrenamiento", "desc": "La constancia del entrenamiento deportivo forja la disciplina técnica.", "icon": "fa-volleyball"}, {"src": "assets/yo/Voleibol/IMG_20221126_192150836.jpg", "cat": "voleibol", "tag": "Voleibol", "title": "Torneo y Trabajo en Equipo", "desc": "Sinergia en cancha: cada punto se construye con confianza colectiva.", "icon": "fa-volleyball"}, {"src": "assets/yo/Laboral/IMG-20250516-WA0039.jpg", "cat": "laboral", "tag": "Laboral", "title": "Chapman Wilches: Servidores", "desc": "Gestión activa de infraestructura tecnológica y optimización de flujos.", "icon": "fa-briefcase"}, {"src": "assets/yo/Laboral/IMG-20260319-WA0036.jpg", "cat": "laboral", "tag": "Laboral", "title": "Desarrollo de Software y Ops", "desc": "Puesto de trabajo donde se programan las 4 soluciones de trazabilidad.", "icon": "fa-laptop-code"}, {"src": "assets/yo/Familia/IMG-20251018-WA0038.jpg", "cat": "familia", "tag": "Familia", "title": "Con mi Madre (Claudia Villalobos)", "desc": "Amor incondicional y la razón para crear soluciones de bienestar.", "icon": "fa-heart"}, {"src": "assets/yo/Familia/IMG-20260914-WA0019.jpg", "cat": "familia", "tag": "Familia", "title": "Celebración y Gratitud", "desc": "Momentos felices en familia que recargan el alma y renuevan el enfoque.", "icon": "fa-heart"}, {"src": "assets/yo/Familia/IMG-20260914-WA0022.jpg", "cat": "familia", "tag": "Familia", "title": "Unión y Respaldo Familiar", "desc": "El pilar humano más sólido detrás de cada logro académico y laboral.", "icon": "fa-heart"}, {"src": "assets/yo/Familia/IMG_0573.jpg", "cat": "familia", "tag": "Familia", "title": "Compartir en Familia", "desc": "Valores de humildad, perseverancia y generosidad aprendidos en casa.", "icon": "fa-heart"}, {"src": "assets/yo/Viajes/IMG-20250728-WA0016.jpg", "cat": "viajes", "tag": "Viajes", "title": "Horizontes Abiertos", "desc": "Desconexión en la naturaleza: viajar amplía la perspectiva y renueva ideas.", "icon": "fa-compass"}, {"src": "assets/yo/Viajes/IMG_7304.jpg", "cat": "viajes", "tag": "Viajes", "title": "Nuevas Rutas y Paisajes", "desc": "Explorando destinos que inspiran serenidad y pensamiento estratégico.", "icon": "fa-compass"}, {"src": "assets/yo/Viajes/IMG-20250419-WA0100.jpg", "cat": "viajes", "tag": "Viajes", "title": "Aventura al Aire Libre", "desc": "Respirar aire puro y desafiar nuevas pendientes con energía.", "icon": "fa-compass"}, {"src": "assets/yo/Viajes/51671495-ecf5-487f-b0ba-fc60db1c5240.jpg", "cat": "viajes", "tag": "Viajes", "title": "Caminos y Naturaleza", "desc": "Disfrutando cada etapa del recorrido con gratitud.", "icon": "fa-compass"}, {"src": "assets/yo/Viajes/IMG-20251231-WA0006.jpg", "cat": "viajes", "tag": "Viajes", "title": "Cierre de Año y Metas", "desc": "Celebrando metas cumplidas y trazando los nuevos objetivos SMART.", "icon": "fa-compass"}, {"src": "assets/yo/Viajes/IMG-20260407-WA0017.jpg", "cat": "viajes", "tag": "Viajes", "title": "Descubriendo Lugares", "desc": "La curiosidad de un ingeniero trasciende la pantalla hacia el mundo.", "icon": "fa-compass"}, {"src": "assets/yo/Viajes/IMG_20260216_140253_957.jpg", "cat": "viajes", "tag": "Viajes", "title": "Paz y Serenidad", "desc": "Momentos de introspección para tomar mejores decisiones.", "icon": "fa-compass"}, {"src": "assets/yo/Viajes/IMG-20251116-WA0018.jpg", "cat": "viajes", "tag": "Viajes", "title": "Destinos Verdes", "desc": "Equilibrio integral entre la exigencia técnica y el bienestar personal.", "icon": "fa-compass"}, {"src": "assets/yo/Viajes/IMG-20251116-WA0042.jpg", "cat": "viajes", "tag": "Viajes", "title": "Pausa Estratégica", "desc": "Parar para tomar impulso: descansar también es parte del plan de vida.", "icon": "fa-compass"}, {"src": "assets/yo/Viajes/IMG-20240915-WA0009.jpg", "cat": "viajes", "tag": "Viajes", "title": "Rutas Compartidas", "desc": "Viajar con buenos amigos para coleccionar memorias de por vida.", "icon": "fa-compass"}, {"src": "assets/yo/Viajes/d0ac0fb7-2bf6-43bc-a08a-268e487e9c75.jpg", "cat": "viajes", "tag": "Viajes", "title": "Vistas Memorables", "desc": "Mirar el camino desde la cima para recordar por qué empezamos.", "icon": "fa-compass"}, {"src": "assets/yo/Viajes/055276ff-f941-4bd2-b54e-8dccdb507f15.jpg", "cat": "viajes", "tag": "Viajes", "title": "Conexión Natural", "desc": "El silencio de la naturaleza aclara los problemas más complejos.", "icon": "fa-compass"}, {"src": "assets/yo/Ninez/FB_IMG_1767723967733.jpg", "cat": "ninez", "tag": "Niñez", "title": "Primeros Pasos", "desc": "Donde nació la sonrisa, el juego y las ganas de explorar el entorno.", "icon": "fa-seedling"}, {"src": "assets/yo/Ninez/IMG_20210518_164721148.jpg", "cat": "ninez", "tag": "Niñez", "title": "Curiosidad Temprana", "desc": "Los primeros juguetes y desarmes que anunciaban la vocación por la ingeniería.", "icon": "fa-seedling"}, {"src": "assets/yo/Ninez/IMG_20210518_164654691.jpg", "cat": "ninez", "tag": "Niñez", "title": "Pasión por el Movimiento", "desc": "Desde pequeño, la energía del deporte marcaba el ritmo cotidiano.", "icon": "fa-seedling"}, {"src": "assets/yo/Ninez/IMG-20210518-WA0021.jpeg", "cat": "ninez", "tag": "Niñez", "title": "Recuerdos de Infancia", "desc": "El cariño familiar que sembró la empatía y el espíritu colaborativo.", "icon": "fa-seedling"}, {"src": "assets/yo/Ninez/IMG-20210518-WA0039.jpeg", "cat": "ninez", "tag": "Niñez", "title": "Retrato de Época", "desc": "La mirada alegre que hoy conserva Kike Junior frente a cada desafío.", "icon": "fa-seedling"}, {"src": "assets/yo/Ninez/IMG-20250923-WA0000.jpg", "cat": "ninez", "tag": "Niñez", "title": "Orígenes & Huellas", "desc": "Honrar las raíces es el cimiento de una marca personal auténtica.", "icon": "fa-seedling"}];
+    let currentLightboxIndex = 0;
+    let isGalleryMode = false;
+
+    // Abrir Lightbox desde la Galería 360 con índice para navegar
+    function openGalleryLightbox(idx) {
+      isGalleryMode = true;
+      currentLightboxIndex = idx;
+      updateLightboxDisplay();
+      document.getElementById('imageModal').classList.remove('hidden');
+    }
+
+    function updateLightboxDisplay() {
+      const item = GALLERY_DATA[currentLightboxIndex];
+      const img = document.getElementById('imageModalImg');
+      const caption = document.getElementById('imageModalCaption');
+      const sub = document.getElementById('imageModalSub');
+      const counter = document.getElementById('imageModalCounter');
+
+      img.src = item.src;
+      caption.textContent = item.title;
+      sub.textContent = item.desc;
+      if (counter) counter.textContent = `${currentLightboxIndex + 1} / ${GALLERY_DATA.length}`;
+    }
+
+    function lightboxNext() {
+      if (!isGalleryMode) return;
+      currentLightboxIndex = (currentLightboxIndex + 1) % GALLERY_DATA.length;
+      updateLightboxDisplay();
+    }
+
+    function lightboxPrev() {
+      if (!isGalleryMode) return;
+      currentLightboxIndex = (currentLightboxIndex - 1 + GALLERY_DATA.length) % GALLERY_DATA.length;
+      updateLightboxDisplay();
+    }
+
+    // Filtros de categoría en la galería
+    function filterGallery(category) {
+      const items = document.querySelectorAll('.gallery-item');
+      const buttons = document.querySelectorAll('.gallery-filter-btn');
+
+      buttons.forEach(btn => {
+        btn.classList.remove('active', 'bg-gradient-to-r', 'from-cyan-500/20', 'to-emerald-500/20', 'text-white', 'border-cyan-400');
+        btn.classList.add('bg-slate-900/80', 'text-slate-300', 'border-slate-800');
+      });
+
+      const activeBtn = document.getElementById(`filterBtn-${category}`);
+      if (activeBtn) {
+        activeBtn.classList.add('active', 'bg-gradient-to-r', 'from-cyan-500/20', 'to-emerald-500/20', 'text-white', 'border-cyan-400');
+        activeBtn.classList.remove('bg-slate-900/80', 'text-slate-300', 'border-slate-800');
+      }
+
+      items.forEach(item => {
+        const itemCat = item.getAttribute('data-category');
+        if (category === 'todas' || itemCat === category) {
+          item.style.display = 'block';
+          if (window.gsap) {
+            gsap.fromTo(item, { opacity: 0, scale: 0.95, y: 15 }, { opacity: 1, scale: 1, y: 0, duration: 0.4, ease: "power2.out" });
+          }
+        } else {
+          item.style.display = 'none';
+        }
+      });
+    }
+
+    // Teclas del teclado para navegar el Lightbox
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'ArrowRight') lightboxNext();
+      if (e.key === 'ArrowLeft') lightboxPrev();
+    });
+
+    // 7. EFECTO 3D MAGNETIC TILT EN TARJETAS
+    function initMagneticTilt() {
+      const cards = document.querySelectorAll('.tilt-card, .hover-card-glow');
+      cards.forEach(card => {
+        card.addEventListener('mousemove', (e) => {
+          const rect = card.getBoundingClientRect();
+          const x = e.clientX - rect.left;
+          const y = e.clientY - rect.top;
+          const centerX = rect.width / 2;
+          const centerY = rect.height / 2;
+          const rotateX = ((y - centerY) / centerY) * -7;
+          const rotateY = ((x - centerX) / centerX) * 7;
+
+          card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-4px)`;
+        });
+
+        card.addEventListener('mouseleave', () => {
+          card.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) translateY(0px)';
+        });
+      });
+    }
+
+    // 8. FONDO DE PARTÍCULAS CYBER DINÁMICAS (Canvas)
+    function initCyberParticles() {
+      const canvas = document.getElementById('particleCanvas');
+      if (!canvas) return;
+      const ctx = canvas.getContext('2d');
+      let width = canvas.width = window.innerWidth;
+      let height = canvas.height = window.innerHeight;
+
+      window.addEventListener('resize', () => {
+        width = canvas.width = window.innerWidth;
+        height = canvas.height = window.innerHeight;
+      });
+
+      const particles = [];
+      const particleCount = Math.min(width > 768 ? 45 : 20, 50);
+
+      for (let i = 0; i < particleCount; i++) {
+        particles.push({
+          x: Math.random() * width,
+          y: Math.random() * height,
+          radius: Math.random() * 1.5 + 0.5,
+          vx: (Math.random() - 0.5) * 0.4,
+          vy: (Math.random() - 0.5) * 0.4,
+          color: Math.random() > 0.5 ? 'rgba(34, 211, 238, 0.4)' : 'rgba(52, 211, 153, 0.35)'
+        });
+      }
+
+      function render() {
+        ctx.clearRect(0, 0, width, height);
+        particles.forEach(p => {
+          p.x += p.vx;
+          p.y += p.vy;
+
+          if (p.x < 0) p.x = width;
+          if (p.x > width) p.x = 0;
+          if (p.y < 0) p.y = height;
+          if (p.y > height) p.y = 0;
+
+          ctx.beginPath();
+          ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
+          ctx.fillStyle = p.color;
+          ctx.fill();
+        });
+        requestAnimationFrame(render);
+      }
+      render();
+    }
+
+    // 9. ANIMACIONES GSAP SCROLLTRIGGER (REVEALS & STAGGER)
+    document.addEventListener('DOMContentLoaded', function() {
+      initMagneticTilt();
+      initCyberParticles();
+
+      if (window.gsap && window.ScrollTrigger) {
+        gsap.registerPlugin(ScrollTrigger);
+
+        // Revelación de secciones al hacer scroll
+        gsap.utils.toArray('section').forEach(section => {
+          gsap.from(section.querySelectorAll('h2, .glass-panel-glow'), {
+            scrollTrigger: {
+              trigger: section,
+              start: "top 80%",
+              toggleActions: "play none none none"
+            },
+            y: 35,
+            opacity: 0,
+            duration: 0.8,
+            stagger: 0.15,
+            ease: "power3.out"
+          });
+        });
+      }
+    });
+
+  </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js">
+    // =========================================================================
+    // 6. MOTOR DE HYPERMOTION & INTERACTIVIDAD 360° (GSAP & SCROLLTRIGGER)    
+    // =========================================================================
+    const GALLERY_DATA = [{"src": "assets/yo/Voleibol/IMG-20240831-WA0007.jpg", "cat": "voleibol", "tag": "Voleibol", "title": "Capitán y Colocador Campeón", "desc": "Celebración de campeonato: lectura táctica y liderazgo en la cancha.", "icon": "fa-volleyball"}, {"src": "assets/yo/Voleibol/IMG-20240616-WA0037.jpg", "cat": "voleibol", "tag": "Voleibol", "title": "Distribución Estratégica", "desc": "Armado de juego en tiempo real con precisión milimétrica.", "icon": "fa-volleyball"}, {"src": "assets/yo/Voleibol/IMG_0837.jpg", "cat": "voleibol", "tag": "Voleibol", "title": "Enfoque y Entrenamiento", "desc": "La constancia del entrenamiento deportivo forja la disciplina técnica.", "icon": "fa-volleyball"}, {"src": "assets/yo/Voleibol/IMG_20221126_192150836.jpg", "cat": "voleibol", "tag": "Voleibol", "title": "Torneo y Trabajo en Equipo", "desc": "Sinergia en cancha: cada punto se construye con confianza colectiva.", "icon": "fa-volleyball"}, {"src": "assets/yo/Laboral/IMG-20250516-WA0039.jpg", "cat": "laboral", "tag": "Laboral", "title": "Chapman Wilches: Servidores", "desc": "Gestión activa de infraestructura tecnológica y optimización de flujos.", "icon": "fa-briefcase"}, {"src": "assets/yo/Laboral/IMG-20260319-WA0036.jpg", "cat": "laboral", "tag": "Laboral", "title": "Desarrollo de Software y Ops", "desc": "Puesto de trabajo donde se programan las 4 soluciones de trazabilidad.", "icon": "fa-laptop-code"}, {"src": "assets/yo/Familia/IMG-20251018-WA0038.jpg", "cat": "familia", "tag": "Familia", "title": "Con mi Madre (Claudia Villalobos)", "desc": "Amor incondicional y la razón para crear soluciones de bienestar.", "icon": "fa-heart"}, {"src": "assets/yo/Familia/IMG-20260914-WA0019.jpg", "cat": "familia", "tag": "Familia", "title": "Celebración y Gratitud", "desc": "Momentos felices en familia que recargan el alma y renuevan el enfoque.", "icon": "fa-heart"}, {"src": "assets/yo/Familia/IMG-20260914-WA0022.jpg", "cat": "familia", "tag": "Familia", "title": "Unión y Respaldo Familiar", "desc": "El pilar humano más sólido detrás de cada logro académico y laboral.", "icon": "fa-heart"}, {"src": "assets/yo/Familia/IMG_0573.jpg", "cat": "familia", "tag": "Familia", "title": "Compartir en Familia", "desc": "Valores de humildad, perseverancia y generosidad aprendidos en casa.", "icon": "fa-heart"}, {"src": "assets/yo/Viajes/IMG-20250728-WA0016.jpg", "cat": "viajes", "tag": "Viajes", "title": "Horizontes Abiertos", "desc": "Desconexión en la naturaleza: viajar amplía la perspectiva y renueva ideas.", "icon": "fa-compass"}, {"src": "assets/yo/Viajes/IMG_7304.jpg", "cat": "viajes", "tag": "Viajes", "title": "Nuevas Rutas y Paisajes", "desc": "Explorando destinos que inspiran serenidad y pensamiento estratégico.", "icon": "fa-compass"}, {"src": "assets/yo/Viajes/IMG-20250419-WA0100.jpg", "cat": "viajes", "tag": "Viajes", "title": "Aventura al Aire Libre", "desc": "Respirar aire puro y desafiar nuevas pendientes con energía.", "icon": "fa-compass"}, {"src": "assets/yo/Viajes/51671495-ecf5-487f-b0ba-fc60db1c5240.jpg", "cat": "viajes", "tag": "Viajes", "title": "Caminos y Naturaleza", "desc": "Disfrutando cada etapa del recorrido con gratitud.", "icon": "fa-compass"}, {"src": "assets/yo/Viajes/IMG-20251231-WA0006.jpg", "cat": "viajes", "tag": "Viajes", "title": "Cierre de Año y Metas", "desc": "Celebrando metas cumplidas y trazando los nuevos objetivos SMART.", "icon": "fa-compass"}, {"src": "assets/yo/Viajes/IMG-20260407-WA0017.jpg", "cat": "viajes", "tag": "Viajes", "title": "Descubriendo Lugares", "desc": "La curiosidad de un ingeniero trasciende la pantalla hacia el mundo.", "icon": "fa-compass"}, {"src": "assets/yo/Viajes/IMG_20260216_140253_957.jpg", "cat": "viajes", "tag": "Viajes", "title": "Paz y Serenidad", "desc": "Momentos de introspección para tomar mejores decisiones.", "icon": "fa-compass"}, {"src": "assets/yo/Viajes/IMG-20251116-WA0018.jpg", "cat": "viajes", "tag": "Viajes", "title": "Destinos Verdes", "desc": "Equilibrio integral entre la exigencia técnica y el bienestar personal.", "icon": "fa-compass"}, {"src": "assets/yo/Viajes/IMG-20251116-WA0042.jpg", "cat": "viajes", "tag": "Viajes", "title": "Pausa Estratégica", "desc": "Parar para tomar impulso: descansar también es parte del plan de vida.", "icon": "fa-compass"}, {"src": "assets/yo/Viajes/IMG-20240915-WA0009.jpg", "cat": "viajes", "tag": "Viajes", "title": "Rutas Compartidas", "desc": "Viajar con buenos amigos para coleccionar memorias de por vida.", "icon": "fa-compass"}, {"src": "assets/yo/Viajes/d0ac0fb7-2bf6-43bc-a08a-268e487e9c75.jpg", "cat": "viajes", "tag": "Viajes", "title": "Vistas Memorables", "desc": "Mirar el camino desde la cima para recordar por qué empezamos.", "icon": "fa-compass"}, {"src": "assets/yo/Viajes/055276ff-f941-4bd2-b54e-8dccdb507f15.jpg", "cat": "viajes", "tag": "Viajes", "title": "Conexión Natural", "desc": "El silencio de la naturaleza aclara los problemas más complejos.", "icon": "fa-compass"}, {"src": "assets/yo/Ninez/FB_IMG_1767723967733.jpg", "cat": "ninez", "tag": "Niñez", "title": "Primeros Pasos", "desc": "Donde nació la sonrisa, el juego y las ganas de explorar el entorno.", "icon": "fa-seedling"}, {"src": "assets/yo/Ninez/IMG_20210518_164721148.jpg", "cat": "ninez", "tag": "Niñez", "title": "Curiosidad Temprana", "desc": "Los primeros juguetes y desarmes que anunciaban la vocación por la ingeniería.", "icon": "fa-seedling"}, {"src": "assets/yo/Ninez/IMG_20210518_164654691.jpg", "cat": "ninez", "tag": "Niñez", "title": "Pasión por el Movimiento", "desc": "Desde pequeño, la energía del deporte marcaba el ritmo cotidiano.", "icon": "fa-seedling"}, {"src": "assets/yo/Ninez/IMG-20210518-WA0021.jpeg", "cat": "ninez", "tag": "Niñez", "title": "Recuerdos de Infancia", "desc": "El cariño familiar que sembró la empatía y el espíritu colaborativo.", "icon": "fa-seedling"}, {"src": "assets/yo/Ninez/IMG-20210518-WA0039.jpeg", "cat": "ninez", "tag": "Niñez", "title": "Retrato de Época", "desc": "La mirada alegre que hoy conserva Kike Junior frente a cada desafío.", "icon": "fa-seedling"}, {"src": "assets/yo/Ninez/IMG-20250923-WA0000.jpg", "cat": "ninez", "tag": "Niñez", "title": "Orígenes & Huellas", "desc": "Honrar las raíces es el cimiento de una marca personal auténtica.", "icon": "fa-seedling"}];
+    let currentLightboxIndex = 0;
+    let isGalleryMode = false;
+
+    // Abrir Lightbox desde la Galería 360 con índice para navegar
+    function openGalleryLightbox(idx) {
+      isGalleryMode = true;
+      currentLightboxIndex = idx;
+      updateLightboxDisplay();
+      document.getElementById('imageModal').classList.remove('hidden');
+    }
+
+    function updateLightboxDisplay() {
+      const item = GALLERY_DATA[currentLightboxIndex];
+      const img = document.getElementById('imageModalImg');
+      const caption = document.getElementById('imageModalCaption');
+      const sub = document.getElementById('imageModalSub');
+      const counter = document.getElementById('imageModalCounter');
+
+      img.src = item.src;
+      caption.textContent = item.title;
+      sub.textContent = item.desc;
+      if (counter) counter.textContent = `${currentLightboxIndex + 1} / ${GALLERY_DATA.length}`;
+    }
+
+    function lightboxNext() {
+      if (!isGalleryMode) return;
+      currentLightboxIndex = (currentLightboxIndex + 1) % GALLERY_DATA.length;
+      updateLightboxDisplay();
+    }
+
+    function lightboxPrev() {
+      if (!isGalleryMode) return;
+      currentLightboxIndex = (currentLightboxIndex - 1 + GALLERY_DATA.length) % GALLERY_DATA.length;
+      updateLightboxDisplay();
+    }
+
+    // Filtros de categoría en la galería
+    function filterGallery(category) {
+      const items = document.querySelectorAll('.gallery-item');
+      const buttons = document.querySelectorAll('.gallery-filter-btn');
+
+      buttons.forEach(btn => {
+        btn.classList.remove('active', 'bg-gradient-to-r', 'from-cyan-500/20', 'to-emerald-500/20', 'text-white', 'border-cyan-400');
+        btn.classList.add('bg-slate-900/80', 'text-slate-300', 'border-slate-800');
+      });
+
+      const activeBtn = document.getElementById(`filterBtn-${category}`);
+      if (activeBtn) {
+        activeBtn.classList.add('active', 'bg-gradient-to-r', 'from-cyan-500/20', 'to-emerald-500/20', 'text-white', 'border-cyan-400');
+        activeBtn.classList.remove('bg-slate-900/80', 'text-slate-300', 'border-slate-800');
+      }
+
+      items.forEach(item => {
+        const itemCat = item.getAttribute('data-category');
+        if (category === 'todas' || itemCat === category) {
+          item.style.display = 'block';
+          if (window.gsap) {
+            gsap.fromTo(item, { opacity: 0, scale: 0.95, y: 15 }, { opacity: 1, scale: 1, y: 0, duration: 0.4, ease: "power2.out" });
+          }
+        } else {
+          item.style.display = 'none';
+        }
+      });
+    }
+
+    // Teclas del teclado para navegar el Lightbox
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'ArrowRight') lightboxNext();
+      if (e.key === 'ArrowLeft') lightboxPrev();
+    });
+
+    // 7. EFECTO 3D MAGNETIC TILT EN TARJETAS
+    function initMagneticTilt() {
+      const cards = document.querySelectorAll('.tilt-card, .hover-card-glow');
+      cards.forEach(card => {
+        card.addEventListener('mousemove', (e) => {
+          const rect = card.getBoundingClientRect();
+          const x = e.clientX - rect.left;
+          const y = e.clientY - rect.top;
+          const centerX = rect.width / 2;
+          const centerY = rect.height / 2;
+          const rotateX = ((y - centerY) / centerY) * -7;
+          const rotateY = ((x - centerX) / centerX) * 7;
+
+          card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-4px)`;
+        });
+
+        card.addEventListener('mouseleave', () => {
+          card.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) translateY(0px)';
+        });
+      });
+    }
+
+    // 8. FONDO DE PARTÍCULAS CYBER DINÁMICAS (Canvas)
+    function initCyberParticles() {
+      const canvas = document.getElementById('particleCanvas');
+      if (!canvas) return;
+      const ctx = canvas.getContext('2d');
+      let width = canvas.width = window.innerWidth;
+      let height = canvas.height = window.innerHeight;
+
+      window.addEventListener('resize', () => {
+        width = canvas.width = window.innerWidth;
+        height = canvas.height = window.innerHeight;
+      });
+
+      const particles = [];
+      const particleCount = Math.min(width > 768 ? 45 : 20, 50);
+
+      for (let i = 0; i < particleCount; i++) {
+        particles.push({
+          x: Math.random() * width,
+          y: Math.random() * height,
+          radius: Math.random() * 1.5 + 0.5,
+          vx: (Math.random() - 0.5) * 0.4,
+          vy: (Math.random() - 0.5) * 0.4,
+          color: Math.random() > 0.5 ? 'rgba(34, 211, 238, 0.4)' : 'rgba(52, 211, 153, 0.35)'
+        });
+      }
+
+      function render() {
+        ctx.clearRect(0, 0, width, height);
+        particles.forEach(p => {
+          p.x += p.vx;
+          p.y += p.vy;
+
+          if (p.x < 0) p.x = width;
+          if (p.x > width) p.x = 0;
+          if (p.y < 0) p.y = height;
+          if (p.y > height) p.y = 0;
+
+          ctx.beginPath();
+          ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
+          ctx.fillStyle = p.color;
+          ctx.fill();
+        });
+        requestAnimationFrame(render);
+      }
+      render();
+    }
+
+    // 9. ANIMACIONES GSAP SCROLLTRIGGER (REVEALS & STAGGER)
+    document.addEventListener('DOMContentLoaded', function() {
+      initMagneticTilt();
+      initCyberParticles();
+
+      if (window.gsap && window.ScrollTrigger) {
+        gsap.registerPlugin(ScrollTrigger);
+
+        // Revelación de secciones al hacer scroll
+        gsap.utils.toArray('section').forEach(section => {
+          gsap.from(section.querySelectorAll('h2, .glass-panel-glow'), {
+            scrollTrigger: {
+              trigger: section,
+              start: "top 80%",
+              toggleActions: "play none none none"
+            },
+            y: 35,
+            opacity: 0,
+            duration: 0.8,
+            stagger: 0.15,
+            ease: "power3.out"
+          });
+        });
+      }
+    });
+
+  </script>
+
   <!-- Tailwind CSS via CDN -->
-  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.tailwindcss.com">
+    // =========================================================================
+    // 6. MOTOR DE HYPERMOTION & INTERACTIVIDAD 360° (GSAP & SCROLLTRIGGER)    
+    // =========================================================================
+    const GALLERY_DATA = [{"src": "assets/yo/Voleibol/IMG-20240831-WA0007.jpg", "cat": "voleibol", "tag": "Voleibol", "title": "Capitán y Colocador Campeón", "desc": "Celebración de campeonato: lectura táctica y liderazgo en la cancha.", "icon": "fa-volleyball"}, {"src": "assets/yo/Voleibol/IMG-20240616-WA0037.jpg", "cat": "voleibol", "tag": "Voleibol", "title": "Distribución Estratégica", "desc": "Armado de juego en tiempo real con precisión milimétrica.", "icon": "fa-volleyball"}, {"src": "assets/yo/Voleibol/IMG_0837.jpg", "cat": "voleibol", "tag": "Voleibol", "title": "Enfoque y Entrenamiento", "desc": "La constancia del entrenamiento deportivo forja la disciplina técnica.", "icon": "fa-volleyball"}, {"src": "assets/yo/Voleibol/IMG_20221126_192150836.jpg", "cat": "voleibol", "tag": "Voleibol", "title": "Torneo y Trabajo en Equipo", "desc": "Sinergia en cancha: cada punto se construye con confianza colectiva.", "icon": "fa-volleyball"}, {"src": "assets/yo/Laboral/IMG-20250516-WA0039.jpg", "cat": "laboral", "tag": "Laboral", "title": "Chapman Wilches: Servidores", "desc": "Gestión activa de infraestructura tecnológica y optimización de flujos.", "icon": "fa-briefcase"}, {"src": "assets/yo/Laboral/IMG-20260319-WA0036.jpg", "cat": "laboral", "tag": "Laboral", "title": "Desarrollo de Software y Ops", "desc": "Puesto de trabajo donde se programan las 4 soluciones de trazabilidad.", "icon": "fa-laptop-code"}, {"src": "assets/yo/Familia/IMG-20251018-WA0038.jpg", "cat": "familia", "tag": "Familia", "title": "Con mi Madre (Claudia Villalobos)", "desc": "Amor incondicional y la razón para crear soluciones de bienestar.", "icon": "fa-heart"}, {"src": "assets/yo/Familia/IMG-20260914-WA0019.jpg", "cat": "familia", "tag": "Familia", "title": "Celebración y Gratitud", "desc": "Momentos felices en familia que recargan el alma y renuevan el enfoque.", "icon": "fa-heart"}, {"src": "assets/yo/Familia/IMG-20260914-WA0022.jpg", "cat": "familia", "tag": "Familia", "title": "Unión y Respaldo Familiar", "desc": "El pilar humano más sólido detrás de cada logro académico y laboral.", "icon": "fa-heart"}, {"src": "assets/yo/Familia/IMG_0573.jpg", "cat": "familia", "tag": "Familia", "title": "Compartir en Familia", "desc": "Valores de humildad, perseverancia y generosidad aprendidos en casa.", "icon": "fa-heart"}, {"src": "assets/yo/Viajes/IMG-20250728-WA0016.jpg", "cat": "viajes", "tag": "Viajes", "title": "Horizontes Abiertos", "desc": "Desconexión en la naturaleza: viajar amplía la perspectiva y renueva ideas.", "icon": "fa-compass"}, {"src": "assets/yo/Viajes/IMG_7304.jpg", "cat": "viajes", "tag": "Viajes", "title": "Nuevas Rutas y Paisajes", "desc": "Explorando destinos que inspiran serenidad y pensamiento estratégico.", "icon": "fa-compass"}, {"src": "assets/yo/Viajes/IMG-20250419-WA0100.jpg", "cat": "viajes", "tag": "Viajes", "title": "Aventura al Aire Libre", "desc": "Respirar aire puro y desafiar nuevas pendientes con energía.", "icon": "fa-compass"}, {"src": "assets/yo/Viajes/51671495-ecf5-487f-b0ba-fc60db1c5240.jpg", "cat": "viajes", "tag": "Viajes", "title": "Caminos y Naturaleza", "desc": "Disfrutando cada etapa del recorrido con gratitud.", "icon": "fa-compass"}, {"src": "assets/yo/Viajes/IMG-20251231-WA0006.jpg", "cat": "viajes", "tag": "Viajes", "title": "Cierre de Año y Metas", "desc": "Celebrando metas cumplidas y trazando los nuevos objetivos SMART.", "icon": "fa-compass"}, {"src": "assets/yo/Viajes/IMG-20260407-WA0017.jpg", "cat": "viajes", "tag": "Viajes", "title": "Descubriendo Lugares", "desc": "La curiosidad de un ingeniero trasciende la pantalla hacia el mundo.", "icon": "fa-compass"}, {"src": "assets/yo/Viajes/IMG_20260216_140253_957.jpg", "cat": "viajes", "tag": "Viajes", "title": "Paz y Serenidad", "desc": "Momentos de introspección para tomar mejores decisiones.", "icon": "fa-compass"}, {"src": "assets/yo/Viajes/IMG-20251116-WA0018.jpg", "cat": "viajes", "tag": "Viajes", "title": "Destinos Verdes", "desc": "Equilibrio integral entre la exigencia técnica y el bienestar personal.", "icon": "fa-compass"}, {"src": "assets/yo/Viajes/IMG-20251116-WA0042.jpg", "cat": "viajes", "tag": "Viajes", "title": "Pausa Estratégica", "desc": "Parar para tomar impulso: descansar también es parte del plan de vida.", "icon": "fa-compass"}, {"src": "assets/yo/Viajes/IMG-20240915-WA0009.jpg", "cat": "viajes", "tag": "Viajes", "title": "Rutas Compartidas", "desc": "Viajar con buenos amigos para coleccionar memorias de por vida.", "icon": "fa-compass"}, {"src": "assets/yo/Viajes/d0ac0fb7-2bf6-43bc-a08a-268e487e9c75.jpg", "cat": "viajes", "tag": "Viajes", "title": "Vistas Memorables", "desc": "Mirar el camino desde la cima para recordar por qué empezamos.", "icon": "fa-compass"}, {"src": "assets/yo/Viajes/055276ff-f941-4bd2-b54e-8dccdb507f15.jpg", "cat": "viajes", "tag": "Viajes", "title": "Conexión Natural", "desc": "El silencio de la naturaleza aclara los problemas más complejos.", "icon": "fa-compass"}, {"src": "assets/yo/Ninez/FB_IMG_1767723967733.jpg", "cat": "ninez", "tag": "Niñez", "title": "Primeros Pasos", "desc": "Donde nació la sonrisa, el juego y las ganas de explorar el entorno.", "icon": "fa-seedling"}, {"src": "assets/yo/Ninez/IMG_20210518_164721148.jpg", "cat": "ninez", "tag": "Niñez", "title": "Curiosidad Temprana", "desc": "Los primeros juguetes y desarmes que anunciaban la vocación por la ingeniería.", "icon": "fa-seedling"}, {"src": "assets/yo/Ninez/IMG_20210518_164654691.jpg", "cat": "ninez", "tag": "Niñez", "title": "Pasión por el Movimiento", "desc": "Desde pequeño, la energía del deporte marcaba el ritmo cotidiano.", "icon": "fa-seedling"}, {"src": "assets/yo/Ninez/IMG-20210518-WA0021.jpeg", "cat": "ninez", "tag": "Niñez", "title": "Recuerdos de Infancia", "desc": "El cariño familiar que sembró la empatía y el espíritu colaborativo.", "icon": "fa-seedling"}, {"src": "assets/yo/Ninez/IMG-20210518-WA0039.jpeg", "cat": "ninez", "tag": "Niñez", "title": "Retrato de Época", "desc": "La mirada alegre que hoy conserva Kike Junior frente a cada desafío.", "icon": "fa-seedling"}, {"src": "assets/yo/Ninez/IMG-20250923-WA0000.jpg", "cat": "ninez", "tag": "Niñez", "title": "Orígenes & Huellas", "desc": "Honrar las raíces es el cimiento de una marca personal auténtica.", "icon": "fa-seedling"}];
+    let currentLightboxIndex = 0;
+    let isGalleryMode = false;
+
+    // Abrir Lightbox desde la Galería 360 con índice para navegar
+    function openGalleryLightbox(idx) {
+      isGalleryMode = true;
+      currentLightboxIndex = idx;
+      updateLightboxDisplay();
+      document.getElementById('imageModal').classList.remove('hidden');
+    }
+
+    function updateLightboxDisplay() {
+      const item = GALLERY_DATA[currentLightboxIndex];
+      const img = document.getElementById('imageModalImg');
+      const caption = document.getElementById('imageModalCaption');
+      const sub = document.getElementById('imageModalSub');
+      const counter = document.getElementById('imageModalCounter');
+
+      img.src = item.src;
+      caption.textContent = item.title;
+      sub.textContent = item.desc;
+      if (counter) counter.textContent = `${currentLightboxIndex + 1} / ${GALLERY_DATA.length}`;
+    }
+
+    function lightboxNext() {
+      if (!isGalleryMode) return;
+      currentLightboxIndex = (currentLightboxIndex + 1) % GALLERY_DATA.length;
+      updateLightboxDisplay();
+    }
+
+    function lightboxPrev() {
+      if (!isGalleryMode) return;
+      currentLightboxIndex = (currentLightboxIndex - 1 + GALLERY_DATA.length) % GALLERY_DATA.length;
+      updateLightboxDisplay();
+    }
+
+    // Filtros de categoría en la galería
+    function filterGallery(category) {
+      const items = document.querySelectorAll('.gallery-item');
+      const buttons = document.querySelectorAll('.gallery-filter-btn');
+
+      buttons.forEach(btn => {
+        btn.classList.remove('active', 'bg-gradient-to-r', 'from-cyan-500/20', 'to-emerald-500/20', 'text-white', 'border-cyan-400');
+        btn.classList.add('bg-slate-900/80', 'text-slate-300', 'border-slate-800');
+      });
+
+      const activeBtn = document.getElementById(`filterBtn-${category}`);
+      if (activeBtn) {
+        activeBtn.classList.add('active', 'bg-gradient-to-r', 'from-cyan-500/20', 'to-emerald-500/20', 'text-white', 'border-cyan-400');
+        activeBtn.classList.remove('bg-slate-900/80', 'text-slate-300', 'border-slate-800');
+      }
+
+      items.forEach(item => {
+        const itemCat = item.getAttribute('data-category');
+        if (category === 'todas' || itemCat === category) {
+          item.style.display = 'block';
+          if (window.gsap) {
+            gsap.fromTo(item, { opacity: 0, scale: 0.95, y: 15 }, { opacity: 1, scale: 1, y: 0, duration: 0.4, ease: "power2.out" });
+          }
+        } else {
+          item.style.display = 'none';
+        }
+      });
+    }
+
+    // Teclas del teclado para navegar el Lightbox
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'ArrowRight') lightboxNext();
+      if (e.key === 'ArrowLeft') lightboxPrev();
+    });
+
+    // 7. EFECTO 3D MAGNETIC TILT EN TARJETAS
+    function initMagneticTilt() {
+      const cards = document.querySelectorAll('.tilt-card, .hover-card-glow');
+      cards.forEach(card => {
+        card.addEventListener('mousemove', (e) => {
+          const rect = card.getBoundingClientRect();
+          const x = e.clientX - rect.left;
+          const y = e.clientY - rect.top;
+          const centerX = rect.width / 2;
+          const centerY = rect.height / 2;
+          const rotateX = ((y - centerY) / centerY) * -7;
+          const rotateY = ((x - centerX) / centerX) * 7;
+
+          card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-4px)`;
+        });
+
+        card.addEventListener('mouseleave', () => {
+          card.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) translateY(0px)';
+        });
+      });
+    }
+
+    // 8. FONDO DE PARTÍCULAS CYBER DINÁMICAS (Canvas)
+    function initCyberParticles() {
+      const canvas = document.getElementById('particleCanvas');
+      if (!canvas) return;
+      const ctx = canvas.getContext('2d');
+      let width = canvas.width = window.innerWidth;
+      let height = canvas.height = window.innerHeight;
+
+      window.addEventListener('resize', () => {
+        width = canvas.width = window.innerWidth;
+        height = canvas.height = window.innerHeight;
+      });
+
+      const particles = [];
+      const particleCount = Math.min(width > 768 ? 45 : 20, 50);
+
+      for (let i = 0; i < particleCount; i++) {
+        particles.push({
+          x: Math.random() * width,
+          y: Math.random() * height,
+          radius: Math.random() * 1.5 + 0.5,
+          vx: (Math.random() - 0.5) * 0.4,
+          vy: (Math.random() - 0.5) * 0.4,
+          color: Math.random() > 0.5 ? 'rgba(34, 211, 238, 0.4)' : 'rgba(52, 211, 153, 0.35)'
+        });
+      }
+
+      function render() {
+        ctx.clearRect(0, 0, width, height);
+        particles.forEach(p => {
+          p.x += p.vx;
+          p.y += p.vy;
+
+          if (p.x < 0) p.x = width;
+          if (p.x > width) p.x = 0;
+          if (p.y < 0) p.y = height;
+          if (p.y > height) p.y = 0;
+
+          ctx.beginPath();
+          ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
+          ctx.fillStyle = p.color;
+          ctx.fill();
+        });
+        requestAnimationFrame(render);
+      }
+      render();
+    }
+
+    // 9. ANIMACIONES GSAP SCROLLTRIGGER (REVEALS & STAGGER)
+    document.addEventListener('DOMContentLoaded', function() {
+      initMagneticTilt();
+      initCyberParticles();
+
+      if (window.gsap && window.ScrollTrigger) {
+        gsap.registerPlugin(ScrollTrigger);
+
+        // Revelación de secciones al hacer scroll
+        gsap.utils.toArray('section').forEach(section => {
+          gsap.from(section.querySelectorAll('h2, .glass-panel-glow'), {
+            scrollTrigger: {
+              trigger: section,
+              start: "top 80%",
+              toggleActions: "play none none none"
+            },
+            y: 35,
+            opacity: 0,
+            duration: 0.8,
+            stagger: 0.15,
+            ease: "power3.out"
+          });
+        });
+      }
+    });
+
+  </script>
   <script>
     tailwind.config = {
       darkMode: 'class',
@@ -55,9 +575,264 @@
         }
       }
     }
+  
+    // =========================================================================
+    // 6. MOTOR DE HYPERMOTION & INTERACTIVIDAD 360° (GSAP & SCROLLTRIGGER)    
+    // =========================================================================
+    const GALLERY_DATA = [{"src": "assets/yo/Voleibol/IMG-20240831-WA0007.jpg", "cat": "voleibol", "tag": "Voleibol", "title": "Capitán y Colocador Campeón", "desc": "Celebración de campeonato: lectura táctica y liderazgo en la cancha.", "icon": "fa-volleyball"}, {"src": "assets/yo/Voleibol/IMG-20240616-WA0037.jpg", "cat": "voleibol", "tag": "Voleibol", "title": "Distribución Estratégica", "desc": "Armado de juego en tiempo real con precisión milimétrica.", "icon": "fa-volleyball"}, {"src": "assets/yo/Voleibol/IMG_0837.jpg", "cat": "voleibol", "tag": "Voleibol", "title": "Enfoque y Entrenamiento", "desc": "La constancia del entrenamiento deportivo forja la disciplina técnica.", "icon": "fa-volleyball"}, {"src": "assets/yo/Voleibol/IMG_20221126_192150836.jpg", "cat": "voleibol", "tag": "Voleibol", "title": "Torneo y Trabajo en Equipo", "desc": "Sinergia en cancha: cada punto se construye con confianza colectiva.", "icon": "fa-volleyball"}, {"src": "assets/yo/Laboral/IMG-20250516-WA0039.jpg", "cat": "laboral", "tag": "Laboral", "title": "Chapman Wilches: Servidores", "desc": "Gestión activa de infraestructura tecnológica y optimización de flujos.", "icon": "fa-briefcase"}, {"src": "assets/yo/Laboral/IMG-20260319-WA0036.jpg", "cat": "laboral", "tag": "Laboral", "title": "Desarrollo de Software y Ops", "desc": "Puesto de trabajo donde se programan las 4 soluciones de trazabilidad.", "icon": "fa-laptop-code"}, {"src": "assets/yo/Familia/IMG-20251018-WA0038.jpg", "cat": "familia", "tag": "Familia", "title": "Con mi Madre (Claudia Villalobos)", "desc": "Amor incondicional y la razón para crear soluciones de bienestar.", "icon": "fa-heart"}, {"src": "assets/yo/Familia/IMG-20260914-WA0019.jpg", "cat": "familia", "tag": "Familia", "title": "Celebración y Gratitud", "desc": "Momentos felices en familia que recargan el alma y renuevan el enfoque.", "icon": "fa-heart"}, {"src": "assets/yo/Familia/IMG-20260914-WA0022.jpg", "cat": "familia", "tag": "Familia", "title": "Unión y Respaldo Familiar", "desc": "El pilar humano más sólido detrás de cada logro académico y laboral.", "icon": "fa-heart"}, {"src": "assets/yo/Familia/IMG_0573.jpg", "cat": "familia", "tag": "Familia", "title": "Compartir en Familia", "desc": "Valores de humildad, perseverancia y generosidad aprendidos en casa.", "icon": "fa-heart"}, {"src": "assets/yo/Viajes/IMG-20250728-WA0016.jpg", "cat": "viajes", "tag": "Viajes", "title": "Horizontes Abiertos", "desc": "Desconexión en la naturaleza: viajar amplía la perspectiva y renueva ideas.", "icon": "fa-compass"}, {"src": "assets/yo/Viajes/IMG_7304.jpg", "cat": "viajes", "tag": "Viajes", "title": "Nuevas Rutas y Paisajes", "desc": "Explorando destinos que inspiran serenidad y pensamiento estratégico.", "icon": "fa-compass"}, {"src": "assets/yo/Viajes/IMG-20250419-WA0100.jpg", "cat": "viajes", "tag": "Viajes", "title": "Aventura al Aire Libre", "desc": "Respirar aire puro y desafiar nuevas pendientes con energía.", "icon": "fa-compass"}, {"src": "assets/yo/Viajes/51671495-ecf5-487f-b0ba-fc60db1c5240.jpg", "cat": "viajes", "tag": "Viajes", "title": "Caminos y Naturaleza", "desc": "Disfrutando cada etapa del recorrido con gratitud.", "icon": "fa-compass"}, {"src": "assets/yo/Viajes/IMG-20251231-WA0006.jpg", "cat": "viajes", "tag": "Viajes", "title": "Cierre de Año y Metas", "desc": "Celebrando metas cumplidas y trazando los nuevos objetivos SMART.", "icon": "fa-compass"}, {"src": "assets/yo/Viajes/IMG-20260407-WA0017.jpg", "cat": "viajes", "tag": "Viajes", "title": "Descubriendo Lugares", "desc": "La curiosidad de un ingeniero trasciende la pantalla hacia el mundo.", "icon": "fa-compass"}, {"src": "assets/yo/Viajes/IMG_20260216_140253_957.jpg", "cat": "viajes", "tag": "Viajes", "title": "Paz y Serenidad", "desc": "Momentos de introspección para tomar mejores decisiones.", "icon": "fa-compass"}, {"src": "assets/yo/Viajes/IMG-20251116-WA0018.jpg", "cat": "viajes", "tag": "Viajes", "title": "Destinos Verdes", "desc": "Equilibrio integral entre la exigencia técnica y el bienestar personal.", "icon": "fa-compass"}, {"src": "assets/yo/Viajes/IMG-20251116-WA0042.jpg", "cat": "viajes", "tag": "Viajes", "title": "Pausa Estratégica", "desc": "Parar para tomar impulso: descansar también es parte del plan de vida.", "icon": "fa-compass"}, {"src": "assets/yo/Viajes/IMG-20240915-WA0009.jpg", "cat": "viajes", "tag": "Viajes", "title": "Rutas Compartidas", "desc": "Viajar con buenos amigos para coleccionar memorias de por vida.", "icon": "fa-compass"}, {"src": "assets/yo/Viajes/d0ac0fb7-2bf6-43bc-a08a-268e487e9c75.jpg", "cat": "viajes", "tag": "Viajes", "title": "Vistas Memorables", "desc": "Mirar el camino desde la cima para recordar por qué empezamos.", "icon": "fa-compass"}, {"src": "assets/yo/Viajes/055276ff-f941-4bd2-b54e-8dccdb507f15.jpg", "cat": "viajes", "tag": "Viajes", "title": "Conexión Natural", "desc": "El silencio de la naturaleza aclara los problemas más complejos.", "icon": "fa-compass"}, {"src": "assets/yo/Ninez/FB_IMG_1767723967733.jpg", "cat": "ninez", "tag": "Niñez", "title": "Primeros Pasos", "desc": "Donde nació la sonrisa, el juego y las ganas de explorar el entorno.", "icon": "fa-seedling"}, {"src": "assets/yo/Ninez/IMG_20210518_164721148.jpg", "cat": "ninez", "tag": "Niñez", "title": "Curiosidad Temprana", "desc": "Los primeros juguetes y desarmes que anunciaban la vocación por la ingeniería.", "icon": "fa-seedling"}, {"src": "assets/yo/Ninez/IMG_20210518_164654691.jpg", "cat": "ninez", "tag": "Niñez", "title": "Pasión por el Movimiento", "desc": "Desde pequeño, la energía del deporte marcaba el ritmo cotidiano.", "icon": "fa-seedling"}, {"src": "assets/yo/Ninez/IMG-20210518-WA0021.jpeg", "cat": "ninez", "tag": "Niñez", "title": "Recuerdos de Infancia", "desc": "El cariño familiar que sembró la empatía y el espíritu colaborativo.", "icon": "fa-seedling"}, {"src": "assets/yo/Ninez/IMG-20210518-WA0039.jpeg", "cat": "ninez", "tag": "Niñez", "title": "Retrato de Época", "desc": "La mirada alegre que hoy conserva Kike Junior frente a cada desafío.", "icon": "fa-seedling"}, {"src": "assets/yo/Ninez/IMG-20250923-WA0000.jpg", "cat": "ninez", "tag": "Niñez", "title": "Orígenes & Huellas", "desc": "Honrar las raíces es el cimiento de una marca personal auténtica.", "icon": "fa-seedling"}];
+    let currentLightboxIndex = 0;
+    let isGalleryMode = false;
+
+    // Abrir Lightbox desde la Galería 360 con índice para navegar
+    function openGalleryLightbox(idx) {
+      isGalleryMode = true;
+      currentLightboxIndex = idx;
+      updateLightboxDisplay();
+      document.getElementById('imageModal').classList.remove('hidden');
+    }
+
+    function updateLightboxDisplay() {
+      const item = GALLERY_DATA[currentLightboxIndex];
+      const img = document.getElementById('imageModalImg');
+      const caption = document.getElementById('imageModalCaption');
+      const sub = document.getElementById('imageModalSub');
+      const counter = document.getElementById('imageModalCounter');
+
+      img.src = item.src;
+      caption.textContent = item.title;
+      sub.textContent = item.desc;
+      if (counter) counter.textContent = `${currentLightboxIndex + 1} / ${GALLERY_DATA.length}`;
+    }
+
+    function lightboxNext() {
+      if (!isGalleryMode) return;
+      currentLightboxIndex = (currentLightboxIndex + 1) % GALLERY_DATA.length;
+      updateLightboxDisplay();
+    }
+
+    function lightboxPrev() {
+      if (!isGalleryMode) return;
+      currentLightboxIndex = (currentLightboxIndex - 1 + GALLERY_DATA.length) % GALLERY_DATA.length;
+      updateLightboxDisplay();
+    }
+
+    // Filtros de categoría en la galería
+    function filterGallery(category) {
+      const items = document.querySelectorAll('.gallery-item');
+      const buttons = document.querySelectorAll('.gallery-filter-btn');
+
+      buttons.forEach(btn => {
+        btn.classList.remove('active', 'bg-gradient-to-r', 'from-cyan-500/20', 'to-emerald-500/20', 'text-white', 'border-cyan-400');
+        btn.classList.add('bg-slate-900/80', 'text-slate-300', 'border-slate-800');
+      });
+
+      const activeBtn = document.getElementById(`filterBtn-${category}`);
+      if (activeBtn) {
+        activeBtn.classList.add('active', 'bg-gradient-to-r', 'from-cyan-500/20', 'to-emerald-500/20', 'text-white', 'border-cyan-400');
+        activeBtn.classList.remove('bg-slate-900/80', 'text-slate-300', 'border-slate-800');
+      }
+
+      items.forEach(item => {
+        const itemCat = item.getAttribute('data-category');
+        if (category === 'todas' || itemCat === category) {
+          item.style.display = 'block';
+          if (window.gsap) {
+            gsap.fromTo(item, { opacity: 0, scale: 0.95, y: 15 }, { opacity: 1, scale: 1, y: 0, duration: 0.4, ease: "power2.out" });
+          }
+        } else {
+          item.style.display = 'none';
+        }
+      });
+    }
+
+    // Teclas del teclado para navegar el Lightbox
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'ArrowRight') lightboxNext();
+      if (e.key === 'ArrowLeft') lightboxPrev();
+    });
+
+    // 7. EFECTO 3D MAGNETIC TILT EN TARJETAS
+    function initMagneticTilt() {
+      const cards = document.querySelectorAll('.tilt-card, .hover-card-glow');
+      cards.forEach(card => {
+        card.addEventListener('mousemove', (e) => {
+          const rect = card.getBoundingClientRect();
+          const x = e.clientX - rect.left;
+          const y = e.clientY - rect.top;
+          const centerX = rect.width / 2;
+          const centerY = rect.height / 2;
+          const rotateX = ((y - centerY) / centerY) * -7;
+          const rotateY = ((x - centerX) / centerX) * 7;
+
+          card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-4px)`;
+        });
+
+        card.addEventListener('mouseleave', () => {
+          card.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) translateY(0px)';
+        });
+      });
+    }
+
+    // 8. FONDO DE PARTÍCULAS CYBER DINÁMICAS (Canvas)
+    function initCyberParticles() {
+      const canvas = document.getElementById('particleCanvas');
+      if (!canvas) return;
+      const ctx = canvas.getContext('2d');
+      let width = canvas.width = window.innerWidth;
+      let height = canvas.height = window.innerHeight;
+
+      window.addEventListener('resize', () => {
+        width = canvas.width = window.innerWidth;
+        height = canvas.height = window.innerHeight;
+      });
+
+      const particles = [];
+      const particleCount = Math.min(width > 768 ? 45 : 20, 50);
+
+      for (let i = 0; i < particleCount; i++) {
+        particles.push({
+          x: Math.random() * width,
+          y: Math.random() * height,
+          radius: Math.random() * 1.5 + 0.5,
+          vx: (Math.random() - 0.5) * 0.4,
+          vy: (Math.random() - 0.5) * 0.4,
+          color: Math.random() > 0.5 ? 'rgba(34, 211, 238, 0.4)' : 'rgba(52, 211, 153, 0.35)'
+        });
+      }
+
+      function render() {
+        ctx.clearRect(0, 0, width, height);
+        particles.forEach(p => {
+          p.x += p.vx;
+          p.y += p.vy;
+
+          if (p.x < 0) p.x = width;
+          if (p.x > width) p.x = 0;
+          if (p.y < 0) p.y = height;
+          if (p.y > height) p.y = 0;
+
+          ctx.beginPath();
+          ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
+          ctx.fillStyle = p.color;
+          ctx.fill();
+        });
+        requestAnimationFrame(render);
+      }
+      render();
+    }
+
+    // 9. ANIMACIONES GSAP SCROLLTRIGGER (REVEALS & STAGGER)
+    document.addEventListener('DOMContentLoaded', function() {
+      initMagneticTilt();
+      initCyberParticles();
+
+      if (window.gsap && window.ScrollTrigger) {
+        gsap.registerPlugin(ScrollTrigger);
+
+        // Revelación de secciones al hacer scroll
+        gsap.utils.toArray('section').forEach(section => {
+          gsap.from(section.querySelectorAll('h2, .glass-panel-glow'), {
+            scrollTrigger: {
+              trigger: section,
+              start: "top 80%",
+              toggleActions: "play none none none"
+            },
+            y: 35,
+            opacity: 0,
+            duration: 0.8,
+            stagger: 0.15,
+            ease: "power3.out"
+          });
+        });
+      }
+    });
+
   </script>
 
   <style>
+    
+    /* Hypermotion & Tactical Cyber Visual Effects */
+    .radar-scanline {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, rgba(34, 211, 238, 0.6), rgba(52, 211, 153, 0.8), transparent);
+      box-shadow: 0 0 15px rgba(34, 211, 238, 0.8);
+      pointer-events: none;
+      z-index: 40;
+      animation: scanlineMove 8s ease-in-out infinite alternate;
+    }
+
+    @keyframes scanlineMove {
+      0% { transform: translateY(0vh); opacity: 0.1; }
+      50% { opacity: 0.45; }
+      100% { transform: translateY(100vh); opacity: 0.1; }
+    }
+
+    /* 3D Magnetic Tilt Cards */
+    .tilt-card {
+      transform-style: preserve-3d;
+      transition: transform 0.2s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.3s ease;
+      will-change: transform;
+    }
+
+    /* Shimmer sweep effect */
+    .shimmer-hover {
+      position: relative;
+      overflow: hidden;
+    }
+    .shimmer-hover::after {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -60%;
+      width: 40%;
+      height: 200%;
+      background: linear-gradient(
+        to right,
+        rgba(255, 255, 255, 0) 0%,
+        rgba(34, 211, 238, 0.15) 50%,
+        rgba(255, 255, 255, 0) 100%
+      );
+      transform: rotate(25deg);
+      pointer-events: none;
+      transition: left 0.8s ease;
+    }
+    .shimmer-hover:hover::after {
+      left: 130%;
+    }
+
+    /* Floating particles background canvas */
+    #particleCanvas {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 1;
+      opacity: 0.6;
+    }
+
+    /* Borde brillante animado */
+    .border-gradient-live {
+      position: relative;
+    }
+    .border-gradient-live::before {
+      content: '';
+      position: absolute;
+      inset: -1px;
+      border-radius: inherit;
+      padding: 1px;
+      background: linear-gradient(135deg, rgba(34, 211, 238, 0.6), rgba(52, 211, 153, 0.2), rgba(34, 211, 238, 0.6));
+      -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+      -webkit-mask-composite: xor;
+      mask-composite: exclude;
+      pointer-events: none;
+    }
+
     /* Estilos personalizados y utilidades de efectos */
     body {
       background-color: #020617;
@@ -155,6 +930,8 @@
 </head>
 
 <body class="tactical-grid min-h-screen selection:bg-cyan-500/30 selection:text-cyan-200">
+  <div class="radar-scanline"></div>
+  <canvas id="particleCanvas"></canvas>
 
   <!-- ========================================================================= -->
   <!-- 1. NAVBAR SUPERIOR (Sticky & Blur)                                        -->
@@ -221,6 +998,14 @@
             <span>4. Promesa & BANG</span>
           </a>
 
+                    <!-- 360 Bitácora Visual -->
+          <a href="#galeria-360" 
+             class="group inline-flex items-center gap-1.5 px-2.5 py-1.5 rounded-xl text-xs font-semibold tracking-wide bg-gradient-to-r from-cyan-500/10 to-emerald-500/10 text-cyan-300 border border-cyan-500/40 hover:border-cyan-300 hover:text-white transition-all shadow-sm">
+            <i class="fa-solid fa-camera-retro text-cyan-400 text-[11px]"></i>
+            <span>Bitácora 360°</span>
+            <span class="px-1 py-0.2 rounded text-[9px] bg-cyan-400/20 text-cyan-200 font-mono">28</span>
+          </a>
+
           <!-- 5. Pitch Visual & IA -->
           <a href="#fase-pitch-ia" 
              class="group inline-flex items-center gap-1.5 px-2.5 py-1.5 rounded-xl text-xs font-semibold tracking-wide bg-emerald-500/10 text-emerald-300 border border-emerald-500/30 hover:bg-emerald-500/20 hover:border-emerald-400 transition-all">
@@ -249,6 +1034,15 @@
       </div>
 
       <!-- Menú Desplegable Móvil -->
+          <a href="#galeria-360" 
+             onclick="toggleMobileMenu()"
+             class="flex items-center justify-between px-3.5 py-2 rounded-xl text-sm font-semibold bg-cyan-950/40 text-cyan-300 border border-cyan-500/40">
+            <div class="flex items-center gap-2.5">
+              <i class="fa-solid fa-camera-retro text-cyan-400"></i>
+              <span>Bitácora Multimedia 360°</span>
+            </div>
+            <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-cyan-400/20 text-cyan-300">28 Fotos</span>
+          </a>
       <div id="mobileMenu" class="hidden xl:hidden py-4 border-t border-slate-800/80 transition-all duration-300">
         <div class="flex flex-col gap-2">
           <p class="text-[11px] font-mono uppercase tracking-wider text-slate-400 px-2 mb-1">
@@ -359,6 +1153,46 @@
             <p class="text-base sm:text-lg lg:text-xl text-slate-300 font-normal leading-relaxed italic">
               "Conecto personas, automatizo procesos y estructuro soluciones tecnológicas con la precisión estratégica de un colocador en la cancha."
             </p>
+          </div>
+
+          <!-- Live Story Reel (Multimedia en Vivo) -->
+          <div class="w-full mb-6 p-3 rounded-2xl bg-slate-900/60 border border-slate-800/90 backdrop-blur-md">
+            <div class="flex items-center justify-between text-xs font-mono text-slate-400 mb-2.5 px-1">
+              <span class="flex items-center gap-1.5 text-cyan-400 font-semibold">
+                <i class="fa-solid fa-bolt-lightning text-amber-400 animate-pulse"></i> LIVE REEL • EN CANCHA & EN CÓDIGO
+              </span>
+              <span class="text-[10px] text-slate-500">Clic para ampliar</span>
+            </div>
+            <div class="grid grid-cols-3 gap-2.5">
+              
+              <div onclick="openImageModal('assets/yo/Voleibol/IMG-20240831-WA0007.jpg', 'Liderazgo Deportivo • Kike Junior: Campeón y Colocador')"
+                   class="group relative h-20 sm:h-24 rounded-xl overflow-hidden cursor-pointer border border-cyan-500/30 hover:border-cyan-400 transition-all shimmer-hover">
+                <img src="assets/yo/Voleibol/IMG-20240831-WA0007.jpg" alt="Voleibol Campeón" class="w-full h-full object-cover object-top group-hover:scale-110 transition-transform duration-500">
+                <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-transparent"></div>
+                <span class="absolute bottom-1.5 left-2 text-[10px] font-mono text-white font-bold flex items-center gap-1">
+                  <i class="fa-solid fa-volleyball text-cyan-400 text-[9px]"></i> Voleibol
+                </span>
+              </div>
+
+              <div onclick="openImageModal('assets/yo/Laboral/IMG-20250516-WA0039.jpg', 'Infraestructura Tecnológica • Kike Junior en Chapman Wilches')"
+                   class="group relative h-20 sm:h-24 rounded-xl overflow-hidden cursor-pointer border border-emerald-500/30 hover:border-emerald-400 transition-all shimmer-hover">
+                <img src="assets/yo/Laboral/IMG-20250516-WA0039.jpg" alt="Entorno Laboral" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-transparent"></div>
+                <span class="absolute bottom-1.5 left-2 text-[10px] font-mono text-white font-bold flex items-center gap-1">
+                  <i class="fa-solid fa-laptop-code text-emerald-400 text-[9px]"></i> Laboral
+                </span>
+              </div>
+
+              <div onclick="openImageModal('assets/yo/Viajes/IMG-20250728-WA0016.jpg', 'Desconexión & Naturaleza • Kike Junior en Nuevas Rutas')"
+                   class="group relative h-20 sm:h-24 rounded-xl overflow-hidden cursor-pointer border border-cyan-500/30 hover:border-cyan-400 transition-all shimmer-hover">
+                <img src="assets/yo/Viajes/IMG-20250728-WA0016.jpg" alt="Viajes y Balance" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-transparent"></div>
+                <span class="absolute bottom-1.5 left-2 text-[10px] font-mono text-white font-bold flex items-center gap-1">
+                  <i class="fa-solid fa-compass text-cyan-400 text-[9px]"></i> Balance
+                </span>
+              </div>
+
+            </div>
           </div>
 
           <!-- Etiquetas (Pills) con micro-interacciones -->
@@ -651,67 +1485,89 @@
                   </span>
                 </div>
 
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
                   
-                  <!-- Foto 1: Voleibol & Campeonato (Tarjeta Cuadrada con encuadre superior óptimo) -->
-                  <div onclick="openImageModal('./assets/kike_volleyball_champion.jpg', 'Liderazgo Deportivo • Kike Junior: Capitán y Colocador Campeón')" 
-                       class="glass-panel hover-card-glow rounded-2xl overflow-hidden border border-slate-800 group cursor-pointer aspect-square relative flex flex-col justify-between shadow-xl">
-                    
-                    <!-- Imagen con encuadre object-top para mostrar la cabeza, rostro, trofeo y medalla completos -->
-                    <img src="./assets/kike_volleyball_champion.jpg" 
-                         alt="Aldair Enrique (Kike Junior) en cancha de voleibol con trofeo y medalla" 
+                  <!-- Foto 1: Voleibol & Campeonato -->
+                  <div onclick="openImageModal('assets/yo/Voleibol/IMG-20240831-WA0007.jpg', 'Liderazgo Deportivo • Kike Junior: Capitán y Colocador Campeón')" 
+                       class="glass-panel hover-card-glow rounded-2xl overflow-hidden border border-cyan-500/30 group cursor-pointer aspect-[3/4] relative flex flex-col justify-between shadow-xl shimmer-hover">
+                    <img src="assets/yo/Voleibol/IMG-20240831-WA0007.jpg" 
+                         alt="Kike Junior campeón de voleibol" 
                          class="absolute inset-0 w-full h-full object-cover object-top transform group-hover:scale-105 transition-transform duration-700">
-                    
-                    <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/25 to-slate-950/20 pointer-events-none"></div>
-                    
-                    <!-- Top Badge -->
-                    <div class="relative z-10 p-4 sm:p-5 flex items-center justify-between">
-                      <span class="px-3 py-1.5 rounded-full text-xs font-mono font-bold bg-slate-950/85 text-cyan-300 border border-cyan-500/40 backdrop-blur-md shadow-lg">
-                        <i class="fa-solid fa-trophy text-amber-400 mr-1.5"></i> Voleibol • Campeón & Setter
+                    <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/30 to-transparent pointer-events-none"></div>
+                    <div class="relative z-10 p-3.5 flex items-center justify-between">
+                      <span class="px-2.5 py-1 rounded-full text-[10px] font-mono font-bold bg-slate-950/85 text-cyan-300 border border-cyan-500/40 backdrop-blur-md">
+                        <i class="fa-solid fa-trophy text-amber-400 mr-1"></i> Setter Campeón
                       </span>
-                      <span class="w-8 h-8 rounded-lg bg-slate-950/80 border border-slate-700/80 flex items-center justify-center text-cyan-400 opacity-0 group-hover:opacity-100 transition-opacity backdrop-blur-md shadow-md">
-                        <i class="fa-solid fa-expand text-xs"></i>
+                      <span class="w-6 h-6 rounded-lg bg-slate-950/80 border border-slate-700 flex items-center justify-center text-cyan-400 text-xs">
+                        <i class="fa-solid fa-expand"></i>
                       </span>
                     </div>
-
-                    <!-- Bottom Info -->
-                    <div class="relative z-10 p-5 bg-gradient-to-t from-slate-950 via-slate-950/90 to-transparent pt-12">
-                      <p class="text-base sm:text-lg font-bold text-white font-display flex items-center justify-between">
-                        <span>Liderazgo & Disciplina Deportiva</span>
-                        <i class="fa-solid fa-circle-check text-cyan-400 text-sm"></i>
-                      </p>
-                      <p class="text-xs sm:text-sm text-slate-300 mt-1 leading-relaxed">Capitán y colocador: lectura táctica de cancha, liderazgo bajo presión y celebración del campeonato.</p>
+                    <div class="relative z-10 p-3.5 bg-gradient-to-t from-slate-950 via-slate-950/90 to-transparent">
+                      <p class="text-sm font-bold text-white font-display">Táctica Deportiva</p>
+                      <p class="text-[11px] text-slate-300 mt-0.5 leading-tight">Colocador: visión periférica y distribución bajo presión.</p>
                     </div>
                   </div>
 
-                  <!-- Foto 2: Viajes & Naturaleza (Tarjeta Cuadrada con encuadre central óptimo) -->
-                  <div onclick="openImageModal('./assets/kike_travel_balance.jpg', 'Equilibrio & Nuevas Rutas • Kike Junior: Desconexión y Naturaleza')" 
-                       class="glass-panel hover-card-glow rounded-2xl overflow-hidden border border-slate-800 group cursor-pointer aspect-square relative flex flex-col justify-between shadow-xl">
-                    
-                    <!-- Imagen con encuadre object-[center_35%] para mostrar el cuerpo, brazos abiertos y naturaleza -->
-                    <img src="./assets/kike_travel_balance.jpg" 
-                         alt="Aldair Enrique (Kike Junior) viajando y disfrutando en la naturaleza" 
-                         class="absolute inset-0 w-full h-full object-cover object-[center_35%] transform group-hover:scale-105 transition-transform duration-700">
-                    
-                    <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/25 to-slate-950/20 pointer-events-none"></div>
-                    
-                    <!-- Top Badge -->
-                    <div class="relative z-10 p-4 sm:p-5 flex items-center justify-between">
-                      <span class="px-3 py-1.5 rounded-full text-xs font-mono font-bold bg-slate-950/85 text-emerald-300 border border-emerald-500/40 backdrop-blur-md shadow-lg">
-                        <i class="fa-solid fa-compass text-emerald-400 mr-1.5"></i> Viajes & Nuevas Rutas
+                  <!-- Foto 2: Entorno Laboral & Chapman Wilches -->
+                  <div onclick="openImageModal('assets/yo/Laboral/IMG-20250516-WA0039.jpg', 'Entorno Profesional • Kike Junior en la gestión tecnológica de Chapman Wilches')" 
+                       class="glass-panel hover-card-glow rounded-2xl overflow-hidden border border-emerald-500/30 group cursor-pointer aspect-[3/4] relative flex flex-col justify-between shadow-xl shimmer-hover">
+                    <img src="assets/yo/Laboral/IMG-20250516-WA0039.jpg" 
+                         alt="Kike Junior en oficina Chapman Wilches" 
+                         class="absolute inset-0 w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700">
+                    <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/30 to-transparent pointer-events-none"></div>
+                    <div class="relative z-10 p-3.5 flex items-center justify-between">
+                      <span class="px-2.5 py-1 rounded-full text-[10px] font-mono font-bold bg-slate-950/85 text-emerald-300 border border-emerald-500/40 backdrop-blur-md">
+                        <i class="fa-solid fa-briefcase text-emerald-400 mr-1"></i> Tech & Ops
                       </span>
-                      <span class="w-8 h-8 rounded-lg bg-slate-950/80 border border-slate-700/80 flex items-center justify-center text-emerald-400 opacity-0 group-hover:opacity-100 transition-opacity backdrop-blur-md shadow-md">
-                        <i class="fa-solid fa-expand text-xs"></i>
+                      <span class="w-6 h-6 rounded-lg bg-slate-950/80 border border-slate-700 flex items-center justify-center text-emerald-400 text-xs">
+                        <i class="fa-solid fa-expand"></i>
                       </span>
                     </div>
+                    <div class="relative z-10 p-3.5 bg-gradient-to-t from-slate-950 via-slate-950/90 to-transparent">
+                      <p class="text-sm font-bold text-white font-display">Chapman Wilches</p>
+                      <p class="text-[11px] text-slate-300 mt-0.5 leading-tight">Digitalización de flujos y trazabilidad en el sector legal.</p>
+                    </div>
+                  </div>
 
-                    <!-- Bottom Info -->
-                    <div class="relative z-10 p-5 bg-gradient-to-t from-slate-950 via-slate-950/90 to-transparent pt-12">
-                      <p class="text-base sm:text-lg font-bold text-white font-display flex items-center justify-between">
-                        <span>Equilibrio & Desconexión Estratégica</span>
-                        <i class="fa-solid fa-circle-check text-emerald-400 text-sm"></i>
-                      </p>
-                      <p class="text-xs sm:text-sm text-slate-300 mt-1 leading-relaxed">Viajar a nuevos lugares para despejar la mente, recargar energía y reconectar con la naturaleza.</p>
+                  <!-- Foto 3: Viajes & Naturaleza -->
+                  <div onclick="openImageModal('assets/yo/Viajes/IMG-20250728-WA0016.jpg', 'Equilibrio & Rutas • Kike Junior: Desconexión en la Naturaleza')" 
+                       class="glass-panel hover-card-glow rounded-2xl overflow-hidden border border-cyan-500/30 group cursor-pointer aspect-[3/4] relative flex flex-col justify-between shadow-xl shimmer-hover">
+                    <img src="assets/yo/Viajes/IMG-20250728-WA0016.jpg" 
+                         alt="Kike Junior en viajes y naturaleza" 
+                         class="absolute inset-0 w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700">
+                    <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/30 to-transparent pointer-events-none"></div>
+                    <div class="relative z-10 p-3.5 flex items-center justify-between">
+                      <span class="px-2.5 py-1 rounded-full text-[10px] font-mono font-bold bg-slate-950/85 text-cyan-300 border border-cyan-500/40 backdrop-blur-md">
+                        <i class="fa-solid fa-compass text-cyan-400 mr-1"></i> Nuevas Rutas
+                      </span>
+                      <span class="w-6 h-6 rounded-lg bg-slate-950/80 border border-slate-700 flex items-center justify-center text-cyan-400 text-xs">
+                        <i class="fa-solid fa-expand"></i>
+                      </span>
+                    </div>
+                    <div class="relative z-10 p-3.5 bg-gradient-to-t from-slate-950 via-slate-950/90 to-transparent">
+                      <p class="text-sm font-bold text-white font-display">Equilibrio Vital</p>
+                      <p class="text-[11px] text-slate-300 mt-0.5 leading-tight">Despeje de ideas y recarga de energía en nuevos destinos.</p>
+                    </div>
+                  </div>
+
+                  <!-- Foto 4: Familia & Inspiración -->
+                  <div onclick="openImageModal('assets/yo/Familia/IMG-20260914-WA0022.jpg', 'Pilar Humano • Kike Junior en Familia')" 
+                       class="glass-panel hover-card-glow rounded-2xl overflow-hidden border border-purple-500/30 group cursor-pointer aspect-[3/4] relative flex flex-col justify-between shadow-xl shimmer-hover">
+                    <img src="assets/yo/Familia/IMG-20260914-WA0022.jpg" 
+                         alt="Kike Junior con su familia" 
+                         class="absolute inset-0 w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700">
+                    <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/30 to-transparent pointer-events-none"></div>
+                    <div class="relative z-10 p-3.5 flex items-center justify-between">
+                      <span class="px-2.5 py-1 rounded-full text-[10px] font-mono font-bold bg-slate-950/85 text-purple-300 border border-purple-500/40 backdrop-blur-md">
+                        <i class="fa-solid fa-heart text-purple-400 mr-1"></i> Familia & Motor
+                      </span>
+                      <span class="w-6 h-6 rounded-lg bg-slate-950/80 border border-slate-700 flex items-center justify-center text-purple-400 text-xs">
+                        <i class="fa-solid fa-expand"></i>
+                      </span>
+                    </div>
+                    <div class="relative z-10 p-3.5 bg-gradient-to-t from-slate-950 via-slate-950/90 to-transparent">
+                      <p class="text-sm font-bold text-white font-display">Raíces Sólidas</p>
+                      <p class="text-[11px] text-slate-300 mt-0.5 leading-tight">El núcleo afectivo y la inspiración detrás de cada reto.</p>
                     </div>
                   </div>
 
@@ -1162,6 +2018,37 @@
         </p>
       </div>
 
+      <!-- Showcase Fotográfico en Vivo: Chapman Wilches -->
+      <div class="mb-12 glass-panel-glow p-5 sm:p-6 rounded-3xl border border-emerald-500/30 relative overflow-hidden">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-center">
+          <div class="lg:col-span-5 relative h-56 sm:h-64 rounded-2xl overflow-hidden border border-emerald-500/40 group cursor-pointer"
+               onclick="openImageModal('assets/yo/Laboral/IMG-20250516-WA0039.jpg', 'Kike Junior en Chapman Wilches • Liderazgo en Servidores y Automatización')">
+            <img src="assets/yo/Laboral/IMG-20250516-WA0039.jpg" alt="Kike en oficina Chapman Wilches" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+            <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-transparent"></div>
+            <div class="absolute bottom-3 left-3 right-3 flex items-center justify-between text-[11px] font-mono text-emerald-300 bg-slate-950/80 px-2.5 py-1.5 rounded-lg border border-emerald-500/30">
+              <span><i class="fa-solid fa-server mr-1"></i> SERVIDORES: ACTIVO</span>
+              <span>CHAPMAN WILCHES</span>
+            </div>
+          </div>
+          <div class="lg:col-span-7 flex flex-col justify-center text-left">
+            <div class="text-xs font-mono uppercase tracking-wider text-emerald-400 font-bold mb-2 flex items-center gap-2">
+              <span class="w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span> Entorno Laboral Real • De la Teoría a la Operación
+            </div>
+            <h4 class="text-xl sm:text-2xl font-bold font-display text-white mb-3">
+              Soluciones en Producción para la Firma Chapman Wilches
+            </h4>
+            <p class="text-xs sm:text-sm text-slate-300 leading-relaxed mb-4">
+              Mi objetivo SMART no es una aspiración abstracta: ocurre en tiempo real en los servidores y estaciones de trabajo de la firma. Cada una de las 4 soluciones de automatización y trazabilidad responde a necesidades palpables de abogados, clientes y directivos.
+            </p>
+            <div class="flex flex-wrap gap-2 text-xs font-mono">
+              <span class="px-2.5 py-1 rounded bg-slate-900 border border-slate-700 text-cyan-300">#FirmaDigital</span>
+              <span class="px-2.5 py-1 rounded bg-slate-900 border border-slate-700 text-emerald-300">#ServidoresActivos</span>
+              <span class="px-2.5 py-1 rounded bg-slate-900 border border-slate-700 text-cyan-300">#TrazabilidadTotal</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
       <!-- Grid de Metodología SMART (S - M - A - R - T) -->
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4 mb-16">
         
@@ -1485,8 +2372,12 @@
             <!-- Columna Izquierda: Ficha de Perfil -->
             <div class="lg:col-span-4 bg-slate-900/80 p-6 rounded-2xl border border-slate-800 text-center flex flex-col items-center">
               
-              <div class="w-24 h-24 rounded-2xl bg-gradient-to-tr from-emerald-500/20 via-slate-800 to-cyan-500/20 border-2 border-emerald-500/40 flex items-center justify-center text-emerald-400 text-3xl font-display font-black mb-4 shadow-lg shadow-emerald-500/10">
-                CV
+              <div class="w-28 h-28 rounded-2xl overflow-hidden border-2 border-emerald-500/50 mb-4 shadow-lg shadow-emerald-500/20 group cursor-pointer relative"
+                   onclick="openImageModal('assets/yo/Familia/IMG-20251018-WA0038.jpg', 'Amor & Inspiración • Claudia Villalobos y Kike Junior')">
+                <img src="assets/yo/Familia/IMG-20251018-WA0038.jpg" alt="Claudia Villalobos y Kike" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                <div class="absolute bottom-1 right-1 bg-slate-950/80 px-1.5 py-0.5 rounded text-[9px] font-mono text-emerald-300 border border-emerald-500/40">
+                  <i class="fa-solid fa-heart text-rose-400"></i> Mamá
+                </div>
               </div>
 
               <h3 class="text-xl font-bold font-display text-white">Claudia Villalobos</h3>
@@ -1629,6 +2520,37 @@
         <blockquote class="text-lg sm:text-2xl lg:text-3xl font-bold font-display text-white leading-relaxed mb-8">
           "Yo, <span class="text-cyan-300">Aldair Enrique Camargo (Kike Junior)</span>, sé <span class="text-emerald-300">estructurar, desarrollar y automatizar soluciones tecnológicas</span>, para <span class="text-cyan-300">equipos de desarrollo y organizaciones que buscan eficiencia y orden</span>, con <span class="text-emerald-300">la visión estratégica, agilidad mental y liderazgo colaborativo de un colocador en la cancha de voleibol</span>."
         </blockquote>
+
+        <!-- Visual Split Interactivo: "De la Cancha al Código" -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
+          
+          <div class="relative h-48 sm:h-56 rounded-2xl overflow-hidden border border-cyan-500/40 group cursor-pointer shadow-lg"
+               onclick="openImageModal('assets/yo/Voleibol/IMG-20240616-WA0037.jpg', 'Estrategia en Cancha • Visión de juego y precisión de armador')">
+            <img src="assets/yo/Voleibol/IMG-20240616-WA0037.jpg" alt="Voleibol táctico" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+            <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/30 to-transparent"></div>
+            <div class="absolute top-3 left-3 px-2.5 py-1 rounded-full text-[10px] font-mono font-bold bg-cyan-950/90 text-cyan-300 border border-cyan-500/40">
+              <i class="fa-solid fa-volleyball mr-1"></i> EN LA CANCHA
+            </div>
+            <div class="absolute bottom-3 left-3 right-3 text-left">
+              <p class="text-sm font-bold text-white font-display">Lectura Táctica & Tiempo Exacto</p>
+              <p class="text-[11px] text-slate-300">El colocador diseña la ruta de ataque antes de que caiga el balón.</p>
+            </div>
+          </div>
+
+          <div class="relative h-48 sm:h-56 rounded-2xl overflow-hidden border border-emerald-500/40 group cursor-pointer shadow-lg"
+               onclick="openImageModal('assets/yo/Laboral/IMG-20260319-WA0036.jpg', 'Estrategia en Código • Desarrollo de software y automatización con trazabilidad')">
+            <img src="assets/yo/Laboral/IMG-20260319-WA0036.jpg" alt="Desarrollo de software" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+            <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/30 to-transparent"></div>
+            <div class="absolute top-3 left-3 px-2.5 py-1 rounded-full text-[10px] font-mono font-bold bg-emerald-950/90 text-emerald-300 border border-emerald-500/40">
+              <i class="fa-solid fa-code mr-1"></i> EN EL CÓDIGO
+            </div>
+            <div class="absolute bottom-3 left-3 right-3 text-left">
+              <p class="text-sm font-bold text-white font-display">Algoritmos & Trazabilidad Segura</p>
+              <p class="text-[11px] text-slate-300">La ingeniería implementa la jugada convirtiendo el caos en flujo ordenado.</p>
+            </div>
+          </div>
+
+        </div>
 
         <!-- Desglose de los 4 Elementos de la Fórmula -->
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 pt-6 border-t border-slate-800">
@@ -1956,6 +2878,967 @@
   </section>
 
 
+
+  <!-- ========================================================================= -->
+  <!-- NUEVA SECCIÓN: BITÁCORA MULTIMEDIA 360° (VIDA, DEPORTE & CÓDIGO)         -->
+  <!-- ========================================================================= -->
+  <section id="galeria-360" class="py-20 relative border-t border-slate-800/80 bg-slate-950/95 overflow-hidden">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      
+      <!-- Encabezado de la Galería -->
+      <div class="text-center max-w-3xl mx-auto mb-12">
+        <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-cyan-500/10 border border-cyan-500/30 text-cyan-300 font-mono text-xs font-semibold uppercase tracking-wider mb-4 animate-glow-pulse">
+          <i class="fa-solid fa-camera-retro text-cyan-400"></i>
+          Bitácora Visual 360° • Material Real
+        </div>
+        <h2 class="text-3xl sm:text-4xl lg:text-5xl font-black font-display text-white tracking-tight mb-4">
+          La Vida en <span class="text-gradient-cyan-emerald">Hypermotion</span>
+        </h2>
+        <p class="text-base sm:text-lg text-slate-300 font-normal leading-relaxed">
+          Más visual, más viva y 100% auténtica: explora los 28 momentos que forjan mi carácter, mi rigor deportivo en la cancha, mis soluciones de ingeniería en Chapman Wilches y el balance vital con mi familia.
+        </p>
+      </div>
+
+      <!-- Filtros de Categoría Dinámicos -->
+      <div class="flex flex-wrap items-center justify-center gap-2.5 mb-12">
+        
+        <button onclick="filterGallery('todas')" id="filterBtn-todas"
+                class="gallery-filter-btn active px-4 py-2 rounded-xl text-xs font-mono font-bold transition-all bg-gradient-to-r from-cyan-500/20 to-emerald-500/20 text-white border border-cyan-400 shadow-md">
+          <i class="fa-solid fa-border-all mr-1.5"></i> Todas (28)
+        </button>
+
+        <button onclick="filterGallery('voleibol')" id="filterBtn-voleibol"
+                class="gallery-filter-btn px-4 py-2 rounded-xl text-xs font-mono font-medium transition-all bg-slate-900/80 hover:bg-slate-800 text-slate-300 border border-slate-800 hover:border-cyan-500/40">
+          <i class="fa-solid fa-volleyball mr-1.5 text-cyan-400"></i> Voleibol (4)
+        </button>
+
+        <button onclick="filterGallery('laboral')" id="filterBtn-laboral"
+                class="gallery-filter-btn px-4 py-2 rounded-xl text-xs font-mono font-medium transition-all bg-slate-900/80 hover:bg-slate-800 text-slate-300 border border-slate-800 hover:border-emerald-500/40">
+          <i class="fa-solid fa-laptop-code mr-1.5 text-emerald-400"></i> Laboral & Tech (2)
+        </button>
+
+        <button onclick="filterGallery('viajes')" id="filterBtn-viajes"
+                class="gallery-filter-btn px-4 py-2 rounded-xl text-xs font-mono font-medium transition-all bg-slate-900/80 hover:bg-slate-800 text-slate-300 border border-slate-800 hover:border-cyan-500/40">
+          <i class="fa-solid fa-compass mr-1.5 text-cyan-400"></i> Viajes & Balance (12)
+        </button>
+
+        <button onclick="filterGallery('familia')" id="filterBtn-familia"
+                class="gallery-filter-btn px-4 py-2 rounded-xl text-xs font-mono font-medium transition-all bg-slate-900/80 hover:bg-slate-800 text-slate-300 border border-slate-800 hover:border-purple-500/40">
+          <i class="fa-solid fa-heart mr-1.5 text-purple-400"></i> Familia (4)
+        </button>
+
+        <button onclick="filterGallery('ninez')" id="filterBtn-ninez"
+                class="gallery-filter-btn px-4 py-2 rounded-xl text-xs font-mono font-medium transition-all bg-slate-900/80 hover:bg-slate-800 text-slate-300 border border-slate-800 hover:border-amber-500/40">
+          <i class="fa-solid fa-seedling mr-1.5 text-amber-400"></i> Raíces & Niñez (6)
+        </button>
+
+      </div>
+
+      <!-- Grid de las 28 Fotos con Microinteracciones y 3D Tilt -->
+      <div id="galleryGrid" class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
+        
+        <div class="gallery-item tilt-card relative rounded-2xl overflow-hidden glass-panel border border-slate-800/80 group cursor-pointer shadow-xl shimmer-hover"
+             data-category="voleibol"
+             data-index="0"
+             onclick="openGalleryLightbox(0)">
+          <div class="relative w-full aspect-[4/5] overflow-hidden bg-slate-950">
+            <img src="assets/yo/Voleibol/IMG-20240831-WA0007.jpg" alt="Capitán y Colocador Campeón" 
+                 loading="lazy"
+                 class="w-full h-full object-cover transform group-hover:scale-108 transition-transform duration-700 ease-out">
+            <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent pointer-events-none"></div>
+            
+            <!-- Badge de categoría superior -->
+            <div class="absolute top-2.5 left-2.5 z-10 flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-slate-950/80 border border-slate-700/80 text-[10px] font-mono text-cyan-300 backdrop-blur-md">
+              <i class="fa-solid fa-volleyball text-emerald-400 text-[9px]"></i>
+              <span>Voleibol</span>
+            </div>
+
+            <div class="absolute top-2.5 right-2.5 z-10 w-7 h-7 rounded-lg bg-slate-950/70 border border-slate-700/60 flex items-center justify-center text-cyan-400 opacity-0 group-hover:opacity-100 transition-opacity backdrop-blur-md">
+              <i class="fa-solid fa-expand text-[11px]"></i>
+            </div>
+
+            <!-- Información inferior -->
+            <div class="absolute bottom-0 inset-x-0 p-3.5 z-10 bg-gradient-to-t from-slate-950 via-slate-950/90 to-transparent text-left">
+              <h5 class="text-sm font-bold text-white font-display leading-snug group-hover:text-cyan-300 transition-colors">
+                Capitán y Colocador Campeón
+              </h5>
+              <p class="text-[11px] text-slate-300 mt-0.5 line-clamp-2 leading-tight">
+                Celebración de campeonato: lectura táctica y liderazgo en la cancha.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="gallery-item tilt-card relative rounded-2xl overflow-hidden glass-panel border border-slate-800/80 group cursor-pointer shadow-xl shimmer-hover"
+             data-category="voleibol"
+             data-index="1"
+             onclick="openGalleryLightbox(1)">
+          <div class="relative w-full aspect-[4/5] overflow-hidden bg-slate-950">
+            <img src="assets/yo/Voleibol/IMG-20240616-WA0037.jpg" alt="Distribución Estratégica" 
+                 loading="lazy"
+                 class="w-full h-full object-cover transform group-hover:scale-108 transition-transform duration-700 ease-out">
+            <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent pointer-events-none"></div>
+            
+            <!-- Badge de categoría superior -->
+            <div class="absolute top-2.5 left-2.5 z-10 flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-slate-950/80 border border-slate-700/80 text-[10px] font-mono text-cyan-300 backdrop-blur-md">
+              <i class="fa-solid fa-volleyball text-emerald-400 text-[9px]"></i>
+              <span>Voleibol</span>
+            </div>
+
+            <div class="absolute top-2.5 right-2.5 z-10 w-7 h-7 rounded-lg bg-slate-950/70 border border-slate-700/60 flex items-center justify-center text-cyan-400 opacity-0 group-hover:opacity-100 transition-opacity backdrop-blur-md">
+              <i class="fa-solid fa-expand text-[11px]"></i>
+            </div>
+
+            <!-- Información inferior -->
+            <div class="absolute bottom-0 inset-x-0 p-3.5 z-10 bg-gradient-to-t from-slate-950 via-slate-950/90 to-transparent text-left">
+              <h5 class="text-sm font-bold text-white font-display leading-snug group-hover:text-cyan-300 transition-colors">
+                Distribución Estratégica
+              </h5>
+              <p class="text-[11px] text-slate-300 mt-0.5 line-clamp-2 leading-tight">
+                Armado de juego en tiempo real con precisión milimétrica.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="gallery-item tilt-card relative rounded-2xl overflow-hidden glass-panel border border-slate-800/80 group cursor-pointer shadow-xl shimmer-hover"
+             data-category="voleibol"
+             data-index="2"
+             onclick="openGalleryLightbox(2)">
+          <div class="relative w-full aspect-[4/5] overflow-hidden bg-slate-950">
+            <img src="assets/yo/Voleibol/IMG_0837.jpg" alt="Enfoque y Entrenamiento" 
+                 loading="lazy"
+                 class="w-full h-full object-cover transform group-hover:scale-108 transition-transform duration-700 ease-out">
+            <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent pointer-events-none"></div>
+            
+            <!-- Badge de categoría superior -->
+            <div class="absolute top-2.5 left-2.5 z-10 flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-slate-950/80 border border-slate-700/80 text-[10px] font-mono text-cyan-300 backdrop-blur-md">
+              <i class="fa-solid fa-volleyball text-emerald-400 text-[9px]"></i>
+              <span>Voleibol</span>
+            </div>
+
+            <div class="absolute top-2.5 right-2.5 z-10 w-7 h-7 rounded-lg bg-slate-950/70 border border-slate-700/60 flex items-center justify-center text-cyan-400 opacity-0 group-hover:opacity-100 transition-opacity backdrop-blur-md">
+              <i class="fa-solid fa-expand text-[11px]"></i>
+            </div>
+
+            <!-- Información inferior -->
+            <div class="absolute bottom-0 inset-x-0 p-3.5 z-10 bg-gradient-to-t from-slate-950 via-slate-950/90 to-transparent text-left">
+              <h5 class="text-sm font-bold text-white font-display leading-snug group-hover:text-cyan-300 transition-colors">
+                Enfoque y Entrenamiento
+              </h5>
+              <p class="text-[11px] text-slate-300 mt-0.5 line-clamp-2 leading-tight">
+                La constancia del entrenamiento deportivo forja la disciplina técnica.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="gallery-item tilt-card relative rounded-2xl overflow-hidden glass-panel border border-slate-800/80 group cursor-pointer shadow-xl shimmer-hover"
+             data-category="voleibol"
+             data-index="3"
+             onclick="openGalleryLightbox(3)">
+          <div class="relative w-full aspect-[4/5] overflow-hidden bg-slate-950">
+            <img src="assets/yo/Voleibol/IMG_20221126_192150836.jpg" alt="Torneo y Trabajo en Equipo" 
+                 loading="lazy"
+                 class="w-full h-full object-cover transform group-hover:scale-108 transition-transform duration-700 ease-out">
+            <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent pointer-events-none"></div>
+            
+            <!-- Badge de categoría superior -->
+            <div class="absolute top-2.5 left-2.5 z-10 flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-slate-950/80 border border-slate-700/80 text-[10px] font-mono text-cyan-300 backdrop-blur-md">
+              <i class="fa-solid fa-volleyball text-emerald-400 text-[9px]"></i>
+              <span>Voleibol</span>
+            </div>
+
+            <div class="absolute top-2.5 right-2.5 z-10 w-7 h-7 rounded-lg bg-slate-950/70 border border-slate-700/60 flex items-center justify-center text-cyan-400 opacity-0 group-hover:opacity-100 transition-opacity backdrop-blur-md">
+              <i class="fa-solid fa-expand text-[11px]"></i>
+            </div>
+
+            <!-- Información inferior -->
+            <div class="absolute bottom-0 inset-x-0 p-3.5 z-10 bg-gradient-to-t from-slate-950 via-slate-950/90 to-transparent text-left">
+              <h5 class="text-sm font-bold text-white font-display leading-snug group-hover:text-cyan-300 transition-colors">
+                Torneo y Trabajo en Equipo
+              </h5>
+              <p class="text-[11px] text-slate-300 mt-0.5 line-clamp-2 leading-tight">
+                Sinergia en cancha: cada punto se construye con confianza colectiva.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="gallery-item tilt-card relative rounded-2xl overflow-hidden glass-panel border border-slate-800/80 group cursor-pointer shadow-xl shimmer-hover"
+             data-category="laboral"
+             data-index="4"
+             onclick="openGalleryLightbox(4)">
+          <div class="relative w-full aspect-[4/5] overflow-hidden bg-slate-950">
+            <img src="assets/yo/Laboral/IMG-20250516-WA0039.jpg" alt="Chapman Wilches: Servidores" 
+                 loading="lazy"
+                 class="w-full h-full object-cover transform group-hover:scale-108 transition-transform duration-700 ease-out">
+            <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent pointer-events-none"></div>
+            
+            <!-- Badge de categoría superior -->
+            <div class="absolute top-2.5 left-2.5 z-10 flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-slate-950/80 border border-slate-700/80 text-[10px] font-mono text-cyan-300 backdrop-blur-md">
+              <i class="fa-solid fa-briefcase text-emerald-400 text-[9px]"></i>
+              <span>Laboral</span>
+            </div>
+
+            <div class="absolute top-2.5 right-2.5 z-10 w-7 h-7 rounded-lg bg-slate-950/70 border border-slate-700/60 flex items-center justify-center text-cyan-400 opacity-0 group-hover:opacity-100 transition-opacity backdrop-blur-md">
+              <i class="fa-solid fa-expand text-[11px]"></i>
+            </div>
+
+            <!-- Información inferior -->
+            <div class="absolute bottom-0 inset-x-0 p-3.5 z-10 bg-gradient-to-t from-slate-950 via-slate-950/90 to-transparent text-left">
+              <h5 class="text-sm font-bold text-white font-display leading-snug group-hover:text-cyan-300 transition-colors">
+                Chapman Wilches: Servidores
+              </h5>
+              <p class="text-[11px] text-slate-300 mt-0.5 line-clamp-2 leading-tight">
+                Gestión activa de infraestructura tecnológica y optimización de flujos.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="gallery-item tilt-card relative rounded-2xl overflow-hidden glass-panel border border-slate-800/80 group cursor-pointer shadow-xl shimmer-hover"
+             data-category="laboral"
+             data-index="5"
+             onclick="openGalleryLightbox(5)">
+          <div class="relative w-full aspect-[4/5] overflow-hidden bg-slate-950">
+            <img src="assets/yo/Laboral/IMG-20260319-WA0036.jpg" alt="Desarrollo de Software y Ops" 
+                 loading="lazy"
+                 class="w-full h-full object-cover transform group-hover:scale-108 transition-transform duration-700 ease-out">
+            <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent pointer-events-none"></div>
+            
+            <!-- Badge de categoría superior -->
+            <div class="absolute top-2.5 left-2.5 z-10 flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-slate-950/80 border border-slate-700/80 text-[10px] font-mono text-cyan-300 backdrop-blur-md">
+              <i class="fa-solid fa-laptop-code text-emerald-400 text-[9px]"></i>
+              <span>Laboral</span>
+            </div>
+
+            <div class="absolute top-2.5 right-2.5 z-10 w-7 h-7 rounded-lg bg-slate-950/70 border border-slate-700/60 flex items-center justify-center text-cyan-400 opacity-0 group-hover:opacity-100 transition-opacity backdrop-blur-md">
+              <i class="fa-solid fa-expand text-[11px]"></i>
+            </div>
+
+            <!-- Información inferior -->
+            <div class="absolute bottom-0 inset-x-0 p-3.5 z-10 bg-gradient-to-t from-slate-950 via-slate-950/90 to-transparent text-left">
+              <h5 class="text-sm font-bold text-white font-display leading-snug group-hover:text-cyan-300 transition-colors">
+                Desarrollo de Software y Ops
+              </h5>
+              <p class="text-[11px] text-slate-300 mt-0.5 line-clamp-2 leading-tight">
+                Puesto de trabajo donde se programan las 4 soluciones de trazabilidad.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="gallery-item tilt-card relative rounded-2xl overflow-hidden glass-panel border border-slate-800/80 group cursor-pointer shadow-xl shimmer-hover"
+             data-category="familia"
+             data-index="6"
+             onclick="openGalleryLightbox(6)">
+          <div class="relative w-full aspect-[4/5] overflow-hidden bg-slate-950">
+            <img src="assets/yo/Familia/IMG-20251018-WA0038.jpg" alt="Con mi Madre (Claudia Villalobos)" 
+                 loading="lazy"
+                 class="w-full h-full object-cover transform group-hover:scale-108 transition-transform duration-700 ease-out">
+            <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent pointer-events-none"></div>
+            
+            <!-- Badge de categoría superior -->
+            <div class="absolute top-2.5 left-2.5 z-10 flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-slate-950/80 border border-slate-700/80 text-[10px] font-mono text-cyan-300 backdrop-blur-md">
+              <i class="fa-solid fa-heart text-emerald-400 text-[9px]"></i>
+              <span>Familia</span>
+            </div>
+
+            <div class="absolute top-2.5 right-2.5 z-10 w-7 h-7 rounded-lg bg-slate-950/70 border border-slate-700/60 flex items-center justify-center text-cyan-400 opacity-0 group-hover:opacity-100 transition-opacity backdrop-blur-md">
+              <i class="fa-solid fa-expand text-[11px]"></i>
+            </div>
+
+            <!-- Información inferior -->
+            <div class="absolute bottom-0 inset-x-0 p-3.5 z-10 bg-gradient-to-t from-slate-950 via-slate-950/90 to-transparent text-left">
+              <h5 class="text-sm font-bold text-white font-display leading-snug group-hover:text-cyan-300 transition-colors">
+                Con mi Madre (Claudia Villalobos)
+              </h5>
+              <p class="text-[11px] text-slate-300 mt-0.5 line-clamp-2 leading-tight">
+                Amor incondicional y la razón para crear soluciones de bienestar.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="gallery-item tilt-card relative rounded-2xl overflow-hidden glass-panel border border-slate-800/80 group cursor-pointer shadow-xl shimmer-hover"
+             data-category="familia"
+             data-index="7"
+             onclick="openGalleryLightbox(7)">
+          <div class="relative w-full aspect-[4/5] overflow-hidden bg-slate-950">
+            <img src="assets/yo/Familia/IMG-20260914-WA0019.jpg" alt="Celebración y Gratitud" 
+                 loading="lazy"
+                 class="w-full h-full object-cover transform group-hover:scale-108 transition-transform duration-700 ease-out">
+            <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent pointer-events-none"></div>
+            
+            <!-- Badge de categoría superior -->
+            <div class="absolute top-2.5 left-2.5 z-10 flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-slate-950/80 border border-slate-700/80 text-[10px] font-mono text-cyan-300 backdrop-blur-md">
+              <i class="fa-solid fa-heart text-emerald-400 text-[9px]"></i>
+              <span>Familia</span>
+            </div>
+
+            <div class="absolute top-2.5 right-2.5 z-10 w-7 h-7 rounded-lg bg-slate-950/70 border border-slate-700/60 flex items-center justify-center text-cyan-400 opacity-0 group-hover:opacity-100 transition-opacity backdrop-blur-md">
+              <i class="fa-solid fa-expand text-[11px]"></i>
+            </div>
+
+            <!-- Información inferior -->
+            <div class="absolute bottom-0 inset-x-0 p-3.5 z-10 bg-gradient-to-t from-slate-950 via-slate-950/90 to-transparent text-left">
+              <h5 class="text-sm font-bold text-white font-display leading-snug group-hover:text-cyan-300 transition-colors">
+                Celebración y Gratitud
+              </h5>
+              <p class="text-[11px] text-slate-300 mt-0.5 line-clamp-2 leading-tight">
+                Momentos felices en familia que recargan el alma y renuevan el enfoque.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="gallery-item tilt-card relative rounded-2xl overflow-hidden glass-panel border border-slate-800/80 group cursor-pointer shadow-xl shimmer-hover"
+             data-category="familia"
+             data-index="8"
+             onclick="openGalleryLightbox(8)">
+          <div class="relative w-full aspect-[4/5] overflow-hidden bg-slate-950">
+            <img src="assets/yo/Familia/IMG-20260914-WA0022.jpg" alt="Unión y Respaldo Familiar" 
+                 loading="lazy"
+                 class="w-full h-full object-cover transform group-hover:scale-108 transition-transform duration-700 ease-out">
+            <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent pointer-events-none"></div>
+            
+            <!-- Badge de categoría superior -->
+            <div class="absolute top-2.5 left-2.5 z-10 flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-slate-950/80 border border-slate-700/80 text-[10px] font-mono text-cyan-300 backdrop-blur-md">
+              <i class="fa-solid fa-heart text-emerald-400 text-[9px]"></i>
+              <span>Familia</span>
+            </div>
+
+            <div class="absolute top-2.5 right-2.5 z-10 w-7 h-7 rounded-lg bg-slate-950/70 border border-slate-700/60 flex items-center justify-center text-cyan-400 opacity-0 group-hover:opacity-100 transition-opacity backdrop-blur-md">
+              <i class="fa-solid fa-expand text-[11px]"></i>
+            </div>
+
+            <!-- Información inferior -->
+            <div class="absolute bottom-0 inset-x-0 p-3.5 z-10 bg-gradient-to-t from-slate-950 via-slate-950/90 to-transparent text-left">
+              <h5 class="text-sm font-bold text-white font-display leading-snug group-hover:text-cyan-300 transition-colors">
+                Unión y Respaldo Familiar
+              </h5>
+              <p class="text-[11px] text-slate-300 mt-0.5 line-clamp-2 leading-tight">
+                El pilar humano más sólido detrás de cada logro académico y laboral.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="gallery-item tilt-card relative rounded-2xl overflow-hidden glass-panel border border-slate-800/80 group cursor-pointer shadow-xl shimmer-hover"
+             data-category="familia"
+             data-index="9"
+             onclick="openGalleryLightbox(9)">
+          <div class="relative w-full aspect-[4/5] overflow-hidden bg-slate-950">
+            <img src="assets/yo/Familia/IMG_0573.jpg" alt="Compartir en Familia" 
+                 loading="lazy"
+                 class="w-full h-full object-cover transform group-hover:scale-108 transition-transform duration-700 ease-out">
+            <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent pointer-events-none"></div>
+            
+            <!-- Badge de categoría superior -->
+            <div class="absolute top-2.5 left-2.5 z-10 flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-slate-950/80 border border-slate-700/80 text-[10px] font-mono text-cyan-300 backdrop-blur-md">
+              <i class="fa-solid fa-heart text-emerald-400 text-[9px]"></i>
+              <span>Familia</span>
+            </div>
+
+            <div class="absolute top-2.5 right-2.5 z-10 w-7 h-7 rounded-lg bg-slate-950/70 border border-slate-700/60 flex items-center justify-center text-cyan-400 opacity-0 group-hover:opacity-100 transition-opacity backdrop-blur-md">
+              <i class="fa-solid fa-expand text-[11px]"></i>
+            </div>
+
+            <!-- Información inferior -->
+            <div class="absolute bottom-0 inset-x-0 p-3.5 z-10 bg-gradient-to-t from-slate-950 via-slate-950/90 to-transparent text-left">
+              <h5 class="text-sm font-bold text-white font-display leading-snug group-hover:text-cyan-300 transition-colors">
+                Compartir en Familia
+              </h5>
+              <p class="text-[11px] text-slate-300 mt-0.5 line-clamp-2 leading-tight">
+                Valores de humildad, perseverancia y generosidad aprendidos en casa.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="gallery-item tilt-card relative rounded-2xl overflow-hidden glass-panel border border-slate-800/80 group cursor-pointer shadow-xl shimmer-hover"
+             data-category="viajes"
+             data-index="10"
+             onclick="openGalleryLightbox(10)">
+          <div class="relative w-full aspect-[4/5] overflow-hidden bg-slate-950">
+            <img src="assets/yo/Viajes/IMG-20250728-WA0016.jpg" alt="Horizontes Abiertos" 
+                 loading="lazy"
+                 class="w-full h-full object-cover transform group-hover:scale-108 transition-transform duration-700 ease-out">
+            <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent pointer-events-none"></div>
+            
+            <!-- Badge de categoría superior -->
+            <div class="absolute top-2.5 left-2.5 z-10 flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-slate-950/80 border border-slate-700/80 text-[10px] font-mono text-cyan-300 backdrop-blur-md">
+              <i class="fa-solid fa-compass text-emerald-400 text-[9px]"></i>
+              <span>Viajes</span>
+            </div>
+
+            <div class="absolute top-2.5 right-2.5 z-10 w-7 h-7 rounded-lg bg-slate-950/70 border border-slate-700/60 flex items-center justify-center text-cyan-400 opacity-0 group-hover:opacity-100 transition-opacity backdrop-blur-md">
+              <i class="fa-solid fa-expand text-[11px]"></i>
+            </div>
+
+            <!-- Información inferior -->
+            <div class="absolute bottom-0 inset-x-0 p-3.5 z-10 bg-gradient-to-t from-slate-950 via-slate-950/90 to-transparent text-left">
+              <h5 class="text-sm font-bold text-white font-display leading-snug group-hover:text-cyan-300 transition-colors">
+                Horizontes Abiertos
+              </h5>
+              <p class="text-[11px] text-slate-300 mt-0.5 line-clamp-2 leading-tight">
+                Desconexión en la naturaleza: viajar amplía la perspectiva y renueva ideas.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="gallery-item tilt-card relative rounded-2xl overflow-hidden glass-panel border border-slate-800/80 group cursor-pointer shadow-xl shimmer-hover"
+             data-category="viajes"
+             data-index="11"
+             onclick="openGalleryLightbox(11)">
+          <div class="relative w-full aspect-[4/5] overflow-hidden bg-slate-950">
+            <img src="assets/yo/Viajes/IMG_7304.jpg" alt="Nuevas Rutas y Paisajes" 
+                 loading="lazy"
+                 class="w-full h-full object-cover transform group-hover:scale-108 transition-transform duration-700 ease-out">
+            <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent pointer-events-none"></div>
+            
+            <!-- Badge de categoría superior -->
+            <div class="absolute top-2.5 left-2.5 z-10 flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-slate-950/80 border border-slate-700/80 text-[10px] font-mono text-cyan-300 backdrop-blur-md">
+              <i class="fa-solid fa-compass text-emerald-400 text-[9px]"></i>
+              <span>Viajes</span>
+            </div>
+
+            <div class="absolute top-2.5 right-2.5 z-10 w-7 h-7 rounded-lg bg-slate-950/70 border border-slate-700/60 flex items-center justify-center text-cyan-400 opacity-0 group-hover:opacity-100 transition-opacity backdrop-blur-md">
+              <i class="fa-solid fa-expand text-[11px]"></i>
+            </div>
+
+            <!-- Información inferior -->
+            <div class="absolute bottom-0 inset-x-0 p-3.5 z-10 bg-gradient-to-t from-slate-950 via-slate-950/90 to-transparent text-left">
+              <h5 class="text-sm font-bold text-white font-display leading-snug group-hover:text-cyan-300 transition-colors">
+                Nuevas Rutas y Paisajes
+              </h5>
+              <p class="text-[11px] text-slate-300 mt-0.5 line-clamp-2 leading-tight">
+                Explorando destinos que inspiran serenidad y pensamiento estratégico.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="gallery-item tilt-card relative rounded-2xl overflow-hidden glass-panel border border-slate-800/80 group cursor-pointer shadow-xl shimmer-hover"
+             data-category="viajes"
+             data-index="12"
+             onclick="openGalleryLightbox(12)">
+          <div class="relative w-full aspect-[4/5] overflow-hidden bg-slate-950">
+            <img src="assets/yo/Viajes/IMG-20250419-WA0100.jpg" alt="Aventura al Aire Libre" 
+                 loading="lazy"
+                 class="w-full h-full object-cover transform group-hover:scale-108 transition-transform duration-700 ease-out">
+            <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent pointer-events-none"></div>
+            
+            <!-- Badge de categoría superior -->
+            <div class="absolute top-2.5 left-2.5 z-10 flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-slate-950/80 border border-slate-700/80 text-[10px] font-mono text-cyan-300 backdrop-blur-md">
+              <i class="fa-solid fa-compass text-emerald-400 text-[9px]"></i>
+              <span>Viajes</span>
+            </div>
+
+            <div class="absolute top-2.5 right-2.5 z-10 w-7 h-7 rounded-lg bg-slate-950/70 border border-slate-700/60 flex items-center justify-center text-cyan-400 opacity-0 group-hover:opacity-100 transition-opacity backdrop-blur-md">
+              <i class="fa-solid fa-expand text-[11px]"></i>
+            </div>
+
+            <!-- Información inferior -->
+            <div class="absolute bottom-0 inset-x-0 p-3.5 z-10 bg-gradient-to-t from-slate-950 via-slate-950/90 to-transparent text-left">
+              <h5 class="text-sm font-bold text-white font-display leading-snug group-hover:text-cyan-300 transition-colors">
+                Aventura al Aire Libre
+              </h5>
+              <p class="text-[11px] text-slate-300 mt-0.5 line-clamp-2 leading-tight">
+                Respirar aire puro y desafiar nuevas pendientes con energía.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="gallery-item tilt-card relative rounded-2xl overflow-hidden glass-panel border border-slate-800/80 group cursor-pointer shadow-xl shimmer-hover"
+             data-category="viajes"
+             data-index="13"
+             onclick="openGalleryLightbox(13)">
+          <div class="relative w-full aspect-[4/5] overflow-hidden bg-slate-950">
+            <img src="assets/yo/Viajes/51671495-ecf5-487f-b0ba-fc60db1c5240.jpg" alt="Caminos y Naturaleza" 
+                 loading="lazy"
+                 class="w-full h-full object-cover transform group-hover:scale-108 transition-transform duration-700 ease-out">
+            <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent pointer-events-none"></div>
+            
+            <!-- Badge de categoría superior -->
+            <div class="absolute top-2.5 left-2.5 z-10 flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-slate-950/80 border border-slate-700/80 text-[10px] font-mono text-cyan-300 backdrop-blur-md">
+              <i class="fa-solid fa-compass text-emerald-400 text-[9px]"></i>
+              <span>Viajes</span>
+            </div>
+
+            <div class="absolute top-2.5 right-2.5 z-10 w-7 h-7 rounded-lg bg-slate-950/70 border border-slate-700/60 flex items-center justify-center text-cyan-400 opacity-0 group-hover:opacity-100 transition-opacity backdrop-blur-md">
+              <i class="fa-solid fa-expand text-[11px]"></i>
+            </div>
+
+            <!-- Información inferior -->
+            <div class="absolute bottom-0 inset-x-0 p-3.5 z-10 bg-gradient-to-t from-slate-950 via-slate-950/90 to-transparent text-left">
+              <h5 class="text-sm font-bold text-white font-display leading-snug group-hover:text-cyan-300 transition-colors">
+                Caminos y Naturaleza
+              </h5>
+              <p class="text-[11px] text-slate-300 mt-0.5 line-clamp-2 leading-tight">
+                Disfrutando cada etapa del recorrido con gratitud.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="gallery-item tilt-card relative rounded-2xl overflow-hidden glass-panel border border-slate-800/80 group cursor-pointer shadow-xl shimmer-hover"
+             data-category="viajes"
+             data-index="14"
+             onclick="openGalleryLightbox(14)">
+          <div class="relative w-full aspect-[4/5] overflow-hidden bg-slate-950">
+            <img src="assets/yo/Viajes/IMG-20251231-WA0006.jpg" alt="Cierre de Año y Metas" 
+                 loading="lazy"
+                 class="w-full h-full object-cover transform group-hover:scale-108 transition-transform duration-700 ease-out">
+            <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent pointer-events-none"></div>
+            
+            <!-- Badge de categoría superior -->
+            <div class="absolute top-2.5 left-2.5 z-10 flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-slate-950/80 border border-slate-700/80 text-[10px] font-mono text-cyan-300 backdrop-blur-md">
+              <i class="fa-solid fa-compass text-emerald-400 text-[9px]"></i>
+              <span>Viajes</span>
+            </div>
+
+            <div class="absolute top-2.5 right-2.5 z-10 w-7 h-7 rounded-lg bg-slate-950/70 border border-slate-700/60 flex items-center justify-center text-cyan-400 opacity-0 group-hover:opacity-100 transition-opacity backdrop-blur-md">
+              <i class="fa-solid fa-expand text-[11px]"></i>
+            </div>
+
+            <!-- Información inferior -->
+            <div class="absolute bottom-0 inset-x-0 p-3.5 z-10 bg-gradient-to-t from-slate-950 via-slate-950/90 to-transparent text-left">
+              <h5 class="text-sm font-bold text-white font-display leading-snug group-hover:text-cyan-300 transition-colors">
+                Cierre de Año y Metas
+              </h5>
+              <p class="text-[11px] text-slate-300 mt-0.5 line-clamp-2 leading-tight">
+                Celebrando metas cumplidas y trazando los nuevos objetivos SMART.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="gallery-item tilt-card relative rounded-2xl overflow-hidden glass-panel border border-slate-800/80 group cursor-pointer shadow-xl shimmer-hover"
+             data-category="viajes"
+             data-index="15"
+             onclick="openGalleryLightbox(15)">
+          <div class="relative w-full aspect-[4/5] overflow-hidden bg-slate-950">
+            <img src="assets/yo/Viajes/IMG-20260407-WA0017.jpg" alt="Descubriendo Lugares" 
+                 loading="lazy"
+                 class="w-full h-full object-cover transform group-hover:scale-108 transition-transform duration-700 ease-out">
+            <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent pointer-events-none"></div>
+            
+            <!-- Badge de categoría superior -->
+            <div class="absolute top-2.5 left-2.5 z-10 flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-slate-950/80 border border-slate-700/80 text-[10px] font-mono text-cyan-300 backdrop-blur-md">
+              <i class="fa-solid fa-compass text-emerald-400 text-[9px]"></i>
+              <span>Viajes</span>
+            </div>
+
+            <div class="absolute top-2.5 right-2.5 z-10 w-7 h-7 rounded-lg bg-slate-950/70 border border-slate-700/60 flex items-center justify-center text-cyan-400 opacity-0 group-hover:opacity-100 transition-opacity backdrop-blur-md">
+              <i class="fa-solid fa-expand text-[11px]"></i>
+            </div>
+
+            <!-- Información inferior -->
+            <div class="absolute bottom-0 inset-x-0 p-3.5 z-10 bg-gradient-to-t from-slate-950 via-slate-950/90 to-transparent text-left">
+              <h5 class="text-sm font-bold text-white font-display leading-snug group-hover:text-cyan-300 transition-colors">
+                Descubriendo Lugares
+              </h5>
+              <p class="text-[11px] text-slate-300 mt-0.5 line-clamp-2 leading-tight">
+                La curiosidad de un ingeniero trasciende la pantalla hacia el mundo.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="gallery-item tilt-card relative rounded-2xl overflow-hidden glass-panel border border-slate-800/80 group cursor-pointer shadow-xl shimmer-hover"
+             data-category="viajes"
+             data-index="16"
+             onclick="openGalleryLightbox(16)">
+          <div class="relative w-full aspect-[4/5] overflow-hidden bg-slate-950">
+            <img src="assets/yo/Viajes/IMG_20260216_140253_957.jpg" alt="Paz y Serenidad" 
+                 loading="lazy"
+                 class="w-full h-full object-cover transform group-hover:scale-108 transition-transform duration-700 ease-out">
+            <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent pointer-events-none"></div>
+            
+            <!-- Badge de categoría superior -->
+            <div class="absolute top-2.5 left-2.5 z-10 flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-slate-950/80 border border-slate-700/80 text-[10px] font-mono text-cyan-300 backdrop-blur-md">
+              <i class="fa-solid fa-compass text-emerald-400 text-[9px]"></i>
+              <span>Viajes</span>
+            </div>
+
+            <div class="absolute top-2.5 right-2.5 z-10 w-7 h-7 rounded-lg bg-slate-950/70 border border-slate-700/60 flex items-center justify-center text-cyan-400 opacity-0 group-hover:opacity-100 transition-opacity backdrop-blur-md">
+              <i class="fa-solid fa-expand text-[11px]"></i>
+            </div>
+
+            <!-- Información inferior -->
+            <div class="absolute bottom-0 inset-x-0 p-3.5 z-10 bg-gradient-to-t from-slate-950 via-slate-950/90 to-transparent text-left">
+              <h5 class="text-sm font-bold text-white font-display leading-snug group-hover:text-cyan-300 transition-colors">
+                Paz y Serenidad
+              </h5>
+              <p class="text-[11px] text-slate-300 mt-0.5 line-clamp-2 leading-tight">
+                Momentos de introspección para tomar mejores decisiones.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="gallery-item tilt-card relative rounded-2xl overflow-hidden glass-panel border border-slate-800/80 group cursor-pointer shadow-xl shimmer-hover"
+             data-category="viajes"
+             data-index="17"
+             onclick="openGalleryLightbox(17)">
+          <div class="relative w-full aspect-[4/5] overflow-hidden bg-slate-950">
+            <img src="assets/yo/Viajes/IMG-20251116-WA0018.jpg" alt="Destinos Verdes" 
+                 loading="lazy"
+                 class="w-full h-full object-cover transform group-hover:scale-108 transition-transform duration-700 ease-out">
+            <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent pointer-events-none"></div>
+            
+            <!-- Badge de categoría superior -->
+            <div class="absolute top-2.5 left-2.5 z-10 flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-slate-950/80 border border-slate-700/80 text-[10px] font-mono text-cyan-300 backdrop-blur-md">
+              <i class="fa-solid fa-compass text-emerald-400 text-[9px]"></i>
+              <span>Viajes</span>
+            </div>
+
+            <div class="absolute top-2.5 right-2.5 z-10 w-7 h-7 rounded-lg bg-slate-950/70 border border-slate-700/60 flex items-center justify-center text-cyan-400 opacity-0 group-hover:opacity-100 transition-opacity backdrop-blur-md">
+              <i class="fa-solid fa-expand text-[11px]"></i>
+            </div>
+
+            <!-- Información inferior -->
+            <div class="absolute bottom-0 inset-x-0 p-3.5 z-10 bg-gradient-to-t from-slate-950 via-slate-950/90 to-transparent text-left">
+              <h5 class="text-sm font-bold text-white font-display leading-snug group-hover:text-cyan-300 transition-colors">
+                Destinos Verdes
+              </h5>
+              <p class="text-[11px] text-slate-300 mt-0.5 line-clamp-2 leading-tight">
+                Equilibrio integral entre la exigencia técnica y el bienestar personal.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="gallery-item tilt-card relative rounded-2xl overflow-hidden glass-panel border border-slate-800/80 group cursor-pointer shadow-xl shimmer-hover"
+             data-category="viajes"
+             data-index="18"
+             onclick="openGalleryLightbox(18)">
+          <div class="relative w-full aspect-[4/5] overflow-hidden bg-slate-950">
+            <img src="assets/yo/Viajes/IMG-20251116-WA0042.jpg" alt="Pausa Estratégica" 
+                 loading="lazy"
+                 class="w-full h-full object-cover transform group-hover:scale-108 transition-transform duration-700 ease-out">
+            <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent pointer-events-none"></div>
+            
+            <!-- Badge de categoría superior -->
+            <div class="absolute top-2.5 left-2.5 z-10 flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-slate-950/80 border border-slate-700/80 text-[10px] font-mono text-cyan-300 backdrop-blur-md">
+              <i class="fa-solid fa-compass text-emerald-400 text-[9px]"></i>
+              <span>Viajes</span>
+            </div>
+
+            <div class="absolute top-2.5 right-2.5 z-10 w-7 h-7 rounded-lg bg-slate-950/70 border border-slate-700/60 flex items-center justify-center text-cyan-400 opacity-0 group-hover:opacity-100 transition-opacity backdrop-blur-md">
+              <i class="fa-solid fa-expand text-[11px]"></i>
+            </div>
+
+            <!-- Información inferior -->
+            <div class="absolute bottom-0 inset-x-0 p-3.5 z-10 bg-gradient-to-t from-slate-950 via-slate-950/90 to-transparent text-left">
+              <h5 class="text-sm font-bold text-white font-display leading-snug group-hover:text-cyan-300 transition-colors">
+                Pausa Estratégica
+              </h5>
+              <p class="text-[11px] text-slate-300 mt-0.5 line-clamp-2 leading-tight">
+                Parar para tomar impulso: descansar también es parte del plan de vida.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="gallery-item tilt-card relative rounded-2xl overflow-hidden glass-panel border border-slate-800/80 group cursor-pointer shadow-xl shimmer-hover"
+             data-category="viajes"
+             data-index="19"
+             onclick="openGalleryLightbox(19)">
+          <div class="relative w-full aspect-[4/5] overflow-hidden bg-slate-950">
+            <img src="assets/yo/Viajes/IMG-20240915-WA0009.jpg" alt="Rutas Compartidas" 
+                 loading="lazy"
+                 class="w-full h-full object-cover transform group-hover:scale-108 transition-transform duration-700 ease-out">
+            <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent pointer-events-none"></div>
+            
+            <!-- Badge de categoría superior -->
+            <div class="absolute top-2.5 left-2.5 z-10 flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-slate-950/80 border border-slate-700/80 text-[10px] font-mono text-cyan-300 backdrop-blur-md">
+              <i class="fa-solid fa-compass text-emerald-400 text-[9px]"></i>
+              <span>Viajes</span>
+            </div>
+
+            <div class="absolute top-2.5 right-2.5 z-10 w-7 h-7 rounded-lg bg-slate-950/70 border border-slate-700/60 flex items-center justify-center text-cyan-400 opacity-0 group-hover:opacity-100 transition-opacity backdrop-blur-md">
+              <i class="fa-solid fa-expand text-[11px]"></i>
+            </div>
+
+            <!-- Información inferior -->
+            <div class="absolute bottom-0 inset-x-0 p-3.5 z-10 bg-gradient-to-t from-slate-950 via-slate-950/90 to-transparent text-left">
+              <h5 class="text-sm font-bold text-white font-display leading-snug group-hover:text-cyan-300 transition-colors">
+                Rutas Compartidas
+              </h5>
+              <p class="text-[11px] text-slate-300 mt-0.5 line-clamp-2 leading-tight">
+                Viajar con buenos amigos para coleccionar memorias de por vida.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="gallery-item tilt-card relative rounded-2xl overflow-hidden glass-panel border border-slate-800/80 group cursor-pointer shadow-xl shimmer-hover"
+             data-category="viajes"
+             data-index="20"
+             onclick="openGalleryLightbox(20)">
+          <div class="relative w-full aspect-[4/5] overflow-hidden bg-slate-950">
+            <img src="assets/yo/Viajes/d0ac0fb7-2bf6-43bc-a08a-268e487e9c75.jpg" alt="Vistas Memorables" 
+                 loading="lazy"
+                 class="w-full h-full object-cover transform group-hover:scale-108 transition-transform duration-700 ease-out">
+            <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent pointer-events-none"></div>
+            
+            <!-- Badge de categoría superior -->
+            <div class="absolute top-2.5 left-2.5 z-10 flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-slate-950/80 border border-slate-700/80 text-[10px] font-mono text-cyan-300 backdrop-blur-md">
+              <i class="fa-solid fa-compass text-emerald-400 text-[9px]"></i>
+              <span>Viajes</span>
+            </div>
+
+            <div class="absolute top-2.5 right-2.5 z-10 w-7 h-7 rounded-lg bg-slate-950/70 border border-slate-700/60 flex items-center justify-center text-cyan-400 opacity-0 group-hover:opacity-100 transition-opacity backdrop-blur-md">
+              <i class="fa-solid fa-expand text-[11px]"></i>
+            </div>
+
+            <!-- Información inferior -->
+            <div class="absolute bottom-0 inset-x-0 p-3.5 z-10 bg-gradient-to-t from-slate-950 via-slate-950/90 to-transparent text-left">
+              <h5 class="text-sm font-bold text-white font-display leading-snug group-hover:text-cyan-300 transition-colors">
+                Vistas Memorables
+              </h5>
+              <p class="text-[11px] text-slate-300 mt-0.5 line-clamp-2 leading-tight">
+                Mirar el camino desde la cima para recordar por qué empezamos.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="gallery-item tilt-card relative rounded-2xl overflow-hidden glass-panel border border-slate-800/80 group cursor-pointer shadow-xl shimmer-hover"
+             data-category="viajes"
+             data-index="21"
+             onclick="openGalleryLightbox(21)">
+          <div class="relative w-full aspect-[4/5] overflow-hidden bg-slate-950">
+            <img src="assets/yo/Viajes/055276ff-f941-4bd2-b54e-8dccdb507f15.jpg" alt="Conexión Natural" 
+                 loading="lazy"
+                 class="w-full h-full object-cover transform group-hover:scale-108 transition-transform duration-700 ease-out">
+            <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent pointer-events-none"></div>
+            
+            <!-- Badge de categoría superior -->
+            <div class="absolute top-2.5 left-2.5 z-10 flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-slate-950/80 border border-slate-700/80 text-[10px] font-mono text-cyan-300 backdrop-blur-md">
+              <i class="fa-solid fa-compass text-emerald-400 text-[9px]"></i>
+              <span>Viajes</span>
+            </div>
+
+            <div class="absolute top-2.5 right-2.5 z-10 w-7 h-7 rounded-lg bg-slate-950/70 border border-slate-700/60 flex items-center justify-center text-cyan-400 opacity-0 group-hover:opacity-100 transition-opacity backdrop-blur-md">
+              <i class="fa-solid fa-expand text-[11px]"></i>
+            </div>
+
+            <!-- Información inferior -->
+            <div class="absolute bottom-0 inset-x-0 p-3.5 z-10 bg-gradient-to-t from-slate-950 via-slate-950/90 to-transparent text-left">
+              <h5 class="text-sm font-bold text-white font-display leading-snug group-hover:text-cyan-300 transition-colors">
+                Conexión Natural
+              </h5>
+              <p class="text-[11px] text-slate-300 mt-0.5 line-clamp-2 leading-tight">
+                El silencio de la naturaleza aclara los problemas más complejos.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="gallery-item tilt-card relative rounded-2xl overflow-hidden glass-panel border border-slate-800/80 group cursor-pointer shadow-xl shimmer-hover"
+             data-category="ninez"
+             data-index="22"
+             onclick="openGalleryLightbox(22)">
+          <div class="relative w-full aspect-[4/5] overflow-hidden bg-slate-950">
+            <img src="assets/yo/Ninez/FB_IMG_1767723967733.jpg" alt="Primeros Pasos" 
+                 loading="lazy"
+                 class="w-full h-full object-cover transform group-hover:scale-108 transition-transform duration-700 ease-out">
+            <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent pointer-events-none"></div>
+            
+            <!-- Badge de categoría superior -->
+            <div class="absolute top-2.5 left-2.5 z-10 flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-slate-950/80 border border-slate-700/80 text-[10px] font-mono text-cyan-300 backdrop-blur-md">
+              <i class="fa-solid fa-seedling text-emerald-400 text-[9px]"></i>
+              <span>Niñez</span>
+            </div>
+
+            <div class="absolute top-2.5 right-2.5 z-10 w-7 h-7 rounded-lg bg-slate-950/70 border border-slate-700/60 flex items-center justify-center text-cyan-400 opacity-0 group-hover:opacity-100 transition-opacity backdrop-blur-md">
+              <i class="fa-solid fa-expand text-[11px]"></i>
+            </div>
+
+            <!-- Información inferior -->
+            <div class="absolute bottom-0 inset-x-0 p-3.5 z-10 bg-gradient-to-t from-slate-950 via-slate-950/90 to-transparent text-left">
+              <h5 class="text-sm font-bold text-white font-display leading-snug group-hover:text-cyan-300 transition-colors">
+                Primeros Pasos
+              </h5>
+              <p class="text-[11px] text-slate-300 mt-0.5 line-clamp-2 leading-tight">
+                Donde nació la sonrisa, el juego y las ganas de explorar el entorno.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="gallery-item tilt-card relative rounded-2xl overflow-hidden glass-panel border border-slate-800/80 group cursor-pointer shadow-xl shimmer-hover"
+             data-category="ninez"
+             data-index="23"
+             onclick="openGalleryLightbox(23)">
+          <div class="relative w-full aspect-[4/5] overflow-hidden bg-slate-950">
+            <img src="assets/yo/Ninez/IMG_20210518_164721148.jpg" alt="Curiosidad Temprana" 
+                 loading="lazy"
+                 class="w-full h-full object-cover transform group-hover:scale-108 transition-transform duration-700 ease-out">
+            <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent pointer-events-none"></div>
+            
+            <!-- Badge de categoría superior -->
+            <div class="absolute top-2.5 left-2.5 z-10 flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-slate-950/80 border border-slate-700/80 text-[10px] font-mono text-cyan-300 backdrop-blur-md">
+              <i class="fa-solid fa-seedling text-emerald-400 text-[9px]"></i>
+              <span>Niñez</span>
+            </div>
+
+            <div class="absolute top-2.5 right-2.5 z-10 w-7 h-7 rounded-lg bg-slate-950/70 border border-slate-700/60 flex items-center justify-center text-cyan-400 opacity-0 group-hover:opacity-100 transition-opacity backdrop-blur-md">
+              <i class="fa-solid fa-expand text-[11px]"></i>
+            </div>
+
+            <!-- Información inferior -->
+            <div class="absolute bottom-0 inset-x-0 p-3.5 z-10 bg-gradient-to-t from-slate-950 via-slate-950/90 to-transparent text-left">
+              <h5 class="text-sm font-bold text-white font-display leading-snug group-hover:text-cyan-300 transition-colors">
+                Curiosidad Temprana
+              </h5>
+              <p class="text-[11px] text-slate-300 mt-0.5 line-clamp-2 leading-tight">
+                Los primeros juguetes y desarmes que anunciaban la vocación por la ingeniería.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="gallery-item tilt-card relative rounded-2xl overflow-hidden glass-panel border border-slate-800/80 group cursor-pointer shadow-xl shimmer-hover"
+             data-category="ninez"
+             data-index="24"
+             onclick="openGalleryLightbox(24)">
+          <div class="relative w-full aspect-[4/5] overflow-hidden bg-slate-950">
+            <img src="assets/yo/Ninez/IMG_20210518_164654691.jpg" alt="Pasión por el Movimiento" 
+                 loading="lazy"
+                 class="w-full h-full object-cover transform group-hover:scale-108 transition-transform duration-700 ease-out">
+            <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent pointer-events-none"></div>
+            
+            <!-- Badge de categoría superior -->
+            <div class="absolute top-2.5 left-2.5 z-10 flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-slate-950/80 border border-slate-700/80 text-[10px] font-mono text-cyan-300 backdrop-blur-md">
+              <i class="fa-solid fa-seedling text-emerald-400 text-[9px]"></i>
+              <span>Niñez</span>
+            </div>
+
+            <div class="absolute top-2.5 right-2.5 z-10 w-7 h-7 rounded-lg bg-slate-950/70 border border-slate-700/60 flex items-center justify-center text-cyan-400 opacity-0 group-hover:opacity-100 transition-opacity backdrop-blur-md">
+              <i class="fa-solid fa-expand text-[11px]"></i>
+            </div>
+
+            <!-- Información inferior -->
+            <div class="absolute bottom-0 inset-x-0 p-3.5 z-10 bg-gradient-to-t from-slate-950 via-slate-950/90 to-transparent text-left">
+              <h5 class="text-sm font-bold text-white font-display leading-snug group-hover:text-cyan-300 transition-colors">
+                Pasión por el Movimiento
+              </h5>
+              <p class="text-[11px] text-slate-300 mt-0.5 line-clamp-2 leading-tight">
+                Desde pequeño, la energía del deporte marcaba el ritmo cotidiano.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="gallery-item tilt-card relative rounded-2xl overflow-hidden glass-panel border border-slate-800/80 group cursor-pointer shadow-xl shimmer-hover"
+             data-category="ninez"
+             data-index="25"
+             onclick="openGalleryLightbox(25)">
+          <div class="relative w-full aspect-[4/5] overflow-hidden bg-slate-950">
+            <img src="assets/yo/Ninez/IMG-20210518-WA0021.jpeg" alt="Recuerdos de Infancia" 
+                 loading="lazy"
+                 class="w-full h-full object-cover transform group-hover:scale-108 transition-transform duration-700 ease-out">
+            <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent pointer-events-none"></div>
+            
+            <!-- Badge de categoría superior -->
+            <div class="absolute top-2.5 left-2.5 z-10 flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-slate-950/80 border border-slate-700/80 text-[10px] font-mono text-cyan-300 backdrop-blur-md">
+              <i class="fa-solid fa-seedling text-emerald-400 text-[9px]"></i>
+              <span>Niñez</span>
+            </div>
+
+            <div class="absolute top-2.5 right-2.5 z-10 w-7 h-7 rounded-lg bg-slate-950/70 border border-slate-700/60 flex items-center justify-center text-cyan-400 opacity-0 group-hover:opacity-100 transition-opacity backdrop-blur-md">
+              <i class="fa-solid fa-expand text-[11px]"></i>
+            </div>
+
+            <!-- Información inferior -->
+            <div class="absolute bottom-0 inset-x-0 p-3.5 z-10 bg-gradient-to-t from-slate-950 via-slate-950/90 to-transparent text-left">
+              <h5 class="text-sm font-bold text-white font-display leading-snug group-hover:text-cyan-300 transition-colors">
+                Recuerdos de Infancia
+              </h5>
+              <p class="text-[11px] text-slate-300 mt-0.5 line-clamp-2 leading-tight">
+                El cariño familiar que sembró la empatía y el espíritu colaborativo.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="gallery-item tilt-card relative rounded-2xl overflow-hidden glass-panel border border-slate-800/80 group cursor-pointer shadow-xl shimmer-hover"
+             data-category="ninez"
+             data-index="26"
+             onclick="openGalleryLightbox(26)">
+          <div class="relative w-full aspect-[4/5] overflow-hidden bg-slate-950">
+            <img src="assets/yo/Ninez/IMG-20210518-WA0039.jpeg" alt="Retrato de Época" 
+                 loading="lazy"
+                 class="w-full h-full object-cover transform group-hover:scale-108 transition-transform duration-700 ease-out">
+            <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent pointer-events-none"></div>
+            
+            <!-- Badge de categoría superior -->
+            <div class="absolute top-2.5 left-2.5 z-10 flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-slate-950/80 border border-slate-700/80 text-[10px] font-mono text-cyan-300 backdrop-blur-md">
+              <i class="fa-solid fa-seedling text-emerald-400 text-[9px]"></i>
+              <span>Niñez</span>
+            </div>
+
+            <div class="absolute top-2.5 right-2.5 z-10 w-7 h-7 rounded-lg bg-slate-950/70 border border-slate-700/60 flex items-center justify-center text-cyan-400 opacity-0 group-hover:opacity-100 transition-opacity backdrop-blur-md">
+              <i class="fa-solid fa-expand text-[11px]"></i>
+            </div>
+
+            <!-- Información inferior -->
+            <div class="absolute bottom-0 inset-x-0 p-3.5 z-10 bg-gradient-to-t from-slate-950 via-slate-950/90 to-transparent text-left">
+              <h5 class="text-sm font-bold text-white font-display leading-snug group-hover:text-cyan-300 transition-colors">
+                Retrato de Época
+              </h5>
+              <p class="text-[11px] text-slate-300 mt-0.5 line-clamp-2 leading-tight">
+                La mirada alegre que hoy conserva Kike Junior frente a cada desafío.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="gallery-item tilt-card relative rounded-2xl overflow-hidden glass-panel border border-slate-800/80 group cursor-pointer shadow-xl shimmer-hover"
+             data-category="ninez"
+             data-index="27"
+             onclick="openGalleryLightbox(27)">
+          <div class="relative w-full aspect-[4/5] overflow-hidden bg-slate-950">
+            <img src="assets/yo/Ninez/IMG-20250923-WA0000.jpg" alt="Orígenes & Huellas" 
+                 loading="lazy"
+                 class="w-full h-full object-cover transform group-hover:scale-108 transition-transform duration-700 ease-out">
+            <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent pointer-events-none"></div>
+            
+            <!-- Badge de categoría superior -->
+            <div class="absolute top-2.5 left-2.5 z-10 flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-slate-950/80 border border-slate-700/80 text-[10px] font-mono text-cyan-300 backdrop-blur-md">
+              <i class="fa-solid fa-seedling text-emerald-400 text-[9px]"></i>
+              <span>Niñez</span>
+            </div>
+
+            <div class="absolute top-2.5 right-2.5 z-10 w-7 h-7 rounded-lg bg-slate-950/70 border border-slate-700/60 flex items-center justify-center text-cyan-400 opacity-0 group-hover:opacity-100 transition-opacity backdrop-blur-md">
+              <i class="fa-solid fa-expand text-[11px]"></i>
+            </div>
+
+            <!-- Información inferior -->
+            <div class="absolute bottom-0 inset-x-0 p-3.5 z-10 bg-gradient-to-t from-slate-950 via-slate-950/90 to-transparent text-left">
+              <h5 class="text-sm font-bold text-white font-display leading-snug group-hover:text-cyan-300 transition-colors">
+                Orígenes & Huellas
+              </h5>
+              <p class="text-[11px] text-slate-300 mt-0.5 line-clamp-2 leading-tight">
+                Honrar las raíces es el cimiento de una marca personal auténtica.
+              </p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+
   <!-- ========================================================================= -->
   <!-- 4. ROADMAP MODULAR DEL PROYECTO (Fases Semanales ACA)                     -->
   <!-- ========================================================================= -->
@@ -2095,26 +3978,52 @@
 
 
   <!-- ========================================================================= -->
-  <!-- MODAL VISUALIZADOR DE IMÁGENES (LIGHTBOX)                                 -->
+  <!-- MODAL VISUALIZADOR DE IMÁGENES (LIGHTBOX CINEMATOGRÁFICO 360°)            -->
   <!-- ========================================================================= -->
-  <div id="imageModal" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-950/90 backdrop-blur-md hidden transition-opacity duration-300">
-    <div class="glass-panel-glow max-w-2xl w-full rounded-2xl p-4 sm:p-5 border border-slate-700 relative text-left shadow-2xl">
-      
-      <button onclick="closeImageModal()" 
-              aria-label="Cerrar imagen"
-              class="absolute top-4 right-4 z-10 text-slate-400 hover:text-white p-2 rounded-lg bg-slate-900/80 border border-slate-800 transition-colors">
-        <i class="fa-solid fa-xmark text-lg"></i>
-      </button>
+  <div id="imageModal" class="fixed inset-0 z-50 flex items-center justify-center p-2 sm:p-4 bg-slate-950/95 backdrop-blur-xl hidden transition-opacity duration-300">
+    
+    <!-- Botón Cerrar Superior -->
+    <button onclick="closeImageModal()" 
+            aria-label="Cerrar imagen"
+            class="absolute top-4 right-4 z-50 text-slate-400 hover:text-white p-3 rounded-2xl bg-slate-900/90 border border-slate-700/80 hover:border-cyan-400 transition-all shadow-xl">
+      <i class="fa-solid fa-xmark text-xl"></i>
+    </button>
 
-      <div class="relative w-full rounded-xl overflow-hidden bg-slate-950 max-h-[75vh] flex items-center justify-center mb-3">
-        <img id="imageModalImg" src="" alt="Fotografía ampliada" class="w-full h-auto max-h-[70vh] object-contain rounded-lg">
+    <!-- Botón Anterior -->
+    <button onclick="lightboxPrev()" 
+            id="lightboxPrevBtn"
+            aria-label="Foto anterior"
+            class="absolute left-2 sm:left-6 z-40 text-slate-300 hover:text-cyan-300 p-3 sm:p-4 rounded-2xl bg-slate-900/80 hover:bg-slate-900 border border-slate-800 hover:border-cyan-400 transition-all shadow-xl backdrop-blur-md">
+      <i class="fa-solid fa-chevron-left text-lg sm:text-2xl"></i>
+    </button>
+
+    <!-- Botón Siguiente -->
+    <button onclick="lightboxNext()" 
+            id="lightboxNextBtn"
+            aria-label="Foto siguiente"
+            class="absolute right-2 sm:right-6 z-40 text-slate-300 hover:text-cyan-300 p-3 sm:p-4 rounded-2xl bg-slate-900/80 hover:bg-slate-900 border border-slate-800 hover:border-cyan-400 transition-all shadow-xl backdrop-blur-md">
+      <i class="fa-solid fa-chevron-right text-lg sm:text-2xl"></i>
+    </button>
+
+    <div class="glass-panel-glow max-w-4xl w-full rounded-3xl p-4 sm:p-6 border border-cyan-500/30 relative text-left shadow-2xl overflow-hidden">
+      
+      <!-- Contenedor de Imagen -->
+      <div class="relative w-full rounded-2xl overflow-hidden bg-slate-950 max-h-[75vh] flex items-center justify-center mb-3">
+        <img id="imageModalImg" src="" alt="Fotografía ampliada" class="w-full h-auto max-h-[70vh] object-contain rounded-xl">
       </div>
 
-      <div class="flex items-center justify-between pt-2 px-1">
-        <p id="imageModalCaption" class="text-xs sm:text-sm font-mono text-cyan-300 font-medium"></p>
-        <button onclick="closeImageModal()" class="px-3 py-1.5 rounded-lg text-xs font-mono bg-slate-800 hover:bg-slate-700 text-slate-300 transition-colors">
-          Cerrar [Esc]
-        </button>
+      <!-- Pie de Lightbox con descripción e índice -->
+      <div class="flex items-center justify-between flex-wrap gap-2 pt-2 px-1">
+        <div>
+          <p id="imageModalCaption" class="text-xs sm:text-sm font-display text-white font-bold"></p>
+          <p id="imageModalSub" class="text-[11px] font-mono text-cyan-300"></p>
+        </div>
+        <div class="flex items-center gap-2">
+          <span id="imageModalCounter" class="text-xs font-mono px-2.5 py-1 rounded-lg bg-slate-900 border border-slate-800 text-slate-400"></span>
+          <button onclick="closeImageModal()" class="px-3.5 py-1.5 rounded-xl text-xs font-mono bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-white transition-colors">
+            Cerrar [Esc]
+          </button>
+        </div>
       </div>
 
     </div>
@@ -2253,8 +4162,17 @@
     const imageModalCaption = document.getElementById('imageModalCaption');
 
     function openImageModal(src, caption) {
+      isGalleryMode = false;
       imageModalImg.src = src;
       imageModalCaption.textContent = caption || 'Kike Junior • Fotografía';
+      const sub = document.getElementById('imageModalSub');
+      const counter = document.getElementById('imageModalCounter');
+      const prevBtn = document.getElementById('lightboxPrevBtn');
+      const nextBtn = document.getElementById('lightboxNextBtn');
+      if (sub) sub.textContent = 'Material de Evidencia • Kike Junior';
+      if (counter) counter.textContent = '1 / 1';
+      if (prevBtn) prevBtn.style.display = 'none';
+      if (nextBtn) nextBtn.style.display = 'none';
       imageModal.classList.remove('hidden');
     }
 
@@ -2296,6 +4214,181 @@
         btnMirna.querySelector('i').className = "fa-solid fa-building-columns text-slate-400";
       }
     }
+
+    // =========================================================================
+    // 6. MOTOR DE HYPERMOTION & INTERACTIVIDAD 360° (GSAP & SCROLLTRIGGER)    
+    // =========================================================================
+    const GALLERY_DATA = [{"src": "assets/yo/Voleibol/IMG-20240831-WA0007.jpg", "cat": "voleibol", "tag": "Voleibol", "title": "Capitán y Colocador Campeón", "desc": "Celebración de campeonato: lectura táctica y liderazgo en la cancha.", "icon": "fa-volleyball"}, {"src": "assets/yo/Voleibol/IMG-20240616-WA0037.jpg", "cat": "voleibol", "tag": "Voleibol", "title": "Distribución Estratégica", "desc": "Armado de juego en tiempo real con precisión milimétrica.", "icon": "fa-volleyball"}, {"src": "assets/yo/Voleibol/IMG_0837.jpg", "cat": "voleibol", "tag": "Voleibol", "title": "Enfoque y Entrenamiento", "desc": "La constancia del entrenamiento deportivo forja la disciplina técnica.", "icon": "fa-volleyball"}, {"src": "assets/yo/Voleibol/IMG_20221126_192150836.jpg", "cat": "voleibol", "tag": "Voleibol", "title": "Torneo y Trabajo en Equipo", "desc": "Sinergia en cancha: cada punto se construye con confianza colectiva.", "icon": "fa-volleyball"}, {"src": "assets/yo/Laboral/IMG-20250516-WA0039.jpg", "cat": "laboral", "tag": "Laboral", "title": "Chapman Wilches: Servidores", "desc": "Gestión activa de infraestructura tecnológica y optimización de flujos.", "icon": "fa-briefcase"}, {"src": "assets/yo/Laboral/IMG-20260319-WA0036.jpg", "cat": "laboral", "tag": "Laboral", "title": "Desarrollo de Software y Ops", "desc": "Puesto de trabajo donde se programan las 4 soluciones de trazabilidad.", "icon": "fa-laptop-code"}, {"src": "assets/yo/Familia/IMG-20251018-WA0038.jpg", "cat": "familia", "tag": "Familia", "title": "Con mi Madre (Claudia Villalobos)", "desc": "Amor incondicional y la razón para crear soluciones de bienestar.", "icon": "fa-heart"}, {"src": "assets/yo/Familia/IMG-20260914-WA0019.jpg", "cat": "familia", "tag": "Familia", "title": "Celebración y Gratitud", "desc": "Momentos felices en familia que recargan el alma y renuevan el enfoque.", "icon": "fa-heart"}, {"src": "assets/yo/Familia/IMG-20260914-WA0022.jpg", "cat": "familia", "tag": "Familia", "title": "Unión y Respaldo Familiar", "desc": "El pilar humano más sólido detrás de cada logro académico y laboral.", "icon": "fa-heart"}, {"src": "assets/yo/Familia/IMG_0573.jpg", "cat": "familia", "tag": "Familia", "title": "Compartir en Familia", "desc": "Valores de humildad, perseverancia y generosidad aprendidos en casa.", "icon": "fa-heart"}, {"src": "assets/yo/Viajes/IMG-20250728-WA0016.jpg", "cat": "viajes", "tag": "Viajes", "title": "Horizontes Abiertos", "desc": "Desconexión en la naturaleza: viajar amplía la perspectiva y renueva ideas.", "icon": "fa-compass"}, {"src": "assets/yo/Viajes/IMG_7304.jpg", "cat": "viajes", "tag": "Viajes", "title": "Nuevas Rutas y Paisajes", "desc": "Explorando destinos que inspiran serenidad y pensamiento estratégico.", "icon": "fa-compass"}, {"src": "assets/yo/Viajes/IMG-20250419-WA0100.jpg", "cat": "viajes", "tag": "Viajes", "title": "Aventura al Aire Libre", "desc": "Respirar aire puro y desafiar nuevas pendientes con energía.", "icon": "fa-compass"}, {"src": "assets/yo/Viajes/51671495-ecf5-487f-b0ba-fc60db1c5240.jpg", "cat": "viajes", "tag": "Viajes", "title": "Caminos y Naturaleza", "desc": "Disfrutando cada etapa del recorrido con gratitud.", "icon": "fa-compass"}, {"src": "assets/yo/Viajes/IMG-20251231-WA0006.jpg", "cat": "viajes", "tag": "Viajes", "title": "Cierre de Año y Metas", "desc": "Celebrando metas cumplidas y trazando los nuevos objetivos SMART.", "icon": "fa-compass"}, {"src": "assets/yo/Viajes/IMG-20260407-WA0017.jpg", "cat": "viajes", "tag": "Viajes", "title": "Descubriendo Lugares", "desc": "La curiosidad de un ingeniero trasciende la pantalla hacia el mundo.", "icon": "fa-compass"}, {"src": "assets/yo/Viajes/IMG_20260216_140253_957.jpg", "cat": "viajes", "tag": "Viajes", "title": "Paz y Serenidad", "desc": "Momentos de introspección para tomar mejores decisiones.", "icon": "fa-compass"}, {"src": "assets/yo/Viajes/IMG-20251116-WA0018.jpg", "cat": "viajes", "tag": "Viajes", "title": "Destinos Verdes", "desc": "Equilibrio integral entre la exigencia técnica y el bienestar personal.", "icon": "fa-compass"}, {"src": "assets/yo/Viajes/IMG-20251116-WA0042.jpg", "cat": "viajes", "tag": "Viajes", "title": "Pausa Estratégica", "desc": "Parar para tomar impulso: descansar también es parte del plan de vida.", "icon": "fa-compass"}, {"src": "assets/yo/Viajes/IMG-20240915-WA0009.jpg", "cat": "viajes", "tag": "Viajes", "title": "Rutas Compartidas", "desc": "Viajar con buenos amigos para coleccionar memorias de por vida.", "icon": "fa-compass"}, {"src": "assets/yo/Viajes/d0ac0fb7-2bf6-43bc-a08a-268e487e9c75.jpg", "cat": "viajes", "tag": "Viajes", "title": "Vistas Memorables", "desc": "Mirar el camino desde la cima para recordar por qué empezamos.", "icon": "fa-compass"}, {"src": "assets/yo/Viajes/055276ff-f941-4bd2-b54e-8dccdb507f15.jpg", "cat": "viajes", "tag": "Viajes", "title": "Conexión Natural", "desc": "El silencio de la naturaleza aclara los problemas más complejos.", "icon": "fa-compass"}, {"src": "assets/yo/Ninez/FB_IMG_1767723967733.jpg", "cat": "ninez", "tag": "Niñez", "title": "Primeros Pasos", "desc": "Donde nació la sonrisa, el juego y las ganas de explorar el entorno.", "icon": "fa-seedling"}, {"src": "assets/yo/Ninez/IMG_20210518_164721148.jpg", "cat": "ninez", "tag": "Niñez", "title": "Curiosidad Temprana", "desc": "Los primeros juguetes y desarmes que anunciaban la vocación por la ingeniería.", "icon": "fa-seedling"}, {"src": "assets/yo/Ninez/IMG_20210518_164654691.jpg", "cat": "ninez", "tag": "Niñez", "title": "Pasión por el Movimiento", "desc": "Desde pequeño, la energía del deporte marcaba el ritmo cotidiano.", "icon": "fa-seedling"}, {"src": "assets/yo/Ninez/IMG-20210518-WA0021.jpeg", "cat": "ninez", "tag": "Niñez", "title": "Recuerdos de Infancia", "desc": "El cariño familiar que sembró la empatía y el espíritu colaborativo.", "icon": "fa-seedling"}, {"src": "assets/yo/Ninez/IMG-20210518-WA0039.jpeg", "cat": "ninez", "tag": "Niñez", "title": "Retrato de Época", "desc": "La mirada alegre que hoy conserva Kike Junior frente a cada desafío.", "icon": "fa-seedling"}, {"src": "assets/yo/Ninez/IMG-20250923-WA0000.jpg", "cat": "ninez", "tag": "Niñez", "title": "Orígenes & Huellas", "desc": "Honrar las raíces es el cimiento de una marca personal auténtica.", "icon": "fa-seedling"}];
+    let currentLightboxIndex = 0;
+    let isGalleryMode = false;
+
+    // Abrir Lightbox desde la Galería 360 con índice para navegar
+    function openGalleryLightbox(idx) {
+      isGalleryMode = true;
+      currentLightboxIndex = idx;
+      const prevBtn = document.getElementById('lightboxPrevBtn');
+      const nextBtn = document.getElementById('lightboxNextBtn');
+      if (prevBtn) prevBtn.style.display = 'block';
+      if (nextBtn) nextBtn.style.display = 'block';
+      updateLightboxDisplay();
+      document.getElementById('imageModal').classList.remove('hidden');
+    }
+
+    function updateLightboxDisplay() {
+      const item = GALLERY_DATA[currentLightboxIndex];
+      const img = document.getElementById('imageModalImg');
+      const caption = document.getElementById('imageModalCaption');
+      const sub = document.getElementById('imageModalSub');
+      const counter = document.getElementById('imageModalCounter');
+
+      img.src = item.src;
+      caption.textContent = item.title;
+      sub.textContent = item.desc;
+      if (counter) counter.textContent = `${currentLightboxIndex + 1} / ${GALLERY_DATA.length}`;
+    }
+
+    function lightboxNext() {
+      if (!isGalleryMode) return;
+      currentLightboxIndex = (currentLightboxIndex + 1) % GALLERY_DATA.length;
+      updateLightboxDisplay();
+    }
+
+    function lightboxPrev() {
+      if (!isGalleryMode) return;
+      currentLightboxIndex = (currentLightboxIndex - 1 + GALLERY_DATA.length) % GALLERY_DATA.length;
+      updateLightboxDisplay();
+    }
+
+    // Filtros de categoría en la galería
+    function filterGallery(category) {
+      const items = document.querySelectorAll('.gallery-item');
+      const buttons = document.querySelectorAll('.gallery-filter-btn');
+
+      buttons.forEach(btn => {
+        btn.classList.remove('active', 'bg-gradient-to-r', 'from-cyan-500/20', 'to-emerald-500/20', 'text-white', 'border-cyan-400');
+        btn.classList.add('bg-slate-900/80', 'text-slate-300', 'border-slate-800');
+      });
+
+      const activeBtn = document.getElementById(`filterBtn-${category}`);
+      if (activeBtn) {
+        activeBtn.classList.add('active', 'bg-gradient-to-r', 'from-cyan-500/20', 'to-emerald-500/20', 'text-white', 'border-cyan-400');
+        activeBtn.classList.remove('bg-slate-900/80', 'text-slate-300', 'border-slate-800');
+      }
+
+      items.forEach(item => {
+        const itemCat = item.getAttribute('data-category');
+        if (category === 'todas' || itemCat === category) {
+          item.style.display = 'block';
+          if (window.gsap) {
+            gsap.fromTo(item, { opacity: 0, scale: 0.95, y: 15 }, { opacity: 1, scale: 1, y: 0, duration: 0.4, ease: "power2.out" });
+          }
+        } else {
+          item.style.display = 'none';
+        }
+      });
+    }
+
+    // Teclas del teclado para navegar el Lightbox
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'ArrowRight') lightboxNext();
+      if (e.key === 'ArrowLeft') lightboxPrev();
+    });
+
+    // 7. EFECTO 3D MAGNETIC TILT EN TARJETAS
+    function initMagneticTilt() {
+      const cards = document.querySelectorAll('.tilt-card, .hover-card-glow');
+      cards.forEach(card => {
+        card.addEventListener('mousemove', (e) => {
+          const rect = card.getBoundingClientRect();
+          const x = e.clientX - rect.left;
+          const y = e.clientY - rect.top;
+          const centerX = rect.width / 2;
+          const centerY = rect.height / 2;
+          const rotateX = ((y - centerY) / centerY) * -7;
+          const rotateY = ((x - centerX) / centerX) * 7;
+
+          card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-4px)`;
+        });
+
+        card.addEventListener('mouseleave', () => {
+          card.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) translateY(0px)';
+        });
+      });
+    }
+
+    // 8. FONDO DE PARTÍCULAS CYBER DINÁMICAS (Canvas)
+    function initCyberParticles() {
+      const canvas = document.getElementById('particleCanvas');
+      if (!canvas) return;
+      const ctx = canvas.getContext('2d');
+      let width = canvas.width = window.innerWidth;
+      let height = canvas.height = window.innerHeight;
+
+      window.addEventListener('resize', () => {
+        width = canvas.width = window.innerWidth;
+        height = canvas.height = window.innerHeight;
+      });
+
+      const particles = [];
+      const particleCount = Math.min(width > 768 ? 45 : 20, 50);
+
+      for (let i = 0; i < particleCount; i++) {
+        particles.push({
+          x: Math.random() * width,
+          y: Math.random() * height,
+          radius: Math.random() * 1.5 + 0.5,
+          vx: (Math.random() - 0.5) * 0.4,
+          vy: (Math.random() - 0.5) * 0.4,
+          color: Math.random() > 0.5 ? 'rgba(34, 211, 238, 0.4)' : 'rgba(52, 211, 153, 0.35)'
+        });
+      }
+
+      function render() {
+        ctx.clearRect(0, 0, width, height);
+        particles.forEach(p => {
+          p.x += p.vx;
+          p.y += p.vy;
+
+          if (p.x < 0) p.x = width;
+          if (p.x > width) p.x = 0;
+          if (p.y < 0) p.y = height;
+          if (p.y > height) p.y = 0;
+
+          ctx.beginPath();
+          ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
+          ctx.fillStyle = p.color;
+          ctx.fill();
+        });
+        requestAnimationFrame(render);
+      }
+      render();
+    }
+
+    // 9. ANIMACIONES GSAP SCROLLTRIGGER (REVEALS & STAGGER)
+    document.addEventListener('DOMContentLoaded', function() {
+      initMagneticTilt();
+      initCyberParticles();
+
+      if (window.gsap && window.ScrollTrigger) {
+        gsap.registerPlugin(ScrollTrigger);
+
+        // Revelación de secciones al hacer scroll
+        gsap.utils.toArray('section').forEach(section => {
+          gsap.from(section.querySelectorAll('h2, .glass-panel-glow'), {
+            scrollTrigger: {
+              trigger: section,
+              start: "top 80%",
+              toggleActions: "play none none none"
+            },
+            y: 35,
+            opacity: 0,
+            duration: 0.8,
+            stagger: 0.15,
+            ease: "power3.out"
+          });
+        });
+      }
+    });
 
   </script>
 </body>
