@@ -171,7 +171,8 @@ c:\CUN\Proyecto de VIDA\ACA\KIKE JUNIOR\
 ├── README.md                       # Documentación introductoria del repositorio
 ├── BITACORA_SOLUCION.md            # [ESTE ARCHIVO] Documentación integral y registro continuo
 ├── actualizar.bat                  # Script interactivo de un solo clic para Git Add, Commit y Push
-├── index.html                      # Single Page Application completa (código fuente unificado)
+├── index.html                      # Single Page Application completa (Versión 4.0 Hypermotion & Face-Safe)
+├── index_v3_backup.html            # [COPIA DE RESPALDO] Versión previa 3.2 preservada
 │
 └── assets/                         # Directorio de recursos estáticos
     ├── IKIGAItest.png              # Gráfico oficial del Test IKIGAI
@@ -186,6 +187,30 @@ c:\CUN\Proyecto de VIDA\ACA\KIKE JUNIOR\
 ---
 
 ## 📜 5. HISTORIAL DE CAMBIOS Y VERSIONES (CHANGELOG)
+
+### [Versión 4.0] - 2026-10-20 (Visual Hypermotion & Face-Safe Edition) 🚀⚡
+* **Copia de Respaldo Generada:** Creación y preservación de `index_v3_backup.html` para garantizar la integridad histórica del código previo por si se desea revertir.
+* **Análisis de Encuadre Seguro (Face-Safe Framing):**
+  * Se analizó la orientación y posición de rostros de las 28 fotografías.
+  * Se eliminó el recorte de cabezas y rostros aplicando `object-top` en fotografías verticales y contenedores con relación de aspecto calculada (`aspect-[3/4]`, `aspect-[4/5]`, `aspect-[16/10]`), así como `object-contain` en imágenes de aspecto extremo.
+* **Reducción de Texto y Síntesis Visual:**
+  * Se eliminaron los párrafos densos, sustituyéndolos por **telemetría de tarjetas**, **chips de datos**, **métricas de impacto** y **resúmenes escaneables**.
+* **Mayor Presencia Fotográfica en Todos los Módulos:**
+  * **Hero Section:** Integración de un **Live Story Reel con 5 tarjetas interactivas** (Voleibol, Laboral, Familia con Mamá, Viajes y Orígenes).
+  * **Fase 1 (Autoconocimiento):** Nuevo **Tríptico de Identidad** con 3 fotos reales a gran escala (El Atleta, El Ingeniero y Los Cimientos) y el gráfico del Test IKIGAI con 4 cuadrantes interactivos.
+  * **Fase 2 (SMART):** Showcase dual con fotos reales de la estación de trabajo en Chapman Wilches y telemetría de servidores.
+  * **Fase 3 (Buyer Persona):** Incorporación de **dos fotografías reales con su madre Claudia Villalobos** con encuadre de rostro perfecto y mockups interactivos de NutriTrack Home y Firma Legal.
+  * **Fase 4 (Promesa de Valor):** Split visual interactivo "De la Cancha al Código" con fotos de armado en salto vs estación de desarrollo.
+  * **Fase 5 (Pitch Visual):** Tarjeta ejecutiva con retrato profesional y simulador de reproductor con ecualizador de audio animado.
+  * **Bitácora 360°:** Visualizador con las 28 fotos con encuadre calculado, badges de categoría y Lightbox secuencial con teclado.
+* **Nuevo Emblema de Marca (<KJ/>):**
+  * Emblema vectorial SVG con hexágono giratorio táctico, líneas de balón de voleibol y corchetes de programación.
+* **Efectos de Sonido Cyber (Web Audio API):**
+  * Sintetizador de audio nativo y offline para clics y transiciones, con botón conmutador de activación/silencio.
+* **Contadores Animados en Vivo:**
+  * Implementación de contadores numéricos interactivos mediante GSAP ScrollTrigger (+10 años, 4 soluciones, 99.9% uptime, 3 ciclos, 28 fotos).
+* **Conmutador Táctico en Tiempo Real:**
+  * Selector interactivo en el Hero entre "Modo Atleta: Colocador #7" y "Modo Ingeniero: Full-Stack & Ops", que cambia la telemetría y foto en vivo.
 
 ### [Versión 3.2] - 2026-10-20
 * **Agregado:** Creación formal de la bitácora integral del proyecto (`BITACORA_SOLUCION.md`) como fuente de verdad y registro de todas las decisiones, arquitecturas y módulos.
