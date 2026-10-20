@@ -198,6 +198,7 @@
           </div>
           <div>
             <div class="flex items-center gap-2">
+              <img src="assets/kike_principal.jpg" alt="Kike Avatar" class="w-7 h-7 rounded-full object-cover object-top border border-cyan-400 shadow-[0_0_10px_rgba(34,211,238,0.5)]">
               <span class="font-display font-black text-sm sm:text-base text-white tracking-wide group-hover:text-cyan-300 transition-colors">
                 KIKE JUNIOR
               </span>
@@ -302,31 +303,31 @@
           <div class="p-4 rounded-2xl bg-slate-900/90 border border-slate-800 shadow-xl mb-6">
             <p class="text-xs font-mono text-slate-400 mb-2.5 flex items-center justify-between">
               <span>EXPLORA MIS DOS FACETAS EN VIVO:</span>
-              <span id="heroModeLabel" class="text-cyan-400 font-bold">FACETA CANCHA ACTIVA</span>
+              <span id="heroModeLabel" class="text-cyan-400 font-bold">FACETA OFICIAL • TECH LEAD ACTIVA</span>
             </p>
             <div class="flex items-center gap-2">
-              <button type="button" id="btnModeCourt" onclick="setHeroMode('court')" 
-                      class="flex-1 py-2.5 px-3 rounded-xl text-xs font-display font-bold transition-all flex items-center justify-center gap-2 bg-gradient-to-r from-cyan-500/20 to-emerald-500/20 text-white border border-cyan-500/50 shadow-md">
-                <i class="fa-solid fa-volleyball text-cyan-400"></i> Colocador & Capitán
-              </button>
               <button type="button" id="btnModeCode" onclick="setHeroMode('code')" 
+                      class="flex-1 py-2.5 px-3 rounded-xl text-xs font-display font-bold transition-all flex items-center justify-center gap-2 bg-gradient-to-r from-cyan-500/20 to-emerald-500/20 text-white border border-cyan-500/50 shadow-md">
+                <i class="fa-solid fa-code text-cyan-400"></i> Ingeniero & Tech Lead
+              </button>
+              <button type="button" id="btnModeCourt" onclick="setHeroMode('court')" 
                       class="flex-1 py-2.5 px-3 rounded-xl text-xs font-display font-medium transition-all flex items-center justify-center gap-2 text-slate-400 hover:text-white bg-slate-950/60 border border-slate-800">
-                <i class="fa-solid fa-code text-slate-400"></i> Ingeniero de Sistemas
+                <i class="fa-solid fa-volleyball text-slate-400"></i> Colocador & Capitán
               </button>
             </div>
             <!-- Telemetría Dinámica de la Faceta -->
             <div id="heroModeDetails" class="grid grid-cols-3 gap-2 mt-3 pt-3 border-t border-slate-800/80 text-center font-mono">
               <div class="p-2 rounded-xl bg-slate-950/60 border border-slate-800">
-                <span class="text-xs text-slate-400 block">Posición</span>
-                <span class="text-xs font-bold text-cyan-300">Colocador #7</span>
+                <span class="text-xs text-slate-400 block">Especialidad</span>
+                <span class="text-xs font-bold text-cyan-300">Full-Stack & Ops</span>
               </div>
               <div class="p-2 rounded-xl bg-slate-950/60 border border-slate-800">
-                <span class="text-xs text-slate-400 block">Lectura</span>
-                <span class="text-xs font-bold text-emerald-300">Visión 360°</span>
+                <span class="text-xs text-slate-400 block">Infraestructura</span>
+                <span class="text-xs font-bold text-emerald-300">Servidores & Nube</span>
               </div>
               <div class="p-2 rounded-xl bg-slate-950/60 border border-slate-800">
-                <span class="text-xs text-slate-400 block">Táctica</span>
-                <span class="text-xs font-bold text-purple-300">Liderazgo Activo</span>
+                <span class="text-xs text-slate-400 block">Formación</span>
+                <span class="text-xs font-bold text-purple-300">CUN • IA Ética</span>
               </div>
             </div>
           </div>
@@ -350,11 +351,11 @@
             
             <!-- Marco Táctico Glow con Fotografía de Kike en Voleibol/Oficina -->
             <div class="relative rounded-3xl overflow-hidden border-2 border-cyan-500/50 shadow-[0_0_50px_rgba(34,211,238,0.25)] bg-slate-950 group cursor-pointer"
-                 onclick="openImageModal('assets/yo/Voleibol/IMG-20240831-WA0007.jpg', 'Aldair Enrique Camargo Villalobos (Kike Junior)', 'Capitán y Colocador Campeón • De la Cancha al Código')">
+                 onclick="openImageModal('assets/kike_principal.jpg', 'Aldair Enrique Camargo Villalobos (Kike Junior)', 'Foto Principal Oficial • Tech Lead & Colocador Táctico • EG Global Systems & Chapman Wilches')">
               
               <!-- Imagen en formato seguro de aspecto -->
               <div class="aspect-[4/5] w-full overflow-hidden relative">
-                <img id="heroMainPhoto" src="assets/yo/Voleibol/IMG-20240831-WA0007.jpg" alt="Kike Junior Campeón" 
+                <img id="heroMainPhoto" src="assets/kike_principal.jpg" alt="Aldair Enrique Camargo Villalobos - Kike Junior" 
                      class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700">
                 <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent opacity-80"></div>
               </div>
@@ -374,8 +375,8 @@
               <div class="absolute bottom-4 left-4 right-4 p-3.5 rounded-2xl bg-slate-900/90 backdrop-blur-md border border-slate-800 text-left">
                 <div class="flex items-center justify-between">
                   <div>
-                    <h3 id="heroPhotoCaption" class="text-sm font-bold font-display text-white">Kike Junior • Capitán & Colocador</h3>
-                    <p id="heroPhotoSub" class="text-xs font-mono text-cyan-300">Celebración con trofeo y medallas en cancha</p>
+                    <h3 id="heroPhotoCaption" class="text-sm font-bold font-display text-white">Aldair Enrique Camargo (Kike Junior)</h3>
+                    <p id="heroPhotoSub" class="text-xs font-mono text-cyan-300">Líder Tecnológico & Colocador Táctico • EG Global & Chapman</p>
                   </div>
                   <span class="w-8 h-8 rounded-xl bg-cyan-500/20 text-cyan-300 border border-cyan-500/40 flex items-center justify-center text-xs">
                     <i class="fa-solid fa-expand"></i>
@@ -1183,8 +1184,8 @@
           
           <div class="flex items-center gap-4 mb-5">
             <div class="w-16 h-16 rounded-2xl overflow-hidden border border-cyan-500/50 flex-shrink-0 cursor-pointer"
-                 onclick="openImageModal('assets/yo/Viajes/IMG-20251116-WA0042.jpg', 'Aldair Enrique Camargo (Kike Junior)', 'Retrato Profesional y Visión Estratégica')">
-              <img src="assets/yo/Viajes/IMG-20251116-WA0042.jpg" alt="Retrato Kike" class="w-full h-full object-cover object-top">
+                 onclick="openImageModal('assets/kike_principal.jpg', 'Aldair Enrique Camargo (Kike Junior)', 'Retrato Profesional y Visión Estratégica')">
+              <img src="assets/kike_principal.jpg" alt="Retrato Kike" class="w-full h-full object-cover object-top">
             </div>
             <div>
               <h3 class="text-lg font-bold font-display text-white">Aldair Enrique Camargo Villalobos</h3>
@@ -1296,8 +1297,48 @@
       <div id="galleryGrid" class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6">
 
         <div class="gallery-item tilt-card group relative rounded-2xl overflow-hidden bg-slate-900/80 border border-slate-800 hover:border-cyan-400/80 transition-all duration-300 shadow-xl cursor-pointer"
-             data-category="voleibol"
+             data-category="laboral"
              onclick="openGalleryLightbox(0)">
+          <div class="relative w-full aspect-square overflow-hidden bg-slate-950">
+            <img src="assets/kike_principal.jpg" alt="Aldair Enrique Camargo (Kike Junior) • Retrato Cyber Tech" 
+                 loading="lazy"
+                 class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500">
+            <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent opacity-80 group-hover:opacity-60 transition-opacity"></div>
+            
+            <!-- Badges superiores -->
+            <div class="absolute top-2.5 left-2.5 right-2.5 flex items-center justify-between gap-1 z-10">
+              <span class="px-2.5 py-1 rounded-lg bg-slate-950/85 backdrop-blur-md text-[10px] font-mono font-bold text-cyan-300 border border-cyan-500/30 flex items-center gap-1.5">
+                <i class="fa-solid fa-user-tie text-xs text-cyan-400"></i>
+                Principal ⭐
+              </span>
+              <span class="px-2 py-0.5 rounded-md bg-emerald-500/20 text-emerald-300 border border-emerald-500/40 text-[9px] font-mono font-semibold">
+                Foto Principal ⭐
+              </span>
+            </div>
+
+            <!-- Botón hover Clic para Ampliar -->
+            <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity z-20 pointer-events-none">
+              <span class="px-3 py-1.5 rounded-xl bg-cyan-500/90 text-slate-950 text-xs font-mono font-black shadow-2xl flex items-center gap-1.5 transform scale-95 group-hover:scale-100 transition-transform">
+                <i class="fa-solid fa-expand text-xs"></i> Ampliar Foto
+              </span>
+            </div>
+          </div>
+
+          <!-- Pie de tarjeta -->
+          <div class="p-3.5 bg-slate-900/90">
+            <h4 class="text-xs sm:text-sm font-bold font-display text-white truncate group-hover:text-cyan-300 transition-colors">
+              Aldair Enrique Camargo (Kike Junior) • Retrato Cyber Tech
+            </h4>
+            <p class="text-[11px] text-slate-400 line-clamp-1 mt-0.5">
+              Fotografía oficial de Marca Personal: Liderazgo Tecnológico, Innovación y Estrategia Deportiva.
+            </p>
+          </div>
+        </div>
+    
+
+        <div class="gallery-item tilt-card group relative rounded-2xl overflow-hidden bg-slate-900/80 border border-slate-800 hover:border-cyan-400/80 transition-all duration-300 shadow-xl cursor-pointer"
+             data-category="voleibol"
+             onclick="openGalleryLightbox(1)">
           <div class="relative w-full aspect-[16/10] overflow-hidden bg-slate-950">
             <img src="assets/yo/Voleibol/IMG-20240831-WA0007.jpg" alt="Capitán y Colocador Campeón" 
                  loading="lazy"
@@ -1337,7 +1378,7 @@
 
         <div class="gallery-item tilt-card group relative rounded-2xl overflow-hidden bg-slate-900/80 border border-slate-800 hover:border-cyan-400/80 transition-all duration-300 shadow-xl cursor-pointer"
              data-category="voleibol"
-             onclick="openGalleryLightbox(1)">
+             onclick="openGalleryLightbox(2)">
           <div class="relative w-full aspect-[16/10] overflow-hidden bg-slate-950">
             <img src="assets/yo/Voleibol/IMG-20240616-WA0037.jpg" alt="Armado Táctico en Salto" 
                  loading="lazy"
@@ -1377,7 +1418,7 @@
 
         <div class="gallery-item tilt-card group relative rounded-2xl overflow-hidden bg-slate-900/80 border border-slate-800 hover:border-cyan-400/80 transition-all duration-300 shadow-xl cursor-pointer"
              data-category="voleibol"
-             onclick="openGalleryLightbox(2)">
+             onclick="openGalleryLightbox(3)">
           <div class="relative w-full aspect-[3/4] overflow-hidden bg-slate-950">
             <img src="assets/yo/Voleibol/IMG_0837.jpg" alt="Enfoque y Preparación Física" 
                  loading="lazy"
@@ -1417,7 +1458,7 @@
 
         <div class="gallery-item tilt-card group relative rounded-2xl overflow-hidden bg-slate-900/80 border border-slate-800 hover:border-cyan-400/80 transition-all duration-300 shadow-xl cursor-pointer"
              data-category="voleibol"
-             onclick="openGalleryLightbox(3)">
+             onclick="openGalleryLightbox(4)">
           <div class="relative w-full aspect-[3/4] overflow-hidden bg-slate-950">
             <img src="assets/yo/Voleibol/IMG_20221126_192150836.jpg" alt="Sinergia en Cancha" 
                  loading="lazy"
@@ -1457,7 +1498,7 @@
 
         <div class="gallery-item tilt-card group relative rounded-2xl overflow-hidden bg-slate-900/80 border border-slate-800 hover:border-cyan-400/80 transition-all duration-300 shadow-xl cursor-pointer"
              data-category="laboral"
-             onclick="openGalleryLightbox(4)">
+             onclick="openGalleryLightbox(5)">
           <div class="relative w-full aspect-[16/10] overflow-hidden bg-slate-950">
             <img src="assets/yo/Laboral/IMG-20250516-WA0039.jpg" alt="Chapman Wilches: Servidores & Ops" 
                  loading="lazy"
@@ -1497,7 +1538,7 @@
 
         <div class="gallery-item tilt-card group relative rounded-2xl overflow-hidden bg-slate-900/80 border border-slate-800 hover:border-cyan-400/80 transition-all duration-300 shadow-xl cursor-pointer"
              data-category="laboral"
-             onclick="openGalleryLightbox(5)">
+             onclick="openGalleryLightbox(6)">
           <div class="relative w-full aspect-[3/4] overflow-hidden bg-slate-950">
             <img src="assets/yo/Laboral/IMG-20260319-WA0036.jpg" alt="Desarrollo de Software & Trazabilidad" 
                  loading="lazy"
@@ -1537,7 +1578,7 @@
 
         <div class="gallery-item tilt-card group relative rounded-2xl overflow-hidden bg-slate-900/80 border border-slate-800 hover:border-cyan-400/80 transition-all duration-300 shadow-xl cursor-pointer"
              data-category="familia"
-             onclick="openGalleryLightbox(6)">
+             onclick="openGalleryLightbox(7)">
           <div class="relative w-full aspect-[3/4] overflow-hidden bg-slate-950">
             <img src="assets/yo/Familia/IMG-20251018-WA0038.jpg" alt="Con mi Madre (Claudia Villalobos)" 
                  loading="lazy"
@@ -1577,7 +1618,7 @@
 
         <div class="gallery-item tilt-card group relative rounded-2xl overflow-hidden bg-slate-900/80 border border-slate-800 hover:border-cyan-400/80 transition-all duration-300 shadow-xl cursor-pointer"
              data-category="familia"
-             onclick="openGalleryLightbox(7)">
+             onclick="openGalleryLightbox(8)">
           <div class="relative w-full aspect-[3/4] overflow-hidden bg-slate-950">
             <img src="assets/yo/Familia/IMG-20260914-WA0019.jpg" alt="Celebración Familiar" 
                  loading="lazy"
@@ -1617,7 +1658,7 @@
 
         <div class="gallery-item tilt-card group relative rounded-2xl overflow-hidden bg-slate-900/80 border border-slate-800 hover:border-cyan-400/80 transition-all duration-300 shadow-xl cursor-pointer"
              data-category="familia"
-             onclick="openGalleryLightbox(8)">
+             onclick="openGalleryLightbox(9)">
           <div class="relative w-full aspect-[3/4] overflow-hidden bg-slate-950">
             <img src="assets/yo/Familia/IMG-20260914-WA0022.jpg" alt="Respaldo y Lazos Familiares" 
                  loading="lazy"
@@ -1657,7 +1698,7 @@
 
         <div class="gallery-item tilt-card group relative rounded-2xl overflow-hidden bg-slate-900/80 border border-slate-800 hover:border-cyan-400/80 transition-all duration-300 shadow-xl cursor-pointer"
              data-category="familia"
-             onclick="openGalleryLightbox(9)">
+             onclick="openGalleryLightbox(10)">
           <div class="relative w-full aspect-[16/10] overflow-hidden bg-slate-950">
             <img src="assets/yo/Familia/IMG_0573.jpg" alt="Compartir en el Hogar" 
                  loading="lazy"
@@ -1697,7 +1738,7 @@
 
         <div class="gallery-item tilt-card group relative rounded-2xl overflow-hidden bg-slate-900/80 border border-slate-800 hover:border-cyan-400/80 transition-all duration-300 shadow-xl cursor-pointer"
              data-category="viajes"
-             onclick="openGalleryLightbox(10)">
+             onclick="openGalleryLightbox(11)">
           <div class="relative w-full aspect-[16/10] overflow-hidden bg-slate-950">
             <img src="assets/yo/Viajes/IMG-20250728-WA0016.jpg" alt="Horizontes Abiertos & Montañas" 
                  loading="lazy"
@@ -1737,7 +1778,7 @@
 
         <div class="gallery-item tilt-card group relative rounded-2xl overflow-hidden bg-slate-900/80 border border-slate-800 hover:border-cyan-400/80 transition-all duration-300 shadow-xl cursor-pointer"
              data-category="viajes"
-             onclick="openGalleryLightbox(11)">
+             onclick="openGalleryLightbox(12)">
           <div class="relative w-full aspect-[3/4] overflow-hidden bg-slate-950">
             <img src="assets/yo/Viajes/IMG_7304.jpg" alt="Rutas y Senderismo" 
                  loading="lazy"
@@ -1777,7 +1818,7 @@
 
         <div class="gallery-item tilt-card group relative rounded-2xl overflow-hidden bg-slate-900/80 border border-slate-800 hover:border-cyan-400/80 transition-all duration-300 shadow-xl cursor-pointer"
              data-category="viajes"
-             onclick="openGalleryLightbox(12)">
+             onclick="openGalleryLightbox(13)">
           <div class="relative w-full aspect-[3/4] overflow-hidden bg-slate-950">
             <img src="assets/yo/Viajes/IMG-20250419-WA0100.jpg" alt="Naturaleza Viva" 
                  loading="lazy"
@@ -1817,7 +1858,7 @@
 
         <div class="gallery-item tilt-card group relative rounded-2xl overflow-hidden bg-slate-900/80 border border-slate-800 hover:border-cyan-400/80 transition-all duration-300 shadow-xl cursor-pointer"
              data-category="viajes"
-             onclick="openGalleryLightbox(13)">
+             onclick="openGalleryLightbox(14)">
           <div class="relative w-full aspect-[3/4] overflow-hidden bg-slate-950">
             <img src="assets/yo/Viajes/51671495-ecf5-487f-b0ba-fc60db1c5240.jpg" alt="Caminos Verdes" 
                  loading="lazy"
@@ -1857,7 +1898,7 @@
 
         <div class="gallery-item tilt-card group relative rounded-2xl overflow-hidden bg-slate-900/80 border border-slate-800 hover:border-cyan-400/80 transition-all duration-300 shadow-xl cursor-pointer"
              data-category="viajes"
-             onclick="openGalleryLightbox(14)">
+             onclick="openGalleryLightbox(15)">
           <div class="relative w-full aspect-[16/10] overflow-hidden bg-slate-950">
             <img src="assets/yo/Viajes/IMG-20251231-WA0006.jpg" alt="Cierre de Año & Nuevas Metas" 
                  loading="lazy"
@@ -1897,7 +1938,7 @@
 
         <div class="gallery-item tilt-card group relative rounded-2xl overflow-hidden bg-slate-900/80 border border-slate-800 hover:border-cyan-400/80 transition-all duration-300 shadow-xl cursor-pointer"
              data-category="viajes"
-             onclick="openGalleryLightbox(15)">
+             onclick="openGalleryLightbox(16)">
           <div class="relative w-full aspect-[3/4] overflow-hidden bg-slate-950">
             <img src="assets/yo/Viajes/IMG-20260407-WA0017.jpg" alt="Descubriendo Nuevos Lugares" 
                  loading="lazy"
@@ -1937,7 +1978,7 @@
 
         <div class="gallery-item tilt-card group relative rounded-2xl overflow-hidden bg-slate-900/80 border border-slate-800 hover:border-cyan-400/80 transition-all duration-300 shadow-xl cursor-pointer"
              data-category="viajes"
-             onclick="openGalleryLightbox(16)">
+             onclick="openGalleryLightbox(17)">
           <div class="relative w-full aspect-[3/4] overflow-hidden bg-slate-950">
             <img src="assets/yo/Viajes/IMG_20260216_140253_957.jpg" alt="Paz & Serenidad Interior" 
                  loading="lazy"
@@ -1977,7 +2018,7 @@
 
         <div class="gallery-item tilt-card group relative rounded-2xl overflow-hidden bg-slate-900/80 border border-slate-800 hover:border-cyan-400/80 transition-all duration-300 shadow-xl cursor-pointer"
              data-category="viajes"
-             onclick="openGalleryLightbox(17)">
+             onclick="openGalleryLightbox(18)">
           <div class="relative w-full aspect-[3/4] overflow-hidden bg-slate-950">
             <img src="assets/yo/Viajes/IMG-20251116-WA0018.jpg" alt="Destinos Naturales" 
                  loading="lazy"
@@ -2017,7 +2058,7 @@
 
         <div class="gallery-item tilt-card group relative rounded-2xl overflow-hidden bg-slate-900/80 border border-slate-800 hover:border-cyan-400/80 transition-all duration-300 shadow-xl cursor-pointer"
              data-category="viajes"
-             onclick="openGalleryLightbox(18)">
+             onclick="openGalleryLightbox(19)">
           <div class="relative w-full aspect-[3/4] overflow-hidden bg-slate-950">
             <img src="assets/yo/Viajes/IMG-20251116-WA0042.jpg" alt="Pausa Estratégica" 
                  loading="lazy"
@@ -2057,7 +2098,7 @@
 
         <div class="gallery-item tilt-card group relative rounded-2xl overflow-hidden bg-slate-900/80 border border-slate-800 hover:border-cyan-400/80 transition-all duration-300 shadow-xl cursor-pointer"
              data-category="viajes"
-             onclick="openGalleryLightbox(19)">
+             onclick="openGalleryLightbox(20)">
           <div class="relative w-full aspect-[3/4] overflow-hidden bg-slate-950">
             <img src="assets/yo/Viajes/IMG-20240915-WA0009.jpg" alt="Caminos Compartidos" 
                  loading="lazy"
@@ -2097,7 +2138,7 @@
 
         <div class="gallery-item tilt-card group relative rounded-2xl overflow-hidden bg-slate-900/80 border border-slate-800 hover:border-cyan-400/80 transition-all duration-300 shadow-xl cursor-pointer"
              data-category="viajes"
-             onclick="openGalleryLightbox(20)">
+             onclick="openGalleryLightbox(21)">
           <div class="relative w-full aspect-[3/4] overflow-hidden bg-slate-950">
             <img src="assets/yo/Viajes/d0ac0fb7-2bf6-43bc-a08a-268e487e9c75.jpg" alt="Vistas Memorables" 
                  loading="lazy"
@@ -2137,7 +2178,7 @@
 
         <div class="gallery-item tilt-card group relative rounded-2xl overflow-hidden bg-slate-900/80 border border-slate-800 hover:border-cyan-400/80 transition-all duration-300 shadow-xl cursor-pointer"
              data-category="viajes"
-             onclick="openGalleryLightbox(21)">
+             onclick="openGalleryLightbox(22)">
           <div class="relative w-full aspect-[3/4] overflow-hidden bg-slate-950">
             <img src="assets/yo/Viajes/055276ff-f941-4bd2-b54e-8dccdb507f15.jpg" alt="Conexión Integral" 
                  loading="lazy"
@@ -2177,7 +2218,7 @@
 
         <div class="gallery-item tilt-card group relative rounded-2xl overflow-hidden bg-slate-900/80 border border-slate-800 hover:border-cyan-400/80 transition-all duration-300 shadow-xl cursor-pointer"
              data-category="ninez"
-             onclick="openGalleryLightbox(22)">
+             onclick="openGalleryLightbox(23)">
           <div class="relative w-full aspect-[16/10] overflow-hidden bg-slate-950">
             <img src="assets/yo/Ninez/FB_IMG_1767723967733.jpg" alt="Primeros Pasos con Sonrisa" 
                  loading="lazy"
@@ -2217,7 +2258,7 @@
 
         <div class="gallery-item tilt-card group relative rounded-2xl overflow-hidden bg-slate-900/80 border border-slate-800 hover:border-cyan-400/80 transition-all duration-300 shadow-xl cursor-pointer"
              data-category="ninez"
-             onclick="openGalleryLightbox(23)">
+             onclick="openGalleryLightbox(24)">
           <div class="relative w-full aspect-[3/4] overflow-hidden bg-slate-950">
             <img src="assets/yo/Ninez/IMG_20210518_164721148.jpg" alt="Curiosidad Temprana por Construir" 
                  loading="lazy"
@@ -2257,7 +2298,7 @@
 
         <div class="gallery-item tilt-card group relative rounded-2xl overflow-hidden bg-slate-900/80 border border-slate-800 hover:border-cyan-400/80 transition-all duration-300 shadow-xl cursor-pointer"
              data-category="ninez"
-             onclick="openGalleryLightbox(24)">
+             onclick="openGalleryLightbox(25)">
           <div class="relative w-full aspect-[3/4] overflow-hidden bg-slate-950">
             <img src="assets/yo/Ninez/IMG_20210518_164654691.jpg" alt="Pasión por el Movimiento" 
                  loading="lazy"
@@ -2297,7 +2338,7 @@
 
         <div class="gallery-item tilt-card group relative rounded-2xl overflow-hidden bg-slate-900/80 border border-slate-800 hover:border-cyan-400/80 transition-all duration-300 shadow-xl cursor-pointer"
              data-category="ninez"
-             onclick="openGalleryLightbox(25)">
+             onclick="openGalleryLightbox(26)">
           <div class="relative w-full aspect-[3/4] overflow-hidden bg-slate-950">
             <img src="assets/yo/Ninez/IMG-20210518-WA0021.jpeg" alt="Cariño & Raíces Familiares" 
                  loading="lazy"
@@ -2337,7 +2378,7 @@
 
         <div class="gallery-item tilt-card group relative rounded-2xl overflow-hidden bg-slate-900/80 border border-slate-800 hover:border-cyan-400/80 transition-all duration-300 shadow-xl cursor-pointer"
              data-category="ninez"
-             onclick="openGalleryLightbox(26)">
+             onclick="openGalleryLightbox(27)">
           <div class="relative w-full aspect-[3/4] overflow-hidden bg-slate-950">
             <img src="assets/yo/Ninez/IMG-20210518-WA0039.jpeg" alt="Retrato de Infancia" 
                  loading="lazy"
@@ -2377,7 +2418,7 @@
 
         <div class="gallery-item tilt-card group relative rounded-2xl overflow-hidden bg-slate-900/80 border border-slate-800 hover:border-cyan-400/80 transition-all duration-300 shadow-xl cursor-pointer"
              data-category="ninez"
-             onclick="openGalleryLightbox(27)">
+             onclick="openGalleryLightbox(28)">
           <div class="relative w-full aspect-[3/4] overflow-hidden bg-slate-950">
             <img src="assets/yo/Ninez/IMG-20250923-WA0000.jpg" alt="Orígenes & Huellas" 
                  loading="lazy"
@@ -2544,7 +2585,7 @@
   <!-- ========================================================================= -->
   <script>
     // 1. DATA DE LA GALERÍA EN MEMORIA PARA NAVEGACIÓN SECUENCIAL
-    const GALLERY_DATA = [{"src": "assets/yo/Voleibol/IMG-20240831-WA0007.jpg", "cat": "voleibol", "tag": "Voleibol", "title": "Capitán y Colocador Campeón", "desc": "Celebración de campeonato con trofeo y medallas: liderazgo bajo presión y lectura táctica.", "icon": "fa-volleyball", "aspect": "aspect-[16/10]", "fit": "object-cover", "pos": "object-center", "badge": "Campeón 2024"}, {"src": "assets/yo/Voleibol/IMG-20240616-WA0037.jpg", "cat": "voleibol", "tag": "Voleibol", "title": "Armado Táctico en Salto", "desc": "Precisión milimétrica de colocación: habilitar al atacante en la fracción de segundo perfecta.", "icon": "fa-volleyball", "aspect": "aspect-[16/10]", "fit": "object-cover", "pos": "object-center", "badge": "Armado 360°"}, {"src": "assets/yo/Voleibol/IMG_0837.jpg", "cat": "voleibol", "tag": "Voleibol", "title": "Enfoque y Preparación Física", "desc": "La constancia del entrenamiento diario forja la disciplina y la visión analítica.", "icon": "fa-volleyball", "aspect": "aspect-[3/4]", "fit": "object-cover", "pos": "object-top", "badge": "Disciplina"}, {"src": "assets/yo/Voleibol/IMG_20221126_192150836.jpg", "cat": "voleibol", "tag": "Voleibol", "title": "Sinergia en Cancha", "desc": "Comunicación constante y confianza colectiva en plena competición de torneo.", "icon": "fa-volleyball", "aspect": "aspect-[3/4]", "fit": "object-cover", "pos": "object-top", "badge": "Equipo"}, {"src": "assets/yo/Laboral/IMG-20250516-WA0039.jpg", "cat": "laboral", "tag": "Laboral", "title": "Chapman Wilches: Servidores & Ops", "desc": "Centro neurálgico de infraestructura tecnológica y optimización de servidores corporativos.", "icon": "fa-server", "aspect": "aspect-[16/10]", "fit": "object-cover", "pos": "object-center", "badge": "Infraestructura"}, {"src": "assets/yo/Laboral/IMG-20260319-WA0036.jpg", "cat": "laboral", "tag": "Laboral", "title": "Desarrollo de Software & Trazabilidad", "desc": "Puesto de trabajo donde se programan las 4 aplicaciones con certificación de firma.", "icon": "fa-laptop-code", "aspect": "aspect-[3/4]", "fit": "object-cover", "pos": "object-top", "badge": "Desarrollador"}, {"src": "assets/yo/Familia/IMG-20251018-WA0038.jpg", "cat": "familia", "tag": "Familia", "title": "Con mi Madre (Claudia Villalobos)", "desc": "Amor incondicional y la inspiración humana para crear soluciones de bienestar como NutriTrack Home.", "icon": "fa-heart", "aspect": "aspect-[3/4]", "fit": "object-cover", "pos": "object-top", "badge": "Pilar Fundamental"}, {"src": "assets/yo/Familia/IMG-20260914-WA0019.jpg", "cat": "familia", "tag": "Familia", "title": "Celebración Familiar", "desc": "Momentos de gratitud compartida que recargan la energía y dan sentido al esfuerzo académico.", "icon": "fa-heart", "aspect": "aspect-[3/4]", "fit": "object-cover", "pos": "object-top", "badge": "Unión"}, {"src": "assets/yo/Familia/IMG-20260914-WA0022.jpg", "cat": "familia", "tag": "Familia", "title": "Respaldo y Lazos Familiares", "desc": "El núcleo que acompaña cada meta en la ingeniería y en la vida personal.", "icon": "fa-heart", "aspect": "aspect-[3/4]", "fit": "object-cover", "pos": "object-top", "badge": "Familia"}, {"src": "assets/yo/Familia/IMG_0573.jpg", "cat": "familia", "tag": "Familia", "title": "Compartir en el Hogar", "desc": "Valores de humildad, perseverancia y generosidad aprendidos de generación en generación.", "icon": "fa-heart", "aspect": "aspect-[16/10]", "fit": "object-cover", "pos": "object-center", "badge": "Hogar"}, {"src": "assets/yo/Viajes/IMG-20250728-WA0016.jpg", "cat": "viajes", "tag": "Viajes", "title": "Horizontes Abiertos & Montañas", "desc": "Desconexión en las alturas: viajar amplía la perspectiva estratégica y renueva ideas.", "icon": "fa-mountain-sun", "aspect": "aspect-[16/10]", "fit": "object-cover", "pos": "object-center", "badge": "Panorámica"}, {"src": "assets/yo/Viajes/IMG_7304.jpg", "cat": "viajes", "tag": "Viajes", "title": "Rutas y Senderismo", "desc": "Explorando caminos que exigen paso firme, paciencia y visión de destino.", "icon": "fa-compass", "aspect": "aspect-[3/4]", "fit": "object-cover", "pos": "object-top", "badge": "Aventura"}, {"src": "assets/yo/Viajes/IMG-20250419-WA0100.jpg", "cat": "viajes", "tag": "Viajes", "title": "Naturaleza Viva", "desc": "Aire puro y desafío de nuevas pendientes con energía deportiva intacta.", "icon": "fa-tree", "aspect": "aspect-[3/4]", "fit": "object-cover", "pos": "object-top", "badge": "Energía"}, {"src": "assets/yo/Viajes/51671495-ecf5-487f-b0ba-fc60db1c5240.jpg", "cat": "viajes", "tag": "Viajes", "title": "Caminos Verdes", "desc": "Disfrutar cada etapa del recorrido con gratitud por los logros alcanzados.", "icon": "fa-route", "aspect": "aspect-[3/4]", "fit": "object-cover", "pos": "object-top", "badge": "Ruta"}, {"src": "assets/yo/Viajes/IMG-20251231-WA0006.jpg", "cat": "viajes", "tag": "Viajes", "title": "Cierre de Año & Nuevas Metas", "desc": "Celebración de metas cumplidas y trazado de los nuevos objetivos SMART anuales.", "icon": "fa-flag-checkered", "aspect": "aspect-[16/10]", "fit": "object-cover", "pos": "object-center", "badge": "Metas"}, {"src": "assets/yo/Viajes/IMG-20260407-WA0017.jpg", "cat": "viajes", "tag": "Viajes", "title": "Descubriendo Nuevos Lugares", "desc": "La curiosidad de un ingeniero trasciende la pantalla hacia la diversidad del mundo.", "icon": "fa-map-pin", "aspect": "aspect-[3/4]", "fit": "object-cover", "pos": "object-top", "badge": "Descubrimiento"}, {"src": "assets/yo/Viajes/IMG_20260216_140253_957.jpg", "cat": "viajes", "tag": "Viajes", "title": "Paz & Serenidad Interior", "desc": "Espacios de introspección para tomar decisiones con cabeza fría y visión clara.", "icon": "fa-spa", "aspect": "aspect-[3/4]", "fit": "object-cover", "pos": "object-top", "badge": "Equilibrio"}, {"src": "assets/yo/Viajes/IMG-20251116-WA0018.jpg", "cat": "viajes", "tag": "Viajes", "title": "Destinos Naturales", "desc": "Equilibrio integral entre la exigencia técnica corporativa y el bienestar vital.", "icon": "fa-leaf", "aspect": "aspect-[3/4]", "fit": "object-cover", "pos": "object-top", "badge": "Naturaleza"}, {"src": "assets/yo/Viajes/IMG-20251116-WA0042.jpg", "cat": "viajes", "tag": "Viajes", "title": "Pausa Estratégica", "desc": "Parar para tomar impulso: descansar y contemplar es parte fundamental del plan de vida.", "icon": "fa-coffee", "aspect": "aspect-[3/4]", "fit": "object-cover", "pos": "object-top", "badge": "Reflexión"}, {"src": "assets/yo/Viajes/IMG-20240915-WA0009.jpg", "cat": "viajes", "tag": "Viajes", "title": "Caminos Compartidos", "desc": "Aventuras con grandes amistades para coleccionar memorias y reforzar la camaradería.", "icon": "fa-users", "aspect": "aspect-[3/4]", "fit": "object-cover", "pos": "object-top", "badge": "Amistad"}, {"src": "assets/yo/Viajes/d0ac0fb7-2bf6-43bc-a08a-268e487e9c75.jpg", "cat": "viajes", "tag": "Viajes", "title": "Vistas Memorables", "desc": "Mirar el camino recorrido desde la cumbre para recordar por qué elegimos avanzar.", "icon": "fa-mountain", "aspect": "aspect-[3/4]", "fit": "object-cover", "pos": "object-top", "badge": "Cumbre"}, {"src": "assets/yo/Viajes/055276ff-f941-4bd2-b54e-8dccdb507f15.jpg", "cat": "viajes", "tag": "Viajes", "title": "Conexión Integral", "desc": "El silencio de los paisajes naturales despeja y clarifica los problemas más complejos.", "icon": "fa-person-hiking", "aspect": "aspect-[3/4]", "fit": "object-contain bg-slate-950/80 p-2", "pos": "object-center", "badge": "Paz"}, {"src": "assets/yo/Ninez/FB_IMG_1767723967733.jpg", "cat": "ninez", "tag": "Niñez", "title": "Primeros Pasos con Sonrisa", "desc": "Donde nació la espontaneidad, la alegría y la motivación por explorar el entorno.", "icon": "fa-seedling", "aspect": "aspect-[16/10]", "fit": "object-cover", "pos": "object-center", "badge": "Primeros Pasos"}, {"src": "assets/yo/Ninez/IMG_20210518_164721148.jpg", "cat": "ninez", "tag": "Niñez", "title": "Curiosidad Temprana por Construir", "desc": "Primeros juguetes e ingenio infantil que anunciaban la vocación por la ingeniería.", "icon": "fa-cubes", "aspect": "aspect-[3/4]", "fit": "object-cover", "pos": "object-top", "badge": "Ingenio"}, {"src": "assets/yo/Ninez/IMG_20210518_164654691.jpg", "cat": "ninez", "tag": "Niñez", "title": "Pasión por el Movimiento", "desc": "Desde pequeño, la energía física y el deporte marcaron el ritmo de cada día.", "icon": "fa-running", "aspect": "aspect-[3/4]", "fit": "object-cover", "pos": "object-top", "badge": "Energía Temprana"}, {"src": "assets/yo/Ninez/IMG-20210518-WA0021.jpeg", "cat": "ninez", "tag": "Niñez", "title": "Cariño & Raíces Familiares", "desc": "El amor hogareño que sembró la empatía, el respeto y el espíritu colaborativo.", "icon": "fa-hand-holding-heart", "aspect": "aspect-[3/4]", "fit": "object-cover", "pos": "object-top", "badge": "Valores"}, {"src": "assets/yo/Ninez/IMG-20210518-WA0039.jpeg", "cat": "ninez", "tag": "Niñez", "title": "Retrato de Infancia", "desc": "La mirada viva y risueña que hoy conserva Kike Junior frente a cada desafío técnico.", "icon": "fa-camera-retro", "aspect": "aspect-[3/4]", "fit": "object-cover", "pos": "object-top", "badge": "Esencia"}, {"src": "assets/yo/Ninez/IMG-20250923-WA0000.jpg", "cat": "ninez", "tag": "Niñez", "title": "Orígenes & Huellas", "desc": "Honrar de dónde venimos es el cimiento de una marca personal auténtica y humilde.", "icon": "fa-star", "aspect": "aspect-[3/4]", "fit": "object-cover", "pos": "object-top", "badge": "Orígenes"}];
+    const GALLERY_DATA = [{"src": "assets/kike_principal.jpg", "cat": "laboral", "tag": "Principal ⭐", "title": "Aldair Enrique Camargo (Kike Junior) • Retrato Cyber Tech", "desc": "Fotografía oficial de Marca Personal: Liderazgo Tecnológico, Innovación y Estrategia Deportiva.", "icon": "fa-user-tie", "aspect": "aspect-square", "fit": "object-cover", "pos": "object-top", "badge": "Foto Principal ⭐"}, {"src": "assets/yo/Voleibol/IMG-20240831-WA0007.jpg", "cat": "voleibol", "tag": "Voleibol", "title": "Capitán y Colocador Campeón", "desc": "Celebración de campeonato con trofeo y medallas: liderazgo bajo presión y lectura táctica.", "icon": "fa-volleyball", "aspect": "aspect-[16/10]", "fit": "object-cover", "pos": "object-center", "badge": "Campeón 2024"}, {"src": "assets/yo/Voleibol/IMG-20240616-WA0037.jpg", "cat": "voleibol", "tag": "Voleibol", "title": "Armado Táctico en Salto", "desc": "Precisión milimétrica de colocación: habilitar al atacante en la fracción de segundo perfecta.", "icon": "fa-volleyball", "aspect": "aspect-[16/10]", "fit": "object-cover", "pos": "object-center", "badge": "Armado 360°"}, {"src": "assets/yo/Voleibol/IMG_0837.jpg", "cat": "voleibol", "tag": "Voleibol", "title": "Enfoque y Preparación Física", "desc": "La constancia del entrenamiento diario forja la disciplina y la visión analítica.", "icon": "fa-volleyball", "aspect": "aspect-[3/4]", "fit": "object-cover", "pos": "object-top", "badge": "Disciplina"}, {"src": "assets/yo/Voleibol/IMG_20221126_192150836.jpg", "cat": "voleibol", "tag": "Voleibol", "title": "Sinergia en Cancha", "desc": "Comunicación constante y confianza colectiva en plena competición de torneo.", "icon": "fa-volleyball", "aspect": "aspect-[3/4]", "fit": "object-cover", "pos": "object-top", "badge": "Equipo"}, {"src": "assets/yo/Laboral/IMG-20250516-WA0039.jpg", "cat": "laboral", "tag": "Laboral", "title": "Chapman Wilches: Servidores & Ops", "desc": "Centro neurálgico de infraestructura tecnológica y optimización de servidores corporativos.", "icon": "fa-server", "aspect": "aspect-[16/10]", "fit": "object-cover", "pos": "object-center", "badge": "Infraestructura"}, {"src": "assets/yo/Laboral/IMG-20260319-WA0036.jpg", "cat": "laboral", "tag": "Laboral", "title": "Desarrollo de Software & Trazabilidad", "desc": "Puesto de trabajo donde se programan las 4 aplicaciones con certificación de firma.", "icon": "fa-laptop-code", "aspect": "aspect-[3/4]", "fit": "object-cover", "pos": "object-top", "badge": "Desarrollador"}, {"src": "assets/yo/Familia/IMG-20251018-WA0038.jpg", "cat": "familia", "tag": "Familia", "title": "Con mi Madre (Claudia Villalobos)", "desc": "Amor incondicional y la inspiración humana para crear soluciones de bienestar como NutriTrack Home.", "icon": "fa-heart", "aspect": "aspect-[3/4]", "fit": "object-cover", "pos": "object-top", "badge": "Pilar Fundamental"}, {"src": "assets/yo/Familia/IMG-20260914-WA0019.jpg", "cat": "familia", "tag": "Familia", "title": "Celebración Familiar", "desc": "Momentos de gratitud compartida que recargan la energía y dan sentido al esfuerzo académico.", "icon": "fa-heart", "aspect": "aspect-[3/4]", "fit": "object-cover", "pos": "object-top", "badge": "Unión"}, {"src": "assets/yo/Familia/IMG-20260914-WA0022.jpg", "cat": "familia", "tag": "Familia", "title": "Respaldo y Lazos Familiares", "desc": "El núcleo que acompaña cada meta en la ingeniería y en la vida personal.", "icon": "fa-heart", "aspect": "aspect-[3/4]", "fit": "object-cover", "pos": "object-top", "badge": "Familia"}, {"src": "assets/yo/Familia/IMG_0573.jpg", "cat": "familia", "tag": "Familia", "title": "Compartir en el Hogar", "desc": "Valores de humildad, perseverancia y generosidad aprendidos de generación en generación.", "icon": "fa-heart", "aspect": "aspect-[16/10]", "fit": "object-cover", "pos": "object-center", "badge": "Hogar"}, {"src": "assets/yo/Viajes/IMG-20250728-WA0016.jpg", "cat": "viajes", "tag": "Viajes", "title": "Horizontes Abiertos & Montañas", "desc": "Desconexión en las alturas: viajar amplía la perspectiva estratégica y renueva ideas.", "icon": "fa-mountain-sun", "aspect": "aspect-[16/10]", "fit": "object-cover", "pos": "object-center", "badge": "Panorámica"}, {"src": "assets/yo/Viajes/IMG_7304.jpg", "cat": "viajes", "tag": "Viajes", "title": "Rutas y Senderismo", "desc": "Explorando caminos que exigen paso firme, paciencia y visión de destino.", "icon": "fa-compass", "aspect": "aspect-[3/4]", "fit": "object-cover", "pos": "object-top", "badge": "Aventura"}, {"src": "assets/yo/Viajes/IMG-20250419-WA0100.jpg", "cat": "viajes", "tag": "Viajes", "title": "Naturaleza Viva", "desc": "Aire puro y desafío de nuevas pendientes con energía deportiva intacta.", "icon": "fa-tree", "aspect": "aspect-[3/4]", "fit": "object-cover", "pos": "object-top", "badge": "Energía"}, {"src": "assets/yo/Viajes/51671495-ecf5-487f-b0ba-fc60db1c5240.jpg", "cat": "viajes", "tag": "Viajes", "title": "Caminos Verdes", "desc": "Disfrutar cada etapa del recorrido con gratitud por los logros alcanzados.", "icon": "fa-route", "aspect": "aspect-[3/4]", "fit": "object-cover", "pos": "object-top", "badge": "Ruta"}, {"src": "assets/yo/Viajes/IMG-20251231-WA0006.jpg", "cat": "viajes", "tag": "Viajes", "title": "Cierre de Año & Nuevas Metas", "desc": "Celebración de metas cumplidas y trazado de los nuevos objetivos SMART anuales.", "icon": "fa-flag-checkered", "aspect": "aspect-[16/10]", "fit": "object-cover", "pos": "object-center", "badge": "Metas"}, {"src": "assets/yo/Viajes/IMG-20260407-WA0017.jpg", "cat": "viajes", "tag": "Viajes", "title": "Descubriendo Nuevos Lugares", "desc": "La curiosidad de un ingeniero trasciende la pantalla hacia la diversidad del mundo.", "icon": "fa-map-pin", "aspect": "aspect-[3/4]", "fit": "object-cover", "pos": "object-top", "badge": "Descubrimiento"}, {"src": "assets/yo/Viajes/IMG_20260216_140253_957.jpg", "cat": "viajes", "tag": "Viajes", "title": "Paz & Serenidad Interior", "desc": "Espacios de introspección para tomar decisiones con cabeza fría y visión clara.", "icon": "fa-spa", "aspect": "aspect-[3/4]", "fit": "object-cover", "pos": "object-top", "badge": "Equilibrio"}, {"src": "assets/yo/Viajes/IMG-20251116-WA0018.jpg", "cat": "viajes", "tag": "Viajes", "title": "Destinos Naturales", "desc": "Equilibrio integral entre la exigencia técnica corporativa y el bienestar vital.", "icon": "fa-leaf", "aspect": "aspect-[3/4]", "fit": "object-cover", "pos": "object-top", "badge": "Naturaleza"}, {"src": "assets/yo/Viajes/IMG-20251116-WA0042.jpg", "cat": "viajes", "tag": "Viajes", "title": "Pausa Estratégica", "desc": "Parar para tomar impulso: descansar y contemplar es parte fundamental del plan de vida.", "icon": "fa-coffee", "aspect": "aspect-[3/4]", "fit": "object-cover", "pos": "object-top", "badge": "Reflexión"}, {"src": "assets/yo/Viajes/IMG-20240915-WA0009.jpg", "cat": "viajes", "tag": "Viajes", "title": "Caminos Compartidos", "desc": "Aventuras con grandes amistades para coleccionar memorias y reforzar la camaradería.", "icon": "fa-users", "aspect": "aspect-[3/4]", "fit": "object-cover", "pos": "object-top", "badge": "Amistad"}, {"src": "assets/yo/Viajes/d0ac0fb7-2bf6-43bc-a08a-268e487e9c75.jpg", "cat": "viajes", "tag": "Viajes", "title": "Vistas Memorables", "desc": "Mirar el camino recorrido desde la cumbre para recordar por qué elegimos avanzar.", "icon": "fa-mountain", "aspect": "aspect-[3/4]", "fit": "object-cover", "pos": "object-top", "badge": "Cumbre"}, {"src": "assets/yo/Viajes/055276ff-f941-4bd2-b54e-8dccdb507f15.jpg", "cat": "viajes", "tag": "Viajes", "title": "Conexión Integral", "desc": "El silencio de los paisajes naturales despeja y clarifica los problemas más complejos.", "icon": "fa-person-hiking", "aspect": "aspect-[3/4]", "fit": "object-contain bg-slate-950/80 p-2", "pos": "object-center", "badge": "Paz"}, {"src": "assets/yo/Ninez/FB_IMG_1767723967733.jpg", "cat": "ninez", "tag": "Niñez", "title": "Primeros Pasos con Sonrisa", "desc": "Donde nació la espontaneidad, la alegría y la motivación por explorar el entorno.", "icon": "fa-seedling", "aspect": "aspect-[16/10]", "fit": "object-cover", "pos": "object-center", "badge": "Primeros Pasos"}, {"src": "assets/yo/Ninez/IMG_20210518_164721148.jpg", "cat": "ninez", "tag": "Niñez", "title": "Curiosidad Temprana por Construir", "desc": "Primeros juguetes e ingenio infantil que anunciaban la vocación por la ingeniería.", "icon": "fa-cubes", "aspect": "aspect-[3/4]", "fit": "object-cover", "pos": "object-top", "badge": "Ingenio"}, {"src": "assets/yo/Ninez/IMG_20210518_164654691.jpg", "cat": "ninez", "tag": "Niñez", "title": "Pasión por el Movimiento", "desc": "Desde pequeño, la energía física y el deporte marcaron el ritmo de cada día.", "icon": "fa-running", "aspect": "aspect-[3/4]", "fit": "object-cover", "pos": "object-top", "badge": "Energía Temprana"}, {"src": "assets/yo/Ninez/IMG-20210518-WA0021.jpeg", "cat": "ninez", "tag": "Niñez", "title": "Cariño & Raíces Familiares", "desc": "El amor hogareño que sembró la empatía, el respeto y el espíritu colaborativo.", "icon": "fa-hand-holding-heart", "aspect": "aspect-[3/4]", "fit": "object-cover", "pos": "object-top", "badge": "Valores"}, {"src": "assets/yo/Ninez/IMG-20210518-WA0039.jpeg", "cat": "ninez", "tag": "Niñez", "title": "Retrato de Infancia", "desc": "La mirada viva y risueña que hoy conserva Kike Junior frente a cada desafío técnico.", "icon": "fa-camera-retro", "aspect": "aspect-[3/4]", "fit": "object-cover", "pos": "object-top", "badge": "Esencia"}, {"src": "assets/yo/Ninez/IMG-20250923-WA0000.jpg", "cat": "ninez", "tag": "Niñez", "title": "Orígenes & Huellas", "desc": "Honrar de dónde venimos es el cimiento de una marca personal auténtica y humilde.", "icon": "fa-star", "aspect": "aspect-[3/4]", "fit": "object-cover", "pos": "object-top", "badge": "Orígenes"}];
     let currentLightboxIndex = 0;
     let isGalleryMode = false;
 
@@ -2611,8 +2652,8 @@
         label.textContent = "FACETA CANCHA ACTIVA";
         label.className = "text-cyan-400 font-bold";
         if (photo) photo.src = "assets/yo/Voleibol/IMG-20240831-WA0007.jpg";
-        if (caption) caption.textContent = "Kike Junior • Capitán & Colocador";
-        if (sub) sub.textContent = "Celebración con trofeo y medallas en cancha";
+        if (caption) caption.textContent = "Aldair Enrique Camargo (Kike Junior)";
+        if (sub) sub.textContent = "Líder Tecnológico & Colocador Táctico • EG Global & Chapman";
         if (details) {
           details.innerHTML = `
             <div class="p-2 rounded-xl bg-slate-950/60 border border-slate-800">
@@ -2634,7 +2675,7 @@
         btnCourt.className = "flex-1 py-2.5 px-3 rounded-xl text-xs font-display font-medium transition-all flex items-center justify-center gap-2 text-slate-400 hover:text-white bg-slate-950/60 border border-slate-800";
         label.textContent = "FACETA CÓDIGO ACTIVA";
         label.className = "text-emerald-400 font-bold";
-        if (photo) photo.src = "assets/yo/Laboral/IMG-20260319-WA0036.jpg";
+        if (photo) photo.src = "assets/kike_principal.jpg";
         if (caption) caption.textContent = "Kike Junior • Ingeniero de Software";
         if (sub) sub.textContent = "Estación de trabajo y automatización en Chapman Wilches";
         if (details) {

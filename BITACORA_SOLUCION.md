@@ -175,6 +175,7 @@ c:\CUN\Proyecto de VIDA\ACA\KIKE JUNIOR\
 ├── index_v3_backup.html            # [COPIA DE RESPALDO] Versión previa 3.2 preservada
 │
 └── assets/                         # Directorio de recursos estáticos
+    ├── kike_principal.jpg          # [FOTO PRINCIPAL OFICIAL] Retrato cyber tech oficial
     ├── IKIGAItest.png              # Gráfico oficial del Test IKIGAI
     ├── yo/                         # Galería fotográfica auténtica (28 fotos)
     │   ├── Voleibol/               # 4 fotos deportivas
@@ -187,6 +188,15 @@ c:\CUN\Proyecto de VIDA\ACA\KIKE JUNIOR\
 ---
 
 ## 📜 5. HISTORIAL DE CAMBIOS Y VERSIONES (CHANGELOG)
+
+### [Versión 4.1] - 2026-10-20 (Foto Principal Oficial Cyber Tech) 🌟🎯
+* **Incorporación de Fotografía Oficial:** Se integró el retrato profesional definitivo de Kike Junior (`assets/kike_principal.jpg`), con brazos cruzados, camisa corporativa y fondo de centro de comando tecnológico con circuitos de neón cian.
+* **Configuración como Pieza Central y Más Destacada:**
+  1. **Hero Section:** Portada principal coronada con resplandor glow de neón cian-esmeralda, badge animado `FOTO PRINCIPAL OFICIAL`, título de *Tech Lead* y telemetría de *EG Global Systems & Chapman Wilches*.
+  2. **Barra de Navegación (Header):** Avatar circular con anillo orbital animado y borde de neón junto al logotipo interactivo `<KJ/>`.
+  3. **Fase 5 (Pitch Visual):** Retrato ejecutivo oficial acompañando la propuesta de valor y el simulador de ecualizador de audio de 60 segundos.
+  4. **Bitácora Multimedia 360°:** Elemento #1 de la galería como joya de la corona con badge `Foto Principal ⭐`.
+  5. **Modo Conmutador Táctico:** Modo *Ingeniero & Tech Lead* configurado como el estado activo por defecto para mostrar inmediatamente esta imagen al ingresar.
 
 ### [Versión 4.0] - 2026-10-20 (Visual Hypermotion & Face-Safe Edition) 🚀⚡
 * **Copia de Respaldo Generada:** Creación y preservación de `index_v3_backup.html` para garantizar la integridad histórica del código previo por si se desea revertir.
