@@ -16,6 +16,8 @@ Diseñada bajo los principios de **Hypermotion** y animación avanzada:
 * **Partículas Cyber Reactivas & Radar Scanline:** Atmósfera táctica viva con haces de luz y partículas dinámicas.
 * **Bitácora Multimedia 360°:** Integración de **28 fotografías reales** de Kike Junior organizadas en 5 dimensiones vivenciales (Voleibol, Laboral, Familia, Viajes y Niñez) con Lightbox cinematográfico secuencial.
 
+> 📖 **Documentación Completa:** Para consultar la arquitectura detallada, el desglose paso a paso de cada fase académica, decisiones de diseño y el registro de cambios continuo, consulta el archivo [BITACORA_SOLUCION.md](BITACORA_SOLUCION.md).
+
 ---
 
 ## 📌 Estructura y Módulos de la Web
