@@ -189,6 +189,23 @@ c:\CUN\Proyecto de VIDA\ACA\KIKE JUNIOR\
 
 ## 📜 5. HISTORIAL DE CAMBIOS Y VERSIONES (CHANGELOG)
 
+### [Versión 4.2] - 2026-10-20 (Restauración de Arquitectura Favorita & Precisión de 1er Ciclo) 🛡️🎓
+* **Restauración a la Estructura Favorita del Backup (`index_v3_backup.html`):**
+  * Se restableció la estructura completa amada por el usuario con:
+    1. **B) Dimensiones del Ser Humano:** Balance integral visual (90% Cognitiva, Lógica-Matemática y Espacial vs 60% Hábito Lector Profundo e Intrapersonal).
+    2. **C) Mis 5 Habilidades Distintivas:** Tarjetas de Liderazgo Táctico, Resolución de Problemas, Automatización, Organización y Escucha Activa.
+    3. **Objetivo Profesional SMART:** Showcase en vivo en Chapman Wilches con la fotografía real de equipo, declaración de meta y el grid completo de 5 dimensiones S-M-A-R-T.
+    4. **Test Oficial IKIGAI:** Diagrama interactivo con 4 cuadrantes.
+* **Aclaración Académica Rigurosa (Ciclos Propedéuticos):**
+  * Corrección fundamental de avance: Kike Junior **está cursando actualmente el 1er Ciclo Propedéutico: Técnico Profesional en Sistemas (CUN)**.
+  * Se corrigió la redacción en la meta SMART y en el desglose para eliminar cualquier mención de "culminado", reflejando con exactitud su estatus como estudiante activo del primer ciclo con proyección hacia el título Tecnológico y Profesional.
+* **Integración de la Fotografía Principal Oficial (`assets/kike_principal.jpg`):**
+  * La imagen oficial de estudio cyber tech preside el **Hero HUD** como la foto más destacada con esquinas tácticas, badge `Colocador & Tech Lead` y resplandor neón.
+  * Incorporada como avatar en el Navbar superior y como retrato en el Elevator Pitch (Fase 5).
+  * Incluida como la **pieza #1 destacada** en la Galería 360 con badge `Principal ⭐`.
+* **Solución de Carga en las 28+ Evidencias Reales:**
+  * Se corrigió la carga de las evidencias restableciendo el renderizado estático del grid, asegurando que las 29 tarjetas fotográficas carguen de inmediato sin quedar ocultas y aplicando encuadre Face-Safe (`object-top`) en todos los retratos para no cortar rostros.
+
 ### [Versión 4.1] - 2026-10-20 (Foto Principal Oficial Cyber Tech) 🌟🎯
 * **Incorporación de Fotografía Oficial:** Se integró el retrato profesional definitivo de Kike Junior (`assets/kike_principal.jpg`), con brazos cruzados, camisa corporativa y fondo de centro de comando tecnológico con circuitos de neón cian.
 * **Configuración como Pieza Central y Más Destacada:**
