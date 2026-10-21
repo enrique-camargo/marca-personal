@@ -189,6 +189,13 @@ c:\CUN\Proyecto de VIDA\ACA\KIKE JUNIOR\
 
 ## 📜 5. HISTORIAL DE CAMBIOS Y VERSIONES (CHANGELOG)
 
+### [Versión 4.3] - 2026-10-20 (Actualización de Evidencia Familiar: Con mi FAMILIA) 👨‍👩‍👧‍👦❤️
+* **Actualización de Título y Descripción en la Evidencia 8 de 29:**
+  * Se actualizó la tarjeta de la galería y los metadatos del visor interactivo Lightbox para la fotografía familiar (`assets/yo/Familia/IMG-20251018-WA0038.jpg`).
+  * **Título actualizado:** `"Con mi FAMILIA"`.
+  * **Descripción:** `"Claudia, Kike Senior y Shadia"`.
+  * **Texto alternativo (alt):** `"Con mi FAMILIA, Claudia, Kike Senior y Shadia"`.
+
 ### [Versión 4.2] - 2026-10-20 (Restauración de Arquitectura Favorita & Precisión de 1er Ciclo) 🛡️🎓
 * **Restauración a la Estructura Favorita del Backup (`index_v3_backup.html`):**
   * Se restableció la estructura completa amada por el usuario con:
