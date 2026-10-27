@@ -212,9 +212,9 @@ c:\CUN\Proyecto de VIDA\ACA\KIKE JUNIOR\
     * Título: `La Vida en Hypermotion`
     * Párrafo descriptivo: *"Más visual, más viva y 100% auténtica: explora los 28 momentos que forjan mi carácter, mi rigor deportivo en la cancha, mis soluciones de ingeniería en Chapman Wilches y el balance vital con mi familia."*
     * Botones interactivos de categoría como enlaces directos: `Todas (29)`, `Voleibol (4)`, `Laboral & Tech (3)`, `Viajes & Balance (12)`, `Familia (4)`, `Raíces & Niñez (6)` apuntando a `bitacora.html?filter=...`.
-    * Botón de llamada a la acción: `Explorar Bitácora 360° en Otra Página`.
-  * Se incorporó además una tarjeta de acceso rápido dentro de la pestaña "Mi Esencia & Pasiones" al pie de las 4 tarjetas de muestra fotográfica.
-  * Se asignó el id `galeria-360` al bloque dentro de Autoconocimiento para garantizar retrocompatibilidad total con anclajes previos.
+    * Botón de llamada a la acción: `Explorar Bitácora 360°`.
+  * Se conservó únicamente la tarjeta principal de Bitácora 360° dentro de Autoconocimiento (removiendo barras secundarias duplicadas para máxima elegancia visual).
+  * Se asignó el id `galeria-360` a la tarjeta dentro de Autoconocimiento para garantizar retrocompatibilidad total con anclajes previos.
 * **Limpieza y Optimización de la Navegación:**
   * Se actualizaron los enlaces del Navbar superior y del menú móvil para apuntar a `bitacora.html`.
   * Se eliminaron fragmentos duplicados en el Navbar desktop y en la cuadrícula del Roadmap.
