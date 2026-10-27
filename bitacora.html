@@ -1,0 +1,1472 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bitácora Visual 360° • La Vida en Hypermotion | Kike Junior</title>
+  <meta name="description" content="Galería Multimedia 360° de Aldair Enrique Camargo Villalobos (Kike Junior). Momentos reales de voleibol, ingeniería en Chapman Wilches y familia.">
+
+  <!-- Google Fonts: Outfit, Space Grotesk & JetBrains Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Outfit:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+
+  <!-- FontAwesome 6 -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <!-- GSAP 3 & ScrollTrigger via CDN para Hypermotion -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <!-- Tailwind CSS via CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              cyan: "#22d3ee",
+              emerald: "#34d399",
+              dark: "#020617",
+              navy: "#0b1120",
+              card: "rgba(15, 23, 42, 0.75)",
+              border: "rgba(51, 65, 85, 0.5)"
+            }
+          },
+          fontFamily: {
+            sans: ["Outfit", "sans-serif"],
+            display: ["Space Grotesk", "sans-serif"],
+            mono: ["JetBrains Mono", "monospace"]
+          },
+          animation: {
+            "glow-pulse": "glowPulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite",
+            "float": "float 6s ease-in-out infinite"
+          },
+          keyframes: {
+            glowPulse: {
+              "0%, 100%": { opacity: "0.4", transform: "scale(1)" },
+              "50%": { opacity: "0.8", transform: "scale(1.05)" }
+            },
+            float: {
+              "0%, 100%": { transform: "translateY(0px)" },
+              "50%": { transform: "translateY(-10px)" }
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    .radar-scanline {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, rgba(34, 211, 238, 0.6), rgba(52, 211, 153, 0.8), transparent);
+      box-shadow: 0 0 15px rgba(34, 211, 238, 0.8);
+      pointer-events: none;
+      z-index: 40;
+      animation: scanlineMove 8s ease-in-out infinite alternate;
+    }
+    @keyframes scanlineMove {
+      0% { transform: translateY(0vh); opacity: 0.1; }
+      50% { opacity: 0.45; }
+      100% { transform: translateY(100vh); opacity: 0.1; }
+    }
+    .tilt-card {
+      transform-style: preserve-3d;
+      transition: transform 0.2s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.3s ease;
+      will-change: transform;
+    }
+    .shimmer-hover {
+      position: relative;
+      overflow: hidden;
+    }
+    .shimmer-hover::after {
+      content: "";
+      position: absolute;
+      top: -50%;
+      left: -60%;
+      width: 40%;
+      height: 200%;
+      background: linear-gradient(
+        to right,
+        rgba(255, 255, 255, 0) 0%,
+        rgba(34, 211, 238, 0.15) 50%,
+        rgba(255, 255, 255, 0) 100%
+      );
+      transform: rotate(25deg);
+      pointer-events: none;
+      transition: left 0.8s ease;
+    }
+    .shimmer-hover:hover::after {
+      left: 130%;
+    }
+    #particleCanvas {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 1;
+      opacity: 0.55;
+    }
+    body {
+      background-color: #020617;
+      color: #f1f5f9;
+      font-family: "Outfit", sans-serif;
+      overflow-x: hidden;
+    }
+    .tactical-grid {
+      background-image: 
+        radial-gradient(circle at 50% 0%, rgba(34, 211, 238, 0.08) 0%, transparent 60%),
+        radial-gradient(circle at 100% 50%, rgba(52, 211, 153, 0.06) 0%, transparent 50%),
+        linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+      background-size: 100% 100%, 100% 100%, 48px 48px, 48px 48px;
+    }
+    .glass-panel {
+      background: rgba(15, 23, 42, 0.65);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid rgba(51, 65, 85, 0.55);
+    }
+    .glass-panel-glow {
+      background: rgba(15, 23, 42, 0.7);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 1px solid rgba(56, 189, 248, 0.2);
+      box-shadow: 0 8px 32px -4px rgba(2, 6, 23, 0.7), 0 0 15px rgba(34, 211, 238, 0.08);
+    }
+    .text-gradient-cyan-emerald {
+      background: linear-gradient(135deg, #38bdf8 0%, #22d3ee 40%, #34d399 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #020617;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #1e293b;
+      border-radius: 4px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #334155;
+    }
+  </style>
+</head>
+
+<body class="tactical-grid min-h-screen selection:bg-cyan-500/30 selection:text-cyan-200">
+  <div class="radar-scanline"></div>
+  <canvas id="particleCanvas"></canvas>
+
+  <!-- NAVBAR SUPERIOR DEDICADO -->
+  <header class="sticky top-0 z-50 w-full backdrop-blur-xl bg-slate-950/85 border-b border-slate-800/80 transition-all duration-300 shadow-lg shadow-black/20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-20">
+        
+        <!-- Identidad Visual -->
+        <a href="index.html" class="group flex items-center gap-3.5 focus:outline-none">
+          <div class="relative flex items-center justify-center w-12 h-12 rounded-xl bg-gradient-to-br from-cyan-500/20 via-slate-800 to-emerald-500/20 border border-cyan-400 group-hover:shadow-[0_0_20px_rgba(34,211,238,0.5)] transition-all duration-300 overflow-hidden">
+            <img src="assets/kike_principal.jpg" alt="Kike Junior Avatar" class="w-full h-full object-cover object-top">
+          </div>
+          <div>
+            <div class="flex items-center gap-2">
+              <span class="text-base font-black font-display tracking-tight text-white group-hover:text-cyan-300 transition-colors">
+                KIKE JUNIOR
+              </span>
+              <span class="px-2 py-0.5 text-[10px] font-mono rounded bg-cyan-500/10 text-cyan-300 border border-cyan-500/30">
+                Bitácora 360°
+              </span>
+            </div>
+            <p class="text-[11px] font-mono text-slate-400">
+              Aldair Enrique Camargo Villalobos • CUN
+            </p>
+          </div>
+        </a>
+
+        <!-- Botones de Navegación de Retorno -->
+        <div class="flex items-center gap-3">
+          <a href="index.html#fase-autoconocimiento" 
+             class="inline-flex items-center gap-2 px-3.5 sm:px-4 py-2 sm:py-2.5 rounded-xl text-xs sm:text-sm font-mono font-bold text-cyan-300 bg-cyan-950/50 border border-cyan-500/40 hover:bg-cyan-900/60 hover:border-cyan-300 hover:text-white transition-all shadow-md group">
+            <i class="fa-solid fa-arrow-left group-hover:-translate-x-1 transition-transform"></i>
+            <span>Volver a Autoconocimiento</span>
+          </a>
+
+          <a href="index.html" 
+             class="hidden md:inline-flex items-center gap-2 px-3 py-2 rounded-xl text-xs font-mono text-slate-300 hover:text-white bg-slate-900 border border-slate-800 hover:border-slate-700 transition-all">
+            <i class="fa-solid fa-house"></i>
+            <span>Inicio</span>
+          </a>
+        </div>
+
+      </div>
+    </div>
+  </header>
+
+  <!-- CONTENIDO PRINCIPAL DE LA BITÁCORA 360 -->
+  <main class="py-12 sm:py-16 relative z-10">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <!-- Breadcrumb y badge -->
+      <div class="flex items-center justify-between flex-wrap gap-3 mb-6">
+        <nav class="flex items-center gap-2 text-xs font-mono text-slate-400">
+          <a href="index.html" class="hover:text-cyan-300 transition-colors">Proyecto de Vida</a>
+          <span class="text-slate-600">/</span>
+          <a href="index.html#fase-autoconocimiento" class="hover:text-cyan-300 transition-colors">Fase 1: Autoconocimiento</a>
+          <span class="text-slate-600">/</span>
+          <span class="text-cyan-300 font-bold">Bitácora Visual 360°</span>
+        </nav>
+
+        <a href="index.html#fase-autoconocimiento" class="text-xs font-mono text-cyan-400 hover:underline flex items-center gap-1.5">
+          <i class="fa-solid fa-arrow-left"></i> Retornar al módulo
+        </a>
+      </div>
+
+      <!-- Encabezado de la Galería -->
+      <div class="text-center max-w-3xl mx-auto mb-12">
+        <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-cyan-500/10 border border-cyan-500/30 text-cyan-300 font-mono text-xs font-semibold uppercase tracking-wider mb-4 animate-glow-pulse">
+          <i class="fa-solid fa-camera-retro text-cyan-400"></i>
+          Bitácora Visual 360° • Material Real
+        </div>
+        <h1 class="text-3xl sm:text-4xl lg:text-5xl font-black font-display text-white tracking-tight mb-4">
+          La Vida en <span class="text-gradient-cyan-emerald">Hypermotion</span>
+        </h1>
+        <p class="text-base sm:text-lg text-slate-300 font-normal leading-relaxed">
+          Más visual, más viva y 100% auténtica: explora los 28 momentos que forjan mi carácter, mi rigor deportivo en la cancha, mis soluciones de ingeniería en Chapman Wilches y el balance vital con mi familia.
+        </p>
+      </div>
+
+      <!-- Filtros de Categoría Dinámicos -->
+      <div class="flex flex-wrap items-center justify-center gap-2.5 mb-12">
+        
+        <button onclick="filterGallery('todas')" id="filterBtn-todas"
+                class="gallery-filter-btn active px-4 py-2 rounded-xl text-xs font-mono font-bold transition-all bg-gradient-to-r from-cyan-500/20 to-emerald-500/20 text-white border border-cyan-400 shadow-md">
+          <i class="fa-solid fa-border-all mr-1.5"></i> Todas (29)
+        </button>
+
+        <button onclick="filterGallery('voleibol')" id="filterBtn-voleibol"
+                class="gallery-filter-btn px-4 py-2 rounded-xl text-xs font-mono font-medium transition-all bg-slate-900/80 hover:bg-slate-800 text-slate-300 border border-slate-800 hover:border-cyan-500/40">
+          <i class="fa-solid fa-volleyball mr-1.5 text-cyan-400"></i> Voleibol (4)
+        </button>
+
+        <button onclick="filterGallery('laboral')" id="filterBtn-laboral"
+                class="gallery-filter-btn px-4 py-2 rounded-xl text-xs font-mono font-medium transition-all bg-slate-900/80 hover:bg-slate-800 text-slate-300 border border-slate-800 hover:border-emerald-500/40">
+          <i class="fa-solid fa-laptop-code mr-1.5 text-emerald-400"></i> Laboral & Tech (3)
+        </button>
+
+        <button onclick="filterGallery('viajes')" id="filterBtn-viajes"
+                class="gallery-filter-btn px-4 py-2 rounded-xl text-xs font-mono font-medium transition-all bg-slate-900/80 hover:bg-slate-800 text-slate-300 border border-slate-800 hover:border-cyan-500/40">
+          <i class="fa-solid fa-compass mr-1.5 text-cyan-400"></i> Viajes & Balance (12)
+        </button>
+
+        <button onclick="filterGallery('familia')" id="filterBtn-familia"
+                class="gallery-filter-btn px-4 py-2 rounded-xl text-xs font-mono font-medium transition-all bg-slate-900/80 hover:bg-slate-800 text-slate-300 border border-slate-800 hover:border-purple-500/40">
+          <i class="fa-solid fa-heart mr-1.5 text-purple-400"></i> Familia (4)
+        </button>
+
+        <button onclick="filterGallery('ninez')" id="filterBtn-ninez"
+                class="gallery-filter-btn px-4 py-2 rounded-xl text-xs font-mono font-medium transition-all bg-slate-900/80 hover:bg-slate-800 text-slate-300 border border-slate-800 hover:border-amber-500/40">
+          <i class="fa-solid fa-seedling mr-1.5 text-amber-400"></i> Raíces & Niñez (6)
+        </button>
+
+      </div>
+      <div id="galleryGrid" class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
+        
+        <!-- FOTO PRINCIPAL OFICIAL CYBER TECH (DESTACADA) -->
+        <div class="gallery-item tilt-card relative rounded-2xl overflow-hidden glass-panel border-2 border-cyan-400 group cursor-pointer shadow-[0_0_25px_rgba(34,211,238,0.3)] shimmer-hover col-span-2 sm:col-span-1"
+             data-category="laboral"
+             data-index="0"
+             onclick="openGalleryLightbox(0)">
+          <div class="relative w-full aspect-[4/5] overflow-hidden bg-slate-950">
+            <img src="assets/kike_principal.jpg" alt="Aldair Enrique Camargo - Foto Principal Oficial" 
+                 loading="lazy"
+                 class="w-full h-full object-cover object-top transform group-hover:scale-108 transition-transform duration-700 ease-out">
+            <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent pointer-events-none"></div>
+            
+            <div class="absolute top-2.5 left-2.5 z-10 flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-slate-950/90 border border-cyan-400 text-[10px] font-mono font-bold text-cyan-300 backdrop-blur-md shadow-lg">
+              <span class="w-2 h-2 rounded-full bg-cyan-400 animate-ping"></span>
+              <span>PRINCIPAL ⭐</span>
+            </div>
+
+            <div class="absolute top-2.5 right-2.5 z-10 w-7 h-7 rounded-lg bg-slate-950/80 border border-cyan-500/50 flex items-center justify-center text-cyan-300 opacity-0 group-hover:opacity-100 transition-opacity backdrop-blur-md">
+              <i class="fa-solid fa-expand text-[11px]"></i>
+            </div>
+
+            <div class="absolute bottom-0 inset-x-0 p-3.5 z-10 bg-gradient-to-t from-slate-950 via-slate-950/90 to-transparent text-left">
+              <h5 class="text-sm font-bold text-white font-display leading-snug group-hover:text-cyan-300 transition-colors">
+                Aldair Enrique Camargo (Kike)
+              </h5>
+              <p class="text-[11px] text-cyan-300 mt-0.5 line-clamp-1 leading-tight font-mono">
+                Foto Principal Oficial • Cyber Tech Lead
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="gallery-item tilt-card relative rounded-2xl overflow-hidden glass-panel border border-slate-800/80 group cursor-pointer shadow-xl shimmer-hover"
+             data-category="voleibol"
+             data-index="1"
+             onclick="openGalleryLightbox(1)">
+          <div class="relative w-full aspect-[4/5] overflow-hidden bg-slate-950">
+            <img src="assets/yo/Voleibol/IMG-20240831-WA0007.jpg" alt="Capitán y Colocador Campeón" 
+                 loading="lazy"
+                 class="w-full h-full object-cover transform group-hover:scale-108 transition-transform duration-700 ease-out">
+            <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent pointer-events-none"></div>
+            
+            <!-- Badge de categoría superior -->
+            <div class="absolute top-2.5 left-2.5 z-10 flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-slate-950/80 border border-slate-700/80 text-[10px] font-mono text-cyan-300 backdrop-blur-md">
+              <i class="fa-solid fa-volleyball text-emerald-400 text-[9px]"></i>
+              <span>Voleibol</span>
+            </div>
+
+            <div class="absolute top-2.5 right-2.5 z-10 w-7 h-7 rounded-lg bg-slate-950/70 border border-slate-700/60 flex items-center justify-center text-cyan-400 opacity-0 group-hover:opacity-100 transition-opacity backdrop-blur-md">
+              <i class="fa-solid fa-expand text-[11px]"></i>
+            </div>
+
+            <!-- Información inferior -->
+            <div class="absolute bottom-0 inset-x-0 p-3.5 z-10 bg-gradient-to-t from-slate-950 via-slate-950/90 to-transparent text-left">
+              <h5 class="text-sm font-bold text-white font-display leading-snug group-hover:text-cyan-300 transition-colors">
+                Capitán y Colocador Campeón
+              </h5>
+              <p class="text-[11px] text-slate-300 mt-0.5 line-clamp-2 leading-tight">
+                Celebración de campeonato: lectura táctica y liderazgo en la cancha.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="gallery-item tilt-card relative rounded-2xl overflow-hidden glass-panel border border-slate-800/80 group cursor-pointer shadow-xl shimmer-hover"
+             data-category="voleibol"
+             data-index="2"
+             onclick="openGalleryLightbox(2)">
+          <div class="relative w-full aspect-[4/5] overflow-hidden bg-slate-950">
+            <img src="assets/yo/Voleibol/IMG-20240616-WA0037.jpg" alt="Distribución Estratégica" 
+                 loading="lazy"
+                 class="w-full h-full object-cover transform group-hover:scale-108 transition-transform duration-700 ease-out">
+            <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent pointer-events-none"></div>
+            
+            <!-- Badge de categoría superior -->
+            <div class="absolute top-2.5 left-2.5 z-10 flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-slate-950/80 border border-slate-700/80 text-[10px] font-mono text-cyan-300 backdrop-blur-md">
+              <i class="fa-solid fa-volleyball text-emerald-400 text-[9px]"></i>
+              <span>Voleibol</span>
+            </div>
+
+            <div class="absolute top-2.5 right-2.5 z-10 w-7 h-7 rounded-lg bg-slate-950/70 border border-slate-700/60 flex items-center justify-center text-cyan-400 opacity-0 group-hover:opacity-100 transition-opacity backdrop-blur-md">
+              <i class="fa-solid fa-expand text-[11px]"></i>
+            </div>
+
+            <!-- Información inferior -->
+            <div class="absolute bottom-0 inset-x-0 p-3.5 z-10 bg-gradient-to-t from-slate-950 via-slate-950/90 to-transparent text-left">
+              <h5 class="text-sm font-bold text-white font-display leading-snug group-hover:text-cyan-300 transition-colors">
+                Distribución Estratégica
+              </h5>
+              <p class="text-[11px] text-slate-300 mt-0.5 line-clamp-2 leading-tight">
+                Armado de juego en tiempo real con precisión milimétrica.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="gallery-item tilt-card relative rounded-2xl overflow-hidden glass-panel border border-slate-800/80 group cursor-pointer shadow-xl shimmer-hover"
+             data-category="voleibol"
+             data-index="3"
+             onclick="openGalleryLightbox(3)">
+          <div class="relative w-full aspect-[4/5] overflow-hidden bg-slate-950">
+            <img src="assets/yo/Voleibol/IMG_0837.jpg" alt="Enfoque y Entrenamiento" 
+                 loading="lazy"
+                 class="w-full h-full object-cover object-top transform group-hover:scale-108 transition-transform duration-700 ease-out">
+            <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent pointer-events-none"></div>
+            
+            <!-- Badge de categoría superior -->
+            <div class="absolute top-2.5 left-2.5 z-10 flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-slate-950/80 border border-slate-700/80 text-[10px] font-mono text-cyan-300 backdrop-blur-md">
+              <i class="fa-solid fa-volleyball text-emerald-400 text-[9px]"></i>
+              <span>Voleibol</span>
+            </div>
+
+            <div class="absolute top-2.5 right-2.5 z-10 w-7 h-7 rounded-lg bg-slate-950/70 border border-slate-700/60 flex items-center justify-center text-cyan-400 opacity-0 group-hover:opacity-100 transition-opacity backdrop-blur-md">
+              <i class="fa-solid fa-expand text-[11px]"></i>
+            </div>
+
+            <!-- Información inferior -->
+            <div class="absolute bottom-0 inset-x-0 p-3.5 z-10 bg-gradient-to-t from-slate-950 via-slate-950/90 to-transparent text-left">
+              <h5 class="text-sm font-bold text-white font-display leading-snug group-hover:text-cyan-300 transition-colors">
+                Enfoque y Entrenamiento
+              </h5>
+              <p class="text-[11px] text-slate-300 mt-0.5 line-clamp-2 leading-tight">
+                La constancia del entrenamiento deportivo forja la disciplina técnica.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="gallery-item tilt-card relative rounded-2xl overflow-hidden glass-panel border border-slate-800/80 group cursor-pointer shadow-xl shimmer-hover"
+             data-category="voleibol"
+             data-index="4"
+             onclick="openGalleryLightbox(4)">
+          <div class="relative w-full aspect-[4/5] overflow-hidden bg-slate-950">
+            <img src="assets/yo/Voleibol/IMG_20221126_192150836.jpg" alt="Torneo y Trabajo en Equipo" 
+                 loading="lazy"
+                 class="w-full h-full object-cover object-top transform group-hover:scale-108 transition-transform duration-700 ease-out">
+            <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent pointer-events-none"></div>
+            
+            <!-- Badge de categoría superior -->
+            <div class="absolute top-2.5 left-2.5 z-10 flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-slate-950/80 border border-slate-700/80 text-[10px] font-mono text-cyan-300 backdrop-blur-md">
+              <i class="fa-solid fa-volleyball text-emerald-400 text-[9px]"></i>
+              <span>Voleibol</span>
+            </div>
+
+            <div class="absolute top-2.5 right-2.5 z-10 w-7 h-7 rounded-lg bg-slate-950/70 border border-slate-700/60 flex items-center justify-center text-cyan-400 opacity-0 group-hover:opacity-100 transition-opacity backdrop-blur-md">
+              <i class="fa-solid fa-expand text-[11px]"></i>
+            </div>
+
+            <!-- Información inferior -->
+            <div class="absolute bottom-0 inset-x-0 p-3.5 z-10 bg-gradient-to-t from-slate-950 via-slate-950/90 to-transparent text-left">
+              <h5 class="text-sm font-bold text-white font-display leading-snug group-hover:text-cyan-300 transition-colors">
+                Torneo y Trabajo en Equipo
+              </h5>
+              <p class="text-[11px] text-slate-300 mt-0.5 line-clamp-2 leading-tight">
+                Sinergia en cancha: cada punto se construye con confianza colectiva.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="gallery-item tilt-card relative rounded-2xl overflow-hidden glass-panel border border-slate-800/80 group cursor-pointer shadow-xl shimmer-hover"
+             data-category="laboral"
+             data-index="5"
+             onclick="openGalleryLightbox(5)">
+          <div class="relative w-full aspect-[4/5] overflow-hidden bg-slate-950">
+            <img src="assets/yo/Laboral/IMG-20250516-WA0039.jpg" alt="Chapman Wilches: Servidores" 
+                 loading="lazy"
+                 class="w-full h-full object-cover transform group-hover:scale-108 transition-transform duration-700 ease-out">
+            <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent pointer-events-none"></div>
+            
+            <!-- Badge de categoría superior -->
+            <div class="absolute top-2.5 left-2.5 z-10 flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-slate-950/80 border border-slate-700/80 text-[10px] font-mono text-cyan-300 backdrop-blur-md">
+              <i class="fa-solid fa-briefcase text-emerald-400 text-[9px]"></i>
+              <span>Laboral</span>
+            </div>
+
+            <div class="absolute top-2.5 right-2.5 z-10 w-7 h-7 rounded-lg bg-slate-950/70 border border-slate-700/60 flex items-center justify-center text-cyan-400 opacity-0 group-hover:opacity-100 transition-opacity backdrop-blur-md">
+              <i class="fa-solid fa-expand text-[11px]"></i>
+            </div>
+
+            <!-- Información inferior -->
+            <div class="absolute bottom-0 inset-x-0 p-3.5 z-10 bg-gradient-to-t from-slate-950 via-slate-950/90 to-transparent text-left">
+              <h5 class="text-sm font-bold text-white font-display leading-snug group-hover:text-cyan-300 transition-colors">
+                Chapman Wilches: Servidores
+              </h5>
+              <p class="text-[11px] text-slate-300 mt-0.5 line-clamp-2 leading-tight">
+                Gestión activa de infraestructura tecnológica y optimización de flujos.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="gallery-item tilt-card relative rounded-2xl overflow-hidden glass-panel border border-slate-800/80 group cursor-pointer shadow-xl shimmer-hover"
+             data-category="laboral"
+             data-index="6"
+             onclick="openGalleryLightbox(6)">
+          <div class="relative w-full aspect-[4/5] overflow-hidden bg-slate-950">
+            <img src="assets/yo/Laboral/IMG-20260319-WA0036.jpg" alt="Desarrollo de Software y Ops" 
+                 loading="lazy"
+                 class="w-full h-full object-cover object-top transform group-hover:scale-108 transition-transform duration-700 ease-out">
+            <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent pointer-events-none"></div>
+            
+            <!-- Badge de categoría superior -->
+            <div class="absolute top-2.5 left-2.5 z-10 flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-slate-950/80 border border-slate-700/80 text-[10px] font-mono text-cyan-300 backdrop-blur-md">
+              <i class="fa-solid fa-laptop-code text-emerald-400 text-[9px]"></i>
+              <span>Laboral</span>
+            </div>
+
+            <div class="absolute top-2.5 right-2.5 z-10 w-7 h-7 rounded-lg bg-slate-950/70 border border-slate-700/60 flex items-center justify-center text-cyan-400 opacity-0 group-hover:opacity-100 transition-opacity backdrop-blur-md">
+              <i class="fa-solid fa-expand text-[11px]"></i>
+            </div>
+
+            <!-- Información inferior -->
+            <div class="absolute bottom-0 inset-x-0 p-3.5 z-10 bg-gradient-to-t from-slate-950 via-slate-950/90 to-transparent text-left">
+              <h5 class="text-sm font-bold text-white font-display leading-snug group-hover:text-cyan-300 transition-colors">
+                Desarrollo de Software y Ops
+              </h5>
+              <p class="text-[11px] text-slate-300 mt-0.5 line-clamp-2 leading-tight">
+                Puesto de trabajo donde se programan las 4 soluciones de trazabilidad.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="gallery-item tilt-card relative rounded-2xl overflow-hidden glass-panel border border-slate-800/80 group cursor-pointer shadow-xl shimmer-hover"
+             data-category="familia"
+             data-index="7"
+             onclick="openGalleryLightbox(7)">
+          <div class="relative w-full aspect-[4/5] overflow-hidden bg-slate-950">
+            <img src="assets/yo/Familia/IMG-20251018-WA0038.jpg" alt="Con mi FAMILIA, Claudia, Kike Senior y Shadia" 
+                 loading="lazy"
+                 class="w-full h-full object-cover object-top transform group-hover:scale-108 transition-transform duration-700 ease-out">
+            <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent pointer-events-none"></div>
+            
+            <!-- Badge de categoría superior -->
+            <div class="absolute top-2.5 left-2.5 z-10 flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-slate-950/80 border border-slate-700/80 text-[10px] font-mono text-cyan-300 backdrop-blur-md">
+              <i class="fa-solid fa-heart text-emerald-400 text-[9px]"></i>
+              <span>Familia</span>
+            </div>
+
+            <div class="absolute top-2.5 right-2.5 z-10 w-7 h-7 rounded-lg bg-slate-950/70 border border-slate-700/60 flex items-center justify-center text-cyan-400 opacity-0 group-hover:opacity-100 transition-opacity backdrop-blur-md">
+              <i class="fa-solid fa-expand text-[11px]"></i>
+            </div>
+
+            <!-- Información inferior -->
+            <div class="absolute bottom-0 inset-x-0 p-3.5 z-10 bg-gradient-to-t from-slate-950 via-slate-950/90 to-transparent text-left">
+              <h5 class="text-sm font-bold text-white font-display leading-snug group-hover:text-cyan-300 transition-colors">
+                Con mi FAMILIA
+              </h5>
+              <p class="text-[11px] text-slate-300 mt-0.5 line-clamp-2 leading-tight">
+                Claudia, Kike Senior y Shadia
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="gallery-item tilt-card relative rounded-2xl overflow-hidden glass-panel border border-slate-800/80 group cursor-pointer shadow-xl shimmer-hover"
+             data-category="familia"
+             data-index="8"
+             onclick="openGalleryLightbox(8)">
+          <div class="relative w-full aspect-[4/5] overflow-hidden bg-slate-950">
+            <img src="assets/yo/Familia/IMG-20260914-WA0019.jpg" alt="Celebración y Gratitud" 
+                 loading="lazy"
+                 class="w-full h-full object-cover object-top transform group-hover:scale-108 transition-transform duration-700 ease-out">
+            <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent pointer-events-none"></div>
+            
+            <!-- Badge de categoría superior -->
+            <div class="absolute top-2.5 left-2.5 z-10 flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-slate-950/80 border border-slate-700/80 text-[10px] font-mono text-cyan-300 backdrop-blur-md">
+              <i class="fa-solid fa-heart text-emerald-400 text-[9px]"></i>
+              <span>Familia</span>
+            </div>
+
+            <div class="absolute top-2.5 right-2.5 z-10 w-7 h-7 rounded-lg bg-slate-950/70 border border-slate-700/60 flex items-center justify-center text-cyan-400 opacity-0 group-hover:opacity-100 transition-opacity backdrop-blur-md">
+              <i class="fa-solid fa-expand text-[11px]"></i>
+            </div>
+
+            <!-- Información inferior -->
+            <div class="absolute bottom-0 inset-x-0 p-3.5 z-10 bg-gradient-to-t from-slate-950 via-slate-950/90 to-transparent text-left">
+              <h5 class="text-sm font-bold text-white font-display leading-snug group-hover:text-cyan-300 transition-colors">
+                Celebración y Gratitud
+              </h5>
+              <p class="text-[11px] text-slate-300 mt-0.5 line-clamp-2 leading-tight">
+                Momentos felices en familia que recargan el alma y renuevan el enfoque.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="gallery-item tilt-card relative rounded-2xl overflow-hidden glass-panel border border-slate-800/80 group cursor-pointer shadow-xl shimmer-hover"
+             data-category="familia"
+             data-index="9"
+             onclick="openGalleryLightbox(9)">
+          <div class="relative w-full aspect-[4/5] overflow-hidden bg-slate-950">
+            <img src="assets/yo/Familia/IMG-20260914-WA0022.jpg" alt="Unión y Respaldo Familiar" 
+                 loading="lazy"
+                 class="w-full h-full object-cover object-top transform group-hover:scale-108 transition-transform duration-700 ease-out">
+            <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent pointer-events-none"></div>
+            
+            <!-- Badge de categoría superior -->
+            <div class="absolute top-2.5 left-2.5 z-10 flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-slate-950/80 border border-slate-700/80 text-[10px] font-mono text-cyan-300 backdrop-blur-md">
+              <i class="fa-solid fa-heart text-emerald-400 text-[9px]"></i>
+              <span>Familia</span>
+            </div>
+
+            <div class="absolute top-2.5 right-2.5 z-10 w-7 h-7 rounded-lg bg-slate-950/70 border border-slate-700/60 flex items-center justify-center text-cyan-400 opacity-0 group-hover:opacity-100 transition-opacity backdrop-blur-md">
+              <i class="fa-solid fa-expand text-[11px]"></i>
+            </div>
+
+            <!-- Información inferior -->
+            <div class="absolute bottom-0 inset-x-0 p-3.5 z-10 bg-gradient-to-t from-slate-950 via-slate-950/90 to-transparent text-left">
+              <h5 class="text-sm font-bold text-white font-display leading-snug group-hover:text-cyan-300 transition-colors">
+                Unión y Respaldo Familiar
+              </h5>
+              <p class="text-[11px] text-slate-300 mt-0.5 line-clamp-2 leading-tight">
+                El pilar humano más sólido detrás de cada logro académico y laboral.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="gallery-item tilt-card relative rounded-2xl overflow-hidden glass-panel border border-slate-800/80 group cursor-pointer shadow-xl shimmer-hover"
+             data-category="familia"
+             data-index="10"
+             onclick="openGalleryLightbox(10)">
+          <div class="relative w-full aspect-[4/5] overflow-hidden bg-slate-950">
+            <img src="assets/yo/Familia/IMG_0573.jpg" alt="Compartir en Familia" 
+                 loading="lazy"
+                 class="w-full h-full object-cover transform group-hover:scale-108 transition-transform duration-700 ease-out">
+            <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent pointer-events-none"></div>
+            
+            <!-- Badge de categoría superior -->
+            <div class="absolute top-2.5 left-2.5 z-10 flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-slate-950/80 border border-slate-700/80 text-[10px] font-mono text-cyan-300 backdrop-blur-md">
+              <i class="fa-solid fa-heart text-emerald-400 text-[9px]"></i>
+              <span>Familia</span>
+            </div>
+
+            <div class="absolute top-2.5 right-2.5 z-10 w-7 h-7 rounded-lg bg-slate-950/70 border border-slate-700/60 flex items-center justify-center text-cyan-400 opacity-0 group-hover:opacity-100 transition-opacity backdrop-blur-md">
+              <i class="fa-solid fa-expand text-[11px]"></i>
+            </div>
+
+            <!-- Información inferior -->
+            <div class="absolute bottom-0 inset-x-0 p-3.5 z-10 bg-gradient-to-t from-slate-950 via-slate-950/90 to-transparent text-left">
+              <h5 class="text-sm font-bold text-white font-display leading-snug group-hover:text-cyan-300 transition-colors">
+                Compartir en Familia
+              </h5>
+              <p class="text-[11px] text-slate-300 mt-0.5 line-clamp-2 leading-tight">
+                Valores de humildad, perseverancia y generosidad aprendidos en casa.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="gallery-item tilt-card relative rounded-2xl overflow-hidden glass-panel border border-slate-800/80 group cursor-pointer shadow-xl shimmer-hover"
+             data-category="viajes"
+             data-index="11"
+             onclick="openGalleryLightbox(11)">
+          <div class="relative w-full aspect-[4/5] overflow-hidden bg-slate-950">
+            <img src="assets/yo/Viajes/IMG-20250728-WA0016.jpg" alt="Horizontes Abiertos" 
+                 loading="lazy"
+                 class="w-full h-full object-cover transform group-hover:scale-108 transition-transform duration-700 ease-out">
+            <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent pointer-events-none"></div>
+            
+            <!-- Badge de categoría superior -->
+            <div class="absolute top-2.5 left-2.5 z-10 flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-slate-950/80 border border-slate-700/80 text-[10px] font-mono text-cyan-300 backdrop-blur-md">
+              <i class="fa-solid fa-compass text-emerald-400 text-[9px]"></i>
+              <span>Viajes</span>
+            </div>
+
+            <div class="absolute top-2.5 right-2.5 z-10 w-7 h-7 rounded-lg bg-slate-950/70 border border-slate-700/60 flex items-center justify-center text-cyan-400 opacity-0 group-hover:opacity-100 transition-opacity backdrop-blur-md">
+              <i class="fa-solid fa-expand text-[11px]"></i>
+            </div>
+
+            <!-- Información inferior -->
+            <div class="absolute bottom-0 inset-x-0 p-3.5 z-10 bg-gradient-to-t from-slate-950 via-slate-950/90 to-transparent text-left">
+              <h5 class="text-sm font-bold text-white font-display leading-snug group-hover:text-cyan-300 transition-colors">
+                Horizontes Abiertos
+              </h5>
+              <p class="text-[11px] text-slate-300 mt-0.5 line-clamp-2 leading-tight">
+                Desconexión en la naturaleza: viajar amplía la perspectiva y renueva ideas.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="gallery-item tilt-card relative rounded-2xl overflow-hidden glass-panel border border-slate-800/80 group cursor-pointer shadow-xl shimmer-hover"
+             data-category="viajes"
+             data-index="12"
+             onclick="openGalleryLightbox(12)">
+          <div class="relative w-full aspect-[4/5] overflow-hidden bg-slate-950">
+            <img src="assets/yo/Viajes/IMG_7304.jpg" alt="Nuevas Rutas y Paisajes" 
+                 loading="lazy"
+                 class="w-full h-full object-cover object-top transform group-hover:scale-108 transition-transform duration-700 ease-out">
+            <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent pointer-events-none"></div>
+            
+            <!-- Badge de categoría superior -->
+            <div class="absolute top-2.5 left-2.5 z-10 flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-slate-950/80 border border-slate-700/80 text-[10px] font-mono text-cyan-300 backdrop-blur-md">
+              <i class="fa-solid fa-compass text-emerald-400 text-[9px]"></i>
+              <span>Viajes</span>
+            </div>
+
+            <div class="absolute top-2.5 right-2.5 z-10 w-7 h-7 rounded-lg bg-slate-950/70 border border-slate-700/60 flex items-center justify-center text-cyan-400 opacity-0 group-hover:opacity-100 transition-opacity backdrop-blur-md">
+              <i class="fa-solid fa-expand text-[11px]"></i>
+            </div>
+
+            <!-- Información inferior -->
+            <div class="absolute bottom-0 inset-x-0 p-3.5 z-10 bg-gradient-to-t from-slate-950 via-slate-950/90 to-transparent text-left">
+              <h5 class="text-sm font-bold text-white font-display leading-snug group-hover:text-cyan-300 transition-colors">
+                Nuevas Rutas y Paisajes
+              </h5>
+              <p class="text-[11px] text-slate-300 mt-0.5 line-clamp-2 leading-tight">
+                Explorando destinos que inspiran serenidad y pensamiento estratégico.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="gallery-item tilt-card relative rounded-2xl overflow-hidden glass-panel border border-slate-800/80 group cursor-pointer shadow-xl shimmer-hover"
+             data-category="viajes"
+             data-index="13"
+             onclick="openGalleryLightbox(13)">
+          <div class="relative w-full aspect-[4/5] overflow-hidden bg-slate-950">
+            <img src="assets/yo/Viajes/IMG-20250419-WA0100.jpg" alt="Aventura al Aire Libre" 
+                 loading="lazy"
+                 class="w-full h-full object-cover object-top transform group-hover:scale-108 transition-transform duration-700 ease-out">
+            <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent pointer-events-none"></div>
+            
+            <!-- Badge de categoría superior -->
+            <div class="absolute top-2.5 left-2.5 z-10 flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-slate-950/80 border border-slate-700/80 text-[10px] font-mono text-cyan-300 backdrop-blur-md">
+              <i class="fa-solid fa-compass text-emerald-400 text-[9px]"></i>
+              <span>Viajes</span>
+            </div>
+
+            <div class="absolute top-2.5 right-2.5 z-10 w-7 h-7 rounded-lg bg-slate-950/70 border border-slate-700/60 flex items-center justify-center text-cyan-400 opacity-0 group-hover:opacity-100 transition-opacity backdrop-blur-md">
+              <i class="fa-solid fa-expand text-[11px]"></i>
+            </div>
+
+            <!-- Información inferior -->
+            <div class="absolute bottom-0 inset-x-0 p-3.5 z-10 bg-gradient-to-t from-slate-950 via-slate-950/90 to-transparent text-left">
+              <h5 class="text-sm font-bold text-white font-display leading-snug group-hover:text-cyan-300 transition-colors">
+                Aventura al Aire Libre
+              </h5>
+              <p class="text-[11px] text-slate-300 mt-0.5 line-clamp-2 leading-tight">
+                Respirar aire puro y desafiar nuevas pendientes con energía.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="gallery-item tilt-card relative rounded-2xl overflow-hidden glass-panel border border-slate-800/80 group cursor-pointer shadow-xl shimmer-hover"
+             data-category="viajes"
+             data-index="14"
+             onclick="openGalleryLightbox(14)">
+          <div class="relative w-full aspect-[4/5] overflow-hidden bg-slate-950">
+            <img src="assets/yo/Viajes/51671495-ecf5-487f-b0ba-fc60db1c5240.jpg" alt="Caminos y Naturaleza" 
+                 loading="lazy"
+                 class="w-full h-full object-cover object-top transform group-hover:scale-108 transition-transform duration-700 ease-out">
+            <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent pointer-events-none"></div>
+            
+            <!-- Badge de categoría superior -->
+            <div class="absolute top-2.5 left-2.5 z-10 flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-slate-950/80 border border-slate-700/80 text-[10px] font-mono text-cyan-300 backdrop-blur-md">
+              <i class="fa-solid fa-compass text-emerald-400 text-[9px]"></i>
+              <span>Viajes</span>
+            </div>
+
+            <div class="absolute top-2.5 right-2.5 z-10 w-7 h-7 rounded-lg bg-slate-950/70 border border-slate-700/60 flex items-center justify-center text-cyan-400 opacity-0 group-hover:opacity-100 transition-opacity backdrop-blur-md">
+              <i class="fa-solid fa-expand text-[11px]"></i>
+            </div>
+
+            <!-- Información inferior -->
+            <div class="absolute bottom-0 inset-x-0 p-3.5 z-10 bg-gradient-to-t from-slate-950 via-slate-950/90 to-transparent text-left">
+              <h5 class="text-sm font-bold text-white font-display leading-snug group-hover:text-cyan-300 transition-colors">
+                Caminos y Naturaleza
+              </h5>
+              <p class="text-[11px] text-slate-300 mt-0.5 line-clamp-2 leading-tight">
+                Disfrutando cada etapa del recorrido con gratitud.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="gallery-item tilt-card relative rounded-2xl overflow-hidden glass-panel border border-slate-800/80 group cursor-pointer shadow-xl shimmer-hover"
+             data-category="viajes"
+             data-index="15"
+             onclick="openGalleryLightbox(15)">
+          <div class="relative w-full aspect-[4/5] overflow-hidden bg-slate-950">
+            <img src="assets/yo/Viajes/IMG-20251231-WA0006.jpg" alt="Cierre de Año y Metas" 
+                 loading="lazy"
+                 class="w-full h-full object-cover transform group-hover:scale-108 transition-transform duration-700 ease-out">
+            <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent pointer-events-none"></div>
+            
+            <!-- Badge de categoría superior -->
+            <div class="absolute top-2.5 left-2.5 z-10 flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-slate-950/80 border border-slate-700/80 text-[10px] font-mono text-cyan-300 backdrop-blur-md">
+              <i class="fa-solid fa-compass text-emerald-400 text-[9px]"></i>
+              <span>Viajes</span>
+            </div>
+
+            <div class="absolute top-2.5 right-2.5 z-10 w-7 h-7 rounded-lg bg-slate-950/70 border border-slate-700/60 flex items-center justify-center text-cyan-400 opacity-0 group-hover:opacity-100 transition-opacity backdrop-blur-md">
+              <i class="fa-solid fa-expand text-[11px]"></i>
+            </div>
+
+            <!-- Información inferior -->
+            <div class="absolute bottom-0 inset-x-0 p-3.5 z-10 bg-gradient-to-t from-slate-950 via-slate-950/90 to-transparent text-left">
+              <h5 class="text-sm font-bold text-white font-display leading-snug group-hover:text-cyan-300 transition-colors">
+                Cierre de Año y Metas
+              </h5>
+              <p class="text-[11px] text-slate-300 mt-0.5 line-clamp-2 leading-tight">
+                Celebrando metas cumplidas y trazando los nuevos objetivos SMART.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="gallery-item tilt-card relative rounded-2xl overflow-hidden glass-panel border border-slate-800/80 group cursor-pointer shadow-xl shimmer-hover"
+             data-category="viajes"
+             data-index="16"
+             onclick="openGalleryLightbox(16)">
+          <div class="relative w-full aspect-[4/5] overflow-hidden bg-slate-950">
+            <img src="assets/yo/Viajes/IMG-20260407-WA0017.jpg" alt="Descubriendo Lugares" 
+                 loading="lazy"
+                 class="w-full h-full object-cover object-top transform group-hover:scale-108 transition-transform duration-700 ease-out">
+            <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent pointer-events-none"></div>
+            
+            <!-- Badge de categoría superior -->
+            <div class="absolute top-2.5 left-2.5 z-10 flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-slate-950/80 border border-slate-700/80 text-[10px] font-mono text-cyan-300 backdrop-blur-md">
+              <i class="fa-solid fa-compass text-emerald-400 text-[9px]"></i>
+              <span>Viajes</span>
+            </div>
+
+            <div class="absolute top-2.5 right-2.5 z-10 w-7 h-7 rounded-lg bg-slate-950/70 border border-slate-700/60 flex items-center justify-center text-cyan-400 opacity-0 group-hover:opacity-100 transition-opacity backdrop-blur-md">
+              <i class="fa-solid fa-expand text-[11px]"></i>
+            </div>
+
+            <!-- Información inferior -->
+            <div class="absolute bottom-0 inset-x-0 p-3.5 z-10 bg-gradient-to-t from-slate-950 via-slate-950/90 to-transparent text-left">
+              <h5 class="text-sm font-bold text-white font-display leading-snug group-hover:text-cyan-300 transition-colors">
+                Descubriendo Lugares
+              </h5>
+              <p class="text-[11px] text-slate-300 mt-0.5 line-clamp-2 leading-tight">
+                La curiosidad de un ingeniero trasciende la pantalla hacia el mundo.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="gallery-item tilt-card relative rounded-2xl overflow-hidden glass-panel border border-slate-800/80 group cursor-pointer shadow-xl shimmer-hover"
+             data-category="viajes"
+             data-index="17"
+             onclick="openGalleryLightbox(17)">
+          <div class="relative w-full aspect-[4/5] overflow-hidden bg-slate-950">
+            <img src="assets/yo/Viajes/IMG_20260216_140253_957.jpg" alt="Paz y Serenidad" 
+                 loading="lazy"
+                 class="w-full h-full object-cover object-top transform group-hover:scale-108 transition-transform duration-700 ease-out">
+            <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent pointer-events-none"></div>
+            
+            <!-- Badge de categoría superior -->
+            <div class="absolute top-2.5 left-2.5 z-10 flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-slate-950/80 border border-slate-700/80 text-[10px] font-mono text-cyan-300 backdrop-blur-md">
+              <i class="fa-solid fa-compass text-emerald-400 text-[9px]"></i>
+              <span>Viajes</span>
+            </div>
+
+            <div class="absolute top-2.5 right-2.5 z-10 w-7 h-7 rounded-lg bg-slate-950/70 border border-slate-700/60 flex items-center justify-center text-cyan-400 opacity-0 group-hover:opacity-100 transition-opacity backdrop-blur-md">
+              <i class="fa-solid fa-expand text-[11px]"></i>
+            </div>
+
+            <!-- Información inferior -->
+            <div class="absolute bottom-0 inset-x-0 p-3.5 z-10 bg-gradient-to-t from-slate-950 via-slate-950/90 to-transparent text-left">
+              <h5 class="text-sm font-bold text-white font-display leading-snug group-hover:text-cyan-300 transition-colors">
+                Paz y Serenidad
+              </h5>
+              <p class="text-[11px] text-slate-300 mt-0.5 line-clamp-2 leading-tight">
+                Momentos de introspección para tomar mejores decisiones.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="gallery-item tilt-card relative rounded-2xl overflow-hidden glass-panel border border-slate-800/80 group cursor-pointer shadow-xl shimmer-hover"
+             data-category="viajes"
+             data-index="18"
+             onclick="openGalleryLightbox(18)">
+          <div class="relative w-full aspect-[4/5] overflow-hidden bg-slate-950">
+            <img src="assets/yo/Viajes/IMG-20251116-WA0018.jpg" alt="Destinos Verdes" 
+                 loading="lazy"
+                 class="w-full h-full object-cover object-top transform group-hover:scale-108 transition-transform duration-700 ease-out">
+            <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent pointer-events-none"></div>
+            
+            <!-- Badge de categoría superior -->
+            <div class="absolute top-2.5 left-2.5 z-10 flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-slate-950/80 border border-slate-700/80 text-[10px] font-mono text-cyan-300 backdrop-blur-md">
+              <i class="fa-solid fa-compass text-emerald-400 text-[9px]"></i>
+              <span>Viajes</span>
+            </div>
+
+            <div class="absolute top-2.5 right-2.5 z-10 w-7 h-7 rounded-lg bg-slate-950/70 border border-slate-700/60 flex items-center justify-center text-cyan-400 opacity-0 group-hover:opacity-100 transition-opacity backdrop-blur-md">
+              <i class="fa-solid fa-expand text-[11px]"></i>
+            </div>
+
+            <!-- Información inferior -->
+            <div class="absolute bottom-0 inset-x-0 p-3.5 z-10 bg-gradient-to-t from-slate-950 via-slate-950/90 to-transparent text-left">
+              <h5 class="text-sm font-bold text-white font-display leading-snug group-hover:text-cyan-300 transition-colors">
+                Destinos Verdes
+              </h5>
+              <p class="text-[11px] text-slate-300 mt-0.5 line-clamp-2 leading-tight">
+                Equilibrio integral entre la exigencia técnica y el bienestar personal.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="gallery-item tilt-card relative rounded-2xl overflow-hidden glass-panel border border-slate-800/80 group cursor-pointer shadow-xl shimmer-hover"
+             data-category="viajes"
+             data-index="19"
+             onclick="openGalleryLightbox(19)">
+          <div class="relative w-full aspect-[4/5] overflow-hidden bg-slate-950">
+            <img src="assets/yo/Viajes/IMG-20251116-WA0042.jpg" alt="Pausa Estratégica" 
+                 loading="lazy"
+                 class="w-full h-full object-cover object-top transform group-hover:scale-108 transition-transform duration-700 ease-out">
+            <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent pointer-events-none"></div>
+            
+            <!-- Badge de categoría superior -->
+            <div class="absolute top-2.5 left-2.5 z-10 flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-slate-950/80 border border-slate-700/80 text-[10px] font-mono text-cyan-300 backdrop-blur-md">
+              <i class="fa-solid fa-compass text-emerald-400 text-[9px]"></i>
+              <span>Viajes</span>
+            </div>
+
+            <div class="absolute top-2.5 right-2.5 z-10 w-7 h-7 rounded-lg bg-slate-950/70 border border-slate-700/60 flex items-center justify-center text-cyan-400 opacity-0 group-hover:opacity-100 transition-opacity backdrop-blur-md">
+              <i class="fa-solid fa-expand text-[11px]"></i>
+            </div>
+
+            <!-- Información inferior -->
+            <div class="absolute bottom-0 inset-x-0 p-3.5 z-10 bg-gradient-to-t from-slate-950 via-slate-950/90 to-transparent text-left">
+              <h5 class="text-sm font-bold text-white font-display leading-snug group-hover:text-cyan-300 transition-colors">
+                Pausa Estratégica
+              </h5>
+              <p class="text-[11px] text-slate-300 mt-0.5 line-clamp-2 leading-tight">
+                Parar para tomar impulso: descansar también es parte del plan de vida.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="gallery-item tilt-card relative rounded-2xl overflow-hidden glass-panel border border-slate-800/80 group cursor-pointer shadow-xl shimmer-hover"
+             data-category="viajes"
+             data-index="20"
+             onclick="openGalleryLightbox(20)">
+          <div class="relative w-full aspect-[4/5] overflow-hidden bg-slate-950">
+            <img src="assets/yo/Viajes/IMG-20240915-WA0009.jpg" alt="Rutas Compartidas" 
+                 loading="lazy"
+                 class="w-full h-full object-cover object-top transform group-hover:scale-108 transition-transform duration-700 ease-out">
+            <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent pointer-events-none"></div>
+            
+            <!-- Badge de categoría superior -->
+            <div class="absolute top-2.5 left-2.5 z-10 flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-slate-950/80 border border-slate-700/80 text-[10px] font-mono text-cyan-300 backdrop-blur-md">
+              <i class="fa-solid fa-compass text-emerald-400 text-[9px]"></i>
+              <span>Viajes</span>
+            </div>
+
+            <div class="absolute top-2.5 right-2.5 z-10 w-7 h-7 rounded-lg bg-slate-950/70 border border-slate-700/60 flex items-center justify-center text-cyan-400 opacity-0 group-hover:opacity-100 transition-opacity backdrop-blur-md">
+              <i class="fa-solid fa-expand text-[11px]"></i>
+            </div>
+
+            <!-- Información inferior -->
+            <div class="absolute bottom-0 inset-x-0 p-3.5 z-10 bg-gradient-to-t from-slate-950 via-slate-950/90 to-transparent text-left">
+              <h5 class="text-sm font-bold text-white font-display leading-snug group-hover:text-cyan-300 transition-colors">
+                Rutas Compartidas
+              </h5>
+              <p class="text-[11px] text-slate-300 mt-0.5 line-clamp-2 leading-tight">
+                Viajar con buenos amigos para coleccionar memorias de por vida.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="gallery-item tilt-card relative rounded-2xl overflow-hidden glass-panel border border-slate-800/80 group cursor-pointer shadow-xl shimmer-hover"
+             data-category="viajes"
+             data-index="21"
+             onclick="openGalleryLightbox(21)">
+          <div class="relative w-full aspect-[4/5] overflow-hidden bg-slate-950">
+            <img src="assets/yo/Viajes/d0ac0fb7-2bf6-43bc-a08a-268e487e9c75.jpg" alt="Vistas Memorables" 
+                 loading="lazy"
+                 class="w-full h-full object-cover object-top transform group-hover:scale-108 transition-transform duration-700 ease-out">
+            <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent pointer-events-none"></div>
+            
+            <!-- Badge de categoría superior -->
+            <div class="absolute top-2.5 left-2.5 z-10 flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-slate-950/80 border border-slate-700/80 text-[10px] font-mono text-cyan-300 backdrop-blur-md">
+              <i class="fa-solid fa-compass text-emerald-400 text-[9px]"></i>
+              <span>Viajes</span>
+            </div>
+
+            <div class="absolute top-2.5 right-2.5 z-10 w-7 h-7 rounded-lg bg-slate-950/70 border border-slate-700/60 flex items-center justify-center text-cyan-400 opacity-0 group-hover:opacity-100 transition-opacity backdrop-blur-md">
+              <i class="fa-solid fa-expand text-[11px]"></i>
+            </div>
+
+            <!-- Información inferior -->
+            <div class="absolute bottom-0 inset-x-0 p-3.5 z-10 bg-gradient-to-t from-slate-950 via-slate-950/90 to-transparent text-left">
+              <h5 class="text-sm font-bold text-white font-display leading-snug group-hover:text-cyan-300 transition-colors">
+                Vistas Memorables
+              </h5>
+              <p class="text-[11px] text-slate-300 mt-0.5 line-clamp-2 leading-tight">
+                Mirar el camino desde la cima para recordar por qué empezamos.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="gallery-item tilt-card relative rounded-2xl overflow-hidden glass-panel border border-slate-800/80 group cursor-pointer shadow-xl shimmer-hover"
+             data-category="viajes"
+             data-index="22"
+             onclick="openGalleryLightbox(22)">
+          <div class="relative w-full aspect-[4/5] overflow-hidden bg-slate-950">
+            <img src="assets/yo/Viajes/055276ff-f941-4bd2-b54e-8dccdb507f15.jpg" alt="Conexión Natural" 
+                 loading="lazy"
+                 class="w-full h-full object-cover transform group-hover:scale-108 transition-transform duration-700 ease-out">
+            <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent pointer-events-none"></div>
+            
+            <!-- Badge de categoría superior -->
+            <div class="absolute top-2.5 left-2.5 z-10 flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-slate-950/80 border border-slate-700/80 text-[10px] font-mono text-cyan-300 backdrop-blur-md">
+              <i class="fa-solid fa-compass text-emerald-400 text-[9px]"></i>
+              <span>Viajes</span>
+            </div>
+
+            <div class="absolute top-2.5 right-2.5 z-10 w-7 h-7 rounded-lg bg-slate-950/70 border border-slate-700/60 flex items-center justify-center text-cyan-400 opacity-0 group-hover:opacity-100 transition-opacity backdrop-blur-md">
+              <i class="fa-solid fa-expand text-[11px]"></i>
+            </div>
+
+            <!-- Información inferior -->
+            <div class="absolute bottom-0 inset-x-0 p-3.5 z-10 bg-gradient-to-t from-slate-950 via-slate-950/90 to-transparent text-left">
+              <h5 class="text-sm font-bold text-white font-display leading-snug group-hover:text-cyan-300 transition-colors">
+                Conexión Natural
+              </h5>
+              <p class="text-[11px] text-slate-300 mt-0.5 line-clamp-2 leading-tight">
+                El silencio de la naturaleza aclara los problemas más complejos.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="gallery-item tilt-card relative rounded-2xl overflow-hidden glass-panel border border-slate-800/80 group cursor-pointer shadow-xl shimmer-hover"
+             data-category="ninez"
+             data-index="23"
+             onclick="openGalleryLightbox(23)">
+          <div class="relative w-full aspect-[4/5] overflow-hidden bg-slate-950">
+            <img src="assets/yo/Ninez/FB_IMG_1767723967733.jpg" alt="Primeros Pasos" 
+                 loading="lazy"
+                 class="w-full h-full object-cover transform group-hover:scale-108 transition-transform duration-700 ease-out">
+            <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent pointer-events-none"></div>
+            
+            <!-- Badge de categoría superior -->
+            <div class="absolute top-2.5 left-2.5 z-10 flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-slate-950/80 border border-slate-700/80 text-[10px] font-mono text-cyan-300 backdrop-blur-md">
+              <i class="fa-solid fa-seedling text-emerald-400 text-[9px]"></i>
+              <span>Niñez</span>
+            </div>
+
+            <div class="absolute top-2.5 right-2.5 z-10 w-7 h-7 rounded-lg bg-slate-950/70 border border-slate-700/60 flex items-center justify-center text-cyan-400 opacity-0 group-hover:opacity-100 transition-opacity backdrop-blur-md">
+              <i class="fa-solid fa-expand text-[11px]"></i>
+            </div>
+
+            <!-- Información inferior -->
+            <div class="absolute bottom-0 inset-x-0 p-3.5 z-10 bg-gradient-to-t from-slate-950 via-slate-950/90 to-transparent text-left">
+              <h5 class="text-sm font-bold text-white font-display leading-snug group-hover:text-cyan-300 transition-colors">
+                Primeros Pasos
+              </h5>
+              <p class="text-[11px] text-slate-300 mt-0.5 line-clamp-2 leading-tight">
+                Donde nació la sonrisa, el juego y las ganas de explorar el entorno.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="gallery-item tilt-card relative rounded-2xl overflow-hidden glass-panel border border-slate-800/80 group cursor-pointer shadow-xl shimmer-hover"
+             data-category="ninez"
+             data-index="24"
+             onclick="openGalleryLightbox(24)">
+          <div class="relative w-full aspect-[4/5] overflow-hidden bg-slate-950">
+            <img src="assets/yo/Ninez/IMG_20210518_164721148.jpg" alt="Curiosidad Temprana" 
+                 loading="lazy"
+                 class="w-full h-full object-cover object-top transform group-hover:scale-108 transition-transform duration-700 ease-out">
+            <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent pointer-events-none"></div>
+            
+            <!-- Badge de categoría superior -->
+            <div class="absolute top-2.5 left-2.5 z-10 flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-slate-950/80 border border-slate-700/80 text-[10px] font-mono text-cyan-300 backdrop-blur-md">
+              <i class="fa-solid fa-seedling text-emerald-400 text-[9px]"></i>
+              <span>Niñez</span>
+            </div>
+
+            <div class="absolute top-2.5 right-2.5 z-10 w-7 h-7 rounded-lg bg-slate-950/70 border border-slate-700/60 flex items-center justify-center text-cyan-400 opacity-0 group-hover:opacity-100 transition-opacity backdrop-blur-md">
+              <i class="fa-solid fa-expand text-[11px]"></i>
+            </div>
+
+            <!-- Información inferior -->
+            <div class="absolute bottom-0 inset-x-0 p-3.5 z-10 bg-gradient-to-t from-slate-950 via-slate-950/90 to-transparent text-left">
+              <h5 class="text-sm font-bold text-white font-display leading-snug group-hover:text-cyan-300 transition-colors">
+                Curiosidad Temprana
+              </h5>
+              <p class="text-[11px] text-slate-300 mt-0.5 line-clamp-2 leading-tight">
+                Los primeros juguetes y desarmes que anunciaban la vocación por la ingeniería.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="gallery-item tilt-card relative rounded-2xl overflow-hidden glass-panel border border-slate-800/80 group cursor-pointer shadow-xl shimmer-hover"
+             data-category="ninez"
+             data-index="25"
+             onclick="openGalleryLightbox(25)">
+          <div class="relative w-full aspect-[4/5] overflow-hidden bg-slate-950">
+            <img src="assets/yo/Ninez/IMG_20210518_164654691.jpg" alt="Pasión por el Movimiento" 
+                 loading="lazy"
+                 class="w-full h-full object-cover object-top transform group-hover:scale-108 transition-transform duration-700 ease-out">
+            <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent pointer-events-none"></div>
+            
+            <!-- Badge de categoría superior -->
+            <div class="absolute top-2.5 left-2.5 z-10 flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-slate-950/80 border border-slate-700/80 text-[10px] font-mono text-cyan-300 backdrop-blur-md">
+              <i class="fa-solid fa-seedling text-emerald-400 text-[9px]"></i>
+              <span>Niñez</span>
+            </div>
+
+            <div class="absolute top-2.5 right-2.5 z-10 w-7 h-7 rounded-lg bg-slate-950/70 border border-slate-700/60 flex items-center justify-center text-cyan-400 opacity-0 group-hover:opacity-100 transition-opacity backdrop-blur-md">
+              <i class="fa-solid fa-expand text-[11px]"></i>
+            </div>
+
+            <!-- Información inferior -->
+            <div class="absolute bottom-0 inset-x-0 p-3.5 z-10 bg-gradient-to-t from-slate-950 via-slate-950/90 to-transparent text-left">
+              <h5 class="text-sm font-bold text-white font-display leading-snug group-hover:text-cyan-300 transition-colors">
+                Pasión por el Movimiento
+              </h5>
+              <p class="text-[11px] text-slate-300 mt-0.5 line-clamp-2 leading-tight">
+                Desde pequeño, la energía del deporte marcaba el ritmo cotidiano.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="gallery-item tilt-card relative rounded-2xl overflow-hidden glass-panel border border-slate-800/80 group cursor-pointer shadow-xl shimmer-hover"
+             data-category="ninez"
+             data-index="26"
+             onclick="openGalleryLightbox(26)">
+          <div class="relative w-full aspect-[4/5] overflow-hidden bg-slate-950">
+            <img src="assets/yo/Ninez/IMG-20210518-WA0021.jpeg" alt="Recuerdos de Infancia" 
+                 loading="lazy"
+                 class="w-full h-full object-cover object-top transform group-hover:scale-108 transition-transform duration-700 ease-out">
+            <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent pointer-events-none"></div>
+            
+            <!-- Badge de categoría superior -->
+            <div class="absolute top-2.5 left-2.5 z-10 flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-slate-950/80 border border-slate-700/80 text-[10px] font-mono text-cyan-300 backdrop-blur-md">
+              <i class="fa-solid fa-seedling text-emerald-400 text-[9px]"></i>
+              <span>Niñez</span>
+            </div>
+
+            <div class="absolute top-2.5 right-2.5 z-10 w-7 h-7 rounded-lg bg-slate-950/70 border border-slate-700/60 flex items-center justify-center text-cyan-400 opacity-0 group-hover:opacity-100 transition-opacity backdrop-blur-md">
+              <i class="fa-solid fa-expand text-[11px]"></i>
+            </div>
+
+            <!-- Información inferior -->
+            <div class="absolute bottom-0 inset-x-0 p-3.5 z-10 bg-gradient-to-t from-slate-950 via-slate-950/90 to-transparent text-left">
+              <h5 class="text-sm font-bold text-white font-display leading-snug group-hover:text-cyan-300 transition-colors">
+                Recuerdos de Infancia
+              </h5>
+              <p class="text-[11px] text-slate-300 mt-0.5 line-clamp-2 leading-tight">
+                El cariño familiar que sembró la empatía y el espíritu colaborativo.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="gallery-item tilt-card relative rounded-2xl overflow-hidden glass-panel border border-slate-800/80 group cursor-pointer shadow-xl shimmer-hover"
+             data-category="ninez"
+             data-index="27"
+             onclick="openGalleryLightbox(27)">
+          <div class="relative w-full aspect-[4/5] overflow-hidden bg-slate-950">
+            <img src="assets/yo/Ninez/IMG-20210518-WA0039.jpeg" alt="Retrato de Época" 
+                 loading="lazy"
+                 class="w-full h-full object-cover object-top transform group-hover:scale-108 transition-transform duration-700 ease-out">
+            <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent pointer-events-none"></div>
+            
+            <!-- Badge de categoría superior -->
+            <div class="absolute top-2.5 left-2.5 z-10 flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-slate-950/80 border border-slate-700/80 text-[10px] font-mono text-cyan-300 backdrop-blur-md">
+              <i class="fa-solid fa-seedling text-emerald-400 text-[9px]"></i>
+              <span>Niñez</span>
+            </div>
+
+            <div class="absolute top-2.5 right-2.5 z-10 w-7 h-7 rounded-lg bg-slate-950/70 border border-slate-700/60 flex items-center justify-center text-cyan-400 opacity-0 group-hover:opacity-100 transition-opacity backdrop-blur-md">
+              <i class="fa-solid fa-expand text-[11px]"></i>
+            </div>
+
+            <!-- Información inferior -->
+            <div class="absolute bottom-0 inset-x-0 p-3.5 z-10 bg-gradient-to-t from-slate-950 via-slate-950/90 to-transparent text-left">
+              <h5 class="text-sm font-bold text-white font-display leading-snug group-hover:text-cyan-300 transition-colors">
+                Retrato de Época
+              </h5>
+              <p class="text-[11px] text-slate-300 mt-0.5 line-clamp-2 leading-tight">
+                La mirada alegre que hoy conserva Kike Junior frente a cada desafío.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="gallery-item tilt-card relative rounded-2xl overflow-hidden glass-panel border border-slate-800/80 group cursor-pointer shadow-xl shimmer-hover"
+             data-category="ninez"
+             data-index="28"
+             onclick="openGalleryLightbox(28)">
+          <div class="relative w-full aspect-[4/5] overflow-hidden bg-slate-950">
+            <img src="assets/yo/Ninez/IMG-20250923-WA0000.jpg" alt="Orígenes & Huellas" 
+                 loading="lazy"
+                 class="w-full h-full object-cover object-top transform group-hover:scale-108 transition-transform duration-700 ease-out">
+            <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent pointer-events-none"></div>
+            
+            <!-- Badge de categoría superior -->
+            <div class="absolute top-2.5 left-2.5 z-10 flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-slate-950/80 border border-slate-700/80 text-[10px] font-mono text-cyan-300 backdrop-blur-md">
+              <i class="fa-solid fa-seedling text-emerald-400 text-[9px]"></i>
+              <span>Niñez</span>
+            </div>
+
+            <div class="absolute top-2.5 right-2.5 z-10 w-7 h-7 rounded-lg bg-slate-950/70 border border-slate-700/60 flex items-center justify-center text-cyan-400 opacity-0 group-hover:opacity-100 transition-opacity backdrop-blur-md">
+              <i class="fa-solid fa-expand text-[11px]"></i>
+            </div>
+
+            <!-- Información inferior -->
+            <div class="absolute bottom-0 inset-x-0 p-3.5 z-10 bg-gradient-to-t from-slate-950 via-slate-950/90 to-transparent text-left">
+              <h5 class="text-sm font-bold text-white font-display leading-snug group-hover:text-cyan-300 transition-colors">
+                Orígenes & Huellas
+              </h5>
+              <p class="text-[11px] text-slate-300 mt-0.5 line-clamp-2 leading-tight">
+                Honrar las raíces es el cimiento de una marca personal auténtica.
+              </p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+
+    </div>
+  </main>
+
+  <!-- MODAL VISUALIZADOR DE IMÁGENES (LIGHTBOX CINEMATOGRÁFICO 360°) -->
+  <div id="imageModal" style="z-index: 9999;" class="fixed inset-0 flex items-center justify-center p-2 sm:p-4 bg-slate-950/95 backdrop-blur-2xl hidden transition-opacity duration-300">
+    
+    <!-- Botón Cerrar Superior -->
+    <button type="button" onclick="closeImageModal()" 
+            aria-label="Cerrar imagen"
+            class="absolute top-4 right-4 z-50 text-slate-300 hover:text-white p-3 rounded-2xl bg-slate-900/90 border border-slate-700 hover:border-cyan-400 transition-all shadow-xl">
+      <i class="fa-solid fa-xmark text-xl"></i>
+    </button>
+
+    <!-- Botón Anterior -->
+    <button type="button" onclick="lightboxPrev()" 
+            id="lightboxPrevBtn"
+            aria-label="Foto anterior"
+            class="absolute left-2 sm:left-6 z-40 text-slate-200 hover:text-cyan-300 p-3.5 sm:p-4 rounded-2xl bg-slate-900/90 border border-slate-700/80 hover:border-cyan-400 transition-all shadow-2xl backdrop-blur-md">
+      <i class="fa-solid fa-chevron-left text-lg sm:text-2xl"></i>
+    </button>
+
+    <!-- Botón Siguiente -->
+    <button type="button" onclick="lightboxNext()" 
+            id="lightboxNextBtn"
+            aria-label="Foto siguiente"
+            class="absolute right-2 sm:right-6 z-40 text-slate-200 hover:text-cyan-300 p-3.5 sm:p-4 rounded-2xl bg-slate-900/90 border border-slate-700/80 hover:border-cyan-400 transition-all shadow-2xl backdrop-blur-md">
+      <i class="fa-solid fa-chevron-right text-lg sm:text-2xl"></i>
+    </button>
+
+    <div class="glass-panel-glow max-w-4xl w-full rounded-3xl p-4 sm:p-6 border border-cyan-500/40 relative text-left shadow-[0_0_50px_rgba(0,0,0,0.9)] overflow-hidden">
+      
+      <!-- Contenedor de Imagen -->
+      <div class="relative w-full rounded-2xl overflow-hidden bg-slate-950 max-h-[75vh] flex items-center justify-center mb-3">
+        <img id="imageModalImg" src="" alt="Fotografía ampliada" class="w-full h-auto max-h-[70vh] object-contain rounded-xl">
+      </div>
+
+      <!-- Pie de Lightbox con descripción e índice -->
+      <div class="flex items-center justify-between flex-wrap gap-2 pt-2 px-1">
+        <div class="max-w-xl">
+          <p id="imageModalCaption" class="text-sm sm:text-base font-display text-white font-bold"></p>
+          <p id="imageModalSub" class="text-xs font-mono text-cyan-300/90 mt-0.5"></p>
+        </div>
+        <div class="flex items-center gap-2.5">
+          <span id="imageModalCounter" class="text-xs font-mono px-3 py-1 rounded-xl bg-slate-900 border border-slate-800 text-slate-300"></span>
+          <button type="button" onclick="closeImageModal()" class="px-3.5 py-1.5 rounded-xl text-xs font-mono bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-white transition-colors">
+            Cerrar [Esc]
+          </button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="border-t border-slate-800/80 bg-slate-950 py-12 relative z-10">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex flex-col md:flex-row items-center justify-between gap-6">
+        
+        <div class="flex items-center gap-3">
+          <div class="w-9 h-9 rounded-lg bg-slate-900 border border-cyan-500/30 flex items-center justify-center text-cyan-400 font-display font-bold text-sm">
+            KJ
+          </div>
+          <div>
+            <p class="text-sm font-bold text-white font-display">Aldair Enrique Camargo Villalobos • "Kike Junior"</p>
+            <p class="text-xs text-slate-400 font-mono">Ingeniería de Sistemas • CUN Corporación Unificada Nacional de Educación Superior</p>
+          </div>
+        </div>
+
+        <div class="flex items-center gap-4 text-xs font-mono text-slate-400">
+          <a href="index.html#fase-autoconocimiento" class="text-cyan-400 hover:underline flex items-center gap-1">
+            <i class="fa-solid fa-arrow-left"></i> Volver a Autoconocimiento
+          </a>
+          <span class="text-slate-600">•</span>
+          <a href="index.html" class="hover:text-slate-200">Proyecto de Vida</a>
+        </div>
+
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const GALLERY_DATA = [{"src": "assets/kike_principal.jpg", "cat": "laboral", "tag": "Principal ⭐", "title": "Aldair Enrique Camargo (Kike Junior) • Retrato Cyber Tech", "desc": "Fotografía principal oficial de Marca Personal: Liderazgo Tecnológico y Estrategia Deportiva.", "icon": "fa-user-tie"}, {"src": "assets/yo/Voleibol/IMG-20240831-WA0007.jpg", "cat": "voleibol", "tag": "Voleibol", "title": "Capitán y Colocador Campeón", "desc": "Celebración de campeonato: lectura táctica y liderazgo en la cancha.", "icon": "fa-volleyball"}, {"src": "assets/yo/Voleibol/IMG-20240616-WA0037.jpg", "cat": "voleibol", "tag": "Voleibol", "title": "Distribución Estratégica", "desc": "Armado de juego en tiempo real con precisión milimétrica.", "icon": "fa-volleyball"}, {"src": "assets/yo/Voleibol/IMG_0837.jpg", "cat": "voleibol", "tag": "Voleibol", "title": "Enfoque y Entrenamiento", "desc": "La constancia del entrenamiento deportivo forja la disciplina técnica.", "icon": "fa-volleyball"}, {"src": "assets/yo/Voleibol/IMG_20221126_192150836.jpg", "cat": "voleibol", "tag": "Voleibol", "title": "Torneo y Trabajo en Equipo", "desc": "Sinergia en cancha: cada punto se construye con confianza colectiva.", "icon": "fa-volleyball"}, {"src": "assets/yo/Laboral/IMG-20250516-WA0039.jpg", "cat": "laboral", "tag": "Laboral", "title": "Chapman Wilches: Servidores", "desc": "Gestión activa de infraestructura tecnológica y optimización de flujos.", "icon": "fa-briefcase"}, {"src": "assets/yo/Laboral/IMG-20260319-WA0036.jpg", "cat": "laboral", "tag": "Laboral", "title": "Desarrollo de Software y Ops", "desc": "Puesto de trabajo donde se programan las 4 soluciones de trazabilidad.", "icon": "fa-laptop-code"}, {"src": "assets/yo/Familia/IMG-20251018-WA0038.jpg", "cat": "familia", "tag": "Familia", "title": "Con mi FAMILIA", "desc": "Claudia, Kike Senior y Shadia", "icon": "fa-heart"}, {"src": "assets/yo/Familia/IMG-20260914-WA0019.jpg", "cat": "familia", "tag": "Familia", "title": "Celebración y Gratitud", "desc": "Momentos felices en familia que recargan el alma y renuevan el enfoque.", "icon": "fa-heart"}, {"src": "assets/yo/Familia/IMG-20260914-WA0022.jpg", "cat": "familia", "tag": "Familia", "title": "Unión y Respaldo Familiar", "desc": "El pilar humano más sólido detrás de cada logro académico y laboral.", "icon": "fa-heart"}, {"src": "assets/yo/Familia/IMG_0573.jpg", "cat": "familia", "tag": "Familia", "title": "Compartir en Familia", "desc": "Valores de humildad, perseverancia y generosidad aprendidos en casa.", "icon": "fa-heart"}, {"src": "assets/yo/Viajes/IMG-20250728-WA0016.jpg", "cat": "viajes", "tag": "Viajes", "title": "Horizontes Abiertos", "desc": "Desconexión en la naturaleza: viajar amplía la perspectiva y renueva ideas.", "icon": "fa-compass"}, {"src": "assets/yo/Viajes/IMG_7304.jpg", "cat": "viajes", "tag": "Viajes", "title": "Nuevas Rutas y Paisajes", "desc": "Explorando destinos que inspiran serenidad y pensamiento estratégico.", "icon": "fa-compass"}, {"src": "assets/yo/Viajes/IMG-20250419-WA0100.jpg", "cat": "viajes", "tag": "Viajes", "title": "Aventura al Aire Libre", "desc": "Respirar aire puro y desafiar nuevas pendientes con energía.", "icon": "fa-compass"}, {"src": "assets/yo/Viajes/51671495-ecf5-487f-b0ba-fc60db1c5240.jpg", "cat": "viajes", "tag": "Viajes", "title": "Caminos y Naturaleza", "desc": "Disfrutando cada etapa del recorrido con gratitud.", "icon": "fa-compass"}, {"src": "assets/yo/Viajes/IMG-20251231-WA0006.jpg", "cat": "viajes", "tag": "Viajes", "title": "Cierre de Año y Metas", "desc": "Celebrando metas cumplidas y trazando los nuevos objetivos SMART.", "icon": "fa-compass"}, {"src": "assets/yo/Viajes/IMG-20260407-WA0017.jpg", "cat": "viajes", "tag": "Viajes", "title": "Descubriendo Lugares", "desc": "La curiosidad de un ingeniero trasciende la pantalla hacia el mundo.", "icon": "fa-compass"}, {"src": "assets/yo/Viajes/IMG_20260216_140253_957.jpg", "cat": "viajes", "tag": "Viajes", "title": "Paz y Serenidad", "desc": "Momentos de introspección para tomar mejores decisiones.", "icon": "fa-compass"}, {"src": "assets/yo/Viajes/IMG-20251116-WA0018.jpg", "cat": "viajes", "tag": "Viajes", "title": "Destinos Verdes", "desc": "Equilibrio integral entre la exigencia técnica y el bienestar personal.", "icon": "fa-compass"}, {"src": "assets/yo/Viajes/IMG-20251116-WA0042.jpg", "cat": "viajes", "tag": "Viajes", "title": "Pausa Estratégica", "desc": "Parar para tomar impulso: descansar también es parte del plan de vida.", "icon": "fa-compass"}, {"src": "assets/yo/Viajes/IMG-20240915-WA0009.jpg", "cat": "viajes", "tag": "Viajes", "title": "Rutas Compartidas", "desc": "Viajar con buenos amigos para coleccionar memorias de por vida.", "icon": "fa-compass"}, {"src": "assets/yo/Viajes/d0ac0fb7-2bf6-43bc-a08a-268e487e9c75.jpg", "cat": "viajes", "tag": "Viajes", "title": "Vistas Memorables", "desc": "Mirar el camino desde la cima para recordar por qué empezamos.", "icon": "fa-compass"}, {"src": "assets/yo/Viajes/055276ff-f941-4bd2-b54e-8dccdb507f15.jpg", "cat": "viajes", "tag": "Viajes", "title": "Conexión Natural", "desc": "El silencio de la naturaleza aclara los problemas más complejos.", "icon": "fa-compass"}, {"src": "assets/yo/Ninez/FB_IMG_1767723967733.jpg", "cat": "ninez", "tag": "Niñez", "title": "Primeros Pasos", "desc": "Donde nació la sonrisa, el juego y las ganas de explorar el entorno.", "icon": "fa-seedling"}, {"src": "assets/yo/Ninez/IMG_20210518_164721148.jpg", "cat": "ninez", "tag": "Niñez", "title": "Curiosidad Temprana", "desc": "Los primeros juguetes y desarmes que anunciaban la vocación por la ingeniería.", "icon": "fa-seedling"}, {"src": "assets/yo/Ninez/IMG_20210518_164654691.jpg", "cat": "ninez", "tag": "Niñez", "title": "Pasión por el Movimiento", "desc": "Desde pequeño, la energía del deporte marcaba el ritmo cotidiano.", "icon": "fa-seedling"}, {"src": "assets/yo/Ninez/IMG-20210518-WA0021.jpeg", "cat": "ninez", "tag": "Niñez", "title": "Recuerdos de Infancia", "desc": "El cariño familiar que sembró la empatía y el espíritu colaborativo.", "icon": "fa-seedling"}, {"src": "assets/yo/Ninez/IMG-20210518-WA0039.jpeg", "cat": "ninez", "tag": "Niñez", "title": "Retrato de Época", "desc": "La mirada alegre que hoy conserva Kike Junior frente a cada desafío.", "icon": "fa-seedling"}, {"src": "assets/yo/Ninez/IMG-20250923-WA0000.jpg", "cat": "ninez", "tag": "Niñez", "title": "Orígenes & Huellas", "desc": "Honrar las raíces es el cimiento de una marca personal auténtica.", "icon": "fa-seedling"}];
+    let currentLightboxIndex = 0;
+    let isGalleryMode = true;
+
+    function openGalleryLightbox(idx) {
+      const modal = document.getElementById("imageModal");
+      const prevBtn = document.getElementById("lightboxPrevBtn");
+      const nextBtn = document.getElementById("lightboxNextBtn");
+      if (!modal) return;
+
+      isGalleryMode = true;
+      currentLightboxIndex = idx;
+      if (prevBtn) prevBtn.style.display = "block";
+      if (nextBtn) nextBtn.style.display = "block";
+
+      updateLightboxDisplay();
+      modal.classList.remove("hidden");
+    }
+
+    function updateLightboxDisplay() {
+      const item = GALLERY_DATA[currentLightboxIndex];
+      const img = document.getElementById("imageModalImg");
+      const caption = document.getElementById("imageModalCaption");
+      const sub = document.getElementById("imageModalSub");
+      const counter = document.getElementById("imageModalCounter");
+
+      if (!item || !img) return;
+
+      img.src = item.src;
+      if (caption) caption.textContent = item.title;
+      if (sub) sub.textContent = item.desc;
+      if (counter) counter.textContent = `${currentLightboxIndex + 1} / ${GALLERY_DATA.length}`;
+    }
+
+    function lightboxNext() {
+      if (!isGalleryMode) return;
+      currentLightboxIndex = (currentLightboxIndex + 1) % GALLERY_DATA.length;
+      updateLightboxDisplay();
+    }
+
+    function lightboxPrev() {
+      if (!isGalleryMode) return;
+      currentLightboxIndex = (currentLightboxIndex - 1 + GALLERY_DATA.length) % GALLERY_DATA.length;
+      updateLightboxDisplay();
+    }
+
+    function closeImageModal() {
+      const modal = document.getElementById("imageModal");
+      const img = document.getElementById("imageModalImg");
+      if (modal) modal.classList.add("hidden");
+      if (img) img.src = "";
+    }
+
+    const imageModalEl = document.getElementById("imageModal");
+    if (imageModalEl) {
+      imageModalEl.addEventListener("click", function(e) {
+        if (e.target === imageModalEl) {
+          closeImageModal();
+        }
+      });
+    }
+
+    document.addEventListener("keydown", function(e) {
+      if (e.key === "Escape") closeImageModal();
+      if (e.key === "ArrowRight") lightboxNext();
+      if (e.key === "ArrowLeft") lightboxPrev();
+    });
+
+    function filterGallery(category) {
+      const items = document.querySelectorAll(".gallery-item");
+      const buttons = document.querySelectorAll(".gallery-filter-btn");
+
+      buttons.forEach(btn => {
+        btn.classList.remove("active", "bg-gradient-to-r", "from-cyan-500/20", "to-emerald-500/20", "text-white", "border-cyan-400");
+        btn.classList.add("bg-slate-900/80", "text-slate-300", "border-slate-800");
+      });
+
+      const activeBtn = document.getElementById(`filterBtn-${category}`);
+      if (activeBtn) {
+        activeBtn.classList.add("active", "bg-gradient-to-r", "from-cyan-500/20", "to-emerald-500/20", "text-white", "border-cyan-400");
+        activeBtn.classList.remove("bg-slate-900/80", "text-slate-300", "border-slate-800");
+      }
+
+      items.forEach(item => {
+        const itemCat = item.getAttribute("data-category");
+        if (category === "todas" || itemCat === category) {
+          item.style.display = "block";
+          if (window.gsap) {
+            gsap.fromTo(item, { opacity: 0, scale: 0.95, y: 15 }, { opacity: 1, scale: 1, y: 0, duration: 0.4, ease: "power2.out" });
+          }
+        } else {
+          item.style.display = "none";
+        }
+      });
+    }
+
+    function initMagneticTilt() {
+      const cards = document.querySelectorAll(".tilt-card, .hover-card-glow");
+      cards.forEach(card => {
+        card.addEventListener("mousemove", (e) => {
+          const rect = card.getBoundingClientRect();
+          const x = e.clientX - rect.left;
+          const y = e.clientY - rect.top;
+          const centerX = rect.width / 2;
+          const centerY = rect.height / 2;
+          const rotateX = ((y - centerY) / centerY) * -6;
+          const rotateY = ((x - centerX) / centerX) * 6;
+
+          card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-4px)`;
+        });
+
+        card.addEventListener("mouseleave", () => {
+          card.style.transform = "perspective(1000px) rotateX(0deg) rotateY(0deg) translateY(0px)";
+        });
+      });
+    }
+
+    function initCyberParticles() {
+      const canvas = document.getElementById("particleCanvas");
+      if (!canvas) return;
+      const ctx = canvas.getContext("2d");
+      let width = canvas.width = window.innerWidth;
+      let height = canvas.height = window.innerHeight;
+
+      window.addEventListener("resize", () => {
+        width = canvas.width = window.innerWidth;
+        height = canvas.height = window.innerHeight;
+      });
+
+      const particles = [];
+      const particleCount = Math.min(width > 768 ? 45 : 20, 50);
+
+      for (let i = 0; i < particleCount; i++) {
+        particles.push({
+          x: Math.random() * width,
+          y: Math.random() * height,
+          radius: Math.random() * 1.5 + 0.5,
+          vx: (Math.random() - 0.5) * 0.4,
+          vy: (Math.random() - 0.5) * 0.4,
+          color: Math.random() > 0.5 ? "rgba(34, 211, 238, 0.4)" : "rgba(52, 211, 153, 0.35)"
+        });
+      }
+
+      function animate() {
+        ctx.clearRect(0, 0, width, height);
+        particles.forEach(p => {
+          p.x += p.vx;
+          p.y += p.vy;
+          if (p.x < 0) p.x = width;
+          if (p.x > width) p.x = 0;
+          if (p.y < 0) p.y = height;
+          if (p.y > height) p.y = 0;
+
+          ctx.beginPath();
+          ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
+          ctx.fillStyle = p.color;
+          ctx.fill();
+        });
+        requestAnimationFrame(animate);
+      }
+      animate();
+    }
+
+    // Auto-detección de categoría desde URL (?filter=voleibol o #voleibol)
+    window.addEventListener("DOMContentLoaded", () => {
+      initMagneticTilt();
+      initCyberParticles();
+
+      const urlParams = new URLSearchParams(window.location.search);
+      let cat = urlParams.get("filter") || window.location.hash.replace("#", "");
+      if (cat && ["todas", "voleibol", "laboral", "viajes", "familia", "ninez"].includes(cat.toLowerCase())) {
+        filterGallery(cat.toLowerCase());
+      } else {
+        filterGallery("todas");
+      }
+    });
+  </script>
+</body>
+</html>

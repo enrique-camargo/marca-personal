@@ -93,15 +93,17 @@ Diseñada bajo los principios de **Hypermotion** y animación avanzada:
 
 ---
 
-### 7. Nueva Sección: Bitácora Multimedia 360° (`#galeria-360`)
-* **28 Fotografías Reales de la Carpeta "YO":**
+### 7. Bitácora Multimedia 360° (`bitacora.html` & Portal en Autoconocimiento)
+* **Acceso desde Autoconocimiento (`index.html`):** Portal interactivo con badge, título *La Vida en Hypermotion*, enlaces directos parametrizados por categoría y botón de navegación.
+* **Página Independiente (`bitacora.html`):** Experiencia fotográfica inmersiva con las **29 fotografías auténticas** (28 de la carpeta "YO" + Retrato Principal Oficial Cyber Tech):
   * 🏐 **Voleibol Táctico (4 fotos):** Campeonatos, jugadas en cancha y entrenamientos.
-  * 💻 **Laboral & Sistemas (2 fotos):** Oficinas de Chapman Wilches y puesto de desarrollo.
+  * 💻 **Laboral & Sistemas (3 fotos):** Retrato oficial, oficinas de Chapman Wilches y puesto de desarrollo.
   * 🌍 **Viajes & Equilibrio (12 fotos):** Horizontes, rutas, naturaleza y desconexión vital.
   * 👨‍👩‍👧 **Familia & Raíces (4 fotos):** Momentos entrañables con su madre Claudia Villalobos y núcleo familiar.
   * 👶 **Niñez & Orígenes (6 fotos):** Primeros pasos e infancia donde nació la vocación.
-* **Filtros Interactivos:** Conmutación fluida por categoría con animaciones GSAP.
-* **Lightbox Cinematográfico:** Visualización ampliada con botones **Anterior / Siguiente** y navegación por teclado (flechas).
+* **Filtros Interactivos:** Conmutación fluida por categoría con animaciones GSAP y soporte para parámetros de URL (`?filter=...`).
+* **Lightbox Cinematográfico:** Visualización ampliada con botones **Anterior / Siguiente** y navegación por teclado (flechas y Escape).
+* **Navegación Fluida:** Retorno seguro e instantáneo a `index.html#fase-autoconocimiento`.
 
 ---
 

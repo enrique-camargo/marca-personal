@@ -6,7 +6,7 @@
 > **Estudiante:** Aldair Enrique Camargo Villalobos  
 > **Docente / Guía:** Corporación Unificada Nacional CUN  
 > **Repositorio Oficial:** [github.com/enrique-camargo/marca-personal](https://github.com/enrique-camargo/marca-personal)  
-> **Última Actualización:** 2026-10-20  
+> **Última Actualización:** 2026-10-27  
 > **Estado:** Activo y en sincronización continua  
 
 ---
@@ -38,12 +38,14 @@ La web no es un simple currículum estático; es una **Single Page Application (
 graph TD
     A[index.html SPA] --> B[Hero Section Hypermotion]
     A --> C[Fase 1: Autoconocimiento Estratégico]
+    C --> H[Portal & Enlaces Temáticos a Bitácora 360]
+    H --> J[bitacora.html: Galería Multimedia 360 Dedicada]
+    J --> I[Motor de Filtros & Lightbox Cinematográfico]
     A --> D[Fase 2: Planeación Interna SMART]
     A --> E[Fase 3: Planeación Externa Buyer Personas]
     A --> F[Fase 4: Promesa de Valor & Metodología BANG]
     A --> G[Fase 5: Pitch Visual & Evidencia IA Gemini CUN]
-    A --> H[Bitácora 360: 28 Fotos Reales Carpeta YO]
-    A --> I[Motor de Interacción & Lightbox Cinematográfico]
+    A --> K[Roadmap Modular ACA]
 ```
 
 ---
@@ -134,15 +136,23 @@ Sistema interactivo de pestañas con dos arquetipos auténticos:
 
 ---
 
-### 2.7 Bitácora Multimedia 360° (`#galeria-360`)
-Galería dinámica con **28 fotografías auténticas** extraídas de la carpeta personal `YO`:
-* **🏐 Voleibol Táctico (4 fotos):** Campeonatos, armado en salto, trofeos y sinergia de equipo.
-* **💻 Laboral & Sistemas (2 fotos):** Servidores y puesto de trabajo en Chapman Wilches.
-* **🌍 Viajes & Equilibrio (12 fotos):** Rutas, naturaleza, montañas y momentos de reflexión.
-* **👨‍👩‍👧 Familia & Raíces (4 fotos):** Celebraciones familiares y momentos con su madre Claudia Villalobos.
-* **👶 Niñez & Orígenes (6 fotos):** Primeros años de vida, donde nació la pasión por el deporte y la curiosidad técnica.
-* **Filtros Interactivos:** Botones con iconos y badges de conteo que filtran las fotos instantáneamente mediante JavaScript.
-* **Lightbox Cinematográfico:** Al hacer clic en cualquier foto, se abre el visor modal con imagen en alta calidad, título, descripción, contador y flechas de navegación previa/siguiente.
+### 2.7 Bitácora Multimedia 360° (Página Dedicada `bitacora.html` & Portal en Autoconocimiento)
+Galería dinámica completa con **29 fotografías auténticas** (28 de la carpeta `YO` + 1 retrato oficial principal cyber tech), accesible como enlace interactivo dentro de la **Fase 1: Autoconocimiento** y alojada en su propia página web de alto rendimiento:
+* **Integración en Autoconocimiento (`index.html`):**
+  * Portal visual con badge `Bitácora Visual 360° • Material Real`, título `La Vida en Hypermotion` y texto descriptivo integral.
+  * Chips de categoría que operan como enlaces directos parametrizados hacia `bitacora.html?filter=...` (*Todas (29)*, *Voleibol (4)*, *Laboral & Tech (3)*, *Viajes & Balance (12)*, *Familia (4)* y *Raíces & Niñez (6)*).
+  * Botón principal de acceso a nueva página: *"Explorar Bitácora 360° en Otra Página"*.
+  * Barra de acceso directo al pie de las 4 tarjetas de muestra en la pestaña "Mi Esencia & Pasiones".
+  * Identificador retrocompatible `id="galeria-360"` para navegaciones de scroll.
+* **Página Independiente (`bitacora.html`):**
+  * **🏐 Voleibol Táctico (4 fotos):** Campeonatos, armado en salto, trofeos y sinergia de equipo.
+  * **💻 Laboral & Sistemas (3 fotos):** Retrato oficial principal, servidores y puesto de desarrollo en Chapman Wilches.
+  * **🌍 Viajes & Equilibrio (12 fotos):** Rutas, naturaleza, montañas y momentos de reflexión.
+  * **👨‍👩‍👧 Familia & Raíces (4 fotos):** Celebraciones familiares, unión y momentos con su madre Claudia Villalobos.
+  * **👶 Niñez & Orígenes (6 fotos):** Primeros años de vida, donde nació la pasión deportiva y la curiosidad técnica.
+  * **Filtros Dinámicos con Detección de URL:** Lee parámetros `?filter=categoria` o `#categoria` al cargar para filtrar automáticamente.
+  * **Lightbox Cinematográfico:** Modal interactivo con imagen ampliada, títulos, descripciones, contador (`1 / 29`), soporte para gestos táctiles y teclado (`Esc`, `←`, `→`).
+  * **Navegación de Retorno:** Barra superior con botón directo *"Volver a Autoconocimiento"* que regresa a `index.html#fase-autoconocimiento`.
 
 ---
 
@@ -171,7 +181,8 @@ c:\CUN\Proyecto de VIDA\ACA\KIKE JUNIOR\
 ├── README.md                       # Documentación introductoria del repositorio
 ├── BITACORA_SOLUCION.md            # [ESTE ARCHIVO] Documentación integral y registro continuo
 ├── actualizar.bat                  # Script interactivo de un solo clic para Git Add, Commit y Push
-├── index.html                      # Single Page Application completa (Versión 4.0 Hypermotion & Face-Safe)
+├── index.html                      # Single Page Application principal (Fases 1 a 5 y Portal a Bitácora 360)
+├── bitacora.html                   # [NUEVA PÁGINA DEDICADA] Bitácora Visual 360° (29 Fotos, Filtros y Lightbox)
 ├── index_v3_backup.html            # [COPIA DE RESPALDO] Versión previa 3.2 preservada
 │
 └── assets/                         # Directorio de recursos estáticos
@@ -188,6 +199,26 @@ c:\CUN\Proyecto de VIDA\ACA\KIKE JUNIOR\
 ---
 
 ## 📜 5. HISTORIAL DE CAMBIOS Y VERSIONES (CHANGELOG)
+
+### [Versión 4.4] - 2026-10-27 (Desacoplamiento de Bitácora 360° en Página Dedicada & Portal en Autoconocimiento) 📸🌐
+* **Desacoplamiento a Página Dedicada (`bitacora.html`):**
+  * Se trasladó la galería multimedia completa de 29 fotografías a un archivo independiente [bitacora.html](file:///c:/CUN/Proyecto%20de%20VIDA/ACA/KIKE%20JUNIOR/bitacora.html), aligerando la carga de [index.html](file:///c:/CUN/Proyecto%20de%20VIDA/ACA/KIKE%20JUNIOR/index.html) y proporcionando un espacio enfocado y de alta fidelidad visual.
+  * Preserva todas las características de diseño: paleta *Dark Tech & Sports Strategy*, partículas reactivas canvas, efecto 3D Magnetic Tilt, encuadre Face-Safe (`object-top`), badges de categoría y Lightbox cinematográfico con soporte de teclado (`Esc`, `←`, `→`).
+  * **Detección inteligente de URL:** La página lee automáticamente parámetros `?filter=categoria` o `#categoria` para prefiltrar la galería en el momento de la carga.
+  * **Barra de Navegación con Retorno Seguro:** Incluye botón destacado `← Volver a Autoconocimiento` que regresa al usuario exactamente a `#fase-autoconocimiento` en la página principal.
+* **Integración de Enlace / Portal dentro de "Autoconocimiento" (`index.html`):**
+  * Se integró en la sección de Autoconocimiento el bloque solicitado por el usuario:
+    * Badge: `Bitácora Visual 360° • Material Real`
+    * Título: `La Vida en Hypermotion`
+    * Párrafo descriptivo: *"Más visual, más viva y 100% auténtica: explora los 28 momentos que forjan mi carácter, mi rigor deportivo en la cancha, mis soluciones de ingeniería en Chapman Wilches y el balance vital con mi familia."*
+    * Botones interactivos de categoría como enlaces directos: `Todas (29)`, `Voleibol (4)`, `Laboral & Tech (3)`, `Viajes & Balance (12)`, `Familia (4)`, `Raíces & Niñez (6)` apuntando a `bitacora.html?filter=...`.
+    * Botón de llamada a la acción: `Explorar Bitácora 360° en Otra Página`.
+  * Se incorporó además una tarjeta de acceso rápido dentro de la pestaña "Mi Esencia & Pasiones" al pie de las 4 tarjetas de muestra fotográfica.
+  * Se asignó el id `galeria-360` al bloque dentro de Autoconocimiento para garantizar retrocompatibilidad total con anclajes previos.
+* **Limpieza y Optimización de la Navegación:**
+  * Se actualizaron los enlaces del Navbar superior y del menú móvil para apuntar a `bitacora.html`.
+  * Se eliminaron fragmentos duplicados en el Navbar desktop y en la cuadrícula del Roadmap.
+  * Se removió la sección estática pesada del pie de `index.html`, dejando el flujo narrativo limpio: *Hero → Autoconocimiento (con portal a Bitácora 360) → SMART → Buyer Persona → Promesa BANG → Pitch Visual IA → Roadmap → Footer*.
 
 ### [Versión 4.3] - 2026-10-20 (Actualización de Evidencia Familiar: Con mi FAMILIA) 👨‍👩‍👧‍👦❤️
 * **Actualización de Título y Descripción en la Evidencia 8 de 29:**
