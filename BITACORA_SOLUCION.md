@@ -102,11 +102,11 @@ Basados en la realidad laboral y académica de Kike Junior:
 
 ### 2.4 Fase 3: Planeación Externa - Buyer Personas Reales (ACA Fase 3)
 Sistema interactivo de pestañas con dos arquetipos auténticos:
-* **A) Perfil Corporativo: Dra. Mirna Wilches (Representante Legal - Firma Chapman Wilches)**
+* **A) Perfil Corporativo: Dra. Gwen Stacy (Representante Legal - Firma Chapman Wilches)**
   * *Dolor Crítico:* Firma física a papel y lápiz de documentos jurídicos, riesgo de extravío, demoras operativas y falta de trazabilidad.
   * *Solución Propuesta por Kike:* **App de Firma Digital y Gestión Documental Certificada** con opciones parametrizadas de **Aprobación**, **Suspensión** y **Abstención**, con auditoría de cambios y log cronológico.
-* **B) Perfil Familiar y Bienestar: Claudia Villalobos (Mamá de Kike Junior)**
-  * *Fotografía Real:* Foto entrañable de Kike junto a su madre Claudia.
+* **B) Perfil Familiar y Bienestar: May Parker (Nombre Ficticio) (Mamá de Kike Junior)**
+  * *Fotografía Real:* Foto entrañable de Kike junto a su madre (May Parker).
   * *Dolor Crítico:* Dificultad para planificar menús saludables, control deficiente de la despensa doméstica y falta de seguimiento histórico de hábitos sanos.
   * *Solución Propuesta por Kike:* **NutriTrack Home App**, aplicación móvil con recetario saludable, semáforo de inventario en alacena y gráficas de progreso de bienestar familiar en el tiempo.
 
@@ -148,7 +148,7 @@ Galería dinámica completa con **29 fotografías auténticas** (28 de la carpet
   * **🏐 Voleibol Táctico (4 fotos):** Campeonatos, armado en salto, trofeos y sinergia de equipo.
   * **💻 Laboral & Sistemas (3 fotos):** Retrato oficial principal, servidores y puesto de desarrollo en Chapman Wilches.
   * **🌍 Viajes & Equilibrio (12 fotos):** Rutas, naturaleza, montañas y momentos de reflexión.
-  * **👨‍👩‍👧 Familia & Raíces (4 fotos):** Celebraciones familiares, unión y momentos con su madre Claudia Villalobos.
+  * **👨‍👩‍👧 Familia & Raíces (4 fotos):** Celebraciones familiares, unión y momentos con su madre May Parker (Nombre Ficticio).
   * **👶 Niñez & Orígenes (6 fotos):** Primeros años de vida, donde nació la pasión deportiva y la curiosidad técnica.
   * **Filtros Dinámicos con Detección de URL:** Lee parámetros `?filter=categoria` o `#categoria` al cargar para filtrar automáticamente.
   * **Lightbox Cinematográfico:** Modal interactivo con imagen ampliada, títulos, descripciones, contador (`1 / 29`), soporte para gestos táctiles y teclado (`Esc`, `←`, `→`).
@@ -201,6 +201,12 @@ c:\CUN\Proyecto de VIDA\ACA\KIKE JUNIOR\
 
 ## 📜 5. HISTORIAL DE CAMBIOS Y VERSIONES (CHANGELOG)
 
+### [Versión 4.6] - 2026-10-27 (Protección de Datos y Anonimización de Nombres de Terceros) 🛡️🔒
+* **Sustitución de Nombres Reales de Terceros por Nombres Ficticios:**
+  * **Buyer Persona 1 (Perfil Corporativo):** Se actualizó el nombre a **"Dra. Gwen Stacy"** (con iniciales `GS` en el avatar corporativo), manteniendo intacto el caso de uso real de automatización de firma jurídica.
+  * **Buyer Persona 2 (Perfil Familiar):** Se actualizó el nombre de su madre al nombre ficticio **"May Parker"** (en armonía con la temática Marvel del autor), preservando el caso de uso de *NutriTrack Home App*.
+  * **Bitácora Visual 360° & Textos Alternativos:** Se actualizaron las descripciones y etiquetas `alt` de las fotografías familiares tanto en [`index.html`](index.html) como en [`bitacora.html`](bitacora.html) y en la documentación del repositorio para no exponer nombres reales de terceros.
+
 ### [Versión 4.5] - 2026-10-27 (Generación y Calibración Fiel: Líder de Equipo en Sistemas y Tecnología) 👨‍💻🚀
 * **Generación y Calibración Fiel de Imagen de Liderazgo Tecnológico:**
   * Tomando como referencia directa la fisionomía exacta de Kike Junior en `assets/kike_principal.jpg` y la carpeta `assets/yo/Laboral/`, se calibró la generación para respetar estrictamente sus rasgos auténticos: cabello lacio oscuro peinado hacia atrás, rostro ovalado despejado, tez trigueña clara, ojos almendrados y sonrisa serena con labios cerrados.
@@ -231,8 +237,8 @@ c:\CUN\Proyecto de VIDA\ACA\KIKE JUNIOR\
 * **Actualización de Título y Descripción en la Evidencia 8 de 29:**
   * Se actualizó la tarjeta de la galería y los metadatos del visor interactivo Lightbox para la fotografía familiar (`assets/yo/Familia/IMG-20251018-WA0038.jpg`).
   * **Título actualizado:** `"Con mi FAMILIA"`.
-  * **Descripción:** `"Claudia, Kike Senior y Shadia"`.
-  * **Texto alternativo (alt):** `"Con mi FAMILIA, Claudia, Kike Senior y Shadia"`.
+  * **Descripción:** `"Mi núcleo familiar: el motor, apoyo e inspiración detrás de cada meta."`.
+  * **Texto alternativo (alt):** `"Con mi FAMILIA - Mi núcleo familiar"`.
 
 ### [Versión 4.2] - 2026-10-20 (Restauración de Arquitectura Favorita & Precisión de 1er Ciclo) 🛡️🎓
 * **Restauración a la Estructura Favorita del Backup (`index_v3_backup.html`):**
@@ -271,7 +277,7 @@ c:\CUN\Proyecto de VIDA\ACA\KIKE JUNIOR\
   * **Hero Section:** Integración de un **Live Story Reel con 5 tarjetas interactivas** (Voleibol, Laboral, Familia con Mamá, Viajes y Orígenes).
   * **Fase 1 (Autoconocimiento):** Nuevo **Tríptico de Identidad** con 3 fotos reales a gran escala (El Atleta, El Ingeniero y Los Cimientos) y el gráfico del Test IKIGAI con 4 cuadrantes interactivos.
   * **Fase 2 (SMART):** Showcase dual con fotos reales de la estación de trabajo en Chapman Wilches y telemetría de servidores.
-  * **Fase 3 (Buyer Persona):** Incorporación de **dos fotografías reales con su madre Claudia Villalobos** con encuadre de rostro perfecto y mockups interactivos de NutriTrack Home y Firma Legal.
+  * **Fase 3 (Buyer Persona):** Incorporación de **dos fotografías reales con su madre May Parker (Nombre Ficticio)** con encuadre de rostro perfecto y mockups interactivos de NutriTrack Home y Firma Legal.
   * **Fase 4 (Promesa de Valor):** Split visual interactivo "De la Cancha al Código" con fotos de armado en salto vs estación de desarrollo.
   * **Fase 5 (Pitch Visual):** Tarjeta ejecutiva con retrato profesional y simulador de reproductor con ecualizador de audio animado.
   * **Bitácora 360°:** Visualizador con las 28 fotos con encuadre calculado, badges de categoría y Lightbox secuencial con teclado.
@@ -304,7 +310,7 @@ c:\CUN\Proyecto de VIDA\ACA\KIKE JUNIOR\
 ### [Versión 2.0] - 2026-10-20
 * **Agregado:** Integración de los datos reales del 2do Avance ACA:
   * Objetivos SMART reales: 4 soluciones corporativas, servidores Chapman Wilches y 3 ciclos propedéuticos CUN.
-  * Buyer Personas reales: Dra. Mirna Wilches (Firma Digital) y Claudia Villalobos (NutriTrack Home).
+  * Buyer Personas reales: Dra. Gwen Stacy (Firma Digital) y May Parker (Nombre Ficticio) (NutriTrack Home).
   * Promesa de valor basada en la analogía del colocador de voleibol.
   * Reflexión ética del uso de IA (Gemini CUN) ajustada al estándar institucional de 140 palabras.
 * **Agregado:** Script automatizado `actualizar.bat` con soporte UTF-8 para commit y push directos.

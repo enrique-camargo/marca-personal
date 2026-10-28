@@ -1622,29 +1622,29 @@
 
       <!-- Selector de Perfil (Tabs de Buyer Persona) -->
       <div class="flex items-center justify-center gap-3 mb-10">
-        <button id="btnBuyerMirna"
+        <button id="btnBuyerGwen"
                 type="button"
-                onclick="switchBuyerPersona('mirna')"
+                onclick="switchBuyerPersona('gwen')"
                 class="px-5 py-2.5 rounded-xl text-xs sm:text-sm font-bold font-display transition-all duration-300 flex items-center gap-2 bg-gradient-to-r from-cyan-500/20 to-emerald-500/20 text-white border border-cyan-500/50 shadow-md">
           <i class="fa-solid fa-building-columns text-cyan-400"></i>
-          <span>Perfil Corporativo: Dra. Mirna Wilches</span>
+          <span>Perfil Corporativo: Dra. Gwen Stacy</span>
           <span class="text-[10px] font-mono px-1.5 py-0.5 rounded bg-cyan-500/20 text-cyan-300 ml-1">Chapman Wilches</span>
         </button>
 
-        <button id="btnBuyerClaudia"
+        <button id="btnBuyerMay"
                 type="button"
-                onclick="switchBuyerPersona('claudia')"
+                onclick="switchBuyerPersona('may')"
                 class="px-5 py-2.5 rounded-xl text-xs sm:text-sm font-medium font-display transition-all duration-300 flex items-center gap-2 text-slate-400 hover:text-slate-200 hover:bg-slate-900 border border-slate-800">
           <i class="fa-solid fa-heart-pulse text-slate-400"></i>
-          <span>Perfil Familiar: Claudia Villalobos</span>
+          <span>Perfil Familiar: May Parker</span>
           <span class="text-[10px] font-mono px-1.5 py-0.5 rounded bg-slate-800 text-slate-400 ml-1">Mamá & Bienestar</span>
         </button>
       </div>
 
       <!-- ===================================================================== -->
-      <!-- BUYER PERSONA 1: MIRNA WILCHES (CORPORATIVO)                         -->
+      <!-- BUYER PERSONA 1: DRA. GWEN STACY (CORPORATIVO)                       -->
       <!-- ===================================================================== -->
-      <div id="contentBuyerMirna" class="transition-opacity duration-300">
+      <div id="contentBuyerGwen" class="transition-opacity duration-300">
         <div class="glass-panel-glow p-6 sm:p-8 rounded-3xl border border-cyan-500/30 shadow-2xl">
           
           <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
@@ -1653,10 +1653,10 @@
             <div class="lg:col-span-4 bg-slate-900/80 p-6 rounded-2xl border border-slate-800 text-center flex flex-col items-center">
               
               <div class="w-24 h-24 rounded-2xl bg-gradient-to-tr from-cyan-500/20 via-slate-800 to-emerald-500/20 border-2 border-cyan-500/40 flex items-center justify-center text-cyan-400 text-3xl font-display font-black mb-4 shadow-lg shadow-cyan-500/10">
-                MW
+                GS
               </div>
 
-              <h3 class="text-xl font-bold font-display text-white">Dra. Mirna Wilches</h3>
+              <h3 class="text-xl font-bold font-display text-white">Dra. Gwen Stacy</h3>
               <p class="text-xs font-mono text-cyan-400 font-semibold mb-1">Representante Legal & Socia Directora</p>
               <p class="text-xs text-slate-400 mb-4">Firma de Abogados CHAPMAN WILCHES</p>
 
@@ -1761,9 +1761,9 @@
       </div>
 
       <!-- ===================================================================== -->
-      <!-- BUYER PERSONA 2: CLAUDIA VILLALOBOS (FAMILIAR / BIENESTAR)           -->
+      <!-- BUYER PERSONA 2: MAY PARKER (FAMILIAR / BIENESTAR)                   -->
       <!-- ===================================================================== -->
-      <div id="contentBuyerClaudia" class="hidden transition-opacity duration-300">
+      <div id="contentBuyerMay" class="hidden transition-opacity duration-300">
         <div class="glass-panel-glow p-6 sm:p-8 rounded-3xl border border-emerald-500/30 shadow-2xl">
           
           <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
@@ -1772,14 +1772,14 @@
             <div class="lg:col-span-4 bg-slate-900/80 p-6 rounded-2xl border border-slate-800 text-center flex flex-col items-center">
               
               <div class="w-28 h-28 rounded-2xl overflow-hidden border-2 border-emerald-500/50 mb-4 shadow-lg shadow-emerald-500/20 group cursor-pointer relative"
-                   onclick="openImageModal('assets/yo/Familia/IMG-20251018-WA0038.jpg', 'Amor & Inspiración • Claudia Villalobos y Kike Junior', 'Foto real con mi mamá Claudia: la inspiración detrás de NutriTrack Home App para el bienestar del hogar.')">
-                <img src="assets/yo/Familia/IMG-20251018-WA0038.jpg" alt="Claudia Villalobos y Kike" class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500">
+                   onclick="openImageModal('assets/yo/Familia/IMG-20251018-WA0038.jpg', 'Amor & Inspiración • May Parker y Kike Junior', 'Foto real con mi mamá (May Parker): la inspiración detrás de NutriTrack Home App para el bienestar del hogar.')">
+                <img src="assets/yo/Familia/IMG-20251018-WA0038.jpg" alt="May Parker y Kike" class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500">
                 <div class="absolute bottom-1 right-1 bg-slate-950/80 px-1.5 py-0.5 rounded text-[9px] font-mono text-emerald-300 border border-emerald-500/40">
                   <i class="fa-solid fa-heart text-rose-400"></i> Mamá
                 </div>
               </div>
 
-              <h3 class="text-xl font-bold font-display text-white">Claudia Villalobos</h3>
+              <h3 class="text-xl font-bold font-display text-white">May Parker</h3>
               <p class="text-xs font-mono text-emerald-400 font-semibold mb-1">Mi Mamá & Administradora del Hogar</p>
               <p class="text-xs text-slate-400 mb-4">Pilar del Bienestar Familiar</p>
 
@@ -2238,7 +2238,7 @@
             </div>
             <div class="text-[11px] font-mono bg-slate-950 p-2.5 rounded-lg border border-slate-800 text-slate-300 space-y-1.5 max-h-28 overflow-y-auto">
               <p><strong class="text-cyan-300">Prompt 1:</strong> "Estructura un objetivo SMART para automatizar 4 procesos en una firma de abogados y modernizar servidores."</p>
-              <p><strong class="text-emerald-300">Prompt 2:</strong> "Diseña una buyer persona para Mirna Wilches enfocada en el dolor de firma a papel y opciones de suspensión/abstención."</p>
+              <p><strong class="text-emerald-300">Prompt 2:</strong> "Diseña una buyer persona para la Dra. Gwen Stacy enfocada en el dolor de firma a papel y opciones de suspensión/abstención."</p>
             </div>
           </div>
 
@@ -2334,7 +2334,7 @@
             <span class="flex h-2.5 w-2.5 rounded-full bg-cyan-400 animate-pulse"></span>
           </div>
           <h4 class="text-sm font-bold text-white mb-1">Público Ideal</h4>
-          <p class="text-xs text-slate-400 mb-3">Mirna Wilches (Chapman) & Claudia Villalobos.</p>
+          <p class="text-xs text-slate-400 mb-3">Dra. Gwen Stacy (Chapman) & May Parker.</p>
           <span class="text-[11px] font-mono text-cyan-400 font-bold flex items-center gap-1">
             <i class="fa-solid fa-check"></i> 2do Avance Activo
           </span>
@@ -2567,7 +2567,7 @@
     }
 
     // 4. Modal Visualizador de Fotos (LIGHTBOX)
-    const GALLERY_DATA = [{"src": "assets/kike_principal.jpg", "cat": "laboral", "tag": "Principal ⭐", "title": "Aldair Enrique Camargo (Kike Junior) • Retrato Cyber Tech", "desc": "Fotografía principal oficial de Marca Personal: Liderazgo Tecnológico y Estrategia Deportiva.", "icon": "fa-user-tie"}, {"src": "assets/yo/Voleibol/IMG-20240831-WA0007.jpg", "cat": "voleibol", "tag": "Voleibol", "title": "Capitán y Colocador Campeón", "desc": "Celebración de campeonato: lectura táctica y liderazgo en la cancha.", "icon": "fa-volleyball"}, {"src": "assets/yo/Voleibol/IMG-20240616-WA0037.jpg", "cat": "voleibol", "tag": "Voleibol", "title": "Distribución Estratégica", "desc": "Armado de juego en tiempo real con precisión milimétrica.", "icon": "fa-volleyball"}, {"src": "assets/yo/Voleibol/IMG_0837.jpg", "cat": "voleibol", "tag": "Voleibol", "title": "Enfoque y Entrenamiento", "desc": "La constancia del entrenamiento deportivo forja la disciplina técnica.", "icon": "fa-volleyball"}, {"src": "assets/yo/Voleibol/IMG_20221126_192150836.jpg", "cat": "voleibol", "tag": "Voleibol", "title": "Torneo y Trabajo en Equipo", "desc": "Sinergia en cancha: cada punto se construye con confianza colectiva.", "icon": "fa-volleyball"}, {"src": "assets/yo/Laboral/IMG-20250516-WA0039.jpg", "cat": "laboral", "tag": "Laboral", "title": "Chapman Wilches: Servidores", "desc": "Gestión activa de infraestructura tecnológica y optimización de flujos.", "icon": "fa-briefcase"}, {"src": "assets/yo/Laboral/IMG-20260319-WA0036.jpg", "cat": "laboral", "tag": "Laboral", "title": "Desarrollo de Software y Ops", "desc": "Puesto de trabajo donde se programan las 4 soluciones de trazabilidad.", "icon": "fa-laptop-code"}, {"src": "assets/yo/Familia/IMG-20251018-WA0038.jpg", "cat": "familia", "tag": "Familia", "title": "Con mi FAMILIA", "desc": "Claudia, Kike Senior y Shadia", "icon": "fa-heart"}, {"src": "assets/yo/Familia/IMG-20260914-WA0019.jpg", "cat": "familia", "tag": "Familia", "title": "Celebración y Gratitud", "desc": "Momentos felices en familia que recargan el alma y renuevan el enfoque.", "icon": "fa-heart"}, {"src": "assets/yo/Familia/IMG-20260914-WA0022.jpg", "cat": "familia", "tag": "Familia", "title": "Unión y Respaldo Familiar", "desc": "El pilar humano más sólido detrás de cada logro académico y laboral.", "icon": "fa-heart"}, {"src": "assets/yo/Familia/IMG_0573.jpg", "cat": "familia", "tag": "Familia", "title": "Compartir en Familia", "desc": "Valores de humildad, perseverancia y generosidad aprendidos en casa.", "icon": "fa-heart"}, {"src": "assets/yo/Viajes/IMG-20250728-WA0016.jpg", "cat": "viajes", "tag": "Viajes", "title": "Horizontes Abiertos", "desc": "Desconexión en la naturaleza: viajar amplía la perspectiva y renueva ideas.", "icon": "fa-compass"}, {"src": "assets/yo/Viajes/IMG_7304.jpg", "cat": "viajes", "tag": "Viajes", "title": "Nuevas Rutas y Paisajes", "desc": "Explorando destinos que inspiran serenidad y pensamiento estratégico.", "icon": "fa-compass"}, {"src": "assets/yo/Viajes/IMG-20250419-WA0100.jpg", "cat": "viajes", "tag": "Viajes", "title": "Aventura al Aire Libre", "desc": "Respirar aire puro y desafiar nuevas pendientes con energía.", "icon": "fa-compass"}, {"src": "assets/yo/Viajes/51671495-ecf5-487f-b0ba-fc60db1c5240.jpg", "cat": "viajes", "tag": "Viajes", "title": "Caminos y Naturaleza", "desc": "Disfrutando cada etapa del recorrido con gratitud.", "icon": "fa-compass"}, {"src": "assets/yo/Viajes/IMG-20251231-WA0006.jpg", "cat": "viajes", "tag": "Viajes", "title": "Cierre de Año y Metas", "desc": "Celebrando metas cumplidas y trazando los nuevos objetivos SMART.", "icon": "fa-compass"}, {"src": "assets/yo/Viajes/IMG-20260407-WA0017.jpg", "cat": "viajes", "tag": "Viajes", "title": "Descubriendo Lugares", "desc": "La curiosidad de un ingeniero trasciende la pantalla hacia el mundo.", "icon": "fa-compass"}, {"src": "assets/yo/Viajes/IMG_20260216_140253_957.jpg", "cat": "viajes", "tag": "Viajes", "title": "Paz y Serenidad", "desc": "Momentos de introspección para tomar mejores decisiones.", "icon": "fa-compass"}, {"src": "assets/yo/Viajes/IMG-20251116-WA0018.jpg", "cat": "viajes", "tag": "Viajes", "title": "Destinos Verdes", "desc": "Equilibrio integral entre la exigencia técnica y el bienestar personal.", "icon": "fa-compass"}, {"src": "assets/yo/Viajes/IMG-20251116-WA0042.jpg", "cat": "viajes", "tag": "Viajes", "title": "Pausa Estratégica", "desc": "Parar para tomar impulso: descansar también es parte del plan de vida.", "icon": "fa-compass"}, {"src": "assets/yo/Viajes/IMG-20240915-WA0009.jpg", "cat": "viajes", "tag": "Viajes", "title": "Rutas Compartidas", "desc": "Viajar con buenos amigos para coleccionar memorias de por vida.", "icon": "fa-compass"}, {"src": "assets/yo/Viajes/d0ac0fb7-2bf6-43bc-a08a-268e487e9c75.jpg", "cat": "viajes", "tag": "Viajes", "title": "Vistas Memorables", "desc": "Mirar el camino desde la cima para recordar por qué empezamos.", "icon": "fa-compass"}, {"src": "assets/yo/Viajes/055276ff-f941-4bd2-b54e-8dccdb507f15.jpg", "cat": "viajes", "tag": "Viajes", "title": "Conexión Natural", "desc": "El silencio de la naturaleza aclara los problemas más complejos.", "icon": "fa-compass"}, {"src": "assets/yo/Ninez/FB_IMG_1767723967733.jpg", "cat": "ninez", "tag": "Niñez", "title": "Primeros Pasos", "desc": "Donde nació la sonrisa, el juego y las ganas de explorar el entorno.", "icon": "fa-seedling"}, {"src": "assets/yo/Ninez/IMG_20210518_164721148.jpg", "cat": "ninez", "tag": "Niñez", "title": "Curiosidad Temprana", "desc": "Los primeros juguetes y desarmes que anunciaban la vocación por la ingeniería.", "icon": "fa-seedling"}, {"src": "assets/yo/Ninez/IMG_20210518_164654691.jpg", "cat": "ninez", "tag": "Niñez", "title": "Pasión por el Movimiento", "desc": "Desde pequeño, la energía del deporte marcaba el ritmo cotidiano.", "icon": "fa-seedling"}, {"src": "assets/yo/Ninez/IMG-20210518-WA0021.jpeg", "cat": "ninez", "tag": "Niñez", "title": "Recuerdos de Infancia", "desc": "El cariño familiar que sembró la empatía y el espíritu colaborativo.", "icon": "fa-seedling"}, {"src": "assets/yo/Ninez/IMG-20210518-WA0039.jpeg", "cat": "ninez", "tag": "Niñez", "title": "Retrato de Época", "desc": "La mirada alegre que hoy conserva Kike Junior frente a cada desafío.", "icon": "fa-seedling"}, {"src": "assets/yo/Ninez/IMG-20250923-WA0000.jpg", "cat": "ninez", "tag": "Niñez", "title": "Orígenes & Huellas", "desc": "Honrar las raíces es el cimiento de una marca personal auténtica.", "icon": "fa-seedling"}];
+    const GALLERY_DATA = [{"src": "assets/kike_principal.jpg", "cat": "laboral", "tag": "Principal ⭐", "title": "Aldair Enrique Camargo (Kike Junior) • Retrato Cyber Tech", "desc": "Fotografía principal oficial de Marca Personal: Liderazgo Tecnológico y Estrategia Deportiva.", "icon": "fa-user-tie"}, {"src": "assets/yo/Voleibol/IMG-20240831-WA0007.jpg", "cat": "voleibol", "tag": "Voleibol", "title": "Capitán y Colocador Campeón", "desc": "Celebración de campeonato: lectura táctica y liderazgo en la cancha.", "icon": "fa-volleyball"}, {"src": "assets/yo/Voleibol/IMG-20240616-WA0037.jpg", "cat": "voleibol", "tag": "Voleibol", "title": "Distribución Estratégica", "desc": "Armado de juego en tiempo real con precisión milimétrica.", "icon": "fa-volleyball"}, {"src": "assets/yo/Voleibol/IMG_0837.jpg", "cat": "voleibol", "tag": "Voleibol", "title": "Enfoque y Entrenamiento", "desc": "La constancia del entrenamiento deportivo forja la disciplina técnica.", "icon": "fa-volleyball"}, {"src": "assets/yo/Voleibol/IMG_20221126_192150836.jpg", "cat": "voleibol", "tag": "Voleibol", "title": "Torneo y Trabajo en Equipo", "desc": "Sinergia en cancha: cada punto se construye con confianza colectiva.", "icon": "fa-volleyball"}, {"src": "assets/yo/Laboral/IMG-20250516-WA0039.jpg", "cat": "laboral", "tag": "Laboral", "title": "Chapman Wilches: Servidores", "desc": "Gestión activa de infraestructura tecnológica y optimización de flujos.", "icon": "fa-briefcase"}, {"src": "assets/yo/Laboral/IMG-20260319-WA0036.jpg", "cat": "laboral", "tag": "Laboral", "title": "Desarrollo de Software y Ops", "desc": "Puesto de trabajo donde se programan las 4 soluciones de trazabilidad.", "icon": "fa-laptop-code"}, {"src": "assets/yo/Familia/IMG-20251018-WA0038.jpg", "cat": "familia", "tag": "Familia", "title": "Con mi FAMILIA", "desc": "Mi núcleo familiar: el motor, apoyo e inspiración detrás de cada meta.", "icon": "fa-heart"}, {"src": "assets/yo/Familia/IMG-20260914-WA0019.jpg", "cat": "familia", "tag": "Familia", "title": "Celebración y Gratitud", "desc": "Momentos felices en familia que recargan el alma y renuevan el enfoque.", "icon": "fa-heart"}, {"src": "assets/yo/Familia/IMG-20260914-WA0022.jpg", "cat": "familia", "tag": "Familia", "title": "Unión y Respaldo Familiar", "desc": "El pilar humano más sólido detrás de cada logro académico y laboral.", "icon": "fa-heart"}, {"src": "assets/yo/Familia/IMG_0573.jpg", "cat": "familia", "tag": "Familia", "title": "Compartir en Familia", "desc": "Valores de humildad, perseverancia y generosidad aprendidos en casa.", "icon": "fa-heart"}, {"src": "assets/yo/Viajes/IMG-20250728-WA0016.jpg", "cat": "viajes", "tag": "Viajes", "title": "Horizontes Abiertos", "desc": "Desconexión en la naturaleza: viajar amplía la perspectiva y renueva ideas.", "icon": "fa-compass"}, {"src": "assets/yo/Viajes/IMG_7304.jpg", "cat": "viajes", "tag": "Viajes", "title": "Nuevas Rutas y Paisajes", "desc": "Explorando destinos que inspiran serenidad y pensamiento estratégico.", "icon": "fa-compass"}, {"src": "assets/yo/Viajes/IMG-20250419-WA0100.jpg", "cat": "viajes", "tag": "Viajes", "title": "Aventura al Aire Libre", "desc": "Respirar aire puro y desafiar nuevas pendientes con energía.", "icon": "fa-compass"}, {"src": "assets/yo/Viajes/51671495-ecf5-487f-b0ba-fc60db1c5240.jpg", "cat": "viajes", "tag": "Viajes", "title": "Caminos y Naturaleza", "desc": "Disfrutando cada etapa del recorrido con gratitud.", "icon": "fa-compass"}, {"src": "assets/yo/Viajes/IMG-20251231-WA0006.jpg", "cat": "viajes", "tag": "Viajes", "title": "Cierre de Año y Metas", "desc": "Celebrando metas cumplidas y trazando los nuevos objetivos SMART.", "icon": "fa-compass"}, {"src": "assets/yo/Viajes/IMG-20260407-WA0017.jpg", "cat": "viajes", "tag": "Viajes", "title": "Descubriendo Lugares", "desc": "La curiosidad de un ingeniero trasciende la pantalla hacia el mundo.", "icon": "fa-compass"}, {"src": "assets/yo/Viajes/IMG_20260216_140253_957.jpg", "cat": "viajes", "tag": "Viajes", "title": "Paz y Serenidad", "desc": "Momentos de introspección para tomar mejores decisiones.", "icon": "fa-compass"}, {"src": "assets/yo/Viajes/IMG-20251116-WA0018.jpg", "cat": "viajes", "tag": "Viajes", "title": "Destinos Verdes", "desc": "Equilibrio integral entre la exigencia técnica y el bienestar personal.", "icon": "fa-compass"}, {"src": "assets/yo/Viajes/IMG-20251116-WA0042.jpg", "cat": "viajes", "tag": "Viajes", "title": "Pausa Estratégica", "desc": "Parar para tomar impulso: descansar también es parte del plan de vida.", "icon": "fa-compass"}, {"src": "assets/yo/Viajes/IMG-20240915-WA0009.jpg", "cat": "viajes", "tag": "Viajes", "title": "Rutas Compartidas", "desc": "Viajar con buenos amigos para coleccionar memorias de por vida.", "icon": "fa-compass"}, {"src": "assets/yo/Viajes/d0ac0fb7-2bf6-43bc-a08a-268e487e9c75.jpg", "cat": "viajes", "tag": "Viajes", "title": "Vistas Memorables", "desc": "Mirar el camino desde la cima para recordar por qué empezamos.", "icon": "fa-compass"}, {"src": "assets/yo/Viajes/055276ff-f941-4bd2-b54e-8dccdb507f15.jpg", "cat": "viajes", "tag": "Viajes", "title": "Conexión Natural", "desc": "El silencio de la naturaleza aclara los problemas más complejos.", "icon": "fa-compass"}, {"src": "assets/yo/Ninez/FB_IMG_1767723967733.jpg", "cat": "ninez", "tag": "Niñez", "title": "Primeros Pasos", "desc": "Donde nació la sonrisa, el juego y las ganas de explorar el entorno.", "icon": "fa-seedling"}, {"src": "assets/yo/Ninez/IMG_20210518_164721148.jpg", "cat": "ninez", "tag": "Niñez", "title": "Curiosidad Temprana", "desc": "Los primeros juguetes y desarmes que anunciaban la vocación por la ingeniería.", "icon": "fa-seedling"}, {"src": "assets/yo/Ninez/IMG_20210518_164654691.jpg", "cat": "ninez", "tag": "Niñez", "title": "Pasión por el Movimiento", "desc": "Desde pequeño, la energía del deporte marcaba el ritmo cotidiano.", "icon": "fa-seedling"}, {"src": "assets/yo/Ninez/IMG-20210518-WA0021.jpeg", "cat": "ninez", "tag": "Niñez", "title": "Recuerdos de Infancia", "desc": "El cariño familiar que sembró la empatía y el espíritu colaborativo.", "icon": "fa-seedling"}, {"src": "assets/yo/Ninez/IMG-20210518-WA0039.jpeg", "cat": "ninez", "tag": "Niñez", "title": "Retrato de Época", "desc": "La mirada alegre que hoy conserva Kike Junior frente a cada desafío.", "icon": "fa-seedling"}, {"src": "assets/yo/Ninez/IMG-20250923-WA0000.jpg", "cat": "ninez", "tag": "Niñez", "title": "Orígenes & Huellas", "desc": "Honrar las raíces es el cimiento de una marca personal auténtica.", "icon": "fa-seedling"}];
     let currentLightboxIndex = 0;
     let isGalleryMode = false;
 
@@ -2664,41 +2664,41 @@
       if (e.key === 'ArrowLeft') lightboxPrev();
     });
 
-    // 5. Manejo de Buyer Persona (Tabs Mirna / Claudia)
+    // 5. Manejo de Buyer Persona (Tabs Gwen / May)
     function switchBuyerPersona(persona) {
-      const btnMirna = document.getElementById('btnBuyerMirna');
-      const btnClaudia = document.getElementById('btnBuyerClaudia');
-      const contentMirna = document.getElementById('contentBuyerMirna');
-      const contentClaudia = document.getElementById('contentBuyerClaudia');
+      const btnGwen = document.getElementById('btnBuyerGwen');
+      const btnMay = document.getElementById('btnBuyerMay');
+      const contentGwen = document.getElementById('contentBuyerGwen');
+      const contentMay = document.getElementById('contentBuyerMay');
 
-      if (persona === 'mirna') {
-        if (contentMirna) contentMirna.classList.remove('hidden');
-        if (contentClaudia) contentClaudia.classList.add('hidden');
+      if (persona === 'gwen') {
+        if (contentGwen) contentGwen.classList.remove('hidden');
+        if (contentMay) contentMay.classList.add('hidden');
 
-        if (btnMirna) {
-          btnMirna.className = "px-5 py-2.5 rounded-xl text-xs sm:text-sm font-bold font-display transition-all duration-300 flex items-center gap-2 bg-gradient-to-r from-cyan-500/20 to-emerald-500/20 text-white border border-cyan-500/50 shadow-md";
-          const icon = btnMirna.querySelector('i');
+        if (btnGwen) {
+          btnGwen.className = "px-5 py-2.5 rounded-xl text-xs sm:text-sm font-bold font-display transition-all duration-300 flex items-center gap-2 bg-gradient-to-r from-cyan-500/20 to-emerald-500/20 text-white border border-cyan-500/50 shadow-md";
+          const icon = btnGwen.querySelector('i');
           if (icon) icon.className = "fa-solid fa-building-columns text-cyan-400";
         }
 
-        if (btnClaudia) {
-          btnClaudia.className = "px-5 py-2.5 rounded-xl text-xs sm:text-sm font-medium font-display transition-all duration-300 flex items-center gap-2 text-slate-400 hover:text-slate-200 hover:bg-slate-900 border border-slate-800";
-          const icon = btnClaudia.querySelector('i');
+        if (btnMay) {
+          btnMay.className = "px-5 py-2.5 rounded-xl text-xs sm:text-sm font-medium font-display transition-all duration-300 flex items-center gap-2 text-slate-400 hover:text-slate-200 hover:bg-slate-900 border border-slate-800";
+          const icon = btnMay.querySelector('i');
           if (icon) icon.className = "fa-solid fa-heart-pulse text-slate-400";
         }
       } else {
-        if (contentClaudia) contentClaudia.classList.remove('hidden');
-        if (contentMirna) contentMirna.classList.add('hidden');
+        if (contentMay) contentMay.classList.remove('hidden');
+        if (contentGwen) contentGwen.classList.add('hidden');
 
-        if (btnClaudia) {
-          btnClaudia.className = "px-5 py-2.5 rounded-xl text-xs sm:text-sm font-bold font-display transition-all duration-300 flex items-center gap-2 bg-gradient-to-r from-cyan-500/20 to-emerald-500/20 text-white border border-cyan-500/50 shadow-md";
-          const icon = btnClaudia.querySelector('i');
+        if (btnMay) {
+          btnMay.className = "px-5 py-2.5 rounded-xl text-xs sm:text-sm font-bold font-display transition-all duration-300 flex items-center gap-2 bg-gradient-to-r from-cyan-500/20 to-emerald-500/20 text-white border border-cyan-500/50 shadow-md";
+          const icon = btnMay.querySelector('i');
           if (icon) icon.className = "fa-solid fa-heart-pulse text-emerald-400";
         }
 
-        if (btnMirna) {
-          btnMirna.className = "px-5 py-2.5 rounded-xl text-xs sm:text-sm font-medium font-display transition-all duration-300 flex items-center gap-2 text-slate-400 hover:text-slate-200 hover:bg-slate-900 border border-slate-800";
-          const icon = btnMirna.querySelector('i');
+        if (btnGwen) {
+          btnGwen.className = "px-5 py-2.5 rounded-xl text-xs sm:text-sm font-medium font-display transition-all duration-300 flex items-center gap-2 text-slate-400 hover:text-slate-200 hover:bg-slate-900 border border-slate-800";
+          const icon = btnGwen.querySelector('i');
           if (icon) icon.className = "fa-solid fa-building-columns text-slate-400";
         }
       }

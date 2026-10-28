@@ -61,10 +61,10 @@ Diseñada bajo los principios de **Hypermotion** y animación avanzada:
 
 ### 4. Módulo 3: Planeación Externa - Buyer Persona (Fase 3)
 * **Selector interactivo de dos perfiles reales:**
-  * **A) Perfil Corporativo: Dra. Mirna Wilches (Chapman Wilches):**
+  * **A) Perfil Corporativo: Dra. Gwen Stacy (Chapman Wilches):**
     * *Dolor Crítico:* Firma física de documentos a papel y lápiz, lentitud y falta de trazabilidad.
     * *Solución Kike Junior:* App de Firma Digital Certificada con matriz procesal: *Aprobación*, *Suspensión* y *Abstención*.
-  * **B) Perfil Familiar: Claudia Villalobos (Mamá & Bienestar):**
+  * **B) Perfil Familiar: May Parker (Nombre Ficticio) (Mamá & Bienestar):**
     * *Fotografía Real:* Foto con su madre que humaniza el impacto de la tecnología.
     * *Dolor Crítico:* Gestión de cocina saludable y control de despensa.
     * *Solución Kike Junior:* **NutriTrack Home App** (recetario inteligente, stock histórico y analítica nutricional).
@@ -99,7 +99,7 @@ Diseñada bajo los principios de **Hypermotion** y animación avanzada:
   * 🏐 **Voleibol Táctico (4 fotos):** Campeonatos, jugadas en cancha y entrenamientos.
   * 💻 **Laboral & Sistemas (3 fotos):** Retrato oficial, oficinas de Chapman Wilches y puesto de desarrollo.
   * 🌍 **Viajes & Equilibrio (12 fotos):** Horizontes, rutas, naturaleza y desconexión vital.
-  * 👨‍👩‍👧 **Familia & Raíces (4 fotos):** Momentos entrañables con su madre Claudia Villalobos y núcleo familiar.
+  * 👨‍👩‍👧 **Familia & Raíces (4 fotos):** Momentos entrañables con su madre May Parker (Nombre Ficticio) y núcleo familiar.
   * 👶 **Niñez & Orígenes (6 fotos):** Primeros pasos e infancia donde nació la vocación.
 * **Filtros Interactivos:** Conmutación fluida por categoría con animaciones GSAP y soporte para parámetros de URL (`?filter=...`).
 * **Lightbox Cinematográfico:** Visualización ampliada con botones **Anterior / Siguiente** y navegación por teclado (flechas y Escape).
