@@ -55,7 +55,7 @@ graph TD
 * **Badge Táctico:** Indicador de estado en tiempo real (`Colocador & Tech Lead • CUN 2026`).
 * **Live Story Reel (3 Cards de Acceso Rápido):**
   1. *En Cancha:* Fotografía de Kike en pleno salto/armado de voleibol.
-  2. *En Oficina (Chapman Wilches):* Fotografía real en su puesto tecnológico.
+  2. *En Oficina (OSCORP):* Fotografía real en su puesto tecnológico.
   3. *En Viajes:* Fotografía de equilibrio personal en la naturaleza.
 * **Pills de Competencia:** `#IngenieríaDeSistemas`, `#Automatización`, `#VoleibolSetter`, `#ResoluciónDeProblemas`.
 
@@ -86,9 +86,9 @@ Desarrollo profundo de introspección personal y profesional:
 
 ### 2.3 Fase 2: Planeación Interna - Objetivos SMART Reales (ACA Fase 2)
 Basados en la realidad laboral y académica de Kike Junior:
-* **Showcase con Fotografía Real:** Foto de Kike en Chapman Wilches con telemetría visual de servidores y procesos.
+* **Showcase con Fotografía Real:** Foto de Kike en OSCORP con telemetría visual de servidores y procesos.
 * **Meta Central Integral:**
-  1. **Soluciones Corporativas:** Diseñar, desarrollar e implementar **4 soluciones tecnológicas** para automatizar, digitalizar y gestionar diferentes procesos en Chapman Wilches, garantizando trazabilidad total.
+  1. **Soluciones Corporativas:** Diseñar, desarrollar e implementar **4 soluciones tecnológicas** para automatizar, digitalizar y gestionar diferentes procesos en OSCORP, garantizando trazabilidad total.
   2. **Infraestructura:** Liderar la actualización y repotenciación integral de los **servidores corporativos** de la firma.
   3. **Formación Académica:** Culminar con éxito los **3 ciclos propedéuticos** de Ingeniería de Sistemas en la CUN, con formación permanente y certificada en buenas prácticas de Inteligencia Artificial.
 * **Desglose de Criterios SMART:**
@@ -102,7 +102,7 @@ Basados en la realidad laboral y académica de Kike Junior:
 
 ### 2.4 Fase 3: Planeación Externa - Buyer Personas Reales (ACA Fase 3)
 Sistema interactivo de pestañas con dos arquetipos auténticos:
-* **A) Perfil Corporativo: Dra. Gwen Stacy (Representante Legal - Firma Chapman Wilches)**
+* **A) Perfil Corporativo: Dra. Gwen Stacy (Representante Legal - Corporación OSCORP)**
   * *Dolor Crítico:* Firma física a papel y lápiz de documentos jurídicos, riesgo de extravío, demoras operativas y falta de trazabilidad.
   * *Solución Propuesta por Kike:* **App de Firma Digital y Gestión Documental Certificada** con opciones parametrizadas de **Aprobación**, **Suspensión** y **Abstención**, con auditoría de cambios y log cronológico.
 * **B) Perfil Familiar y Bienestar: May Parker (Nombre Ficticio) (Mamá de Kike Junior)**
@@ -146,7 +146,7 @@ Galería dinámica completa con **29 fotografías auténticas** (28 de la carpet
   * Identificador retrocompatible `id="galeria-360"` para navegaciones de scroll.
 * **Página Independiente (`bitacora.html`):**
   * **🏐 Voleibol Táctico (4 fotos):** Campeonatos, armado en salto, trofeos y sinergia de equipo.
-  * **💻 Laboral & Sistemas (3 fotos):** Retrato oficial principal, servidores y puesto de desarrollo en Chapman Wilches.
+  * **💻 Laboral & Sistemas (3 fotos):** Retrato oficial principal, servidores y puesto de desarrollo en OSCORP.
   * **🌍 Viajes & Equilibrio (12 fotos):** Rutas, naturaleza, montañas y momentos de reflexión.
   * **👨‍👩‍👧 Familia & Raíces (4 fotos):** Celebraciones familiares, unión y momentos con su madre May Parker (Nombre Ficticio).
   * **👶 Niñez & Orígenes (6 fotos):** Primeros años de vida, donde nació la pasión deportiva y la curiosidad técnica.
@@ -191,7 +191,7 @@ c:\CUN\Proyecto de VIDA\ACA\KIKE JUNIOR\
     ├── IKIGAItest.png              # Gráfico oficial del Test IKIGAI
     ├── yo/                         # Galería fotográfica auténtica (28 fotos)
     │   ├── Voleibol/               # 4 fotos deportivas
-    │   ├── Laboral/                # 2 fotos en Chapman Wilches + 1 foto Tech Lead
+    │   ├── Laboral/                # 2 fotos en OSCORP + 1 foto Tech Lead
     │   ├── Familia/                # 4 fotos familiares y madre
     │   ├── Viajes/                 # 12 fotos de viajes y naturaleza
     │   └── Ninez/                  # 6 fotos de infancia y orígenes
@@ -201,11 +201,12 @@ c:\CUN\Proyecto de VIDA\ACA\KIKE JUNIOR\
 
 ## 📜 5. HISTORIAL DE CAMBIOS Y VERSIONES (CHANGELOG)
 
-### [Versión 4.6] - 2026-10-27 (Protección de Datos y Anonimización de Nombres de Terceros) 🛡️🔒
-* **Sustitución de Nombres Reales de Terceros por Nombres Ficticios:**
-  * **Buyer Persona 1 (Perfil Corporativo):** Se actualizó el nombre a **"Dra. Gwen Stacy"** (con iniciales `GS` en el avatar corporativo), manteniendo intacto el caso de uso real de automatización de firma jurídica.
+### [Versión 4.6] - 2026-10-27 (Protección de Datos y Anonimización de Nombres de Terceros y Empresas) 🛡️🔒
+* **Sustitución de Nombres Reales de Terceros y Organizaciones por Nombres Ficticios:**
+  * **Organización / Empresa Corporativa:** Se reemplazaron todas las referencias al nombre real de la empresa por **"OSCORP"** (en la portada, Autoconocimiento, objetivos SMART, Buyer Persona, Promesa de Valor, Pitch Visual, Reflexión de IA y Bitácora 360°).
+  * **Buyer Persona 1 (Perfil Corporativo):** Se actualizó el nombre a **"Dra. Gwen Stacy"** (con iniciales `GS` en el avatar corporativo), manteniendo intacto el caso de uso real de automatización de firma jurídica en **OSCORP**.
   * **Buyer Persona 2 (Perfil Familiar):** Se actualizó el nombre de su madre al nombre ficticio **"May Parker"** (en armonía con la temática Marvel del autor), preservando el caso de uso de *NutriTrack Home App*.
-  * **Bitácora Visual 360° & Textos Alternativos:** Se actualizaron las descripciones y etiquetas `alt` de las fotografías familiares tanto en [`index.html`](index.html) como en [`bitacora.html`](bitacora.html) y en la documentación del repositorio para no exponer nombres reales de terceros.
+  * **Bitácora Visual 360° & Textos Alternativos:** Se actualizaron las descripciones y etiquetas `alt` de las fotografías familiares y laborales tanto en [`index.html`](index.html) como en [`bitacora.html`](bitacora.html) y en la documentación del repositorio para no exponer nombres reales de terceros ni de compañías.
 
 ### [Versión 4.5] - 2026-10-27 (Generación y Calibración Fiel: Líder de Equipo en Sistemas y Tecnología) 👨‍💻🚀
 * **Generación y Calibración Fiel de Imagen de Liderazgo Tecnológico:**
@@ -223,7 +224,7 @@ c:\CUN\Proyecto de VIDA\ACA\KIKE JUNIOR\
   * Se integró en la sección de Autoconocimiento el bloque solicitado por el usuario:
     * Badge: `Bitácora Visual 360° • Material Real`
     * Título: `La Vida en Hypermotion`
-    * Párrafo descriptivo: *"Más visual, más viva y 100% auténtica: explora los 28 momentos que forjan mi carácter, mi rigor deportivo en la cancha, mis soluciones de ingeniería en Chapman Wilches y el balance vital con mi familia."*
+    * Párrafo descriptivo: *"Más visual, más viva y 100% auténtica: explora los 28 momentos que forjan mi carácter, mi rigor deportivo en la cancha, mis soluciones de ingeniería en OSCORP y el balance vital con mi familia."*
     * Botones interactivos de categoría como enlaces directos: `Todas (29)`, `Voleibol (4)`, `Laboral & Tech (3)`, `Viajes & Balance (12)`, `Familia (4)`, `Raíces & Niñez (6)` apuntando a `bitacora.html?filter=...`.
     * Botón de llamada a la acción: `Explorar Bitácora 360°`.
   * Se conservó únicamente la tarjeta principal de Bitácora 360° dentro de Autoconocimiento (removiendo barras secundarias duplicadas para máxima elegancia visual).
@@ -245,7 +246,7 @@ c:\CUN\Proyecto de VIDA\ACA\KIKE JUNIOR\
   * Se restableció la estructura completa amada por el usuario con:
     1. **B) Dimensiones del Ser Humano:** Balance integral visual (90% Cognitiva, Lógica-Matemática y Espacial vs 60% Hábito Lector Profundo e Intrapersonal).
     2. **C) Mis 5 Habilidades Distintivas:** Tarjetas de Liderazgo Táctico, Resolución de Problemas, Automatización, Organización y Escucha Activa.
-    3. **Objetivo Profesional SMART:** Showcase en vivo en Chapman Wilches con la fotografía real de equipo, declaración de meta y el grid completo de 5 dimensiones S-M-A-R-T.
+    3. **Objetivo Profesional SMART:** Showcase en vivo en OSCORP con la fotografía real de equipo, declaración de meta y el grid completo de 5 dimensiones S-M-A-R-T.
     4. **Test Oficial IKIGAI:** Diagrama interactivo con 4 cuadrantes.
 * **Aclaración Académica Rigurosa (Ciclos Propedéuticos):**
   * Corrección fundamental de avance: Kike Junior **está cursando actualmente el 1er Ciclo Propedéutico: Técnico Profesional en Sistemas (CUN)**.
@@ -260,7 +261,7 @@ c:\CUN\Proyecto de VIDA\ACA\KIKE JUNIOR\
 ### [Versión 4.1] - 2026-10-20 (Foto Principal Oficial Cyber Tech) 🌟🎯
 * **Incorporación de Fotografía Oficial:** Se integró el retrato profesional definitivo de Kike Junior (`assets/kike_principal.jpg`), con brazos cruzados, camisa corporativa y fondo de centro de comando tecnológico con circuitos de neón cian.
 * **Configuración como Pieza Central y Más Destacada:**
-  1. **Hero Section:** Portada principal coronada con resplandor glow de neón cian-esmeralda, badge animado `FOTO PRINCIPAL OFICIAL`, título de *Tech Lead* y telemetría de *EG Global Systems & Chapman Wilches*.
+  1. **Hero Section:** Portada principal coronada con resplandor glow de neón cian-esmeralda, badge animado `FOTO PRINCIPAL OFICIAL`, título de *Tech Lead* y telemetría de *OSCORP*.
   2. **Barra de Navegación (Header):** Avatar circular con anillo orbital animado y borde de neón junto al logotipo interactivo `<KJ/>`.
   3. **Fase 5 (Pitch Visual):** Retrato ejecutivo oficial acompañando la propuesta de valor y el simulador de ecualizador de audio de 60 segundos.
   4. **Bitácora Multimedia 360°:** Elemento #1 de la galería como joya de la corona con badge `Foto Principal ⭐`.
@@ -276,7 +277,7 @@ c:\CUN\Proyecto de VIDA\ACA\KIKE JUNIOR\
 * **Mayor Presencia Fotográfica en Todos los Módulos:**
   * **Hero Section:** Integración de un **Live Story Reel con 5 tarjetas interactivas** (Voleibol, Laboral, Familia con Mamá, Viajes y Orígenes).
   * **Fase 1 (Autoconocimiento):** Nuevo **Tríptico de Identidad** con 3 fotos reales a gran escala (El Atleta, El Ingeniero y Los Cimientos) y el gráfico del Test IKIGAI con 4 cuadrantes interactivos.
-  * **Fase 2 (SMART):** Showcase dual con fotos reales de la estación de trabajo en Chapman Wilches y telemetría de servidores.
+  * **Fase 2 (SMART):** Showcase dual con fotos reales de la estación de trabajo en OSCORP y telemetría de servidores.
   * **Fase 3 (Buyer Persona):** Incorporación de **dos fotografías reales con su madre May Parker (Nombre Ficticio)** con encuadre de rostro perfecto y mockups interactivos de NutriTrack Home y Firma Legal.
   * **Fase 4 (Promesa de Valor):** Split visual interactivo "De la Cancha al Código" con fotos de armado en salto vs estación de desarrollo.
   * **Fase 5 (Pitch Visual):** Tarjeta ejecutiva con retrato profesional y simulador de reproductor con ecualizador de audio animado.
@@ -309,7 +310,7 @@ c:\CUN\Proyecto de VIDA\ACA\KIKE JUNIOR\
 
 ### [Versión 2.0] - 2026-10-20
 * **Agregado:** Integración de los datos reales del 2do Avance ACA:
-  * Objetivos SMART reales: 4 soluciones corporativas, servidores Chapman Wilches y 3 ciclos propedéuticos CUN.
+  * Objetivos SMART reales: 4 soluciones corporativas, servidores OSCORP y 3 ciclos propedéuticos CUN.
   * Buyer Personas reales: Dra. Gwen Stacy (Firma Digital) y May Parker (Nombre Ficticio) (NutriTrack Home).
   * Promesa de valor basada en la analogía del colocador de voleibol.
   * Reflexión ética del uso de IA (Gemini CUN) ajustada al estándar institucional de 140 palabras.

@@ -24,7 +24,7 @@ Diseñada bajo los principios de **Hypermotion** y animación avanzada:
 
 ### 1. Portada & Hero Section (Hypermotion Live)
 * **Lema Estratégico:** *"Conecto personas, automatizo procesos y estructuro soluciones tecnológicas con la precisión estratégica de un colocador en la cancha."*
-* **Live Story Reel:** 3 mini-cards fotográficas interactivas con acceso directo a sus facetas (*Voleibol*, *Laboral en Chapman Wilches*, *Balance en Viajes*).
+* **Live Story Reel:** 3 mini-cards fotográficas interactivas con acceso directo a sus facetas (*Voleibol*, *Laboral en OSCORP*, *Balance en Viajes*).
 * **Avatar Táctico:** Badge flotante *Colocador & Tech Lead*, marco animado HUD con esquinas activas y micro-interacciones deportivas.
 * **Pills Temáticos:** `#IngenieríaDeSistemas`, `#Automatización`, `#VoleibolSetter`, `#ResoluciónDeProblemas`.
 
@@ -37,7 +37,7 @@ Diseñada bajo los principios de **Hypermotion** y animación avanzada:
   * *Mis Retos & Proyecto de Vida:* Autocrítica constructiva sobre el reto de decir 'no' y plan táctico de gestión del tiempo.
   * *Galería de Evidencias Reales (4 Cards 3D):*
     1. 🏐 *Voleibol:* Capitán y colocador campeón de torneo.
-    2. 💻 *Laboral:* En la oficina de Chapman Wilches gestionando tecnología.
+    2. 💻 *Laboral:* En la oficina de OSCORP gestionando tecnología.
     3. 🌍 *Viajes:* Balance en la naturaleza y nuevos destinos.
     4. 👨‍👩‍👧 *Familia:* Unión familiar como motor inspiracional.
 * **B) Medidor Visual de Dimensiones:**
@@ -53,15 +53,15 @@ Diseñada bajo los principios de **Hypermotion** y animación avanzada:
 ---
 
 ### 3. Módulo 2: Planeación Interna - Objetivo SMART (Fase 2)
-* **Showcase Fotográfico en Vivo:** Fotografía real de Kike en Chapman Wilches con telemetría HUD (*Servidores Activos, Automatización de Procesos y Trazabilidad*).
-* **Meta Central:** Diseñar e implementar **4 soluciones corporativas** con trazabilidad en Chapman Wilches, liderar la **repotenciación de servidores** y culminar los **3 ciclos propedéuticos** de Ingeniería de Sistemas con formación continua en IA.
+* **Showcase Fotográfico en Vivo:** Fotografía real de Kike en OSCORP con telemetría HUD (*Servidores Activos, Automatización de Procesos y Trazabilidad*).
+* **Meta Central:** Diseñar e implementar **4 soluciones corporativas** con trazabilidad en OSCORP, liderar la **repotenciación de servidores** y culminar los **3 ciclos propedéuticos** de Ingeniería de Sistemas con formación continua en IA.
 * **Desglose SMART interactivo (S - M - A - R - T):** Metas medibles a 6-12 meses con sprints trimestrales.
 
 ---
 
 ### 4. Módulo 3: Planeación Externa - Buyer Persona (Fase 3)
 * **Selector interactivo de dos perfiles reales:**
-  * **A) Perfil Corporativo: Dra. Gwen Stacy (Chapman Wilches):**
+  * **A) Perfil Corporativo: Dra. Gwen Stacy (OSCORP):**
     * *Dolor Crítico:* Firma física de documentos a papel y lápiz, lentitud y falta de trazabilidad.
     * *Solución Kike Junior:* App de Firma Digital Certificada con matriz procesal: *Aprobación*, *Suspensión* y *Abstención*.
   * **B) Perfil Familiar: May Parker (Nombre Ficticio) (Mamá & Bienestar):**
@@ -97,7 +97,7 @@ Diseñada bajo los principios de **Hypermotion** y animación avanzada:
 * **Acceso desde Autoconocimiento (`index.html`):** Portal interactivo con badge, título *La Vida en Hypermotion*, enlaces directos parametrizados por categoría y botón de navegación.
 * **Página Independiente (`bitacora.html`):** Experiencia fotográfica inmersiva con las **29 fotografías auténticas** (28 de la carpeta "YO" + Retrato Principal Oficial Cyber Tech):
   * 🏐 **Voleibol Táctico (4 fotos):** Campeonatos, jugadas en cancha y entrenamientos.
-  * 💻 **Laboral & Sistemas (3 fotos):** Retrato oficial, oficinas de Chapman Wilches y puesto de desarrollo.
+  * 💻 **Laboral & Sistemas (3 fotos):** Retrato oficial, oficinas de OSCORP y puesto de desarrollo.
   * 🌍 **Viajes & Equilibrio (12 fotos):** Horizontes, rutas, naturaleza y desconexión vital.
   * 👨‍👩‍👧 **Familia & Raíces (4 fotos):** Momentos entrañables con su madre May Parker (Nombre Ficticio) y núcleo familiar.
   * 👶 **Niñez & Orígenes (6 fotos):** Primeros pasos e infancia donde nació la vocación.
